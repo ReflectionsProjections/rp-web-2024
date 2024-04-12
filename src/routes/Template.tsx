@@ -11,4 +11,5 @@ export default function Template ({text}: templateProps) {
 			<Button variant={"solid"} onClick={(_ => console.log("clicked!"))}> Hi! </Button>
 		</>
 	);
-}
+} 
+

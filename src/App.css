@@ -1,0 +1,28 @@
+/* .gradient {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  } */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Kufam:ital,wght@0,400..900;1,400..900&display=swap');
+
+  .gradient {
+    background: linear-gradient(0deg, #2FD2CB, #0F102E);
+    height: 100vh;
+    width: 100vw;
+  }
+  .rotate {
+    animation: rotation 10s infinite linear;
+  }
+  
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
