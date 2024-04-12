@@ -1,6 +1,6 @@
 import { Button, Input, Text, ChakraProvider, Box, Spacer, HStack, VStack, useToast } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
-import React, { useState } from 'react';
+import React from 'react';
 import '/src/App.css';
 
 const theme = extendTheme({
@@ -28,7 +28,7 @@ const theme = extendTheme({
 export default function Home () {
     const toast = useToast()
     const [email, setEmail] = React.useState('')
-    const handleChange = (event) => setEmail(event.target.value)
+    const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setEmail(event.target.value)
 
     const handleClickToast = async () => {
         try {
@@ -47,7 +47,7 @@ export default function Home () {
           if (!response.ok) {
             throw new Error('Failed to fetch data');
           }
-          const data = await response.json();
+        //   const data = await response.json();
           toast({
             title: 'Sucess!',
             description: 'You have been added to the R|P mailing list',
