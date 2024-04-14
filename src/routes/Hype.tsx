@@ -46,7 +46,6 @@ export default function Home () {
                     <Text textStyle="header">2024</Text>
                     <Spacer/>
                     <Text textStyle="footer">Coming Soon!</Text>
-                    <Spacer/>
                     
                     <HStack spacing='24px'>
                         <Input type='email'borderColor="darkBlue" focusBorderColor="white" height={'50px'} width={'300px'} value={email} onChange={handleChange} color="white" placeholder='Interested? Enter your email!' _placeholder = {{color: "white"}} size='lg' />
