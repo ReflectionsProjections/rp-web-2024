@@ -13,8 +13,27 @@ export const customTheme = extendTheme({
 		},
 		// ...
 	},
-
+	textStyles: {
+		h1: {
+		  fontSize: ['48', '72px'],
+		  lineHeight: '110%',
+		  letterSpacing: '-2%',
+		  color:"white",
+		  fontFamily:"Kufam",
+		  top:"20%",
+		},
+		h2: {
+		  fontSize: ['36px', '48px'],
+		  fontWeight: 'semibold',
+		  lineHeight: '110%',
+		  letterSpacing: '-1%',
+		  fontFamily:"Kufam",
+		  padding:10,
+  
+		},
+	  },
 	components: {
-		Button
+		Button,
+		Text,
 	}
 });
