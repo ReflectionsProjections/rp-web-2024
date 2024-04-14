@@ -21,5 +21,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src","assets"],
+  "types": ["vite/client"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

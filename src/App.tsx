@@ -3,22 +3,30 @@ import Hype from "./routes/Hype";
 import Temp from "./routes/Template";
 import Config from "./config";
 
+function ProdRoutes() {
+	return (
+		<Routes>
+			<Route path="*" element={<Hype/>} />
+		</Routes>
+	)
+}
+
+function DevRoutes() {
+	return (
+		<Routes>
+			<Route path="/auth/" element={<Temp text="auth" />}> </Route>
+			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
+			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
+			<Route path="/" element={<Temp text="home" />} />
+			<Route path="*" element={<Temp text="404" />} />
+		</Routes>
+	)
+}
+
 function App() {
 	return (
 		<BrowserRouter>
-			<Routes>
-				{Config.IS_PROD} ? 				
-				{<Route path="*" element={<Hype/>} />}
-				: 
-				{<>
-					<Route path="/auth/" element={<Hype/>}> </Route>
-					<Route path="/schedule/" element={<Hype/>}> </Route>
-					<Route path="/questions/" element={<Hype/>}> </Route>
-					<Route path="/" element={<Hype/>} />
-					<Route path="*" element={<Temp text="404" />} />
-				</>}
-
-			</Routes>
+			{Config.IS_PROD ? <ProdRoutes /> : <DevRoutes />}
 		</BrowserRouter>
 	);
 }
