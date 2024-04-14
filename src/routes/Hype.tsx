@@ -40,7 +40,7 @@ export default function Hype () {
 	return (
 		<>
 			<ChakraProvider theme={customTheme}>
-				<Box className="gradient" overflow="hidden">
+				<Box className="gradient" overflow="visible">
 					<VStack spacing='24px' alignItems="center">
 						<Spacer />
 						<Box className="spinning-container">
