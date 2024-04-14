@@ -29,7 +29,7 @@ export default function Hype () {
 	return (
 		<>
         <ChakraProvider theme={customTheme}>
-            <div className='gradient'>
+            <Box minHeight="100%" className='gradient' overflow="hidden">
                 <VStack spacing='24px' alignItems="center">
                 <Spacer />
                     <Box className="spinning-container">
@@ -46,14 +46,14 @@ export default function Hype () {
                     <Spacer/>
                     <Text textStyle="footer">Coming Soon!</Text>
                     
-                    <Stack direction={['column', 'row']} spacing={['24px', '24px']} alignItems={['center', 'center']}>
+                    <Stack direction={['column', 'row']} spacing={['10px', '20px']} alignItems={['center', 'center']}>
                         <Input type='email' borderColor="darkBlue" focusBorderColor="white" height={'50px'} width={['300px', '300px']} value={email} onChange={handleChange} color="white" placeholder='Interested? Enter your email!' _placeholder={{ color: "white" }} size='lg' />
                         <Button variant={"solid"} onClick={() => { handleClickToast(); }}>
                             Submit
                         </Button>
                     </Stack>
                 </VStack>
-            </div>
+            </Box>
         </ChakraProvider>
 		</>
 	);
