@@ -1,4 +1,4 @@
-import { extendTheme, Text, Image} from "@chakra-ui/react";
+import { extendTheme} from "@chakra-ui/react";
 import { Button} from "./components/Button";
 
 const baseText = {
