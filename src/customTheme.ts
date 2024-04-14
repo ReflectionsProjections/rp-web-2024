@@ -17,7 +17,7 @@ export const customTheme = extendTheme({
 
 	textStyles: {
 		header: {
-		  fontSize: '72px',
+		  fontSize: '70px',
 		  lineHeight: '110%',
 		  letterSpacing: '-2%',
 		  color:"white",

@@ -20,7 +20,7 @@ function DevRoutes() {
 			<Route path="/" element={<Temp text="home" />} />
 			<Route path="*" element={<Temp text="404" />} />
 		</Routes>
-	)
+	);
 }
 
 function App() {
@@ -32,4 +32,3 @@ function App() {
 }
 
 export default App;
-
