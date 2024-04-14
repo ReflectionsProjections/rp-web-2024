@@ -2,6 +2,7 @@ import { Button, Input, Text, ChakraProvider, Box, Spacer, Stack, VStack, useToa
 import { customTheme } from "../customTheme";
 import React from 'react';
 import '/src/App.css';
+import Config from "../config.ts"; 
 
 export default function Hype () {
 	const toast = useToast();
@@ -9,7 +10,7 @@ export default function Hype () {
 	const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setEmail(event.target.value);
 
 	const handleClickToast = async () => {
-		const promise = fetch('http://18.119.140.95:3000/subscription', {
+		const promise = fetch(Config.BASE_URL + 'subscription', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -24,7 +25,17 @@ export default function Hype () {
 			error: { title: 'Oops!', description: 'Something went wrong - please try again' },
 			loading: { title: 'Reflections | Projections', description: 'Please wait' },
 		});
+
+        // Clear input field after submitting email address
+        setEmail('');
 	};
+
+    // Handles "enter" keystroke
+    const handleKeyDown = (event: any) => {
+        if (event.key === 'Enter') {
+            handleClickToast();
+        }
+    };
 
 	return (
 		<>
@@ -47,7 +58,7 @@ export default function Hype () {
 						<Text textStyle="footer">Coming Soon!</Text>
                     
 						<Stack direction={['column', 'row']} spacing={['10px', '20px']} alignItems={['center', 'center']} marginBottom="40px">
-							<Input type='email' borderColor="darkBlue" focusBorderColor="white" height={'50px'} width={['300px', '300px']} value={email} onChange={handleChange} color="white" placeholder='Interested? Enter your email!' _placeholder={{ color: "white" }} size='lg' />
+							<Input type='email' borderColor="darkBlue" focusBorderColor="white" height={'50px'} width={['300px', '300px']} value={email} onChange={handleChange} onKeyDown={handleKeyDown} color="white" placeholder='Interested? Enter your email!' _placeholder={{ color: "white" }} size='lg' />
 							<Button variant={"solid"} onClick={() => { handleClickToast(); }}>
                             Submit
 							</Button>
