@@ -48,7 +48,7 @@ export default function Home () {
                     <Text textStyle="footer">Coming Soon!</Text>
                     
                     <HStack spacing='24px'>
-                        <Input type='email'borderColor="darkBlue" focusBorderColor="white" height={'50px'} width={'300px'} value={email} onChange={handleChange} color="white" placeholder='Interested? Enter your email!' _placeholder = {{color: "white"}} size='lg' />
+                        <Input type='email'borderColor="darkBlue" focusBorderColor="white" height={'50px'} width={'100%'} value={email} onChange={handleChange} color="white" placeholder='Interested? Enter your email!' _placeholder = {{color: "white"}} size='lg' />
                         <Button variant={"solid"} onClick={() => {handleClickToast();}}>
                             Submit
                         </Button>
