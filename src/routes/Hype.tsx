@@ -34,7 +34,7 @@ export default function Hype () {
                 <Spacer />
                     <Box className="spinning-container">
                         <img
-                            src="/src/assets/logo.png"
+                            src="/logo.png"
                             alt="Spinning Image"
                             className="rotate hype-img"
                         />
