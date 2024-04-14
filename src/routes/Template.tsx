@@ -12,7 +12,3 @@ export default function Template ({text}: templateProps) {
 		</>
 	);
 } 
-<<<<<<< HEAD
-
-=======
->>>>>>> 568b4e0481be7f8cd61a3357ed9fa938d8b26582
