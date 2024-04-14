@@ -2,7 +2,6 @@ import { Button, Input, Text, ChakraProvider, Box, Spacer, HStack, VStack, useTo
 import { customTheme } from "../customTheme";
 import React from 'react';
 import '/src/App.css';
-import { color } from "framer-motion";
 
 export default function Home () {
     const toast = useToast()
@@ -32,7 +31,7 @@ export default function Home () {
 		<>
         <ChakraProvider theme={customTheme}>
             <div className='gradient'>
-                <VStack spacing='24px'>
+                <VStack spacing='24px' alignItems="center">
                 <Spacer />
                     <Box w="300px" h="300px" position="relative" className="spinning-container">
                         <img
@@ -41,14 +40,16 @@ export default function Home () {
                             className="rotate hype-img"
                         />
                     </Box>
-                    <Text textStyle="header" fontSize='6xl'>reflections | projections</Text>
+                    <Box textAlign="center">
+                        <Text textStyle="header" fontSize='6xl'>reflections | projections</Text>
+                    </Box>
                     <Text textStyle="header">2024</Text>
                     <Spacer/>
                     <Text textStyle="footer">Coming Soon!</Text>
                     <Spacer/>
                     
                     <HStack spacing='24px'>
-                        <Input type='email'borderColor="darkBlue" focusBorderColor="white" height={'50px'} value={email} onChange={handleChange} color="white" placeholder='Interested? Enter your email!' _placeholder = {{color: "white"}} size='lg' />
+                        <Input type='email'borderColor="darkBlue" focusBorderColor="white" height={'50px'} width={'300px'} value={email} onChange={handleChange} color="white" placeholder='Interested? Enter your email!' _placeholder = {{color: "white"}} size='lg' />
                         <Button variant={"solid"} onClick={() => {handleClickToast();}}>
                             Submit
                         </Button>
