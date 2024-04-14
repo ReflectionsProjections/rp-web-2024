@@ -33,7 +33,7 @@ export default function Home () {
             <div className='gradient'>
                 <VStack spacing='24px' alignItems="center">
                 <Spacer />
-                    <Box w="300px" h="300px" className="spinning-container" alignContent={"center"}>
+                    <Box className="spinning-container">
                         <img
                             src="/src/assets/logo.png"
                             alt="Spinning Image"
