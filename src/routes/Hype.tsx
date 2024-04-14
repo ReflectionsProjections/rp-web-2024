@@ -1,4 +1,4 @@
-import { Button, Input, Text, ChakraProvider, Box, Spacer, Stack, VStack, useToast } from "@chakra-ui/react";
+import { Button, Input, Text, ChakraProvider, Box, Spacer, Stack, VStack, useToast, Image } from "@chakra-ui/react";
 import { customTheme } from "../customTheme";
 import React from 'react';
 import '/src/App.css';
@@ -44,11 +44,7 @@ export default function Hype () {
 					<VStack spacing='24px' alignItems="center">
 						<Spacer />
 						<Box className="spinning-container">
-							<img
-								src="/logo.png"
-								alt="Spinning Image"
-								className="rotate hype-img"
-							/>
+							<Image src="/logo.png" alt="Spinning Image" className="rotate hype-img" />
 						</Box>
 						<Box textAlign="center">
 							<Text textStyle="header" fontSize='6xl'>reflections | projections</Text>
