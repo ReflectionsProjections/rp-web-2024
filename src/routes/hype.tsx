@@ -3,29 +3,28 @@ import { customTheme } from "../customTheme";
 import React from 'react';
 import '/src/App.css';
 
-export default function Home () {
+export default function Hype () {
     const toast = useToast()
     const [email, setEmail] = React.useState('')
     const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setEmail(event.target.value)
 
     const handleClickToast = async () => {
-      const promise = fetch('http://18.119.140.95:3000/subscription', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            'email':email,
-            'mailingList':'rp_interest'
-        }),
-      });
-      
-      toast.promise(promise, {
-        success: { title: 'Success!', description: 'You\'ve been added :)' },
-        error: { title: 'Oops!', description: 'Something went wrong - please try again' },
-        loading: { title: '<INSERT TITLE>', description: 'Please wait' },
-      })
-    }
+          const promise = fetch('http://18.119.140.95:3000/subscription', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                'email':email,
+                'mailingList':'rp_interest'
+            }),
+          });
+          toast.promise(promise,{
+            success: { title: 'Success!', description: 'You\'ve been added :)' },
+            error: { title: 'Oops!', description: 'Something went wrong - please try again' },
+            loading: { title: 'Reflections | Projections', description: 'Please wait' },
+          })
+      };
 
 	return (
 		<>
