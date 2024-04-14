@@ -19,6 +19,7 @@ export default function Hype () {
 				'email':email,
 				'mailingList':'rp_interest'
 			}),
+			mode: "no-cors",
 		});
 		toast.promise(promise,{
 			success: { title: 'Success!', description: 'You\'ve been added :)' },
