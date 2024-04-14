@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Hype from "./routes/TestChange";
+import Hype from "./routes/Hype";
 import Temp from "./routes/Template";
 
 function App() {
