@@ -2,6 +2,7 @@ import { Button, Input, Text, ChakraProvider, Box, Spacer, HStack, VStack, useTo
 import { customTheme } from "../customTheme";
 import React from 'react';
 import '/src/App.css';
+import { color } from "framer-motion";
 
 export default function Home () {
     const toast = useToast()
@@ -45,8 +46,9 @@ export default function Home () {
                     <Spacer/>
                     <Text textStyle="footer">Coming Soon!</Text>
                     <Spacer/>
+                    
                     <HStack spacing='24px'>
-                        <Input type='email' height={'50px'} value={email} onChange={handleChange} color="white" variant="filled" placeholder='Enter your email!' size='lg' />
+                        <Input type='email'borderColor="darkBlue" focusBorderColor="white" height={'50px'} value={email} onChange={handleChange} color="white" placeholder='Interested? Enter your email!' _placeholder = {{color: "white"}} size='lg' />
                         <Button variant={"solid"} onClick={() => {handleClickToast();}}>
                             Submit
                         </Button>
