@@ -1,4 +1,4 @@
-import { Button, Input, Text, ChakraProvider, Box, Spacer, HStack, VStack, useToast } from "@chakra-ui/react";
+import { Button, Input, Text, ChakraProvider, Box, Spacer, Stack, VStack, useToast } from "@chakra-ui/react";
 import { customTheme } from "../customTheme";
 import React from 'react';
 import '/src/App.css';
@@ -46,12 +46,12 @@ export default function Hype () {
                     <Spacer/>
                     <Text textStyle="footer">Coming Soon!</Text>
                     
-                    <HStack spacing='24px'>
-                        <Input type='email'borderColor="darkBlue" focusBorderColor="white" height={'50px'} width={'100%'} value={email} onChange={handleChange} color="white" placeholder='Interested? Enter your email!' _placeholder = {{color: "white"}} size='lg' />
-                        <Button variant={"solid"} onClick={() => {handleClickToast();}}>
+                    <Stack direction={['column', 'row']} spacing={['24px', '24px']} alignItems={['center', 'center']}>
+                        <Input type='email' borderColor="darkBlue" focusBorderColor="white" height={'50px'} width={['300px', '300px']} value={email} onChange={handleChange} color="white" placeholder='Interested? Enter your email!' _placeholder={{ color: "white" }} size='lg' />
+                        <Button variant={"solid"} onClick={() => { handleClickToast(); }}>
                             Submit
                         </Button>
-                    </HStack>
+                    </Stack>
                 </VStack>
             </div>
         </ChakraProvider>
