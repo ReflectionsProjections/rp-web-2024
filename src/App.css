@@ -4,7 +4,7 @@
   .gradient {
     background: linear-gradient(0deg, #2FD2CB, #0F102E);
     min-height: 100%;
-    height: auto;
+    height: 100vh;
     min-width: 100vw;
   }
 
