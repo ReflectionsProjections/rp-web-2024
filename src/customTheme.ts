@@ -11,12 +11,11 @@ const baseText = {
   };
 export const logoStyle = {
 	position: "absolute" as const,
-	top: "0",
-	left: "0",
+	top: "5px",
+	left: "5px",
 	
 };
 
-  
 export const customTheme = extendTheme({
 	colors: {
 		transparent: 'transparent',
