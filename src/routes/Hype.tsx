@@ -3,6 +3,7 @@ import { customTheme } from "../customTheme";
 import React from 'react';
 import '/src/App.css';
 import Config from "../config.ts"; 
+import axios from "axios";
 
 export default function Hype () {
 	const toast = useToast();
@@ -10,15 +11,9 @@ export default function Hype () {
 	const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setEmail(event.target.value);
 
 	const handleClickToast = async () => {
-		const promise = fetch(Config.BASE_URL + 'subscription', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				'email':email,
-				'mailingList':'rp_interest'
-			}),
+		const promise = axios.post(Config.BASE_URL + 'subscription', {
+			email: email,
+			mailingList: 'rp_interest'
 		});
 		toast.promise(promise,{
 			success: { title: 'Success!', description: 'You\'ve been added :)' },
