@@ -5,10 +5,11 @@ const baseText = {
 	baseStyle:{
 		textAlign: "center",
 		fontSize: "30",
-		color: "black.600",
+		color: "white",
 		lineHeight: "1.4",
+		
 	},
-  };
+};
 export const logoStyle = {
 	position: "absolute" as const,
 	top: "5px",

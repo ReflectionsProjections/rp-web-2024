@@ -1,18 +1,18 @@
-import { Text, HStack, Image} from "@chakra-ui/react";
-import { NavBar } from "./NavBar";
-import { logoStyle } from "../customTheme";
+import { Text, Center, Box, Button} from "@chakra-ui/react";
 
-export function LandingPage ()
-{
-	return(
-		<>   
-        {}
-        <NavBar /> 
-        <Text variant="baseStyle">Welcome to Reflections | Projections 2024 ! </Text>
-        <HStack spacing="20px" style={logoStyle}>
-            <Image src="rplogo.png" alt="R|P LOGO alt" boxSize="60px" />
-        </HStack>
-		</>
+export function LandingPage() {
+	return (
+	  <>
+		<Box bg="">
+		  <Text variant="baseStyle">
+			<Center h='300px'>
+			  <Text>Welcome to Reflections | Projections 2024!</Text>
+			</Center>
+			<Text>September 18 - 22</Text>
+			<Button variant={"solid"}>REGISTER</Button>
+		  </Text>
+		</Box>
+	  </>
 	);
-}
+  }
 export default LandingPage;
