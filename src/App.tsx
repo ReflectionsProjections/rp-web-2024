@@ -18,8 +18,8 @@ function DevRoutes() {
 			<Route path="/auth/" element={<Temp text="auth" />}> </Route>
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
-			<Route path="/" element={<PageLayout/>} />} />
-			<Route path="*" element={<Temp text="404" />} />
+			<Route path="/" element={<PageLayout />}> </Route>
+			<Route path="*" element={<Temp text="404" />} /> </Route>
 		</Routes>
 	);
 }
