@@ -9,7 +9,7 @@ function ProdRoutes() {
 		<Routes>
 			<Route path="*" element={<Hype/>} />
 		</Routes>
-	)
+	);
 }
 
 function DevRoutes() {
@@ -19,7 +19,7 @@ function DevRoutes() {
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
 			<Route path="/" element={<PageLayout />}> </Route>
-			<Route path="*" element={<Temp text="404" />} /> </Route>
+			<Route path="*" element={<Temp text="404" />}> </Route>
 		</Routes>
 	);
 }
