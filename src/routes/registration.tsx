@@ -1,4 +1,6 @@
 import { useState } from "react";
+import axios from "axios";
+
 import {
 	FormControl,
 	FormLabel,
@@ -16,7 +18,9 @@ import {
 export default function Registration() {
 	const [fieldCount, setFieldCount] = useState(1);
 
-	const handleFieldCountIncrease = () => {
+	
+	
+const handleFieldCountIncrease = () => {
 		setFieldCount((prevCount) => prevCount + 1);
 	};
 
@@ -41,6 +45,14 @@ export default function Registration() {
 		interest_puzzlebang: "",
 		interest_mechmania: "",
 	});
+	const handleFieldSave = async () => {
+		const promise = axios.post('/save', formData);
+		toast.promise(promise, {
+			success: { title: 'Success!', description: 'Your data has been saved.' },
+			error: { title: 'Oops!', description: 'Something went wrong - please try again.' },
+			loading: { title: 'Saving', description: 'Please wait...' },
+		});
+	};
 
 	const handleFieldChange = (field, value) => {
 		setFormData({
@@ -85,7 +97,8 @@ export default function Registration() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		//add api call here
+		//add api call here 
+		//make a post request function here for ./submit 
 		console.log(formData);
 	};
 	return (
@@ -358,6 +371,8 @@ export default function Registration() {
 						</Button>
 					)}
 					{fieldCount < 3 && (
+
+					<HStack> 
 						<Button
 							type="submit"
 							colorScheme="purple"
@@ -368,7 +383,20 @@ export default function Registration() {
 							{" "}
 							Next{" "}
 						</Button>
+
+						<Button
+							type="submit"
+							colorScheme="purple"
+							mt={4}
+							w="100%"
+							onClick={handleFieldSave}
+							>
+							{" "}
+							Save{" "}
+						</Button>
+					</HStack>
 					)}
+					
 					{fieldCount == 3 && (
 						<Button
 							type="submit"
@@ -381,7 +409,10 @@ export default function Registration() {
 							Submit{" "}
 						</Button>
 					)}
+
+
 				</HStack>
+
 			</form>
 		</Stack>
 	);
