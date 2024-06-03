@@ -20,6 +20,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src","assets"],
+  "types": ["vite/client"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
