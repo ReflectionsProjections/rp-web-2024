@@ -22,5 +22,6 @@
     "noImplicitAny": false,
   },
   "include": ["src","assets"],
+  "types": ["vite/client"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

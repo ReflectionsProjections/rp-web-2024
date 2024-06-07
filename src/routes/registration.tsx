@@ -1,5 +1,7 @@
 import { useState } from "react";
+
 import axios from "axios";
+import Config from "../config.ts"; 
 
 import {
 	FormControl,
@@ -13,12 +15,12 @@ import {
 	HStack,
 	RadioGroup,
 	Radio,
+	useToast
 } from "@chakra-ui/react";
 
 export default function Registration() {
 	const [fieldCount, setFieldCount] = useState(1);
 
-	
 	
 const handleFieldCountIncrease = () => {
 		setFieldCount((prevCount) => prevCount + 1);
@@ -46,14 +48,17 @@ const handleFieldCountIncrease = () => {
 		interest_mechmania: "",
 	});
 	const handleFieldSave = async () => {
-		const promise = axios.post('/save', formData);
+		const toast = useToast(); 
+		const promise = axios.post(Config.BASE_URL + 'subscription', 
+			formData
+		);
 		toast.promise(promise, {
 			success: { title: 'Success!', description: 'Your data has been saved.' },
 			error: { title: 'Oops!', description: 'Something went wrong - please try again.' },
 			loading: { title: 'Saving', description: 'Please wait...' },
 		});
 	};
-
+	
 	const handleFieldChange = (field, value) => {
 		setFormData({
 			...formData,
@@ -95,12 +100,54 @@ const handleFieldCountIncrease = () => {
 		}));
 	};
 
-	const handleSubmit = (e) => {
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault();
+	// 	//add api call here 
+	// 	//make a post request function here for ./submit 
+	
+	// 	try {
+	// 	await axios.post(Config.BASE_URL + "subscription", formData);
+	// 	toast({
+	// 		title: "Success!",
+	// 		description: "Your data has been submitted.",
+	// 		status: "success",
+	// 		duration: 5000,
+	// 		isClosable: true,
+	// 	});
+	// 	} catch (error) {
+	// 	toast({
+	// 		title: "Oops!",
+	// 		description: "Something went wrong - please try again.",
+	// 		status: "error",
+	// 		duration: 5000,
+	// 		isClosable: true,
+	// 	});
+	// 	}
+	// 	console.log(formData);
+	// };
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		//add api call here 
-		//make a post request function here for ./submit 
+		const toast = useToast(); 
+		try {
+		  await axios.post(Config.BASE_URL + "submit", formData);
+		  toast({
+			title: "Success!",
+			description: "Your data has been submitted.",
+			status: "success",
+			duration: 5000,
+			isClosable: true,
+		  });
+		} catch (error) {
+		  toast({
+			title: "Oops!",
+			description: "Something went wrong - please try again.",
+			status: "error",
+			duration: 5000,
+			isClosable: true,
+		  });
+		}
 		console.log(formData);
-	};
+	  };
 	return (
 		<Stack
 			spacing={5}
