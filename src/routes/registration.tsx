@@ -15,11 +15,13 @@ import {
 	HStack,
 	RadioGroup,
 	Radio,
-	useToast
+	useToast,
+	Link
 } from "@chakra-ui/react";
 
 export default function Registration() {
 	const [fieldCount, setFieldCount] = useState(1);
+	const toast = useToast(); 
 
 	
 const handleFieldCountIncrease = () => {
@@ -36,22 +38,44 @@ const handleFieldCountIncrease = () => {
 		university: "",
 		graduation: "",
 		major: "",
-		dietary_restrictions: "",
-		age: null,
+		dietaryRestrictions: "",
+		age: 1,
 		gender: "",
+		race: [],
 		ethnicity: [],
-		first_gen: "",
-		hear_about_rp: "",
+		firstGen: "",
+		hearAboutRP: [],
 		portfolio: "",
-		job_interest: [],
-		interest_puzzlebang: "",
-		interest_mechmania: "",
+		jobInterest: [],
+		isInterestedPuzzleBang: false,
+		isInterestedMechMania: false,
+		hasResume:false,
+		hasSubmitted: false,
 	});
+
 	const handleFieldSave = async () => {
-		const toast = useToast(); 
-		const promise = axios.post(Config.BASE_URL + 'subscription', 
-			formData
-		);
+		const promise = axios.post(Config.BASE_URL + 'registration/save', 
+		{
+			userId: "exampleUserId",  // Replace with actual userId
+			name: "John Doe",         // Replace with actual name
+			email: "john.doe@example.com", // Replace with actual email
+			university: "Example University", // Replace with actual university
+			graduation: "2024",       // Replace with actual graduation year
+			major: "Computer Science", // Replace with actual major
+			dietaryRestrictions: ["None"], // Replace with actual dietary restrictions
+			age: 21,                  // Replace with actual age
+			gender: "Male",           // Replace with actual gender
+			race: ["Race1", "Race2"], // Replace with actual race
+			ethnicity: ["Ethnicity1"], // Replace with actual ethnicity
+			firstGen: "Yes",          // Replace with actual first generation status
+			hearAboutRP: ["Friend", "Internet"], // Replace with actual sources
+			portfolio: "http://portfolio.example.com", // Replace with actual portfolio link
+			jobInterest: ["Software Engineer"], // Replace with actual job interests
+			isInterestedMechMania: "Yes", // Replace with actual interest in MechMania
+			isInterestedPuzzleBang: true, // Replace with actual interest in PuzzleBang
+			hasResume: true,         // Replace with actual resume status
+			hasSubmitted: true       // Replace with actual submission status
+		});
 		toast.promise(promise, {
 			success: { title: 'Success!', description: 'Your data has been saved.' },
 			error: { title: 'Oops!', description: 'Something went wrong - please try again.' },
@@ -67,7 +91,7 @@ const handleFieldCountIncrease = () => {
 	};
 
 	const handleChange = (e) => {
-		const { name, value, type, checked, options } = e.target;
+		const { name, value, type, checked,age, options } = e.target;
 		const val = type === "checkbox" ? checked : value;
 		setFormData((prevData) => ({
 			...prevData,
@@ -127,9 +151,8 @@ const handleFieldCountIncrease = () => {
 	// };
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const toast = useToast(); 
 		try {
-		  await axios.post(Config.BASE_URL + "submit", formData);
+		  await axios.post(Config.BASE_URL + "/registration/submit", formData);
 		  toast({
 			title: "Success!",
 			description: "Your data has been submitted.",
@@ -186,7 +209,49 @@ const handleFieldCountIncrease = () => {
 							/>
 						</FormControl>
 
-						<FormControl id="university" isRequired>
+						<FormControl id="dietary-restriction" isRequired>
+							<FormLabel>Dietary Restrictions</FormLabel>
+							<Select
+								placeholder="Select option"
+								value={formData.dietary_restrictions}
+								onChange={(value) =>
+									handleSelectChange("dietary_restrictions", value)
+								}
+							>
+								<option value="vegetarian">Vegetarian</option>
+								<option value="gluten">Gluten-Free</option>
+								<option value="none">None</option>
+							</Select>
+						</FormControl>
+						<FormControl id="age">
+							<HStack>
+							<FormLabel>By checking this box, I agree that I am 18 or older.</FormLabel>
+							<Checkbox
+										value="age"
+										onChange={(value) =>
+											handleCheckboxChange("job_interest", value)
+										}
+									>
+							</Checkbox>
+							</HStack>
+						</FormControl>
+							{/* <RadioGroup
+								defaultValue="no"
+								value={formData.age}
+								onChange={(value) => handleChange(value)}
+							>
+								<Stack spacing={5} direction="row">
+									<Radio value={true}>Yes</Radio>
+									<Radio value={false}>No</Radio>
+								</Stack>
+							</RadioGroup>
+						</FormControl> */}
+					</Stack>
+				)}
+
+				{fieldCount == 2 && (
+					<Stack>
+					<FormControl id="university" isRequired>
 							<FormLabel>University</FormLabel>
 							<Input
 								type="text"
@@ -218,24 +283,7 @@ const handleFieldCountIncrease = () => {
 								onChange={handleChange}
 							/>
 						</FormControl>
-					</Stack>
-				)}
-
-				{fieldCount == 2 && (
-					<Stack>
-						<FormControl id="first_gen">
-							<FormLabel>Are you a first-gen student?</FormLabel>
-							<RadioGroup
-								defaultValue="no"
-								value={formData.first_gen}
-								onChange={(value) => handleFieldChange("first_gen", value)}
-							>
-								<Stack spacing={5} direction="row">
-									<Radio value="yes">Yes</Radio>
-									<Radio value="no">No</Radio>
-								</Stack>
-							</RadioGroup>
-						</FormControl>
+					
 
 						<FormControl>
 							<FormLabel>What type of job looking for:</FormLabel>
@@ -267,6 +315,36 @@ const handleFieldCountIncrease = () => {
 									</Checkbox>
 								</HStack>
 							</Stack>
+						</FormControl>
+{/* resume here */}						
+						
+						<FormControl id="portfolio">
+							<FormLabel>Link to porfolio page</FormLabel>
+							<Input
+								type="text"
+								placeholder="Enter your portfolio or github"
+								name="portfolio"
+								value={formData.portfolio}
+								onChange={handleChange}
+							/>
+						</FormControl>
+					</Stack>
+				)}
+
+				{fieldCount == 3 && (
+					<Stack>
+						<FormControl id="first_gen">
+							<FormLabel>Are you a first-gen student?</FormLabel>
+							<RadioGroup
+								defaultValue="no"
+								value={formData.firstGen}
+								onChange={(value) => handleFieldChange("first_gen", value)}
+							>
+								<Stack spacing={5} direction="row">
+									<Radio value="yes">Yes</Radio>
+									<Radio value="no">No</Radio>
+								</Stack>
+							</RadioGroup>
 						</FormControl>
 
 						<FormControl>
@@ -323,45 +401,28 @@ const handleFieldCountIncrease = () => {
 									>
 										Middle Eastern
 									</Checkbox>
+									<Checkbox
+										value="other"
+										onChange={(value) =>
+											handleCheckboxChange("ethnicity", value)
+										}
+									>
+										Other
+									</Checkbox>
 								</HStack>
 							</Stack>
-						</FormControl>
-
-						<FormControl id="dietary-restriction" isRequired>
-							<FormLabel>Dietary Restrictions</FormLabel>
-							<Select
-								placeholder="Select option"
-								value={formData.dietary_restrictions}
-								onChange={(value) =>
-									handleSelectChange("dietary_restrictions", value)
-								}
-							>
-								<option value="vegetarian">Vegetarian</option>
-								<option value="gluten">Gluten-Free</option>
-								<option value="none">None</option>
-							</Select>
 						</FormControl>
 					</Stack>
 				)}
 
-				{fieldCount == 3 && (
-					<Stack>
-						<FormControl id="portfolio">
-							<FormLabel>Link to porfolio page</FormLabel>
-							<Input
-								type="text"
-								placeholder="Enter your portfolio or github"
-								name="portfolio"
-								value={formData.portfolio}
-								onChange={handleChange}
-							/>
-						</FormControl>
-
+				{fieldCount == 4 && (
+					<Stack>	
 						<FormControl id="interest_mech_puzzle">
-							<FormLabel>Are you interested in PuzzleBang?</FormLabel>
+							<FormLabel>Are you interested in <Link color='teal.500' href='https://puzzlebang.com' isExternal>PuzzleBang</Link>?
+							</FormLabel>
 							<RadioGroup
 								defaultValue="no"
-								value={formData.interest_puzzlebang}
+								value={formData.isInterestedPuzzleBang}
 								onChange={(value) =>
 									handleFieldChange("interest_puzzlebang", value)
 								}
@@ -374,10 +435,11 @@ const handleFieldCountIncrease = () => {
 						</FormControl>
 
 						<FormControl id="interest_mech_puzzle">
-							<FormLabel>Are you interested in MechMania?</FormLabel>
+							<FormLabel>Are you interested in <Link color='teal.500' href='https://www.mechmania.org' isExternal>Mechmania</Link>?
+							</FormLabel>
 							<RadioGroup
 								defaultValue="no"
-								value={formData.interest_mechmania}
+								value={formData.isInterestedMechMania}
 								onChange={(value) =>
 									handleFieldChange("interest_mechmania", value)
 								}
@@ -393,7 +455,7 @@ const handleFieldCountIncrease = () => {
 							<FormLabel>How did you hear about R|P?</FormLabel>
 							<Select
 								placeholder="Select option"
-								value={formData.hear_about_rp}
+								value={formData.hearAboutRP}
 								onChange={(value) => handleSelectChange("hear_about_rp", value)}
 							>
 								<option value="friends">Friends</option>
@@ -417,7 +479,7 @@ const handleFieldCountIncrease = () => {
 							Previous{" "}
 						</Button>
 					)}
-					{fieldCount < 3 && (
+					{fieldCount < 4 && (
 
 					<HStack> 
 						<Button
@@ -444,7 +506,7 @@ const handleFieldCountIncrease = () => {
 					</HStack>
 					)}
 					
-					{fieldCount == 3 && (
+					{fieldCount == 4 && (
 						<Button
 							type="submit"
 							colorScheme="purple"
