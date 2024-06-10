@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Navigate, useSearchParams } from "react-router-dom";
 
 import axios from "axios";
 import Config from "../config.ts"; 
@@ -52,36 +53,46 @@ const handleFieldCountIncrease = () => {
 		hasResume:false,
 		hasSubmitted: false,
 	});
+    const [searchParams] = useSearchParams();
 
 	const handleFieldSave = async () => {
-		const promise = axios.post(Config.BASE_URL + 'registration/save', 
-		{
-			userId: "exampleUserId",  // Replace with actual userId
-			name: "John Doe",         // Replace with actual name
-			email: "john.doe@example.com", // Replace with actual email
-			university: "Example University", // Replace with actual university
-			graduation: "2024",       // Replace with actual graduation year
-			major: "Computer Science", // Replace with actual major
-			dietaryRestrictions: ["None"], // Replace with actual dietary restrictions
-			age: 21,                  // Replace with actual age
-			gender: "Male",           // Replace with actual gender
-			race: ["Race1", "Race2"], // Replace with actual race
-			ethnicity: ["Ethnicity1"], // Replace with actual ethnicity
-			firstGen: "Yes",          // Replace with actual first generation status
-			hearAboutRP: ["Friend", "Internet"], // Replace with actual sources
-			portfolio: "http://portfolio.example.com", // Replace with actual portfolio link
-			jobInterest: ["Software Engineer"], // Replace with actual job interests
-			isInterestedMechMania: "Yes", // Replace with actual interest in MechMania
-			isInterestedPuzzleBang: true, // Replace with actual interest in PuzzleBang
-			hasResume: true,         // Replace with actual resume status
-			hasSubmitted: true       // Replace with actual submission status
-		});
-		toast.promise(promise, {
-			success: { title: 'Success!', description: 'Your data has been saved.' },
-			error: { title: 'Oops!', description: 'Something went wrong - please try again.' },
-			loading: { title: 'Saving', description: 'Please wait...' },
-		});
+		let jwt = localStorage.getItem("jwt");
+	    jwt = searchParams.get("token");
+
+		console.log(jwt)
+			const promise = await axios.post(Config.BASE_URL + 'registration/save', {
+				name: "John Doe",
+				email: "john.doe@example.com",
+				university: "Example University",
+				graduation: "2024",
+				major: "Computer Science",
+				dietaryRestrictions: ["None"],
+				age: 21,
+				gender: "Male",
+				race: ["Race1", "Race2"],
+				ethnicity: ["Ethnicity1"],
+				firstGen: "Yes",
+				hearAboutRP: ["Friend", "Internet"],
+				portfolio: "http://portfolio.example.com",
+				jobInterest: ["Software Engineer"],
+				isInterestedMechMania: "Yes",
+				isInterestedPuzzleBang: true,
+				hasResume: true,
+				hasSubmitted: true
+			},
+			{headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${jwt}`,
+			  }}
+			);
+	
+			toast.promise(promise, {
+				success: { title: 'Success!', description: 'Your data has been saved.' },
+				error: { title: 'Oops!', description: 'Something went wrong - please try again.' },
+				loading: { title: 'Saving', description: 'Please wait...' },
+			});
 	};
+	
 	
 	const handleFieldChange = (field, value) => {
 		setFormData({

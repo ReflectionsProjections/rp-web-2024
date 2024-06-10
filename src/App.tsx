@@ -5,6 +5,7 @@ import Home from "./routes/Template";
 import LandingPage from "./routes/LandingPage";
 import Temp from "./routes/Template";
 import Config from "./config";
+import Auth from "./routes/Auth"
 
 function ProdRoutes() {
 	return (
@@ -17,7 +18,7 @@ function ProdRoutes() {
 function DevRoutes() {
 	return (
 		<Routes>
-			<Route path="/auth/" element={<Temp text="auth" />}> </Route>
+			<Route path="/auth/" element={<Auth />}> </Route>
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
 			<Route path="/registration/" element={<Registration/>}> </Route>
