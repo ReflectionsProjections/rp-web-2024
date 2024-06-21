@@ -37,12 +37,14 @@ export function PageLayout() {
                     {}
                     <LandingPage />
                     {}
-                    <ImageSlider slides={SliderData} />
+                    {/* <ImageSlider slides={SliderData} /> */}
                     {}
                 </GridItem>
 
                 <GridItem area={'footer'}>
-                    {}
+                    {
+
+                    }
                 </GridItem>
             </Grid>
         </Box>

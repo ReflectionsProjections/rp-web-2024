@@ -1,4 +1,4 @@
-import { extendTheme} from "@chakra-ui/react";
+import { background, extendTheme} from "@chakra-ui/react";
 import { Button} from "./components/Button";
 
 const baseText = {
@@ -16,7 +16,53 @@ export const logoStyle = {
 	left: "5px",
 	
 };
+export const pictureBox = {
+	color: "pink",
+	top: "50px",
+	background: "gray",
+	width: "300px", 
+    height: "400px",
+	marginTop: "200px"
+}; 
+export const poloroidBox = 
+{
+	width: "200px",
+	height: "200px",
+	marginTop: "100px", 
+	background: "gray"
+}; 
+export const sponsorBox = 
+{
+	width: "200px" ,
+	height: "100px", 
+	backgrund: "gray"
+};
+export const bigBox = 
+{
+	// width: "1200px",
+	// height:  "600px", 
+	background: "lightblue",
+	padding: "50px",
+	marginLeft: "20px",
+	marginRight: '20px'
+}; 
+export const smallBox = 
+{
+	// width: "1100px",
+	// height:  "500px", 
+	background: "pink",
+	padding: "50px",
+	margin: "10px"
 
+}; 
+export const jeapordyBox = 
+{
+	width: "350px",
+	height: "200px",
+	marginTop: "100px", 
+	background: "gray", 
+	borderRadius: "15px"
+}; 
 export const customTheme = extendTheme({
 	colors: {
 		transparent: 'transparent',
