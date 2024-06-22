@@ -1,12 +1,11 @@
 import { Navigate, useSearchParams } from "react-router-dom";
 import  Config  from "../config";
 
-const POST_AUTH_URL = "/registration/"
 
 export default function Auth() {
     const [searchParams] = useSearchParams();
-
     let jwt = localStorage.getItem("jwt");
+    const POST_AUTH_URL = `/registration?token=${jwt}`
 
     // jwt found in local storage
     if (jwt) {
