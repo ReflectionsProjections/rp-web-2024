@@ -17,23 +17,20 @@ export function LandingPage() {
 		</Box>
         {}
 
-    {/* 2 by 2 grid for images */}
-    <Grid
-        h='800px'
-        w='900px'
-        templateRows='repeat(2, 1fr)'   
-        templateColumns='repeat(2, 1fr)'
-        gap={4}
-        margin='auto'  
-        marginTop='20vh'
-        bg = 'black'
-        >
-        
-        <GridItem bg = 'gray'/>
-        <GridItem bg = 'gray'/>
-        <GridItem bg = 'gray'/>
-        <GridItem bg = 'gray'/>
-    </Grid>
+    <SimpleGrid
+      h='800px'
+      w='900px'
+      columns={2}
+      spacing={4}
+      margin='auto'
+      marginTop='20vh'
+      bg='black'
+  >
+    <Box bg='gray' height='100%' />
+    <Box bg='gray' height='100%' />
+    <Box bg='gray' height='100%' />
+    <Box bg='gray' height='100%' />
+  </SimpleGrid>
 
     {/* insert poloroid pictures here */}
     <HStack> 
@@ -69,37 +66,45 @@ export function LandingPage() {
 
     {/* TV/jeapordy */}
 
-    <Box  style={{ ...bigBox, overflowY: "auto" }} >
-            <Box style={smallBox}>
-                <HStack spacing="20px">
-                    <Box style={jeapordyBox}>
-                      
-                    </Box>
-                    <Box style={jeapordyBox}>
-                       
-                    </Box>
-                    <Box style={jeapordyBox}>
-                       
-                    </Box>
-                </HStack>
-                <HStack spacing="20px">
-                    <Box style={jeapordyBox}>
-                      
-                    </Box>
-                    <Box style={jeapordyBox}>
-                       
-                    </Box>
-                    <Box style={jeapordyBox}>
-                       
-                    </Box>
-                </HStack>
-            </Box>
+    <Box  style={bigBox} >
+      <Box style = {smallBox}> 
+        <SimpleGrid columns={3} spacingX='10px' spacingY='20px'>
+          <Box style = {jeapordyBox}></Box>
+          <Box style = {jeapordyBox}></Box>
+          <Box style = {jeapordyBox}></Box>
+          <Box style = {jeapordyBox}></Box>
+          <Box style = {jeapordyBox}></Box>
+          <Box style = {jeapordyBox}></Box>
+          <Box style = {jeapordyBox}></Box>
+          <Box style = {jeapordyBox}></Box>
+          <Box style = {jeapordyBox}></Box>
+        </SimpleGrid>
+      </Box> 
     </Box>
 
-    <Box  style={{ ...bigBox, overflowY: "auto" }} marginTop = "20px">
+    {/* Sponsors */}
 
+    <Box  style={bigBox} >
+      <Box style = {smallBox}> 
+        <SimpleGrid columns={2} spacingX='10px' spacingY='20px'>
+          <Box style = {sponsorBox}></Box>
+          <Box style = {sponsorBox}></Box>
+          <Box style = {sponsorBox}></Box>
+          <Box style = {sponsorBox}></Box>
+          <Box style = {sponsorBox}></Box>
+          <Box style = {sponsorBox}></Box>
+          <Box style = {sponsorBox}></Box>
+          <Box style = {sponsorBox}></Box>
+          <Box style = {sponsorBox}></Box>
+          <Box style = {sponsorBox}></Box>
+          <Box style = {sponsorBox}></Box>
+          <Box style = {sponsorBox}></Box>
+        </SimpleGrid>
+      </Box> 
     </Box>
+
 	</>
 	);
   }
 export default LandingPage;
+

@@ -29,28 +29,32 @@ export const poloroidBox =
 	width: "200px",
 	height: "200px",
 	marginTop: "100px", 
-	background: "gray"
+	background: "gray",
 }; 
 export const sponsorBox = 
 {
-	width: "200px" ,
-	height: "100px", 
-	backgrund: "gray"
+	width: "550px",
+	height: "100px",
+	background: "lightblue", 
+	marginLeft: "20px", 
+	marginRight: "20px"
+	
 };
 export const bigBox = 
 {
 	// width: "1200px",
 	// height:  "600px", 
-	background: "lightblue",
-	padding: "50px",
-	marginLeft: "20px",
-	marginRight: '20px'
+	background: "black",
+	padding: "20px",
+	marginTop: "20px",
+	// marginLeft: "20px",
+	// marginRight: '20px'
 }; 
 export const smallBox = 
 {
 	// width: "1100px",
 	// height:  "500px", 
-	background: "pink",
+	background: "gray",
 	padding: "50px",
 	margin: "10px"
 
@@ -59,8 +63,7 @@ export const jeapordyBox =
 {
 	width: "350px",
 	height: "200px",
-	marginTop: "100px", 
-	background: "gray", 
+	background: "lightblue", 
 	borderRadius: "15px"
 }; 
 export const customTheme = extendTheme({
