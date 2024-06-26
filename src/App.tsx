@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./routes/Template";
 import { PageLayout } from "./components/PageLayout";
-import LandingPage from "./routes/LandingPage";
 import Hype from "./routes/Hype";
 import Temp from "./routes/Template";
 import Config from "./config";

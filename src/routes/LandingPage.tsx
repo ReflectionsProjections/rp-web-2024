@@ -1,4 +1,4 @@
-import { Text, Center, Box, Button, HStack, SimpleGrid, Image, Grid, GridItem, baseTheme, VStack} from "@chakra-ui/react";
+import { Text, Center, Box, Button, HStack, SimpleGrid, Image, VStack} from "@chakra-ui/react";
 import { pictureBox, poloroidBox, jeapordyBox, sponsorBox, bigBox, smallBox} from "../customTheme";
 export function LandingPage() {
 	return (

@@ -1,8 +1,6 @@
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import { NavBar } from '../routes/NavBar';
 import LandingPage from '../routes/LandingPage';
-import ImageSlider from '../components/ImageSlider';
-import { SliderData } from './SliderData';
 
 export function PageLayout() {
     return (
