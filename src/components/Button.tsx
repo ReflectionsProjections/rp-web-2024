@@ -28,12 +28,8 @@ export const Button = defineStyleConfig({
 			color: 'purple.500',
 		},
 		solid: {
-			bg: 'darkBlue',
+			bg: 'purple.500',
 			color: 'white',
-			height: "50px",
-			minWidth: "120px",
-			margin: "auto",
-			borderRadius: '5px'
 		},
 	},
 	// The default size and variant values
