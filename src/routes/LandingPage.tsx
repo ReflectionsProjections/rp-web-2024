@@ -4,7 +4,7 @@ interface LandingPageProps {
     text: string;
 }
 
-const LandingPage: React.FC<LandingPageProps> = ({ text }) => {
+const LandingPage: React.FC<LandingPageProps> = () => {
     const NavBar: React.FC = () =>
     {
         return(
