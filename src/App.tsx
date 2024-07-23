@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Hype from "./routes/Hype";
-import Registration from "./routes/registration/registration";
+import Registration from "./routes/registration/Registration";
 import Home from "./routes/Template";
 import LandingPage from "./routes/LandingPage";
 import Temp from "./routes/Template";

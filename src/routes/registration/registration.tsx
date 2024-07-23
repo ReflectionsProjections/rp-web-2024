@@ -1,3 +1,4 @@
+import './Registration.css';
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
@@ -5,7 +6,7 @@ import {
 	handleResumeSubmit,
 	handleSubmit,
 	handleFieldSave,
-} from "./registration_api.tsx"; // Adjust the import path according to your project structure
+} from "./registration_api.tsx";
 import {
 	FormControl,
 	FormLabel,
@@ -158,19 +159,11 @@ export default function Registration() {
 	}, []);
 
 	return (
-		<Stack
-			spacing={5}
-			w={{ base: "80%", md: "50%" }}
-			mx="auto"
-			mt={10}
-			p={4}
-			borderRadius="lg"
-			boxShadow="lg"
-		>
-			<Heading as="h2" size="lg" textAlign="center">
+		<Stack className="registration-bg">
+			{/* <Heading as="h2" size="lg" textAlign="center">
 				Register for R|P 2024!
-			</Heading>
-			<form>
+			</Heading> */}
+			<form className="registration-form">
 				{fieldCount == 1 && (
 					<Stack>
 						<FormControl id="name" isRequired>

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+.registration-bg {
+    background-image: url('../../assets/registration_bg.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    padding-top: -30%;
+}
+
+.registration-form {
+    width: 100%;
+    max-width: 65%;
+    margin: 0 auto;
+    padding-top: 3vh;
+    color: white;
+    font-family: "Nunito";
+}
+
+@media (max-width: 2500px) {
+    .registration-form {
+        padding-top: 8vh;
+        max-width: 65%;
+    }
+}
+
+@media (max-width: 1900px) {
+    .registration-form {
+        padding-top: 9vh;
+        max-width: 65%;
+    }
+}
+
+@media (max-width: 1700px) {
+    .registration-form {
+        padding-top: 4vh;
+        max-width: 65%;
+    }
+}
+
+@media (max-width: 800px) {
+    .registration-form {
+        padding-top: 10vh;
+        max-width: 75%;
+    }
+}
