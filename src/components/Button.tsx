@@ -35,6 +35,26 @@ export const Button = defineStyleConfig({
 			margin: "auto",
 			borderRadius: '5px'
 		},
+		registration_white: {
+			bg: "rgba(255, 255, 255, 0.5)",
+			_hover: {
+			  bg: "white",
+			  color: "#bb3f9c",
+			},
+			_focus: {
+			  outline: "none",
+			},
+		},
+		registration_pink: {
+			bg: "rgba(187, 63, 156, 0.5)",
+			_hover: {
+			  bg: "white",
+			  color: "#bb3f9c",
+			},
+			_focus: {
+			  outline: "none",
+			},
+		},
 	},
 	// The default size and variant values
 	defaultProps: {

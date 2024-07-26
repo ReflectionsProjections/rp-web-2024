@@ -23,6 +23,8 @@ import {
 	Link,
 	Switch,
 } from "@chakra-ui/react";
+import { majorsList } from './majors';
+import { graduationYearsList } from './graduationYears';
 
 export default function Registration() {
 	const [fieldCount, setFieldCount] = useState(1);
@@ -188,76 +190,119 @@ export default function Registration() {
 							/>
 						</FormControl>
 
-						<FormControl>
+						<FormControl id="dietary_restrictions">
 							<FormLabel>Do you have any dietary restrictions?:</FormLabel>
 							<Stack spacing={2}>
 								<HStack>
-									<Checkbox
-										value="internship"
-										checked={formData.dietaryRestrictions.includes(
-											"internship"
-										)}
-										onChange={(value) =>
-											handleCheckboxChange("dietaryRestrictions", value)
-										}
-									>
-										Internship
-									</Checkbox>
-									<Checkbox
-										value="co-op"
-										checked={formData.dietaryRestrictions.includes("co-op")}
-										onChange={(value) =>
-											handleCheckboxChange("dietaryRestrictions", value)
-										}
-									>
-										Co-op
-									</Checkbox>
-									<Checkbox
-										value="full-time"
-										checked={formData.dietaryRestrictions.includes("full-time")}
-										onChange={(value) =>
-											handleCheckboxChange("dietaryRestrictions", value)
-										}
-									>
-										Full-time
-									</Checkbox>
+								<Checkbox
+									value="vegetarian"
+									isChecked={formData.dietaryRestrictions.includes("vegetarian")}
+									onChange={(value) => handleCheckboxChange("dietaryRestrictions", value)}
+								>
+									Vegetarian
+								</Checkbox>
+								<Checkbox
+									value="vegan"
+									isChecked={formData.dietaryRestrictions.includes("vegan")}
+									onChange={(value) => handleCheckboxChange("dietaryRestrictions", value)}
+								>
+									Vegan
+								</Checkbox>
+								</HStack>
+								<HStack>
+								<Checkbox
+									value="gluten-free"
+									isChecked={formData.dietaryRestrictions.includes("gluten-free")}
+									onChange={(value) => handleCheckboxChange("dietaryRestrictions", value)}
+								>
+									Gluten-free
+								</Checkbox>
+								<Checkbox
+									value="other"
+									isChecked={formData.dietaryRestrictions.includes("other")}
+									onChange={(value) => handleCheckboxChange("dietaryRestrictions", value)}
+								>
+									Other
+								</Checkbox>
 								</HStack>
 							</Stack>
 						</FormControl>
 
-						<FormControl>
+
+						<FormControl id="allergies">
 							<FormLabel>Do you have any allergies?:</FormLabel>
 							<Stack spacing={2}>
-								<HStack>
-									<Checkbox
-										value="internship"
-										onChange={(value) =>
-											handleCheckboxChange("allergies", value)
-										}
-									>
-										Internship
-									</Checkbox>
-									<Checkbox
-										value="co-op"
-										onChange={(value) =>
-											handleCheckboxChange("allergies", value)
-										}
-									>
-										Co-op
-									</Checkbox>
-									<Checkbox
-										value="full-time"
-										onChange={(value) =>
-											handleCheckboxChange("allergies", value)
-										}
-									>
-										Full-time
-									</Checkbox>
+								<HStack spacing={6}>
+								<Checkbox
+									value="dairy"
+									onChange={(value) => handleCheckboxChange("allergies", value)}
+								>
+									Dairy
+								</Checkbox>
+								<Checkbox
+									value="eggs"
+									onChange={(value) => handleCheckboxChange("allergies", value)}
+								>
+									Eggs
+								</Checkbox>
+								<Checkbox
+									value="fish"
+									onChange={(value) => handleCheckboxChange("allergies", value)}
+								>
+									Fish
+								</Checkbox>
+								<Checkbox
+									value="shellfish"
+									onChange={(value) => handleCheckboxChange("allergies", value)}
+								>
+									Shellfish
+								</Checkbox>
+								{/* </HStack>
+								<HStack> */}
+								<Checkbox
+									value="soy"
+									onChange={(value) => handleCheckboxChange("allergies", value)}
+								>
+									Soy
+								</Checkbox>
+								<Checkbox
+									value="sesame"
+									onChange={(value) => handleCheckboxChange("allergies", value)}
+								>
+									Sesame
+								</Checkbox>
+								<Checkbox
+									value="wheat"
+									onChange={(value) => handleCheckboxChange("allergies", value)}
+								>
+									Wheat
+								</Checkbox>
+								{/* </HStack>
+								<HStack> */}
+								<Checkbox
+									value="peanuts"
+									onChange={(value) => handleCheckboxChange("allergies", value)}
+								>
+									Peanuts
+								</Checkbox>
+								<Checkbox
+									value="tree-nuts"
+									onChange={(value) => handleCheckboxChange("allergies", value)}
+								>
+									Tree Nuts
+								</Checkbox>
+								<Checkbox
+									value="other"
+									onChange={(value) => handleCheckboxChange("allergies", value)}
+								>
+									Other
+								</Checkbox>
 								</HStack>
 							</Stack>
 						</FormControl>
 
-						<FormControl id="age">
+
+						<FormControl id="age" isRequired>
 							<HStack>
 								<FormLabel>
 									By checking this box, I agree that I am 18 or older.
@@ -287,28 +332,38 @@ export default function Registration() {
 
 						<FormControl id="graduation">
 							<FormLabel>Graduation Year</FormLabel>
-							<Input
-								type="text"
-								placeholder="Enter your graduation year"
+							<Select
+								placeholder="Select your graduation year"
 								name="graduation"
 								value={formData.graduation}
 								onChange={handleChange}
-							/>
+							>
+								{graduationYearsList.map((year) => (
+								<option key={year} value={year}>
+									{year}
+								</option>
+								))}
+							</Select>
 						</FormControl>
 
 						<FormControl id="major">
 							<FormLabel>Major</FormLabel>
-							<Input
-								type="text"
-								placeholder="Enter your major"
+							<Select
+								placeholder="Select your major"
 								name="major"
 								value={formData.major}
 								onChange={handleChange}
-							/>
+							>
+								{majorsList.map((major) => (
+								<option key={major} value={major}>
+									{major}
+								</option>
+								))}
+							</Select>
 						</FormControl>
 
 						<FormControl>
-							<FormLabel>What type of job are you looking for:</FormLabel>
+							<FormLabel>What type of job are you looking for?</FormLabel>
 							<Stack spacing={2}>
 								<HStack>
 									<Checkbox
@@ -343,7 +398,7 @@ export default function Registration() {
 							<FormLabel>Upload Your Resume</FormLabel>
 							<HStack>
 								<Input type="file" onChange={handleFileChange} />
-								<Button mt={4} onClick={handleFileUpload} colorScheme="blue">
+								<Button mt={4} onClick={handleFileUpload} variant="registration_pink">
 									Upload
 								</Button>
 							</HStack>
@@ -396,7 +451,7 @@ export default function Registration() {
 						<FormControl>
 							<FormLabel>Ethnicity:</FormLabel>
 							<Stack spacing={2}>
-								<HStack>
+								<HStack spacing={6}>
 									<Checkbox
 										value="white"
 										onChange={(value) =>
@@ -463,12 +518,12 @@ export default function Registration() {
 
 				{fieldCount == 4 && (
 					<Stack>
-						<FormControl id="interest_puzzle_bang">
+						<FormControl id="interest_puzzle_bang" isRequired>
 							<HStack>
 								<FormLabel>
 									Are you interested in{" "}
 									<Link
-										color="teal.500"
+										color="#f4b253"
 										href="https://puzzlebang.com"
 										isExternal
 									>
@@ -483,12 +538,12 @@ export default function Registration() {
 							</HStack>
 						</FormControl>
 
-						<FormControl id="interest_mech_puzzle">
+						<FormControl id="interest_mech_puzzle" isRequired>
 							<HStack>
 								<FormLabel>
 									Are you interested in{" "}
 									<Link
-										color="teal.500"
+										color="#f4b253"
 										href="https://www.mechmania.org"
 										isExternal
 									>
@@ -503,37 +558,58 @@ export default function Registration() {
 							</HStack>
 						</FormControl>
 
-						<FormControl>
+						<FormControl id="hearAboutRP">
 							<FormLabel>How did you hear about R|P?:</FormLabel>
 							<Stack spacing={2}>
-								<HStack>
-									<Checkbox
-										value="internship"
-										onChange={(value) =>
-											handleCheckboxChange("hearAboutRP", value)
-										}
-									>
-										Internship
-									</Checkbox>
-									<Checkbox
-										value="co-op"
-										onChange={(value) =>
-											handleCheckboxChange("hearAboutRP", value)
-										}
-									>
-										Co-op
-									</Checkbox>
-									<Checkbox
-										value="full-time"
-										onChange={(value) =>
-											handleCheckboxChange("hearAboutRP", value)
-										}
-									>
-										Full-time
-									</Checkbox>
+								<HStack spacing={6}>
+								<Checkbox
+									value="instagram"
+									onChange={(value) => handleCheckboxChange("hearAboutRP", value)}
+								>
+									Instagram
+								</Checkbox>
+								<Checkbox
+									value="linkedin"
+									onChange={(value) => handleCheckboxChange("hearAboutRP", value)}
+								>
+									LinkedIn
+								</Checkbox>
+								<Checkbox
+									value="posters"
+									onChange={(value) => handleCheckboxChange("hearAboutRP", value)}
+								>
+									Posters
+								</Checkbox>
+								</HStack>
+								<HStack spacing={6}>
+								<Checkbox
+									value="in-class-announcements"
+									onChange={(value) => handleCheckboxChange("hearAboutRP", value)}
+								>
+									In-class Announcements
+								</Checkbox>
+								<Checkbox
+									value="web-search"
+									onChange={(value) => handleCheckboxChange("hearAboutRP", value)}
+								>
+									Web Search
+								</Checkbox>
+								<Checkbox
+									value="word-of-mouth"
+									onChange={(value) => handleCheckboxChange("hearAboutRP", value)}
+								>
+									Word of Mouth
+								</Checkbox>
+								<Checkbox
+									value="other"
+									onChange={(value) => handleCheckboxChange("hearAboutRP", value)}
+								>
+									Other
+								</Checkbox>
 								</HStack>
 							</Stack>
-						</FormControl>
+							</FormControl>
+
 					</Stack>
 				)}
 
@@ -541,7 +617,7 @@ export default function Registration() {
 					{fieldCount > 1 && (
 						<Button
 							type="submit"
-							colorScheme="purple"
+							variant="registration_white"
 							mt={4}
 							w="100%"
 							onClick={handleFieldCountDecrease}
@@ -554,7 +630,17 @@ export default function Registration() {
 						<HStack>
 							<Button
 								type="submit"
-								colorScheme="purple"
+								variant="registration_white"
+								mt={4}
+								w="100%"
+								onClick={handleSaveField}
+							>
+								{" "}
+								Save{" "}
+							</Button>
+							<Button
+								type="submit"
+								variant="registration_white"
 								mt={4}
 								w="100%"
 								onClick={handleFieldCountIncrease}
@@ -563,23 +649,14 @@ export default function Registration() {
 								Next{" "}
 							</Button>
 
-							<Button
-								type="submit"
-								colorScheme="purple"
-								mt={4}
-								w="100%"
-								onClick={handleSaveField}
-							>
-								{" "}
-								Save{" "}
-							</Button>
+							
 						</HStack>
 					)}
 
 					{fieldCount == 4 && (
 						<Button
 							type="submit"
-							colorScheme="purple"
+							variant="registration_pink"
 							mt={4}
 							w="100%"
 							onClick={handleSubmitForm}
