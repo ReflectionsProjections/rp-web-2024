@@ -1,20 +1,39 @@
-import { Text, Center, Box, Button, HStack, SimpleGrid, Image, VStack} from "@chakra-ui/react";
+import { Text, Center, Box, Button, HStack, SimpleGrid, Flex, Image, VStack} from "@chakra-ui/react";
 import { pictureBox, poloroidBox, jeapordyBox, sponsorBox, bigBox, smallBox} from "../customTheme";
+import '@fontsource/kufam';
 export function LandingPage() {
 	return (
 	  <>
-		<Box bg="">
+		{/* <Box
+    >
 		  <Text variant="baseStyle">
-        <Center h='300px'>
-          <Text>Reflections | Projections </Text>
+        <Center h='200px' >
+          <Text  font-family =  'Kufam'>reflections | projections </Text>
         </Center>
-        <Text>September 18 - 22</Text>
+        <Text>September 18 - 22, 2024</Text>
         <VStack>
           <Button variant={"solid"}>LOGIN</Button>
           <Button variant={"solid"}>REGISTER</Button>
         </VStack>
 		  </Text>
-		</Box>
+		</Box> */}
+
+<Flex direction="column" align="center" justify="center" height="100vh">
+            <Center>
+                <Text fontFamily="Kufam" fontSize="2xl" textAlign="center">
+                    reflections | projections
+                </Text>
+            </Center>
+            <Center>
+                <Text fontSize="xl" textAlign="center">
+                    September 18 - 22, 2024
+                </Text>
+            </Center>
+            <VStack spacing={4} mt={4}>
+                <Button variant="solid">LOGIN</Button>
+                <Button variant="solid">REGISTER</Button>
+            </VStack>
+        </Flex>
         {}
 
     <SimpleGrid

@@ -4,8 +4,8 @@ import { logoStyle } from "../customTheme";
 
 export function NavBar() {
 	return (
-		<HStack spacing="1040px" style={logoStyle}>
-					<Image src="logo.png" alt="R|P LOGO alt" boxSize="90px" />
+		<HStack justify="space-between" width="100%" padding="1rem" style={logoStyle}>
+			<Image src="logo.png" alt="R|P LOGO alt" height="auto" maxW="79px" /> {/* Responsive logo */}
 			<Tabs align = 'end' variant = "unstyled" color = "white">
 				<TabList>
 					<Tab>About Us</Tab>

@@ -10,7 +10,11 @@ export function PageLayout() {
             left={0}
             width="100%"
             height="100%"
-            bgGradient="linear-gradient(0deg, #2FD2CB, #0F102E)"
+            bgImage="landing_page_bg.svg" // Change this to the correct path of your image
+            bgSize="cover"
+            bgPosition="center"
+            bgRepeat="no-repeat"
+            // bgGradient="linear-gradient(0deg, #2FD2CB, #0F102E)"
             overflow="auto" // Enable scrolling if content exceeds viewport height
         >
             <Grid
