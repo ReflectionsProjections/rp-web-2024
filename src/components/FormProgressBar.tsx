@@ -8,7 +8,9 @@ const FormProgressBar = ({ fieldCount, totalSteps }) => {
           key={index}
           w={4}
           h={4}
-          bg={index + 1 === fieldCount ? 'yellow.500' : 'yellow.200'}
+          border="2px solid"
+          borderColor="yellow.400"
+          bg={index + 1 === fieldCount ? 'yellow.400' : 'transparent'}
         />
       ))}
     </HStack>
