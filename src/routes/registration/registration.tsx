@@ -25,6 +25,7 @@ import {
 } from "@chakra-ui/react";
 import { majorsList } from './majors';
 import { graduationYearsList } from './graduationYears';
+import FormProgressBar from '../../components/FormProgressBar';
 
 export default function Registration() {
 	const [fieldCount, setFieldCount] = useState(1);
@@ -155,6 +156,8 @@ export default function Registration() {
 		const searchParams = new URLSearchParams(window.location.search);
 		await handleSubmit(formData, searchParams, toast);
 	};
+
+	const totalSteps = 4;
 
 	useEffect(() => {
 		handleGetFormData(searchParams, formData, setFormData);
@@ -626,6 +629,9 @@ export default function Registration() {
 							Previous{" "}
 						</Button>
 					)}
+
+					<FormProgressBar fieldCount={fieldCount} totalSteps={totalSteps} />
+					
 					{fieldCount < 4 && (
 						<HStack>
 							<Button
