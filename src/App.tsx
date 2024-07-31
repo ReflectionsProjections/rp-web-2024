@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./routes/Template";
-import { PageLayout } from "./components/PageLayout";
+// import { PageLayout } from "./components/PageLayout";
+import MainPage from "./routes/MainPage";
 import Hype from "./routes/Hype";
 import Temp from "./routes/Template";
 import Config from "./config";
@@ -10,7 +11,7 @@ function ProdRoutes() {
 		<Routes>
 			<Route path="*" element={<Hype/>} />
 		</Routes>
-	)
+	);
 }
 
 function DevRoutes() {
@@ -29,7 +30,7 @@ function App() {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path="/" element={<PageLayout/>}> </Route>
+				<Route path="/" element={<MainPage/>}> </Route>
 				<Route path="/auth/" element={<Home text="auth"/>}> </Route>
 				<Route path="/questions/" element={<Home text="questions"/>}> </Route>
 				<Route path="*" element={<Home text="404" />} />

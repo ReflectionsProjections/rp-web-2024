@@ -1,12 +1,11 @@
 // NavBar.tsx
 import { Tabs, TabList, TabPanels, Tab, TabPanel, HStack, Image} from '@chakra-ui/react';
-import { logoStyle } from "../customTheme";
 
 export function NavBar() {
 	return (
-		<HStack justify="space-between" width="100%" padding="1rem" style={logoStyle}>
-			<Image src="logo.png" alt="R|P LOGO alt" height="auto" maxW="79px" /> {/* Responsive logo */}
-			<Tabs align = 'end' variant = "unstyled" color = "white">
+		<HStack justify="space-between" width="100%" position='absolute' backgroundColor='#00456D' borderBottom='solid 3px #003B5C'>
+			<Image src="logo.svg" alt="R|P LOGO alt" height="auto" maxW="75px" padding="0.5rem" />
+			{/* <Tabs align = 'end' variant = "unstyled" color = "white">
 				<TabList>
 					<Tab>About Us</Tab>
 					<Tab>Speakers</Tab>
@@ -22,7 +21,7 @@ export function NavBar() {
 					<TabPanel>
 					</TabPanel>
 				</TabPanels>
-			</Tabs>
+			</Tabs> */}
 		</HStack>
 	);
 }

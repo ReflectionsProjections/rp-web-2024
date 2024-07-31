@@ -1,4 +1,4 @@
-import { extendTheme} from "@chakra-ui/react";
+import { border, extendTheme} from "@chakra-ui/react";
 import { Button} from "./components/Button";
 
 const baseText = {
@@ -21,7 +21,7 @@ export const pictureBox = {
 	top: "50px",
 	background: "gray",
 	width: "300px", 
-    height: "400px",
+	height: "400px",
 	marginTop: "200px"
 }; 
 export const poloroidBox = 
@@ -114,5 +114,19 @@ export const customTheme = extendTheme({
 		}
 	}
 });
+
+
+export const LandingButton = {
+	size:'lg',
+	height:"65px",
+	width:"175px",
+	border:"solid 3px black",
+	backgroundColor:"#FBC9B2",
+	color:"black",
+	fontSize:"x-large",
+	fontFamily:"Nunito",
+	fontWeight:"500",
+	borderRadius:"10px",
+};
 
 
