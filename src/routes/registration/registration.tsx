@@ -26,6 +26,7 @@ import {
 import { majorsList } from './majors';
 import { graduationYearsList } from './graduationYears';
 import FormProgressBar from '../../components/FormProgressBar';
+import RegistrationButtons from '../../components/RegistrationButtons';
 
 export default function Registration() {
 	const [fieldCount, setFieldCount] = useState(1);
@@ -616,62 +617,14 @@ export default function Registration() {
 					</Stack>
 				)}
 
-				<HStack>
-					{fieldCount > 1 && (
-						<Button
-							type="submit"
-							variant="registration_white"
-							mt={4}
-							w="100%"
-							onClick={handleFieldCountDecrease}
-						>
-							{" "}
-							Previous{" "}
-						</Button>
-					)}
-
-					<FormProgressBar fieldCount={fieldCount} totalSteps={totalSteps} />
-					
-					{fieldCount < 4 && (
-						<HStack>
-							<Button
-								type="submit"
-								variant="registration_white"
-								mt={4}
-								w="100%"
-								onClick={handleSaveField}
-							>
-								{" "}
-								Save{" "}
-							</Button>
-							<Button
-								type="submit"
-								variant="registration_white"
-								mt={4}
-								w="100%"
-								onClick={handleFieldCountIncrease}
-							>
-								{" "}
-								Next{" "}
-							</Button>
-
-							
-						</HStack>
-					)}
-
-					{fieldCount == 4 && (
-						<Button
-							type="submit"
-							variant="registration_pink"
-							mt={4}
-							w="100%"
-							onClick={handleSubmitForm}
-						>
-							{" "}
-							Submit{" "}
-						</Button>
-					)}
-				</HStack>
+				<RegistrationButtons
+					fieldCount={fieldCount}
+					totalSteps={totalSteps}
+					handleFieldCountDecrease={handleFieldCountDecrease}
+					handleSaveField={handleSaveField}
+					handleFieldCountIncrease={handleFieldCountIncrease}
+					handleSubmitForm={handleSubmitForm}
+					/>
 			</form>
 		</Stack>
 	);

@@ -36,7 +36,7 @@ export const Button = defineStyleConfig({
 			borderRadius: '5px'
 		},
 		registration_white: {
-			bg: "rgba(255, 255, 255, 0.5)",
+			bg: "rgba(237, 153, 170, 1)",
 			_hover: {
 			  bg: "white",
 			  color: "#bb3f9c",
@@ -46,7 +46,7 @@ export const Button = defineStyleConfig({
 			},
 		},
 		registration_pink: {
-			bg: "rgba(187, 63, 156, 0.5)",
+			bg: "rgba(204, 67, 134, 1)",
 			_hover: {
 			  bg: "white",
 			  color: "#bb3f9c",
