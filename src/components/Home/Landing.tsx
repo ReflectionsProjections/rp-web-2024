@@ -15,6 +15,7 @@ export function Landing() {
 			left={0}
 			width="100%"
 			height="100vh"
+			minHeight="800px"
 			bgImage={BackgroundImg}			
 			bgSize="cover"
 			bgPosition="center"

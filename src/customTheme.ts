@@ -118,12 +118,14 @@ export const customTheme = extendTheme({
 
 export const LandingButton = {
 	size:'lg',
-	height:"65px",
-	width:"175px",
+	height:"6vw",
+	minHeight: "60px",
+	width:"15vw",
+	minWidth:"150px",
 	border:"solid 3px black",
 	backgroundColor:"#FBC9B2",
 	color:"black",
-	fontSize:"x-large",
+	fontSize: "max(2.1vw, 21px)",
 	fontFamily:"Nunito",
 	fontWeight:"500",
 	borderRadius:"10px",
