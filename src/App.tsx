@@ -20,7 +20,7 @@ function DevRoutes() {
 			<Route path="/auth/" element={<Temp text="auth" />}> </Route>
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
-			<Route path="/" element={<Temp text="home" />} />
+			<Route path="/" element={<MainPage/>} />
 			<Route path="*" element={<Temp text="404" />} />
 		</Routes>
 	);
@@ -29,12 +29,12 @@ function DevRoutes() {
 function App() {
 	return (
 		<BrowserRouter>
-			<Routes>
+			{/* <Routes>
 				<Route path="/" element={<MainPage/>}> </Route>
 				<Route path="/auth/" element={<Home text="auth"/>}> </Route>
 				<Route path="/questions/" element={<Home text="questions"/>}> </Route>
 				<Route path="*" element={<Home text="404" />} />
-			</Routes>
+			</Routes> */}
 			{Config.IS_PROD ? <ProdRoutes /> : <DevRoutes />}
 		</BrowserRouter>
 	);

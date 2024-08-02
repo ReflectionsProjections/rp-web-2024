@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Grid, GridItem, VStack } from '@chakra-ui/react';
 import { NavBar } from '../components/NavBar';
 import Header from '../components/Home/Landing';
 import Info from '../components/Home/Info';
@@ -8,14 +8,14 @@ import Sponsors from '../components/Home/Sponsors';
 
 export default function MainPage() {
 	return (
-		<Box>
+		<VStack spacing={0}>
 			<NavBar />
 			<Header />
 			<Info/>
 			<Events/>
 			<FAQ/>
 			<Sponsors/>
-		</Box>
+		</VStack>
 		
 	);
 }

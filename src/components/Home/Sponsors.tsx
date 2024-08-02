@@ -1,15 +1,17 @@
 import { Text, Center, Box, Button, HStack, SimpleGrid, Flex, Image, VStack} from "@chakra-ui/react";
 import { pictureBox, poloroidBox, jeapordyBox, sponsorBox, bigBox, smallBox} from "../../customTheme";
 import '@fontsource/kufam';
+import PageTitle from "./PageTitle";
 
 export function Sponsors() {
 	return ( 
 		<Box 
-			top={0}
-			left={0}
 			width="100%"
 			height="100vh"
+			justifyContent="center"
+			backgroundColor='#004970'
 		>
+			<PageTitle title="SPONSORS" />
 
 			<Box  style={bigBox} >
 				<Box style = {smallBox}> 

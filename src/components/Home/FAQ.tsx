@@ -1,19 +1,20 @@
-import { Text, Center, Box, Button, HStack, SimpleGrid, Flex, Image, VStack} from "@chakra-ui/react";
+import { Text, Center, Box, Button, HStack, SimpleGrid, Flex, Image, VStack, useMediaQuery} from "@chakra-ui/react";
 import { pictureBox, poloroidBox, jeapordyBox, sponsorBox, bigBox, smallBox} from "../../customTheme";
-import '@fontsource/kufam';
+import '@fontsource/kufam/900-italic.css';
+
+import PageTitle from "./PageTitle";
 
 export function FAQ() {
+    
 	return ( 
 		<Box 
-			top={0}
-			left={0}
 			width="100%"
 			height="200vh"
+			justifyContent="center"
+			backgroundColor='#004970'
 		>
-
-			<Center height = "50vh"> 
-				<Button variant={"solid"}>FAQ</Button>
-			</Center> 
+			<PageTitle title="FAQ" />
+            
 
 			<Box  style={bigBox} >
 				<Box style = {smallBox}> 
