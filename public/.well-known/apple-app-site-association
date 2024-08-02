@@ -1,0 +1,12 @@
+{
+  // This section enables Universal Links
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "8VNQTQM2L6.org.reflectionsprojections.app",
+        "paths": ["/*"]
+      }
+    ]
+}
+

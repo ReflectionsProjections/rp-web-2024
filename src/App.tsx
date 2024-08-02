@@ -1,6 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./routes/Template";
-// import { PageLayout } from "./components/PageLayout";
 import MainPage from "./routes/MainPage";
 import Hype from "./routes/Hype";
 import Temp from "./routes/Template";
@@ -9,7 +7,7 @@ import Config from "./config";
 function ProdRoutes() {
 	return (
 		<Routes>
-			<Route path="*" element={<Hype/>} />
+			<Route path="*" element={<Hype />}> </Route>
 		</Routes>
 	);
 }
