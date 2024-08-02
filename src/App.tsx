@@ -1,16 +1,24 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import Home from "./routes/Template";
-// import LandingPage from "./routes/LandingPage";
-import Hype from "./routes/Hype";
+import { VStack } from '@chakra-ui/react';
 import Temp from "./routes/Template";
 import Config from "./config";
+import { NavBar } from "./components/NavBar";
+import Header from "./components/Home/Landing";
+import MainPage from "./routes/MainPage";
+import '@fontsource/kufam';
+import Info from "./components/Home/Info";
 
 function ProdRoutes() {
 	return (
 		<Routes>
-			<Route path="*" element={<Hype />}> </Route>
+			<Route path="*" element={<VStack spacing={0}>
+				<NavBar />
+				<Header />
+				<Info/>
+			</VStack>}> 
+			</Route>
 		</Routes>
-	)
+	);
 }
 
 function DevRoutes() {
@@ -19,7 +27,7 @@ function DevRoutes() {
 			<Route path="/auth/" element={<Temp text="auth" />}> </Route>
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
-			<Route path="/" element={<Temp text="home" />} />
+			<Route path="/" element={<MainPage/>} />
 			<Route path="*" element={<Temp text="404" />} />
 		</Routes>
 	);
