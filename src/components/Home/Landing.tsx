@@ -2,7 +2,7 @@ import { Text, Center, Box, Button, HStack, Flex, useMediaQuery} from "@chakra-u
 import { LandingButton} from "../../customTheme";
 import '@fontsource/kufam';
 
-import BackgroundImg from "../../../landing_page_bg.svg";
+import BackgroundImg from "/landing_page_bg.svg";
 
 export function Landing() {
 	const [isMedium] = useMediaQuery("(max-width: 850px)");

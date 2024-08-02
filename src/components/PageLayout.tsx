@@ -10,7 +10,7 @@ export function PageLayout() {
 			left={0}
 			width="100%"
 			height="100%"
-			bgImage="landing_page_bg.svg" // Change this to the correct path of your image
+			bgImage="/landing_page_bg.svg" // Change this to the correct path of your image
 			bgSize="cover"
 			bgPosition="center"
 			bgRepeat="no-repeat"
