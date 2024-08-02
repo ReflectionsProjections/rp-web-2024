@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, VStack } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 import { NavBar } from '../components/NavBar';
 import Header from '../components/Home/Landing';
 import Info from '../components/Home/Info';

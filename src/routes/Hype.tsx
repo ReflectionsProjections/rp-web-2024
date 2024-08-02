@@ -21,16 +21,16 @@ export default function Hype () {
 			loading: { title: 'Reflections | Projections', description: 'Please wait' },
 		});
 
-        // Clear input field after submitting email address
-        setEmail('');
+		// Clear input field after submitting email address
+		setEmail('');
 	};
 
-    // Handles "enter" keystroke
-    const handleKeyDown = (event: any) => {
-        if (event.key === 'Enter') {
-            handleClickToast();
-        }
-    };
+	// Handles "enter" keystroke
+	const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+		if (event.key === 'Enter') {
+			handleClickToast();
+		}
+	};
 
 	return (
 		<>

@@ -1,8 +1,5 @@
-import React from 'react';
 import { Box, Text, VStack, useMediaQuery } from '@chakra-ui/react';
-import LandingText from '/landing_page_text.svg';
 import '@fontsource/kufam';
-// import BackgroundImg from "../../../landing_page_bg.svg";
 import InfoDecor from '/Info/info_decor.svg';
 import LandingTextBox from '/Info/landing_page_textbox.svg';
 import LandingTextBoxSM from '/Info/landing_page_textbox_sm.svg';

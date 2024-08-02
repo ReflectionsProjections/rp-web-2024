@@ -1,5 +1,5 @@
 // NavBar.tsx
-import { Tabs, TabList, TabPanels, Tab, TabPanel, HStack, Image} from '@chakra-ui/react';
+import { HStack, Image} from '@chakra-ui/react';
 
 export function NavBar() {
 	return (

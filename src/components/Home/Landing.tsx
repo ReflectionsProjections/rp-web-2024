@@ -1,5 +1,5 @@
-import { Text, Center, Box, Button, HStack, SimpleGrid, Flex, Image, VStack, useMediaQuery} from "@chakra-ui/react";
-import { pictureBox, poloroidBox, jeapordyBox, sponsorBox, bigBox, smallBox, LandingButton} from "../../customTheme";
+import { Text, Center, Box, Button, HStack, Flex, useMediaQuery} from "@chakra-ui/react";
+import { LandingButton} from "../../customTheme";
 import '@fontsource/kufam';
 
 import BackgroundImg from "../../../landing_page_bg.svg";

@@ -1,4 +1,4 @@
-import { border, extendTheme} from "@chakra-ui/react";
+import { extendTheme} from "@chakra-ui/react";
 import { Button} from "./components/Button";
 
 const baseText = {
@@ -83,28 +83,28 @@ export const customTheme = extendTheme({
 
 	textStyles: {
 		header: {
-		  fontSize: '70px',
-		  lineHeight: '110%',
-		  letterSpacing: '-2%',
-		  color:"white",
-		  fontFamily: "Roboto Slab",
-		  top:"20%",
+			fontSize: '70px',
+			lineHeight: '110%',
+			letterSpacing: '-2%',
+			color:"white",
+			fontFamily: "Roboto Slab",
+			top:"20%",
 		},
 		subheading: {
-		  fontSize: '30px',
-		  lineHeight: '110%',
-		  color:"white",
-		  fontFamily: "Roboto Slab",
-		  top:"20%",
+			fontSize: '30px',
+			lineHeight: '110%',
+			color:"white",
+			fontFamily: "Roboto Slab",
+			top:"20%",
 		},
 		footer: {
-		  fontSize: '25px',
-		  lineHeight: '110%',
-		  color:"white",
-		  fontFamily: "Nunito",
-		  top:"20%",
+			fontSize: '25px',
+			lineHeight: '110%',
+			color:"white",
+			fontFamily: "Nunito",
+			top:"20%",
 		}
-	  },
+	},
 
 	components: {
 		Button, 

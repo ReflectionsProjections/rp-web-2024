@@ -1,5 +1,5 @@
-import { Text, Center, Box, Button, HStack, SimpleGrid, Flex, Image, VStack} from "@chakra-ui/react";
-import { pictureBox, poloroidBox, jeapordyBox, sponsorBox, bigBox, smallBox} from "../../customTheme";
+import { Center, Box, HStack, SimpleGrid, Image} from "@chakra-ui/react";
+import { pictureBox, poloroidBox} from "../../customTheme";
 import '@fontsource/kufam';
 import PageTitle from "./PageTitle";
 

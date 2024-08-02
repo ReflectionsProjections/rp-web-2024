@@ -1,10 +1,10 @@
-import { Text, Center, Box, Button, HStack, SimpleGrid, Flex, Image, VStack, useMediaQuery} from "@chakra-ui/react";
-import { pictureBox, poloroidBox, jeapordyBox, sponsorBox, bigBox, smallBox} from "../../customTheme";
+import { Box, SimpleGrid } from "@chakra-ui/react";
+import { jeapordyBox, bigBox, smallBox} from "../../customTheme";
 import '@fontsource/kufam/900-italic.css';
 
 import PageTitle from "./PageTitle";
 
-export function FAQ() {
+export default function FAQ() {
     
 	return ( 
 		<Box 
@@ -35,5 +35,3 @@ export function FAQ() {
 		</Box>
 	);
 }
-export default FAQ;
-
