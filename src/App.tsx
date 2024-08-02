@@ -29,12 +29,6 @@ function DevRoutes() {
 function App() {
 	return (
 		<BrowserRouter>
-			{/* <Routes>
-				<Route path="/" element={<MainPage/>}> </Route>
-				<Route path="/auth/" element={<Home text="auth"/>}> </Route>
-				<Route path="/questions/" element={<Home text="questions"/>}> </Route>
-				<Route path="*" element={<Home text="404" />} />
-			</Routes> */}
 			{Config.IS_PROD ? <ProdRoutes /> : <DevRoutes />}
 		</BrowserRouter>
 	);
