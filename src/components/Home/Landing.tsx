@@ -1,6 +1,8 @@
 import { Text, Center, Box, Button, HStack, Flex, useMediaQuery} from "@chakra-ui/react";
 import { LandingButton} from "../../customTheme";
 import '@fontsource/kufam';
+import '@fontsource/roboto-slab/300.css';
+import '@fontsource/nunito';
 
 import BackgroundImg from "/landing_page_bg.svg";
 
@@ -39,7 +41,7 @@ export function Landing() {
 					<Box p='4' >
 						<HStack justifyContent="center" spacing="8px" textAlign={"center"}>
 							<Text fontSize={isXSmall ? "20" : isSmall ? "30" : isMedium ? "43" : "56"} fontFamily={"Roboto Slab"} fontWeight={"700"} letterSpacing={"0.08em"}> reflections </Text>
-							<Text fontSize={isXSmall ? "52" : isSmall ? "64" : isMedium ? "76" : "120"} fontFamily={"Roboto Slab"} fontWeight={"300"} letterSpacing={"0.08em"} mt="-10px"> | </Text>
+							<Text fontSize={isXSmall ? "52" : isSmall ? "64" : isMedium ? "76" : "120"} fontFamily={"Roboto Slab"} fontWeight={"300"} letterSpacing={"0.08em"} mt="-10px"> |</Text>
 							<Text fontSize={isXSmall ? "20" : isSmall ? "30" : isMedium ? "43" : "56"} fontFamily={"Roboto Slab"} fontWeight={"700"} letterSpacing={"0.08em"}> projections </Text>
 						</HStack>
 						<Text fontSize={isXSmall ? "14" : isSmall ? "20" : isMedium ? "26" : "30" } whiteSpace="pre-line" fontFamily={"Nunito"} fontWeight={"400"}>September 18 - 22, 2024</Text>
@@ -58,7 +60,7 @@ export function Landing() {
 				<Box/>
 			</Flex>
 			<Flex direction="column" align="center" justify="center">
-				<Button style={LandingButton} textTransform='none' mt='15vh' borderColor='black'>Register</Button>
+				<Button style={LandingButton} textTransform='none' mt='15vh' borderColor='black'>Coming Soon</Button>
 				{/* <VStack spacing={4} mt={4}> */}
 				{/* <Button style={LandingButton} textTransform='none' borderColor='black'>Login</Button> */}
 				{/* </VStack> */}

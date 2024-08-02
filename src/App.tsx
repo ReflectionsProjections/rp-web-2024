@@ -1,13 +1,23 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import MainPage from "./routes/MainPage";
+import { VStack } from '@chakra-ui/react';
 import Hype from "./routes/Hype";
 import Temp from "./routes/Template";
 import Config from "./config";
+import { NavBar } from "./components/NavBar";
+import Header from "./components/Home/Landing";
+import MainPage from "./routes/MainPage";
+import '@fontsource/kufam';
+import Info from "./components/Home/Info";
 
 function ProdRoutes() {
 	return (
 		<Routes>
-			<Route path="*" element={<Hype />}> </Route>
+			<Route path="*" element={<VStack spacing={0}>
+				<NavBar />
+				<Header />
+				<Info/>
+			</VStack>}> 
+			</Route>
 		</Routes>
 	);
 }
