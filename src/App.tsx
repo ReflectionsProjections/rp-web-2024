@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { VStack } from '@chakra-ui/react';
-import Hype from "./routes/Hype";
 import Temp from "./routes/Template";
 import Config from "./config";
 import { NavBar } from "./components/NavBar";
