@@ -7,6 +7,7 @@ import Header from "./components/Home/Landing";
 import MainPage from "./routes/MainPage";
 import '@fontsource/kufam';
 import Info from "./components/Home/Info";
+import './App.css';
 
 function ProdRoutes() {
 	return (
