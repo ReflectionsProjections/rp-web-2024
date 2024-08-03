@@ -38,7 +38,7 @@ export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, for
 					id={id}
 					name={name}
 					type={type}
-					onChange={(event) => setInputValue(event.target.value)}
+					onChange={(event) => setInputValue(event.target.value.toUpperCase())}
 					onBlur={formik.handleBlur}
 					value={inputValue}
 				/>
