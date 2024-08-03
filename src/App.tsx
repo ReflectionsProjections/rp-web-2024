@@ -4,6 +4,7 @@ import Temp from "./routes/Template";
 import Config from "./config";
 import { NavBar } from "./components/NavBar";
 import Header from "./components/Home/Landing";
+import Events from "./routes/Events";
 import MainPage from "./routes/MainPage";
 import '@fontsource/kufam';
 import Info from "./components/Home/Info";
@@ -29,6 +30,7 @@ function DevRoutes() {
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
 			<Route path="/" element={<MainPage/>} />
+			<Route path="/events" element={<Events/>}></Route>
 			<Route path="*" element={<Temp text="404" />} />
 		</Routes>
 	);
