@@ -36,6 +36,7 @@ export function Info() {
 			<Box 
 				width={isSmall ? "95%" : "90%"}
 				height="90%"
+				minHeight='200px'
 				margin='auto'
 				bgImage={isSmall ? LandingTextBoxSM: LandingTextBox}
 				bgSize="100% 100%"
