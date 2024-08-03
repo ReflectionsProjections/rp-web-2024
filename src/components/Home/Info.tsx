@@ -6,6 +6,7 @@ import LandingTextBoxSM from '/Info/landing_page_textbox_sm.svg';
 
 export function Info() {
 	const [isSmall] = useMediaQuery("(max-width: 600px)");
+	const [isShort] = useMediaQuery("(max-height: 600px)");
 
 	return ( 
 		<Box 
@@ -46,9 +47,10 @@ export function Info() {
 				display="flex"
 				justifyContent="center"
 				// alignItems="center"
-				py={4}
+				pt={4}
+				pb={8}
 			>
-				<VStack justifyContent="center" spacing="2px" textAlign={"center"} m="3%" mb={isSmall ? "6.5vh" : "12vh"} maxWidth="70vw">
+				<VStack justifyContent="center" spacing="2px" textAlign={"center"} m="30px" mb={isShort ? "27vh" : "15vh"} maxWidth="70vw">
 					<Text fontSize="1.4em" textColor='#16446A' fontFamily='kufam'>
                         Miss the 80's? Look no further because the Midwest’s largest student run tech-conference is bringing the raddest decade back! Join us for a week of insightful talks from industry & academia leaders, recruitment events by renowned companies, and more!
 					</Text>
