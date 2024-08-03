@@ -1,4 +1,6 @@
-import { Box, Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, Text, InputGroup, InputRightAddon, VStack } from "@chakra-ui/react";
+import { Box, Button, Flex, FormControl, FormErrorMessage, FormLabel, Input, Text, InputGroup, InputRightAddon, VStack, SimpleGrid, IconButton } from "@chakra-ui/react";
+import { CheckCircleIcon } from "@chakra-ui/icons";
+
 import { useFormik, FormikProps } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
@@ -24,6 +26,7 @@ interface FormInputProps {
 const FormInput: React.FC<FormInputProps> = ({ id, name, type, formik }) => (
 	<FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
 		<Input
+			color={'black'}
 			id={id}
 			name={name}
 			type={type}
@@ -36,6 +39,10 @@ const FormInput: React.FC<FormInputProps> = ({ id, name, type, formik }) => (
 	</FormControl>
 );
 
+function onlyUnique(value: string, index: number, array: string[]) {
+	return array.indexOf(value) === index;
+}
+
 const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, formik }) => {
 	const [children, addChild] = useState<string[]>([]);
 	
@@ -44,37 +51,52 @@ const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, formik }) 
 	const handleSubmit = (event: React.FormEvent<HTMLDivElement>) => {
 		event.preventDefault();
 		if (inputValue.trim() !== '') {
-			console.log("input!", inputValue)
-			addChild([...children, inputValue]);
+			console.log("input!", inputValue);
+			addChild([...children, inputValue].filter(onlyUnique));
 			setInputValue('');
 		}
-	  };
+	};
 
 	return (
 		<FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
+
 			<InputGroup>
 				<Input
+					color={'black'}
 					id={id}
 					name={name}
 					type={type}
-					variant="filled"
+					// variant="outline"
 					onChange={(event) => setInputValue(event.target.value)}
 					onBlur={formik.handleBlur}
+					value={inputValue}
 					// value={formik.values[name]}
 				/>
-				<InputRightAddon as="button" onClick={handleSubmit}> Click! </InputRightAddon>
+				<InputRightAddon as="button" onClick={handleSubmit} bgColor={'gray.100'}> <CheckCircleIcon /> </InputRightAddon>
 			</InputGroup>
 			<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
-			<Box>
+			<SimpleGrid columns={2} spacing={2} mt={2}>
 				{children.map((x) => (
-					<Box backgroundColor='gray.200'>
-						<Text key="x" textAlign='center'> {x as string} </Text>
+					<Box
+						backgroundColor="gray.200"
+						key={x}
+						textAlign="center"
+						rounded="md"
+						position="relative"
+						textColor={'black'}
+						onClick={() => {
+							const updatedChildren = children.filter((child) => child !== x);
+							addChild(updatedChildren);
+						}}
+						_hover={{ backgroundColor: "red.200", textDecoration: "line-through" }}
+					>
+						<Text color={'black'} fontSize={'15px'}>{x}</Text>
 					</Box>
 				))}
-			</Box>
+			</SimpleGrid>
 		</FormControl>
 	);
-}
+};
 
 
 export function AttendeeInformation() {
