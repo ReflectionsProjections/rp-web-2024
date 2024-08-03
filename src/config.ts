@@ -11,6 +11,7 @@ function getEnv(key: string, safeMode: boolean = false, defaultValue: string = "
 const Config = {
 	IS_PROD: getEnv("VITE_IS_PROD", true, "0") == "1",
 	BASE_URL: "https://api.reflectionsprojections.org/",
+	NUM_REGISTRATION_PAGES: 2,
 };
 
 export default Config;

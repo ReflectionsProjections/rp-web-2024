@@ -23,10 +23,10 @@ export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, for
 	const handleSubmit = (event: React.FormEvent<HTMLDivElement>) => {
 		event.preventDefault();
 		if (inputValue.trim() !== '') {
-            const newChildren = [...selected, inputValue].filter(onlyUnique)
+			const newChildren = [...selected, inputValue].filter(onlyUnique);
 			setSelected(newChildren);
-            formik.setFieldValue(name, newChildren);
-            setInputValue('');
+			formik.setFieldValue(name, newChildren);
+			setInputValue('');
 		}
 	};
 
@@ -57,7 +57,7 @@ export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, for
 						onClick={() => {
 							const updatedChildren = selected.filter((child) => child !== x);
 							setSelected(updatedChildren);
-                            formik.setFieldValue(name, updatedChildren);
+							formik.setFieldValue(name, updatedChildren);
 						}}
 						_hover={{ backgroundColor: "red.200", textDecoration: "line-through" }}
 					>

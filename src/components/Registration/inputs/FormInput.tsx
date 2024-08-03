@@ -8,8 +8,6 @@ interface FormInputProps {
     formik: FormikProps<any>;
 }
 
-
-
 export const FormInput: React.FC<FormInputProps> = ({ id, name, type, formik }) => (
 	<FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
 		<Input

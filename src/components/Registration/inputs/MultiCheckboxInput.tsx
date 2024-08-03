@@ -17,13 +17,13 @@ function isNotValueToRemove(valueToRemove: string) {
 	return function(x: string) {
 	  return x !== valueToRemove;
 	};
-  }
+}
 
 export const MultiCheckBoxInput: React.FC<FormInputProps> = ({ id, name, formik, checkboxText }) => {
 	const [checked, setChecked] = useState<string[]>([]);
 
 	const handleChange = (field: string) => {
-		var newChecked;
+		let newChecked;
 
 		if (checked.includes(field)) {
 			newChecked = checked.filter(isNotValueToRemove(field));
@@ -33,7 +33,7 @@ export const MultiCheckBoxInput: React.FC<FormInputProps> = ({ id, name, formik,
 		
 		setChecked(newChecked);
 		formik.setFieldValue(name, newChecked);
-	}
+	};
 
 	return (
 		<SimpleGrid spacing={2} mt={2} minChildWidth="120px" w="100%" id={id}> 
