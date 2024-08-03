@@ -10,6 +10,11 @@ interface FormInputProps {
     formik: FormikProps<any>;
 }
 
+
+function onlyUnique(value: string, index: number, array: string[]) {
+	return array.indexOf(value) === index;
+}
+
 export const FormInput: React.FC<FormInputProps> = ({ id, name, type, formik }) => (
 	<FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
 		<Input
@@ -26,20 +31,16 @@ export const FormInput: React.FC<FormInputProps> = ({ id, name, type, formik }) 
 	</FormControl>
 );
 
-function onlyUnique(value: string, index: number, array: string[]) {
-	return array.indexOf(value) === index;
-}
-
 export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, formik }) => {
-	const [children, addChild] = useState<string[]>([]);
+	const [selected, setSelected] = useState<string[]>([]);
 
 	const [inputValue, setInputValue] = useState('');
 
 	const handleSubmit = (event: React.FormEvent<HTMLDivElement>) => {
 		event.preventDefault();
 		if (inputValue.trim() !== '') {
-            const newChildren = [...children, inputValue].filter(onlyUnique)
-			addChild(newChildren);
+            const newChildren = [...selected, inputValue].filter(onlyUnique)
+			setSelected(newChildren);
             formik.setFieldValue(name, newChildren);
             setInputValue('');
 		}
@@ -62,7 +63,7 @@ export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, for
 			</InputGroup>
 			<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
 			<SimpleGrid columns={2} spacing={2} mt={2}>
-				{children.map((x) => (
+				{selected.map((x) => (
 					<Box
 						backgroundColor="gray.200"
 						key={x}
@@ -71,8 +72,8 @@ export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, for
 						position="relative"
 						textColor={'black'}
 						onClick={() => {
-							const updatedChildren = children.filter((child) => child !== x);
-							addChild(updatedChildren);
+							const updatedChildren = selected.filter((child) => child !== x);
+							setSelected(updatedChildren);
                             formik.setFieldValue(name, updatedChildren);
 						}}
 						_hover={{ backgroundColor: "red.200", textDecoration: "line-through" }}
