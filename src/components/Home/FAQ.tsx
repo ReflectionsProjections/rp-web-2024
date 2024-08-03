@@ -1,6 +1,6 @@
-import { Box, Image, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem } from "@chakra-ui/react";
 import "@fontsource/kufam/900-italic.css";
-import faq_bg from "../../../public/faq_bg.svg";
+import faq_bg from "/faq_bg.svg";
 import PageTitle from "./PageTitle";
 
 const gridItems = [
@@ -89,7 +89,7 @@ export default function FAQ() {
 											border: '1px solid white'
 										}}
 									>
-										<div style={{ opacity: 0.8 , fontSize: '2vw'}}>{item.front}</div>
+										<div style={{ opacity: 0.8 , fontSize: '2vw', background: 'linear-gradient(115deg, #FFFFFF, #EAEAEA, #4EADCA, #1DA6EC)', color: 'transparent', backgroundClip: 'text'}}>{item.front}</div>
 									</Box>
 									<Box
 										position="absolute"
@@ -97,6 +97,7 @@ export default function FAQ() {
 										height="100%"
 										sx={{
 											backfaceVisibility: "hidden",
+											padding: "2px",
 											display: "flex",
 											alignItems: "center",
 											justifyContent: "center",
@@ -108,7 +109,7 @@ export default function FAQ() {
 											lineHeight: '1.2',
 											color: 'white',
 											borderRadius: 'md',
-											border: '1px solid white'
+											border: '0.5px solid white'
 										}}
 									>
 										<div style={{ opacity: 0.8, fontSize: '2vw'}}>{item.back}</div>
