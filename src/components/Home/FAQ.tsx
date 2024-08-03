@@ -27,7 +27,7 @@ export default function FAQ() {
 			backgroundColor="#004970"
 		>
 			<PageTitle title="FAQ" />
-			<Box position="relative" height="90vw" width="90vw" bgImage={faq_bg} bgSize="100% 100%" bgRepeat="no-repeat" m="5vw">
+			<Box position="relative" minHeight="90vw" minWidth="90vw" bgImage={faq_bg} bgSize="100% 100%" bgRepeat="no-repeat" m="5vw" display='flex' justifyContent='center'>
 				{/* <Image
 					src={faq_bg}
 					width="90%"
@@ -40,10 +40,12 @@ export default function FAQ() {
 					right="0"
 					bottom="0"
 					display="flex"
-					alignItems="center"
+					alignItems="flex-start"
 					justifyContent="center"
 					zIndex="1"
 					marginTop="13vw"
+					// width="68%"
+					// height="45%"
 				>
 					<Grid
 						templateColumns="repeat(3, 1fr)"
@@ -87,7 +89,7 @@ export default function FAQ() {
 											border: '1px solid white'
 										}}
 									>
-										<div style={{ opacity: 0.8 , fontSize: '20px'}}>{item.front}</div>
+										<div style={{ opacity: 0.8 , fontSize: '2vw'}}>{item.front}</div>
 									</Box>
 									<Box
 										position="absolute"
@@ -109,7 +111,7 @@ export default function FAQ() {
 											border: '1px solid white'
 										}}
 									>
-										<div style={{ opacity: 0.8, fontSize: '18px'}}>{item.back}</div>
+										<div style={{ opacity: 0.8, fontSize: '2vw'}}>{item.back}</div>
 									</Box>
 								</Box>
 							</GridItem>
