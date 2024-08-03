@@ -1,5 +1,5 @@
 import { CheckCircleIcon } from "@chakra-ui/icons";
-import { FormControl, Input, FormErrorMessage, Box, Text, InputGroup, InputRightAddon, SimpleGrid } from "@chakra-ui/react";
+import { Box, FormControl, FormErrorMessage, Input, InputGroup, InputRightAddon, SimpleGrid, Text } from "@chakra-ui/react";
 import { FormikProps } from "formik";
 import { useState } from "react";
 
@@ -14,22 +14,6 @@ interface FormInputProps {
 function onlyUnique(value: string, index: number, array: string[]) {
 	return array.indexOf(value) === index;
 }
-
-export const FormInput: React.FC<FormInputProps> = ({ id, name, type, formik }) => (
-	<FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
-		<Input
-			color={'black'}
-			id={id}
-			name={name}
-			type={type}
-			variant="filled"
-			onChange={formik.handleChange}
-			onBlur={formik.handleBlur}
-			value={formik.values[name]}
-		/>
-		<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
-	</FormControl>
-);
 
 export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, formik }) => {
 	const [selected, setSelected] = useState<string[]>([]);
@@ -48,7 +32,6 @@ export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, for
 
 	return (
 		<FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
-
 			<InputGroup>
 				<Input
 					color={'black'}
