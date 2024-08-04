@@ -6,16 +6,21 @@ import { Pagination } from "../Pagination";
 
 import { colleges } from "../inputs/colleges";
 import { majors } from "../inputs/majors"
-import DropdownSelect from "../inputs/DropdownSelect";
+import DropdownSelect from "../inputs/AutoDropdownInput";
+import Config from "../../../config";
+import { FormInput } from "../inputs/FormInput";
+import { SelectInput } from "../inputs/SelectInput";
 
 const CareerProfileValidator = Yup.object().shape({
     university: Yup.string().required('Required'),
     major: Yup.string().required('Required'),
+    graduationYear: Yup.string().length(4).required('Required'),
 });
 
 const CareerProfileDefaults = {
     university: "",
     major: "",
+    graduationYear: "",
 };
 
 interface CareerProfileProps {
@@ -43,6 +48,7 @@ export function CareerProfile({ pageNo, goNextPage, goPrevPage }: CareerProfileP
                     <VStack spacing={4} align="flex-start">
                         <DropdownSelect id="university" name="university" formik={formik} options={colleges} />
                         <DropdownSelect id="major" name="major" formik={formik} options={majors} />
+                        <SelectInput id="graduationYear" name="graduationYear" formik={formik} options={Config.REGISTRATION_GRADUATION_YEARS}/> 
                     </VStack>
                 </Box>
                 <Box h="10vh">

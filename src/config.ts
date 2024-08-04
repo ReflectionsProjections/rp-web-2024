@@ -13,7 +13,8 @@ const Config = {
 	BASE_URL: "https://api.reflectionsprojections.org/",
 	
 	NUM_REGISTRATION_PAGES: 2,
-	REGISTRATION_MAX_DROPDOWN_OPTIONS: 5
+	REGISTRATION_MAX_DROPDOWN_OPTIONS: 5,
+	REGISTRATION_GRADUATION_YEARS: ["2023", "2024", "2025", "2026", "2027", "2028", "2029"],
 };
 
 export default Config;

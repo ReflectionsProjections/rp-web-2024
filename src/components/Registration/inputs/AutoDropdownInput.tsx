@@ -45,9 +45,9 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
     };
 
     return (
-        <Popover isOpen={isOpen} onClose={() => setIsOpen(false)} autoFocus={false} closeOnBlur={true}>
-            <PopoverTrigger>
-                <FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
+        <FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
+            <Popover isOpen={isOpen} onClose={() => setIsOpen(false)} autoFocus={false} closeOnBlur={true}>
+                <PopoverTrigger>
                     <Input
                         id={id}
                         value={query ?? selectedOption}
@@ -73,31 +73,31 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
                             setIsOpen(false)
                         }}
                     />
-                    <FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
-                </FormControl>
-            </PopoverTrigger>
-            <PopoverContent>
-                <PopoverArrow />
-                <PopoverBody>
-                    <List>
-                        {filteredOptions.map((option, index) => (
-                            <ListItem
-                                key={option}
-                                onClick={() => {
-                                    handleSelect(option)
-                                }
-                                }
-                                cursor="pointer"
-                                _hover={{ backgroundColor: 'gray.100' }}
-                                padding="8px"
-                            >
-                                {option}
-                            </ListItem>
-                        ))}
-                    </List>
-                </PopoverBody>
-            </PopoverContent>
-        </Popover >
+                </PopoverTrigger>
+                <PopoverContent>
+                    <PopoverArrow />
+                    <PopoverBody>
+                        <List>
+                            {filteredOptions.map((option, index) => (
+                                <ListItem
+                                    key={option}
+                                    onClick={() => {
+                                        handleSelect(option)
+                                    }
+                                    }
+                                    cursor="pointer"
+                                    _hover={{ backgroundColor: 'gray.100' }}
+                                    padding="8px"
+                                >
+                                    {option}
+                                </ListItem>
+                            ))}
+                        </List>
+                    </PopoverBody>
+                </PopoverContent>
+            </Popover >
+            <FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
+        </FormControl>
     );
 };
 
