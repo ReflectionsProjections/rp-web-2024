@@ -4,11 +4,10 @@ import Config from "../../config";
 
 interface PaginationProps {
     pageNo: number;
-    goNextPage: () => void;
     goPrevPage: () => void;
 }
 
-export function Pagination({pageNo, goNextPage, goPrevPage}: PaginationProps) {
+export function Pagination({pageNo, goPrevPage}: PaginationProps) {
 	function shouldEnableBack() {
 		return pageNo != 0;
 	}
@@ -18,11 +17,11 @@ export function Pagination({pageNo, goNextPage, goPrevPage}: PaginationProps) {
 	}
 
 	function NextButton() {
-		return <IconButton type="submit" m="10px" isDisabled={!shouldEnableNext()} onClick={goNextPage} aria-label='Next' height="5vh" width="5vh" icon={<ChevronRightIcon />} />;
+		return <IconButton type="submit" m="10px" isDisabled={!shouldEnableNext()} aria-label='Next' height="5vh" width="5vh" icon={<ChevronRightIcon />} />;
 	}
 
 	function SubmitButton() {
-		return <Button type="submit" m="10px" onClick={goNextPage} aria-label='Next' height="5vh" > Submit! </Button>;
+		return <Button type="submit" m="10px" aria-label='Next' height="5vh" > Submit! </Button>;
 	}
 
 	return (

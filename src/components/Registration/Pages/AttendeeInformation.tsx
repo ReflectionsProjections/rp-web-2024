@@ -61,7 +61,7 @@ export function AttendeeInformation({ pageNo, goNextPage, goPrevPage }: Attendee
 				</Box>
 
 				<Box h="10vh">
-					<Pagination pageNo={pageNo} goNextPage={goNextPage} goPrevPage={goPrevPage} />
+					<Pagination pageNo={pageNo} goPrevPage={goPrevPage} />
 				</Box>
 			</form>
 		</Flex>
