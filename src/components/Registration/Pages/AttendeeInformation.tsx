@@ -1,4 +1,4 @@
-import { Box, Button, Flex, FormLabel, VStack } from "@chakra-ui/react";
+import { Box, Flex, FormLabel, VStack } from "@chakra-ui/react";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -28,7 +28,6 @@ interface AttendeeInformationProps {
 	goNextPage: () => void;
     goPrevPage: () => void;
 }
-
 
 export function AttendeeInformation({ pageNo, goNextPage, goPrevPage }: AttendeeInformationProps) {
 	const formik = useFormik({
