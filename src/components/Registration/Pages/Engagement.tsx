@@ -33,9 +33,9 @@ export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 	});
 
 	return (
-		<Flex direction="column" w="100%" align={"center center"} mt="10vh">
+		<Flex direction="column" w="100%" align={"center center"} mt="61px">
 			<form onSubmit={formik.handleSubmit}>
-				<Box bg='#2C587E' textColor='white' fontFamily='Kufam' p={6} rounded="md" h="80vh">
+				<Box bg='#2C587E' textColor='white' fontFamily='Kufam' p={6} rounded="md" minH="calc(100vh - 145px)">
 					<VStack spacing={4} align="flex-start">
 						<FormLabel htmlFor="isInterestedPuzzleBang"> Are you interested in PuzzleBang? </FormLabel>
 						<TrueFalseSwitchInput id="isInterestedPuzzleBang" name="isInterestedPuzzleBang" formik={formik} />
@@ -47,7 +47,7 @@ export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 						<MultiCheckBoxInput id="referralSource" name="referralSource" formik={formik} options={Config.REGISTRATION_REFERRAL_SOURCE}/> 
 					</VStack>
 				</Box>
-				<Box h="10vh">
+				<Box h="80px">
 					<Pagination pageNo={pageNo} goPrevPage={goPrevPage} />
 				</Box>
 			</form>

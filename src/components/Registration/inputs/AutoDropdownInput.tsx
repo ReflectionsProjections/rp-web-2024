@@ -77,7 +77,7 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
 						<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
 					</FormControl>
 				</PopoverTrigger>
-				<PopoverContent>
+				<PopoverContent bgColor={'#313848'}>
 					<PopoverArrow />
 					<PopoverBody>
 						<List>
