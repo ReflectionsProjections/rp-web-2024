@@ -6,6 +6,7 @@ import { FormInput } from "../inputs/FormInput";
 import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
 import { MultiSelectInput } from "../inputs/MultiSelectInput";
 import { Pagination } from "../Pagination";
+import { PageProps } from "../../../routes/Registration";
 
 const AttendeeInformationValidator = Yup.object().shape({
 	name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -14,27 +15,29 @@ const AttendeeInformationValidator = Yup.object().shape({
 	dietaryRestrictions: Yup.array().of(Yup.string()).required('Required'),
 });
 
-const AttendeeInformationDefaults = {
-	email: "",
-	name: "",
-	allergies: [],
-	dietaryRestrictions: [],
-};
-
 const DIETARY_RESTRICTIONS = ["testA", "testB", "testC", "testD", "testE"];
 
-interface AttendeeInformationProps {
-	pageNo: number;
-	goNextPage: () => void;
-    goPrevPage: () => void;
-}
 
-export function AttendeeInformation({ pageNo, goNextPage, goPrevPage }: AttendeeInformationProps) {
+export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
+	var attendeeInformationDefaults;
+
+	try {
+		attendeeInformationDefaults = AttendeeInformationValidator.validateSync(attendeeData)
+	} catch (err) {
+		attendeeInformationDefaults = {
+			email: "",
+			name: "",
+			allergies: [],
+			dietaryRestrictions: [],
+		};
+	}
+
 	const formik = useFormik({
-		initialValues: AttendeeInformationDefaults,
+		initialValues: attendeeInformationDefaults,
 		validationSchema: AttendeeInformationValidator,
 
 		onSubmit: (values) => {
+			setAttendeeData({ ...values, attendeeData })
 			alert(JSON.stringify(values, null, 2));
 			goNextPage();
 		},

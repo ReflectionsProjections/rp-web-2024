@@ -11,7 +11,8 @@ interface FormInputProps {
 export const SelectInput: React.FC<FormInputProps> = ({ id, name, formik, options }) => {
     return (
         <FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
-            <Select mt={2} w="100%" id={id} onChange={(e) => {formik.setFieldValue(name, e.target.value)}} onBlur={formik.handleBlur}>
+            <Select mt={2} w="100%" id={id} onChange={(e) => {
+                formik.setFieldValue(name, e.target.value)}} onBlur={formik.handleBlur}>
                 <option> Select Graduation Year! </option>
                 {options.map((x) => <option key={x}> {x} </option>)}
             </Select>
