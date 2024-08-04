@@ -51,6 +51,7 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
 						<Input
 							id={id}
 							value={query ?? selectedOption}
+							border={'2px solid white'}
 							onFocus={(e) => {
 								console.log("on focus!");
 								e.target.value = "";

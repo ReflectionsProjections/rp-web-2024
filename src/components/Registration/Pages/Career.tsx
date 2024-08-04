@@ -40,7 +40,7 @@ export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData
 	return (
 		<Flex direction="column" w="100%" align={"center center"} mt="10vh">
 			<form onSubmit={formik.handleSubmit}>
-				<Box bg="white" p={6} rounded="md" h="80vh">
+				<Box bg='#2C587E' textColor='white' fontFamily='Kufam' p={6} rounded="md" h="80vh">
 					<VStack spacing={4} align="flex-start">
 						<FormLabel htmlFor="university"> What school do you go to? </FormLabel>
 						<DropdownSelect id="university" name="university" formik={formik} options={colleges} />

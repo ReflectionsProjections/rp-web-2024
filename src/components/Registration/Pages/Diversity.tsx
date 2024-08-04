@@ -37,7 +37,7 @@ export function Diversity ({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 	return (
 		<Flex direction="column" w="100%" align={"center center"} mt="10vh">
 			<form onSubmit={formik.handleSubmit}>
-				<Box bg="white" p={6} rounded="md" h="80vh">
+				<Box bg='#2C587E' textColor='white' fontFamily='Kufam' p={6} rounded="md" h="80vh">
 					<VStack spacing={4} align="flex-start">
 						<FormLabel htmlFor="isFirstGen"> Are you a first generation student? </FormLabel>
 						<TrueFalseCheckBoxInput id="isFirstGen" name="isFirstGen" formik={formik} />

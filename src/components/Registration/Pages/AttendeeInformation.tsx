@@ -8,6 +8,7 @@ import { MultiSelectInput } from "../inputs/MultiSelectInput";
 import { Pagination } from "../Pagination";
 import { PageProps } from "../../../routes/Registration";
 import Config from "../../../config";
+import '@fontsource/kufam/900-italic.css';
 
 const AttendeeInformationValidator = Yup.object().shape({
 	name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -44,7 +45,7 @@ export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttende
 	return (
 		<Flex direction="column" w="100%" align={"center center"} mt="10vh">
 			<form onSubmit={formik.handleSubmit}>
-				<Box bg="white" p={6} rounded="md" h="80vh">
+				<Box bg='#2C587E' textColor='white' fontFamily='Kufam' p={6} rounded="md" h="80vh">
 					<VStack spacing={4} align="flex-start">
 						<FormLabel htmlFor="name"> Name </FormLabel>
 						<FormInput id="name" name="name" type="text" formik={formik} />

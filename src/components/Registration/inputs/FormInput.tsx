@@ -11,7 +11,9 @@ interface FormInputProps {
 export const FormInput: React.FC<FormInputProps> = ({ id, name, type, formik }) => (
 	<FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
 		<Input
-			color={'black'}
+			color={'white'}
+			backgroundColor={'#2C587E'}
+			border={'2px solid white'}
 			id={id}
 			name={name}
 			type={type}

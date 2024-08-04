@@ -14,9 +14,9 @@ export const TrueFalseCheckBoxInput: React.FC<FormInputProps> = ({ id, name, for
 			<RadioGroup id={id} onChange={(e) => {formik.values[name] = (e == "true"); console.log(e);}}>
 				<Stack direction='row'>
 					<Flex direction="row" width="100%"> 
-						<Radio value='false'> NO </Radio>
-						<Spacer />
-						<Radio value='true'> YES </Radio>
+						<Radio borderColor='white' borderRadius='3px' value='true'> YES </Radio>
+						{/* <Spacer /> */}
+						<Radio borderColor='white' borderRadius='3px' marginLeft='40px' value='false'> NO </Radio>
 					</Flex>
 				</Stack>
 			</RadioGroup>
@@ -32,7 +32,7 @@ export const TrueFalseSwitchInput: React.FC<FormInputProps> = ({ id, name, formi
 	return (
 		<FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
 
-			<Switch id={id} onChange={formik.handleChange}/>
+			<Switch sx={{ 'span.chakra-switch__track:not([data-checked])': { backgroundColor: '#CC4485' } }} id={id} onChange={formik.handleChange}/>
 
 			<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
 		</FormControl>

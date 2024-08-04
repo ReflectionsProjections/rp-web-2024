@@ -1,5 +1,6 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { Flex, Center, Button, Spacer, IconButton } from "@chakra-ui/react";
+import { FaSave } from "react-icons/fa";
+import { Flex, Center, Button, Spacer, IconButton, useMediaQuery } from "@chakra-ui/react";
 import Config from "../../config";
 
 interface PaginationProps {
@@ -8,6 +9,8 @@ interface PaginationProps {
 }
 
 export function Pagination({pageNo, goPrevPage}: PaginationProps) {
+	const [isSmall] = useMediaQuery("(max-width: 400px)");
+
 	function shouldEnableBack() {
 		console.log(pageNo);
 		return pageNo != 0;
@@ -18,19 +21,19 @@ export function Pagination({pageNo, goPrevPage}: PaginationProps) {
 	}
 
 	function NextButton() {
-		return <IconButton onMouseDown={(event)=>{event.preventDefault();}} type="submit" m="10px" onClick={() => console.log("click!")} isDisabled={!shouldEnableNext()} aria-label='Next' height="5vh" width="5vh" icon={<ChevronRightIcon />} />;
+		return <IconButton color='white' borderRadius='50%' bgColor='#EC99A7' onMouseDown={(event)=>{event.preventDefault();}} type="submit" m="10px" onClick={() => console.log("click!")} isDisabled={!shouldEnableNext()} aria-label='Next' height="5vh" width="5vh" icon={<ChevronRightIcon />} />;
 	}
 
 	function SubmitButton() {
-		return <Button type="submit" m="10px" aria-label='Next' height="5vh" > Submit! </Button>;
+		return <Button color='white' bgColor='#EC99A7' borderRadius='10px' type="submit" m="10px" aria-label='Next' height="5vh" > Submit! </Button>;
 	}
 
 	return (
 		<Flex width="full" padding="10px">
-			<Center> <Button m="10px" variant="solid" minWidth="120px" maxWidth="160px"> Save </Button> </Center>
+			<Center> <Button color='white' bgColor='#EC99A7' borderRadius='10px' m="10px" variant="solid" maxWidth="160px">{isSmall ? <FaSave/> : "Save" } </Button> </Center>
 			<Spacer />
 			<Center>
-				<IconButton m="10px" isDisabled={!shouldEnableBack()} onClick={goPrevPage} aria-label='Back' height="5vh" width="5vh" icon={<ChevronLeftIcon />} />
+				<IconButton color='white' bgColor='#EC99A7' borderRadius='50%' m="10px" isDisabled={!shouldEnableBack()} onClick={goPrevPage} aria-label='Back' height="5vh" width="5vh" icon={<ChevronLeftIcon />} />
                 
 				{shouldEnableNext() ? <NextButton /> : <SubmitButton />}
 			</Center>

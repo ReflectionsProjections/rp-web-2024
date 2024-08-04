@@ -1,10 +1,10 @@
 import { VStack } from '@chakra-ui/react';
 import { useState } from 'react';
 import { NavBar } from '../components/NavBar';
-import AttendeeInformation from '../components/Registration/pages/AttendeeInformation';
-import Career from '../components/Registration/pages/Career';
-import Diversity from "../components/Registration/pages/Diversity";
-import Engagement from '../components/Registration/pages/Engagement';
+import AttendeeInformation from '../components/Registration/Pages/AttendeeInformation';
+import Career from '../components/Registration/Pages/Career';
+import Diversity from "../components/Registration/Pages/Diversity";
+import Engagement from '../components/Registration/Pages/Engagement';
 
 export interface PageProps {
 	pageNo: number;
