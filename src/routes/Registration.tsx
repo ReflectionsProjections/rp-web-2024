@@ -2,7 +2,9 @@ import { VStack } from '@chakra-ui/react';
 import { useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import AttendeeInformation from '../components/Registration/pages/AttendeeInformation';
-import CareerProfile from '../components/Registration/pages/CareerProfile';
+import Career from '../components/Registration/pages/Career';
+import Diversity from "../components/Registration/pages/Diversity";
+import Engagement from '../components/Registration/pages/Engagement';
 
 export interface PageProps {
 	pageNo: number;
@@ -12,8 +14,12 @@ export interface PageProps {
 	attendeeData: object;
 }
 
+export interface FormikValues {
+    [key: string]: unknown;
+}
+
 export default function Registration() {
-	const [pageNo, setPageNo] = useState(0);
+	const [pageNo, setPageNo] = useState(3);
 	const [attendeeData, setAttendeeData] = useState<object>({});
 
 	function goNextPage() {
@@ -30,14 +36,14 @@ export default function Registration() {
 		goPrevPage: goPrevPage, 
 		setAttendeeData: setAttendeeData,
 		attendeeData: attendeeData,
-	}
+	};
 
 	function getPage() {
 		switch (pageNo) {
 		case 0: return <AttendeeInformation {...props}/>;
-		case 1: return <CareerProfile {...props}/>;
-		case 2: return <></>;
-		case 3: return <></>;
+		case 1: return <Career {...props}/>;
+		case 2: return <Diversity {...props}/>;
+		case 3: return <Engagement {...props}/>;
 		}
 	}
 

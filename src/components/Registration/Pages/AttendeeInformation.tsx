@@ -7,6 +7,7 @@ import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
 import { MultiSelectInput } from "../inputs/MultiSelectInput";
 import { Pagination } from "../Pagination";
 import { PageProps } from "../../../routes/Registration";
+import Config from "../../../config";
 
 const AttendeeInformationValidator = Yup.object().shape({
 	name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -15,14 +16,11 @@ const AttendeeInformationValidator = Yup.object().shape({
 	dietaryRestrictions: Yup.array().of(Yup.string()).required('Required'),
 });
 
-const DIETARY_RESTRICTIONS = ["testA", "testB", "testC", "testD", "testE"];
-
-
 export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
-	var attendeeInformationDefaults;
+	let attendeeInformationDefaults;
 
 	try {
-		attendeeInformationDefaults = AttendeeInformationValidator.validateSync(attendeeData)
+		attendeeInformationDefaults = AttendeeInformationValidator.validateSync(attendeeData);
 	} catch (err) {
 		attendeeInformationDefaults = {
 			email: "",
@@ -37,7 +35,7 @@ export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttende
 		validationSchema: AttendeeInformationValidator,
 
 		onSubmit: (values) => {
-			setAttendeeData({ ...values, attendeeData })
+			setAttendeeData({ ...values, attendeeData });
 			alert(JSON.stringify(values, null, 2));
 			goNextPage();
 		},
@@ -55,7 +53,7 @@ export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttende
 						<FormInput id="email" name="email" type="text" formik={formik} />
 
 						<FormLabel htmlFor="dietaryRestrictions">Do you have any dietary restrictions?</FormLabel>
-						<MultiCheckBoxInput id="dietaryRestrictions" name="dietaryRestrictions" checkboxText={DIETARY_RESTRICTIONS} formik={formik} />
+						<MultiCheckBoxInput id="dietaryRestrictions" name="dietaryRestrictions" options={Config.REGISTRATION_DIETARY_RESTRICTIONS} formik={formik} />
 
 						<FormLabel htmlFor="allergies">Do you have any allergies?</FormLabel>
 						<MultiSelectInput id="allergies" name="allergies" type="text" formik={formik} />

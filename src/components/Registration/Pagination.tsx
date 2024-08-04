@@ -9,6 +9,7 @@ interface PaginationProps {
 
 export function Pagination({pageNo, goPrevPage}: PaginationProps) {
 	function shouldEnableBack() {
+		console.log(pageNo);
 		return pageNo != 0;
 	}
 
@@ -17,7 +18,7 @@ export function Pagination({pageNo, goPrevPage}: PaginationProps) {
 	}
 
 	function NextButton() {
-		return <IconButton onMouseDown={(event)=>{event.preventDefault()}} type="submit" m="10px" onClick={() => console.log("click!")} isDisabled={!shouldEnableNext()} aria-label='Next' height="5vh" width="5vh" icon={<ChevronRightIcon />} />;
+		return <IconButton onMouseDown={(event)=>{event.preventDefault();}} type="submit" m="10px" onClick={() => console.log("click!")} isDisabled={!shouldEnableNext()} aria-label='Next' height="5vh" width="5vh" icon={<ChevronRightIcon />} />;
 	}
 
 	function SubmitButton() {
