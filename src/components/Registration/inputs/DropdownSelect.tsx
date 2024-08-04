@@ -30,6 +30,7 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
     ).slice(0, Config.REGISTRATION_MAX_DROPDOWN_OPTIONS);
 
     const handleSelect = (option: string) => {
+        console.log("selected!", option)
         setSelectedOption(option);
         setQuery(null);
         setIsOpen(false);
@@ -37,7 +38,7 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
     };
 
     return (
-        <Popover isOpen={isOpen} onClose={() => setIsOpen(false)} autoFocus={false} closeOnBlur>
+        <Popover isOpen={isOpen} onClose={() => setIsOpen(false)} autoFocus={false} closeOnBlur={true}>
             <PopoverTrigger>
                 <Box>
                     <Input
@@ -47,20 +48,16 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
                             e.target.value = ""
                             setQuery(e.target.value);
                         }}
-
-                        onBlur={() => {
-                            setQuery(null);
-                            setIsOpen(false);
-                            setSelectedOption("");
-                        
-                        }}
                         onChange={(e) => {
                             setQuery(e.target.value);
                             setIsOpen(true);
                         }}
-                        // placeholder={selectedOption ? selectedOption : 'Select an option'}
-                        onClick={() => setIsOpen(!isOpen)}
-                        
+                        onClick={() => {
+                            setIsOpen(!isOpen)
+                        }}
+                        onBlur={() => {
+                            setIsOpen(false)
+                        }}
                     />
                 </Box>
             </PopoverTrigger>
