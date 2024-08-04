@@ -10,13 +10,13 @@ import DropdownSelect from "../inputs/DropdownSelect";
 
 const CareerProfileValidator = Yup.object().shape({
     university: Yup.string().required('Required'),
+    major: Yup.string().required('Required'),
 });
 
 const CareerProfileDefaults = {
     university: "",
     major: "",
 };
-
 
 interface CareerProfileProps {
     pageNo: number;
@@ -43,7 +43,6 @@ export function CareerProfile({ pageNo, goNextPage, goPrevPage }: CareerProfileP
                     <VStack spacing={4} align="flex-start">
                         <DropdownSelect id="university" name="university" formik={formik} options={colleges} />
                         <DropdownSelect id="major" name="major" formik={formik} options={majors} />
-
                     </VStack>
                 </Box>
                 <Box h="10vh">

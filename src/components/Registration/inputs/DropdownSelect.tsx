@@ -1,5 +1,7 @@
 import {
     Box,
+    FormControl,
+    FormErrorMessage,
     Input,
     List,
     ListItem,
@@ -25,9 +27,14 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState<string>("");
 
-    const filteredOptions = options.filter(option =>
-        option.toLowerCase().includes(query?.toLowerCase() ?? "")
-    ).slice(0, Config.REGISTRATION_MAX_DROPDOWN_OPTIONS);
+    const [filteredOptions, setFilteredOptions] = useState<string[]>(options.slice(0, Config.REGISTRATION_MAX_DROPDOWN_OPTIONS));
+
+    const resetFilter = () => {
+        const newOptions = options.filter(option =>
+            option.toLowerCase().includes(query?.toLowerCase() ?? "")
+        ).slice(0, Config.REGISTRATION_MAX_DROPDOWN_OPTIONS);
+        setFilteredOptions(newOptions);
+    }
 
     const handleSelect = (option: string) => {
         console.log("selected!", option)
@@ -40,26 +47,34 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
     return (
         <Popover isOpen={isOpen} onClose={() => setIsOpen(false)} autoFocus={false} closeOnBlur={true}>
             <PopoverTrigger>
-                <Box>
+                <FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
                     <Input
                         id={id}
                         value={query ?? selectedOption}
                         onFocus={(e) => {
+                            console.log("on focus!");
                             e.target.value = ""
                             setQuery(e.target.value);
+                            resetFilter();
                         }}
                         onChange={(e) => {
+                            console.log("on change!");
                             setQuery(e.target.value);
+                            resetFilter();
                             setIsOpen(true);
                         }}
                         onClick={() => {
+                            console.log("on click!");
                             setIsOpen(!isOpen)
+                            setSelectedOption("");
                         }}
                         onBlur={() => {
+                            console.log("on blur!");
                             setIsOpen(false)
                         }}
                     />
-                </Box>
+                    <FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
+                </FormControl>
             </PopoverTrigger>
             <PopoverContent>
                 <PopoverArrow />
@@ -67,8 +82,11 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
                     <List>
                         {filteredOptions.map((option, index) => (
                             <ListItem
-                                key={index}
-                                onClick={() => handleSelect(option)}
+                                key={option}
+                                onClick={() => {
+                                    handleSelect(option)
+                                }
+                                }
                                 cursor="pointer"
                                 _hover={{ backgroundColor: 'gray.100' }}
                                 padding="8px"
@@ -79,7 +97,7 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
                     </List>
                 </PopoverBody>
             </PopoverContent>
-        </Popover>
+        </Popover >
     );
 };
 
