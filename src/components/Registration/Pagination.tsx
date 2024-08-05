@@ -26,11 +26,11 @@ export function Pagination({pageNo, goPrevPage}: PaginationProps) {
 	}
 
 	function SubmitButton() {
-		return <Button color='white' bgColor='#EC99A7' borderRadius='10px' type="submit" m="10px" padding={isTiny ? "10px" : "20px"} py='20px' aria-label='Next' height="5vh" > Submit! </Button>;
+		return <Button color='white' bgColor='#EC99A7' borderRadius='10px' type="submit" m="10px" padding={isTiny ? "10px" : "20px"} py='20px' aria-label='Next' maxHeight='40px' > Submit! </Button>;
 	}
 
 	return (
-		<Flex width="full" padding="10px">
+		<Flex width="full" padding="10px" maxWidth='80vw' marginLeft='10vw'>
 			<Center> <Button color='white' bgColor='#EC99A7' borderRadius='10px' m="10px" maxHeight='40px' padding={isTiny ? "15px" : "20px"} variant="solid" minWidth='auto' maxWidth="160px">{isSmall ? <FaSave/> : "Save" } </Button> </Center>
 			<Spacer />
 			<Center>

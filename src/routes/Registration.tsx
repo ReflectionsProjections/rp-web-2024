@@ -1,10 +1,13 @@
-import { VStack } from '@chakra-ui/react';
+import { Box, VStack } from '@chakra-ui/react';
 import { useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import AttendeeInformation from '../components/Registration/Pages/AttendeeInformation';
 import Career from '../components/Registration/Pages/Career';
 import Diversity from "../components/Registration/Pages/Diversity";
 import Engagement from '../components/Registration/Pages/Engagement';
+
+import BlueSands from '/Registration/blue_desert.svg';
+import MobileBG from '/Registration/mobile_bg.svg';
 
 export interface PageProps {
 	pageNo: number;
@@ -50,7 +53,9 @@ export default function Registration() {
 	return (
 		<VStack spacing={0}>
 			<NavBar />
-			{getPage()}
+			<Box bgImage={MobileBG} bgSize="115% 105%" bgPosition="center calc(100% + 55px)" bgRepeat="no-repeat" minH="100vh" minW="100vw">
+				{getPage()}
+			</Box>
 		</VStack>
 
 	);

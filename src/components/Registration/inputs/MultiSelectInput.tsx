@@ -44,7 +44,7 @@ export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, for
 					onBlur={formik.handleBlur}
 					value={inputValue}
 				/>
-				<InputRightAddon as="button" onClick={handleSubmit} border={'2px solid white'} borderLeft='none'> <CheckCircleIcon /> </InputRightAddon>
+				<InputRightAddon as="button" onClick={handleSubmit} backgroundColor={'#f4f4f42e'} border={'2px solid white'} borderLeft='none'> <CheckCircleIcon /> </InputRightAddon>
 			</InputGroup>
 			<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
 			<SimpleGrid columns={2} spacing={2} mt={2}>
