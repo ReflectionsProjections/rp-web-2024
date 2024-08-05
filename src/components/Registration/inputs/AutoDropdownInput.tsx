@@ -80,7 +80,7 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
 				<PopoverContent>
 					<PopoverArrow />
 					<PopoverBody>
-						<List>
+						<List onMouseDown={(event)=>{event.preventDefault();}}>
 							{filteredOptions.map((option) => (
 								<ListItem
 									key={option}
