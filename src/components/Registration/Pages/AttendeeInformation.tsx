@@ -43,9 +43,9 @@ export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttende
 	});
 
 	return (
-		<Flex direction="column" w="100%" align={"center center"} mt="10vh">
+		<Flex direction="column" w="100%" align={"center center"} mt="61px">
 			<form onSubmit={formik.handleSubmit}>
-				<Box bg='#2C587E' textColor='white' fontFamily='Kufam' p={6} rounded="md" h="80vh">
+				<Box bg='#2C587E' textColor='white' fontFamily='Kufam' p={6} rounded="md" minH="calc(100vh - 145px)">
 					<VStack spacing={4} align="flex-start">
 						<FormLabel htmlFor="name"> Name </FormLabel>
 						<FormInput id="name" name="name" type="text" formik={formik} />
@@ -61,7 +61,7 @@ export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttende
 					</VStack>
 				</Box>
 
-				<Box h="10vh">
+				<Box h="80px">
 					<Pagination pageNo={pageNo} goPrevPage={goPrevPage} />
 				</Box>
 			</form>
