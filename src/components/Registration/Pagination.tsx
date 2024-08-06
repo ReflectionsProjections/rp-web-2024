@@ -23,7 +23,7 @@ export function Pagination({pageNo, goPrevPage}: PaginationProps) {
 	}
 
 	function NextButton() {
-		return <IconButton color='white' borderRadius='50%' bgColor='#EC99A7' m="10px" ml='80px' maxHeight='40px' onMouseDown={(event)=>{event.preventDefault();}} type="submit" padding='20px' onClick={() => console.log("click!")} isDisabled={!shouldEnableNext()} aria-label='Next' height="40px" width="40px" icon={<ChevronRightIcon />} />;
+		return <IconButton color='white' borderRadius='50%' bgColor='#EC99A7' m="10px" ml={isTiny ? '40px' :'80px'} maxHeight='40px' onMouseDown={(event)=>{event.preventDefault();}} type="submit" padding='20px' onClick={() => console.log("click!")} isDisabled={!shouldEnableNext()} aria-label='Next' height="40px" width="40px" icon={<ChevronRightIcon />} />;
 	}
 
 	function SubmitButton() {
