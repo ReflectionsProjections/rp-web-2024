@@ -1,4 +1,4 @@
-import { Box, VStack } from '@chakra-ui/react';
+import { Box, VStack, useMediaQuery } from '@chakra-ui/react';
 import { useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import AttendeeInformation from '../components/Registration/Pages/AttendeeInformation';
@@ -22,6 +22,8 @@ export interface FormikValues {
 }
 
 export default function Registration() {
+	const [isSmall] = useMediaQuery("(max-width: 600px)");
+	const [isShort] = useMediaQuery("(max-height: 735px)");
 	const [pageNo, setPageNo] = useState(3);
 	const [attendeeData, setAttendeeData] = useState<object>({});
 
@@ -53,7 +55,7 @@ export default function Registration() {
 	return (
 		<VStack spacing={0}>
 			<NavBar />
-			<Box bgImage={MobileBG} bgSize="115% 105%" bgPosition="center calc(100% + 55px)" bgRepeat="no-repeat" minH="100vh" minW="100vw">
+			<Box bgImage={isSmall ? MobileBG : isShort ? MobileBG : BlueSands} bgSize="115% 105%" bgPosition="center calc(100% + 55px)" bgRepeat="no-repeat" minH="100vh" minW="100vw">
 				{getPage()}
 			</Box>
 		</VStack>

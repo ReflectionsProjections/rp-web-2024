@@ -1,4 +1,4 @@
-import { Box, Flex, FormLabel, VStack } from "@chakra-ui/react";
+import { Box, Flex, FormLabel, VStack, useMediaQuery } from "@chakra-ui/react";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -23,6 +23,7 @@ const DiversityDefaults = {
 
 
 export function Diversity ({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
+	const [isSmall] = useMediaQuery("(max-width: 600px)");
 	const formik = useFormik({
 		initialValues: DiversityDefaults,
 		validationSchema: DiversityValidator,
@@ -35,9 +36,9 @@ export function Diversity ({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 	});
 
 	return (
-		<Flex direction="column" w="100%" align={"center center"} mt="61px">
+		<Flex direction="column" w="100%" align={"center center"} mt={isSmall ? "61px": "90px"}>
 			<form onSubmit={formik.handleSubmit}>
-				<Box textColor='white' fontFamily='Kufam' p={6} rounded="md" minH="calc(100vh - 200px)">
+				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"} maxHeight='750px'>
 					<VStack spacing={4} align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
 						<FormLabel htmlFor="isFirstGen"> Are you a first generation student? </FormLabel>
 						<TrueFalseCheckBoxInput id="isFirstGen" name="isFirstGen" formik={formik} />

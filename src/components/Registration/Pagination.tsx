@@ -9,6 +9,7 @@ interface PaginationProps {
 }
 
 export function Pagination({pageNo, goPrevPage}: PaginationProps) {
+	const [isMedium] = useMediaQuery("(max-width: 600px)");
 	const [isSmall] = useMediaQuery("(max-width: 400px)");
 	const [isTiny] = useMediaQuery("(max-width: 300px)");
 
@@ -22,7 +23,7 @@ export function Pagination({pageNo, goPrevPage}: PaginationProps) {
 	}
 
 	function NextButton() {
-		return <IconButton color='white' borderRadius='50%' bgColor='#EC99A7' m="10px" maxHeight='40px' onMouseDown={(event)=>{event.preventDefault();}} type="submit" padding='20px' onClick={() => console.log("click!")} isDisabled={!shouldEnableNext()} aria-label='Next' height="40px" width="40px" icon={<ChevronRightIcon />} />;
+		return <IconButton color='white' borderRadius='50%' bgColor='#EC99A7' m="10px" ml='80px' maxHeight='40px' onMouseDown={(event)=>{event.preventDefault();}} type="submit" padding='20px' onClick={() => console.log("click!")} isDisabled={!shouldEnableNext()} aria-label='Next' height="40px" width="40px" icon={<ChevronRightIcon />} />;
 	}
 
 	function SubmitButton() {
@@ -30,7 +31,7 @@ export function Pagination({pageNo, goPrevPage}: PaginationProps) {
 	}
 
 	return (
-		<Flex width="full" padding="10px" maxWidth='80vw' marginLeft='10vw'>
+		<Flex width="full" padding="10px" maxWidth={isMedium ? '90vw': '80vw'} marginLeft={isMedium ? '5vw': '10vw'}>
 			<Center> <Button color='white' bgColor='#EC99A7' borderRadius='10px' m="10px" maxHeight='40px' padding={isTiny ? "15px" : "20px"} variant="solid" minWidth='auto' maxWidth="160px">{isSmall ? <FaSave/> : "Save" } </Button> </Center>
 			<Spacer />
 			<Center>
