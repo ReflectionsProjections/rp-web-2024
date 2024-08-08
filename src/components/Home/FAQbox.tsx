@@ -26,6 +26,7 @@ const CollapsibleSection = ({
 			mx="auto" 
 		>
 			<MotionBox
+				onClick={onToggle}
 				minHeight='300px'
 				width="100%"
 				alignItems='center'
@@ -47,10 +48,12 @@ const CollapsibleSection = ({
 					onClick={onToggle}
 					minHeight={'100%'}
 					minWidth={'100%'}
+					maxWidth={'100%'}
+					maxHeight={'100%'}
 					bg="transparent"
 					color="inherit"
-					borderRadius={isOpen ? "8px 8px 0 0" : "md"}
-					p={4}
+					// borderRadius={isOpen ? "8px 8px 0 0" : "md"}
+					// p={4}
 					_hover={{ bg: "transparent" }}
 					_active={{ bg: "transparent" }}
 					_focus={{ boxShadow: "none" }}
