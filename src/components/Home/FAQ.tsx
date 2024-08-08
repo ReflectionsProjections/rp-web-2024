@@ -1,10 +1,11 @@
-import { Box, Grid, GridItem, useMediaQuery } from "@chakra-ui/react";
+import { Box, Grid, GridItem, useMediaQuery, Flex } from "@chakra-ui/react";
 import "@fontsource/kufam/900-italic.css";
 import faq_bg from "/faq_bg.svg";
 import PageTitle from "./PageTitle";
+import React, { useState, useEffect, useRef } from "react";
 import CollapsibleSection from "./FAQbox";
 
-const  faq = [
+const faq = [
 	{
 		front: "a sample question about r|p blah blah blah",
 		back: "a sample answer about r|p blah blah blah",
@@ -46,6 +47,28 @@ const  faq = [
 export default function FAQ() {
 	const [isMobile] = useMediaQuery("(max-width: 768px)");
 
+	const [boxHeight, setBoxHeight] = useState(0);
+	const coloredBoxRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const resizeObserver = new ResizeObserver((entries) => {
+			for (let entry of entries) {
+				console.log("Observed height:", entry.contentRect.height);
+				setBoxHeight(entry.contentRect.height);
+			}
+		});
+
+		if (coloredBoxRef.current) {
+			resizeObserver.observe(coloredBoxRef.current);
+		}
+
+		return () => {
+			if (coloredBoxRef.current) {
+				resizeObserver.unobserve(coloredBoxRef.current);
+			}
+		};
+	}, []);
+
 	if (isMobile) {
 		return (
 			<Box
@@ -60,13 +83,59 @@ export default function FAQ() {
 				<PageTitle title="FAQ" />
 
 				<Box p={8}>
-					{faq.map((qa, index) => (
-						<CollapsibleSection
-							key={index}
-							question={qa.front}
-							answer={qa.back}
-						/>
-					))}
+					<Box
+						bg="#070F2D"
+						p={4}
+						minHeight="100px"
+						position="relative"
+						ref={coloredBoxRef}
+					>
+						{faq.map((qa, index) => (
+							<Box key={index} width="90%" mb={4} mx="auto">
+								<CollapsibleSection question={qa.front} answer={qa.back} />
+							</Box>
+						))}
+
+						<Flex
+							direction="column"
+							position="absolute"
+							left={2}
+							top={0}
+							bottom={0}
+							zIndex={1}
+						>
+							{[...Array(Math.floor(boxHeight / 18))].map((_, index) => (
+								<Box
+									key={index}
+									width={2}
+									height={1}
+									bg="white"
+									marginY={2}
+									borderRadius="full"
+								/>
+							))}
+						</Flex>
+
+						<Flex
+							direction="column"
+							position="absolute"
+							right={2}
+							top={0}
+							bottom={0}
+							zIndex={1}
+						>
+							{[...Array(Math.floor(boxHeight / 18))].map((_, index) => (
+								<Box
+									key={index}
+									width={2}
+									height={1}
+									bg="white"
+									marginY={2}
+									borderRadius="full"
+								/>
+							))}
+						</Flex>
+					</Box>
 				</Box>
 			</Box>
 		);
