@@ -26,11 +26,14 @@ const CollapsibleSection = ({
 			mx="auto" 
 		>
 			<MotionBox
+				minHeight='300px'
 				width="100%"
+				alignItems='center'
+				display='flex'
 				p={{ base: 4, md: 6 }}
-				bg="#289696"
+				bg="#D3D3D3"
 				borderRadius={isOpen ? "8px 8px 0 0" : "md"}
-				color="white"
+				color="#070F2D"
 				fontFamily="Kafum"
 				fontWeight="semibold"
 				textTransform="none"
@@ -42,7 +45,8 @@ const CollapsibleSection = ({
 			>
 				<Button
 					onClick={onToggle}
-					width="full"
+					minHeight={'100%'}
+					minWidth={'100%'}
 					bg="transparent"
 					color="inherit"
 					borderRadius={isOpen ? "8px 8px 0 0" : "md"}
@@ -76,7 +80,7 @@ const CollapsibleSection = ({
 						style={{
 							overflow: "hidden",
 							width: "100%",
-							backgroundColor: "#289696",
+							backgroundColor: "#ab9e9e",
 							borderRadius: "0 0 8px 8px",
 							marginTop: 0,
 						}}

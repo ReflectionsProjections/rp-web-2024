@@ -5,6 +5,8 @@ import PageTitle from "./PageTitle";
 import React, { useState, useEffect, useRef } from "react";
 import CollapsibleSection from "./FAQbox";
 
+import InfoDecor from "/Info/film.svg";
+
 const faq = [
 	{
 		front: "a sample question about r|p blah blah blah",
@@ -52,7 +54,7 @@ export default function FAQ() {
 
 	useEffect(() => {
 		const resizeObserver = new ResizeObserver((entries) => {
-			for (let entry of entries) {
+			for (const entry of entries) {
 				console.log("Observed height:", entry.contentRect.height);
 				setBoxHeight(entry.contentRect.height);
 			}
@@ -73,18 +75,19 @@ export default function FAQ() {
 		return (
 			<Box
 				width="100%"
-				height="200vh"
+				minHeight="200vh"
 				justifyContent="center"
 				display="flex"
 				flexDirection="column"
 				alignContent="center"
 				backgroundColor="#004970"
+
 			>
 				<PageTitle title="FAQ" />
 
-				<Box p={8}>
+				<Box p={8} m={8} bgImage={InfoDecor} bgSize="100% auto" bgRepeat="repeat-y">
 					<Box
-						bg="#070F2D"
+						// bg="#070F2D"
 						p={4}
 						minHeight="100px"
 						position="relative"
@@ -96,7 +99,7 @@ export default function FAQ() {
 							</Box>
 						))}
 
-						<Flex
+						{/* <Flex
 							direction="column"
 							position="absolute"
 							left={2}
@@ -114,9 +117,9 @@ export default function FAQ() {
 									borderRadius="full"
 								/>
 							))}
-						</Flex>
+						</Flex> */}
 
-						<Flex
+						{/* <Flex
 							direction="column"
 							position="absolute"
 							right={2}
@@ -134,7 +137,7 @@ export default function FAQ() {
 									borderRadius="full"
 								/>
 							))}
-						</Flex>
+						</Flex> */}
 					</Box>
 				</Box>
 			</Box>
