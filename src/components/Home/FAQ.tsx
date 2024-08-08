@@ -1,41 +1,99 @@
-import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem, useMediaQuery } from "@chakra-ui/react";
 import "@fontsource/kufam/900-italic.css";
 import faq_bg from "/faq_bg.svg";
 import PageTitle from "./PageTitle";
+import CollapsibleSection from "./FAQbox";
 
-const gridItems = [
-	{ front: 'aa sample question about r|p blah blah blah', back: 'a sample answer about r|p blah blah blah' },
-	{ front: 'a sample question about r|p blah blah blah', back: 'a sample answer about r|p blah blah blah' },
-	{ front: 'a sample question about r|p blah blah blah', back: 'a sample answer about r|p blah blah blah' },
-	{ front: 'a sample question about r|p blah blah blah', back: 'a sample answer about r|p blah blah blah' },
-	{ front: 'a sample question about r|p blah blah blah', back: 'a sample answer about r|p blah blah blah' },
-	{ front: 'a sample question about r|p blah blah blah', back: 'a sample answer about r|p blah blah blah' },
-	{ front: 'a sample question about r|p blah blah blah', back: 'a sample answer about r|p blah blah blah' },
-	{ front: 'a sample question about r|p blah blah blah', back: 'a sample answer about r|p blah blah blah' },
-	{ front: 'a sample question about r|p blah blah blah', back: 'a sample answer about r|p blah blah blah' },
+const  faq = [
+	{
+		front: "a sample question about r|p blah blah blah",
+		back: "a sample answer about r|p blah blah blah",
+	},
+	{
+		front: "a sample question about r|p blah blah blah",
+		back: "a sample answer about r|p blah blah blah",
+	},
+	{
+		front: "a sample question about r|p blah blah blah",
+		back: "a sample answer about r|p blah blah blah",
+	},
+	{
+		front: "a sample question about r|p blah blah blah",
+		back: "a sample answer about r|p blah blah blah",
+	},
+	{
+		front: "a sample question about r|p blah blah blah",
+		back: "a sample answer about r|p blah blah blah",
+	},
+	{
+		front: "a sample question about r|p blah blah blah",
+		back: "a sample answer about r|p blah blah blah",
+	},
+	{
+		front: "a sample question about r|p blah blah blah",
+		back: "a sample answer about r|p blah blah blah",
+	},
+	{
+		front: "a sample question about r|p blah blah blah",
+		back: "a sample answer about r|p blah blah blah",
+	},
+	{
+		front: "a sample question about r|p blah blah blah",
+		back: "a sample answer about r|p blah blah blah",
+	},
 ];
 
 export default function FAQ() {
+	const [isMobile] = useMediaQuery("(max-width: 768px)");
+
+	if (isMobile) {
+		return (
+			<Box
+				width="100%"
+				height="200vh"
+				justifyContent="center"
+				display="flex"
+				flexDirection="column"
+				alignContent="center"
+				backgroundColor="#004970"
+			>
+				<PageTitle title="FAQ" />
+
+				<Box p={8}>
+					{faq.map((qa, index) => (
+						<CollapsibleSection
+							key={index}
+							question={qa.front}
+							answer={qa.back}
+						/>
+					))}
+				</Box>
+			</Box>
+		);
+	}
 	return (
 		<Box
 			width="100%"
 			height="200vh"
 			justifyContent="center"
-			display='flex'
-			flexDirection='column'
-			alignContent='center'
+			display="flex"
+			flexDirection="column"
+			alignContent="center"
 			backgroundColor="#004970"
 		>
 			<PageTitle title="FAQ" />
-			<Box position="relative" minHeight="90vw" minWidth="90vw" bgImage={faq_bg} bgSize="100% 100%" bgRepeat="no-repeat" m="5vw" display='flex' justifyContent='center'>
-				{/* <Image
-					src={faq_bg}
-					width="90%"
-					height="90%"
-					zIndex="0"
-				/> */}
+			<Box
+				position="relative"
+				minHeight="90vw"
+				minWidth="90vw"
+				bgImage={faq_bg}
+				bgSize="100% 100%"
+				bgRepeat="no-repeat"
+				m="5vw"
+				display="flex"
+				justifyContent="center"
+			>
 				<Box
-					// position="absolute"
 					top="0"
 					right="0"
 					bottom="0"
@@ -53,7 +111,7 @@ export default function FAQ() {
 						width="68vw"
 						height="45vw"
 					>
-						{gridItems.map((item, index) => (
+						{faq.map((item, index) => (
 							<GridItem
 								key={index}
 								position="relative"
@@ -80,16 +138,27 @@ export default function FAQ() {
 											alignItems: "center",
 											justifyContent: "center",
 											bgGradient: "linear(to bottom right, #289696, #173B4B)",
-											fontFamily: 'Kafum, sans-serif',
-											fontWeight: 'semibold', 
-											textAlign: 'center', 
-											lineHeight: '1.2', 
-											color: 'white',
-											borderRadius: 'md',
-											border: '1px solid white'
+											fontFamily: "Kafum, sans-serif",
+											fontWeight: "semibold",
+											textAlign: "center",
+											lineHeight: "1.2",
+											color: "white",
+											borderRadius: "md",
+											border: "1px solid white",
 										}}
 									>
-										<div style={{ opacity: 0.8 , fontSize: '2vw', background: 'linear-gradient(115deg, #FFFFFF, #EAEAEA, #4EADCA, #1DA6EC)', color: 'transparent', backgroundClip: 'text'}}>{item.front}</div>
+										<div
+											style={{
+												opacity: 0.8,
+												fontSize: "2vw",
+												background:
+													"linear-gradient(115deg, #FFFFFF, #EAEAEA, #4EADCA, #1DA6EC)",
+												color: "transparent",
+												backgroundClip: "text",
+											}}
+										>
+											{item.front}
+										</div>
 									</Box>
 									<Box
 										position="absolute"
@@ -103,16 +172,18 @@ export default function FAQ() {
 											justifyContent: "center",
 											bgGradient: "linear(to bottom right, #289696, #173B4B)",
 											transform: "rotateY(180deg)",
-											fontFamily: 'Kafum, sans-serif', 
-											fontWeight: 'semibold', 
-											textAlign: 'center',
-											lineHeight: '1.2',
-											color: 'white',
-											borderRadius: 'md',
-											border: '0.5px solid white'
+											fontFamily: "Kafum, sans-serif",
+											fontWeight: "semibold",
+											textAlign: "center",
+											lineHeight: "1.2",
+											color: "white",
+											borderRadius: "md",
+											border: "0.5px solid white",
 										}}
 									>
-										<div style={{ opacity: 0.8, fontSize: '2vw'}}>{item.back}</div>
+										<div style={{ opacity: 0.8, fontSize: "2vw" }}>
+											{item.back}
+										</div>
 									</Box>
 								</Box>
 							</GridItem>
