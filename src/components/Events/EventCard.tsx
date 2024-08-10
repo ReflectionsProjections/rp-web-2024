@@ -1,33 +1,37 @@
-import { Button, Card, CardBody, CardFooter, Heading, Stack } from "@chakra-ui/react";
+import React from 'react';
+import { Box, Flex, Text } from "@chakra-ui/react";
+import CardBg from "../../assets/events_assets/event_card.svg";
 
-import CardBg from "../../assets/events_assets/event_card.svg"
-
-export function EventCard() {
-    return (
-        <Card
-        direction={{ base: 'column', sm: 'row' }}
-        overflow='auto'
-        variant='outline'
-        margin={2}
-        bgImage={CardBg}
-        bgPosition="center"
-        bgRepeat="no-repeat"
-        bgSize="cover"
-        >
-        <Stack>
-            <CardBody>
-                <Heading size='md'>The perfect latte</Heading>
-            </CardBody>
-
-            <CardFooter>
-            <Button variant='solid' colorScheme='blue'>
-                Buy Latte
-            </Button>
-            </CardFooter>
-        </Stack>
-        </Card>
-    )
-    
+interface EventCardProps {
+  title: string;
+  location: string;
+  time: string;
 }
+
+const EventCard: React.FC<EventCardProps> = ({ title, location, time }) => {
+  return (
+    <Box
+      maxWidth="900px"
+      width="100vw"
+      height="20vh"
+      backgroundImage={`url(${CardBg})`}
+      bgSize="100% 100%"
+      backgroundPosition="center"
+      backgroundRepeat="no-repeat"
+    >
+      <Flex 
+        flexDirection="column" 
+        alignItems="flex-start" 
+        justifyContent="center" 
+        height="100%" 
+        width="100%"
+        ml="4%">
+        <Text fontSize="xl" fontWeight="bold" color="black" mb="1%">{title}</Text>
+        <Text fontSize="md" color="black">{location}</Text>
+        <Text fontSize="md" color="black">{time}</Text>
+      </Flex>
+    </Box>
+  );
+};
 
 export default EventCard;
