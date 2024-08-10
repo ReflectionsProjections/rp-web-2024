@@ -1,11 +1,11 @@
-<svg width="61" height="35" viewBox="0 0 61 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M3 3H58V32H3V3Z" fill="#FFFBD5"/>
-<path d="M3 3H6V6H3V3Z" fill="#FFD668"/>
-<path d="M3 29H6V32H3V29Z" fill="#FFD668"/>
-<path d="M55 27H58V32H55V27Z" fill="#FFD668"/>
-<path d="M55 3H58V6H55V3Z" fill="#FFD668"/>
-<path d="M6 0H55V3H6V0Z" fill="#FFD668"/>
-<path d="M6 32H55V35H6V32Z" fill="#FFD668"/>
-<path d="M0 6H3V29H0V6Z" fill="#FFD668"/>
-<path d="M58 6H61V29H58V6Z" fill="#FFD668"/>
+<svg width="145" height="82" viewBox="0 0 145 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.13115 7.02857H137.869V74.9714H7.13115V7.02857Z" fill="#FFFBD5"/>
+<path d="M7.13115 7.02857H14.2623V14.0571H7.13115V7.02857Z" fill="#FFD668"/>
+<path d="M7.13115 67.9429H14.2623V74.9714H7.13115V67.9429Z" fill="#FFD668"/>
+<path d="M130.738 63.2571H137.869V74.9714H130.738V63.2571Z" fill="#FFD668"/>
+<path d="M130.738 7.02857H137.869V14.0571H130.738V7.02857Z" fill="#FFD668"/>
+<path d="M14.2623 0H130.738V7.02857H14.2623V0Z" fill="#FFD668"/>
+<path d="M14.2623 74.9714H130.738V82H14.2623V74.9714Z" fill="#FFD668"/>
+<path d="M0 14.0571H7.13115V67.9429H0V14.0571Z" fill="#FFD668"/>
+<path d="M137.869 14.0571H145V67.9429H137.869V14.0571Z" fill="#FFD668"/>
 </svg>

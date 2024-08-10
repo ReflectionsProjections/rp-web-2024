@@ -1,18 +1,19 @@
-import { useState } from "react"
 import { Flex, Tab, TabList, TabPanel, TabPanels, Tabs, useColorModeValue, VStack } from "@chakra-ui/react"
 
 import EventCard from "./EventCard";
+import EventTab from "./EventTab"
 
 export function EventTabs() {
     return (
       <Tabs>
         <TabList>
-          <Tab>WED</Tab>
-          <Tab>THUR</Tab>
-          <Tab>FRI</Tab>
-          <Tab>SAT</Tab>
-          <Tab>SUN</Tab>
+          <EventTab day="WED"/>
+          <EventTab day="THUR"/>
+          <EventTab day="FRI"/>
+          <EventTab day="SAT"/>
+          <EventTab day="SUN"/>
         </TabList>
+
         <TabPanels p='2rem'>
           <TabPanel alignItems="center">
             <Flex 
