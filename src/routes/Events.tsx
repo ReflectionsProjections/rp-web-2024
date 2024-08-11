@@ -4,31 +4,31 @@ import '@fontsource/roboto-slab/300.css';
 import '@fontsource/nunito';
 import PageTitle from "../components/Home/PageTitle";
 import { NavBar } from '../components/NavBar';
-import { EventTabs } from "../components/Events/EventTabs"
+import { EventTabs } from "../components/Events/EventTabs";
 
 import BackgroundPattern from "../assets/events_assets/event_background.svg";
 
 export function Events() {
-  return (
-    <Box
-      position="relative"
-      minHeight="100vh"
-      bg="#16446a"
-      bgImage={`url(${BackgroundPattern})`}
-      bgSize="100% auto"
-      bgRepeat="no-repeat"
-      bgPosition="top"
-      bgAttachment="scroll"
-    >
-        <NavBar />
+	return (
+		<Box
+			position="relative"
+			minHeight="100vh"
+			bg="#16446a"
+			bgImage={`url(${BackgroundPattern})`}
+			bgSize="100% auto"
+			bgRepeat="no-repeat"
+			bgPosition="top"
+			bgAttachment="scroll"
+		>
+			<NavBar />
 
-        <Flex direction="column" position="relative">
-            <PageTitle title="EVENTS" />
+			<Flex direction="column" position="relative">
+				<PageTitle title="EVENTS" />
 
-            <EventTabs />
-        </Flex>
-    </Box>
-  );
+				<EventTabs />
+			</Flex>
+		</Box>
+	);
 }
 
 export default Events;

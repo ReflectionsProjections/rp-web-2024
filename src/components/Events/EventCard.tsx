@@ -9,29 +9,32 @@ interface EventCardProps {
 }
 
 const EventCard: React.FC<EventCardProps> = ({ title, location, time }) => {
-  return (
-    <Box
-      maxWidth="900px"
-      width="100vw"
-      height="20vh"
-      backgroundImage={`url(${CardBg})`}
-      bgSize="100% 100%"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-    >
-      <Flex 
-        flexDirection="column" 
-        alignItems="flex-start" 
-        justifyContent="center" 
-        height="100%" 
-        width="100%"
-        ml="4%">
-        <Text fontSize="xl" fontWeight="bold" color="black" mb="1%">{title}</Text>
-        <Text fontSize="md" color="black">{location}</Text>
-        <Text fontSize="md" color="black">{time}</Text>
-      </Flex>
-    </Box>
-  );
+	return (
+		<Box
+			maxWidth="900px"
+			width="100vw"
+			minHeight="150px"
+			paddingTop='30px'
+			paddingLeft='3%'
+			marginY='10px'
+			backgroundImage={`url(${CardBg})`}
+			bgSize="100% 100%"
+			backgroundPosition="center"
+			backgroundRepeat="no-repeat"
+		>
+			<Flex 
+				flexDirection="column" 
+				alignItems="flex-start" 
+				justifyContent="center" 
+				height="100%" 
+				width="100%"
+			>
+				<Text fontSize="xl" color="#0A0F7E" fontFamily='Kufam' fontWeight="800" fontStyle="italic" mb="1%">{title}</Text>
+				<Text fontSize="md" color="black">{location}</Text>
+				<Text fontSize="md" color="black">{time}</Text>
+			</Flex>
+		</Box>
+	);
 };
 
 export default EventCard;
