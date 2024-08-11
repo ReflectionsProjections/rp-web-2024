@@ -27,7 +27,7 @@ const CollapsibleSection = ({
 		>
 			<MotionBox
 				onClick={onToggle}
-				minHeight='300px'
+				minHeight='150px'
 				width="100%"
 				alignItems='center'
 				display='flex'
