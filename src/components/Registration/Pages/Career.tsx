@@ -1,29 +1,24 @@
 import { Box, Flex, FormLabel, useMediaQuery, VStack } from "@chakra-ui/react";
+import * as Yup from "yup";
+
 
 import { useFormik } from "formik";
-import * as Yup from "yup";
 import { Pagination } from "../Pagination";
 
 import Config from "../../../config";
 import { PageProps } from "../../../routes/Registration";
-import DropdownSelect from "../inputs/AutoDropdownInput";
-import { colleges } from "../inputs/colleges";
-import { majors } from "../inputs/majors";
 import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
-import { SelectInput } from "../inputs/SelectInput";
+import { MultiSelectInput } from "../inputs/MultiSelectInput";
+import { ResumeUpload } from "../inputs/ResumeUpload";
 
 const CareerProfileValidator = Yup.object().shape({
-	university: Yup.string().required('Required'),
-	major: Yup.string().required('Required'),
-	graduationYear: Yup.string().length(4).required('Required'),
+	portfolios: Yup.array().of(Yup.string().url()).required('Required').max(5),
 });
 
 const CareerProfileDefaults = {
-	university: "",
-	major: "",
-	graduationYear: "",
+	portfolios: [],
+	openTo: [],
 };
-
 
 export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
 	const [isSmall] = useMediaQuery("(max-width: 600px)");
@@ -39,21 +34,18 @@ export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData
 	});
 
 	return (
-		<Flex direction="column" w="100%" align={"center center"} mt={isSmall ? "61px": "90px"}>
+		<Flex direction="column" w="100%" align={"center center"} mt={isSmall ? "61px" : "90px"}>
 			<form onSubmit={formik.handleSubmit}>
 				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"} maxHeight='750px'>
 					<VStack spacing={4} align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
-						<FormLabel htmlFor="university"> What school do you go to? </FormLabel>
-						<DropdownSelect id="university" name="university" formik={formik} options={colleges} />
-
-						<FormLabel htmlFor="major"> What is your current (or intended) major? </FormLabel>
-						<DropdownSelect id="major" name="major" formik={formik} options={majors} />
-
-						<FormLabel htmlFor="graduationYear"> When do you graduate? </FormLabel>
-						<SelectInput id="graduationYear" name="graduationYear" formik={formik} options={Config.REGISTRATION_GRADUATION_YEARS} />
-
 						<FormLabel htmlFor="openTo"> What opportunities are you open to? </FormLabel>
 						<MultiCheckBoxInput id="openTo" name="openTo" formik={formik} options={Config.REGISTRATION_OPEN_TO} />
+
+						<FormLabel htmlFor="openTo"> Add up to 5 personal links! </FormLabel>
+						<MultiSelectInput id="portfolios" name="portfolios" formik={formik} />
+
+						<FormLabel htmlFor="resume"> Upload your resume: </FormLabel>
+						<ResumeUpload id="resume" name="resume" formik={formik} />
 					</VStack>
 				</Box>
 				<Box h="80px">

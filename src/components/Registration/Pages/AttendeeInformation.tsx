@@ -1,4 +1,4 @@
-import { Box, Flex, FormLabel, VStack, useMediaQuery } from "@chakra-ui/react";
+import { Box, Checkbox, Flex, FormLabel, VStack, useMediaQuery } from "@chakra-ui/react";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -13,7 +13,7 @@ import '@fontsource/kufam/900-italic.css';
 const AttendeeInformationValidator = Yup.object().shape({
 	name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
 	email: Yup.string().email('Invalid email').required('Required'),
-	allergies: Yup.array().of(Yup.string()).required('Required'),
+	allergies: Yup.array().of(Yup.string()).required('Required').max(5),
 	dietaryRestrictions: Yup.array().of(Yup.string()).required('Required'),
 });
 
@@ -58,7 +58,12 @@ export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttende
 						<MultiCheckBoxInput id="dietaryRestrictions" name="dietaryRestrictions" options={Config.REGISTRATION_DIETARY_RESTRICTIONS} formik={formik} />
 
 						<FormLabel htmlFor="allergies">Do you have any allergies?</FormLabel>
-						<MultiSelectInput id="allergies" name="allergies" type="text" formik={formik} />
+						<MultiSelectInput id="allergies" name="allergies" formik={formik} />
+
+						<Flex alignItems={"center center"}>
+							<FormLabel htmlFor="over18">Are you over 18 years old?</FormLabel>
+							<Checkbox id="over18" defaultChecked> Checkbox </Checkbox>
+						</Flex>
 					</VStack>
 				</Box>
 

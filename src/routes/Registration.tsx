@@ -2,12 +2,13 @@ import { Box, VStack, useMediaQuery } from '@chakra-ui/react';
 import { useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import AttendeeInformation from '../components/Registration/Pages/AttendeeInformation';
-import Career from '../components/Registration/Pages/Career';
+import Education from '../components/Registration/Pages/Education';
 import Diversity from "../components/Registration/Pages/Diversity";
 import Engagement from '../components/Registration/Pages/Engagement';
 
 import BlueSands from '/Registration/blue_desert.svg';
 import MobileBG from '/Registration/mobile_bg.svg';
+import Career from '../components/Registration/Pages/Career';
 
 export interface PageProps {
 	pageNo: number;
@@ -24,7 +25,7 @@ export interface FormikValues {
 export default function Registration() {
 	const [isSmall] = useMediaQuery("(max-width: 600px)");
 	const [isShort] = useMediaQuery("(max-height: 735px)");
-	const [pageNo, setPageNo] = useState(3);
+	const [pageNo, setPageNo] = useState(4);
 	const [attendeeData, setAttendeeData] = useState<object>({});
 
 	function goNextPage() {
@@ -46,9 +47,10 @@ export default function Registration() {
 	function getPage() {
 		switch (pageNo) {
 		case 0: return <AttendeeInformation {...props}/>;
-		case 1: return <Career {...props}/>;
-		case 2: return <Diversity {...props}/>;
-		case 3: return <Engagement {...props}/>;
+		case 1: return <Education {...props}/>;
+		case 2: return <Career {...props} />
+		case 3: return <Diversity {...props}/>;
+		case 4: return <Engagement {...props}/>;
 		}
 	}
 

@@ -1,4 +1,4 @@
-import { Flex, FormControl, FormErrorMessage, Radio, RadioGroup, Spacer, Stack, Switch } from "@chakra-ui/react";
+import { Flex, FormControl, FormErrorMessage, Radio, RadioGroup, Stack, Switch } from "@chakra-ui/react";
 import { FormikProps } from "formik";
 
 interface FormInputProps {

@@ -6,7 +6,6 @@ import { useState } from "react";
 interface FormInputProps {
     id: string;
     name: string;
-    type: string;
     formik: FormikProps<any>;
 }
 
@@ -15,7 +14,7 @@ function onlyUnique(value: string, index: number, array: string[]) {
 	return array.indexOf(value) === index;
 }
 
-export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, formik }) => {
+export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, formik }) => {
 	const [selected, setSelected] = useState<string[]>([]);
 
 	const [inputValue, setInputValue] = useState('');
@@ -39,7 +38,7 @@ export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, type, for
 					borderRight='none'
 					id={id}
 					name={name}
-					type={type}
+					isDisabled={!!formik.errors[name]}
 					onChange={(event) => setInputValue(event.target.value.toUpperCase())}
 					onBlur={formik.handleBlur}
 					value={inputValue}
