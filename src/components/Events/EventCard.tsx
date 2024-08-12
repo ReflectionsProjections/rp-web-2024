@@ -24,14 +24,13 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, time }) => {
 		>
 			<Flex 
 				flexDirection="column" 
-				alignItems="flex-start" 
-				justifyContent="center" 
+				alignItems="flex-start"
 				height="100%" 
 				width="100%"
 			>
-				<Text fontSize="xl" color="#0A0F7E" fontFamily='Kufam' fontWeight="800" fontStyle="italic" mb="1%">{title}</Text>
+				<Text fontSize="xl" color="#0A0F7E" fontFamily='Kufam' fontWeight="800" fontStyle="italic" mr="3%" mt="1%" textAlign="left">{title}</Text>
 				<Text fontSize="md" color="black">{location}</Text>
-				<Text fontSize="md" color="black">{time}</Text>
+				<Text fontSize="md" color="black" mb="4%">{time}</Text>
 			</Flex>
 		</Box>
 	);
