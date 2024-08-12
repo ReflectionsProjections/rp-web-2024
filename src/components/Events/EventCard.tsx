@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, IconButton, Text } from "@chakra-ui/react";
 import CardBg from "../../assets/events_assets/event_card.svg";
 import CardHead from "../../assets/events_assets/event_card_head.svg";
 import ExtendedCardBg from "../../assets/events_assets/event_card_extended.svg";
+import { ChevronDownIcon } from '@chakra-ui/icons';
 
 interface EventCardProps {
   title: string;
@@ -26,7 +27,7 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, time, descriptio
 			// paddingTop={isExtended ? "35px" : "35px"}
 			
 			marginY='10px'
-      marginX='2vw'
+			marginX='2vw'
 			backgroundImage={`url(${CardBg})`}
 			bgSize="100% 100%"
 			backgroundPosition="center"
@@ -64,7 +65,11 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, time, descriptio
 					{title}
 				</Text>
 				<Text fontSize="md" color="black">{location}</Text>
-				<Text fontSize="md" color="black" mb={isExtended ? "2%" : "4%"}>{time}</Text>
+				<HStack width='88vw' maxWidth="835px" mb={isExtended ? "2%" : "4%"}>
+					<Text fontSize="md" color="black">{time}</Text>
+					<ChevronDownIcon width='30px' height='30px' transform={`translateY(-10px) rotate(${isExtended ? 180 : 0 }deg)`} ml={'auto'} borderRadius='50%' color='black' transition='all 0.3s' />
+				</HStack>
+          
         
 				{isExtended && (
 					<Text fontSize="md" color="black" textAlign="left">{description}</Text>
