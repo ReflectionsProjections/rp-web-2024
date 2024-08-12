@@ -48,7 +48,7 @@ const fetchEvents = async (): Promise<Event[]> => {
   }
 };
 
-const EventTabs = () => {
+export const EventTabs = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
