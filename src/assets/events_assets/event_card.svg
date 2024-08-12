@@ -8,11 +8,4 @@
 <path d="M1053.64 190.739H1069.32V206.246H1053.64V190.739Z" fill="#FE77DD"/>
 <path d="M31.3584 0H1053.64V7.75362H31.3584V0Z" fill="#FE77DD"/>
 <path d="M31.3584 206.246H1053.64V214H31.3584V206.246Z" fill="#FE77DD"/>
-<rect x="37.6299" y="13.9565" width="1003.47" height="24.2865" rx="3" fill="url(#paint0_linear_2627_32)"/>
-<defs>
-<linearGradient id="paint0_linear_2627_32" x1="37.6299" y1="26.0998" x2="1041.1" y2="26.0998" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FE77DD"/>
-<stop offset="1" stop-color="#FFD963"/>
-</linearGradient>
-</defs>
 </svg>

@@ -29,45 +29,45 @@ const endDate = new Date('2024-09-22'); // September 22 (Sunday)
 
 // Function to check if an event falls within the date range
 const isWithinDateRange = (date: Date): boolean => {
-  return date >= startDate && date <= endDate;
+	return date >= startDate && date <= endDate;
 };
 
 // Function to get the day of the week (e.g., "Wed", "Thu") from a Date object
 const getDayOfWeek = (date: Date): string => {
-  return date.toLocaleDateString('en-US', { weekday: 'short' });
+	return date.toLocaleDateString('en-US', { weekday: 'short' });
 };
 
 // Fetch events from the API
 const fetchEvents = async (): Promise<Event[]> => {
-  try {
-    const response = await axios.get<Event[]>('https://api.reflectionsprojections.org/events');
-    return response.data;
-  } catch (error) {
-    console.error("Failed to fetch events:", error);
-    return [];
-  }
+	try {
+		const response = await axios.get<Event[]>('https://api.reflectionsprojections.org/events');
+		return response.data;
+	} catch (error) {
+		console.error("Failed to fetch events:", error);
+		return [];
+	}
 };
 
 export const EventTabs = () => {
-  const [events, setEvents] = useState<Event[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+	const [events, setEvents] = useState<Event[]>([]);
+	const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(() => {
-    const getEvents = async () => {
-      const fetchedEvents = await fetchEvents();
-      setEvents(fetchedEvents);
-      setLoading(false);
-    };
-    getEvents();
-  }, []);
+	useEffect(() => {
+		const getEvents = async () => {
+			const fetchedEvents = await fetchEvents();
+			setEvents(fetchedEvents);
+			setLoading(false);
+		};
+		getEvents();
+	}, []);
 
-  // Filter events by the specific day and within the date range
-  const filterEventsByDay = (day: string) => {
-    return events.filter(event => {
-      const eventDate = new Date(event.startTime);
-      return isWithinDateRange(eventDate) && getDayOfWeek(eventDate) === day;
-    });
-  };
+	// Filter events by the specific day and within the date range
+	const filterEventsByDay = (day: string) => {
+		return events.filter(event => {
+			const eventDate = new Date(event.startTime);
+			return isWithinDateRange(eventDate) && getDayOfWeek(eventDate) === day;
+		});
+	};
 
 	return (
 		<Tabs variant='unstyled'>
@@ -89,27 +89,27 @@ export const EventTabs = () => {
 			</Flex>
 
 			<TabPanels>
-        {['Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
-          <TabPanel key={day}>
-            <Flex flexDirection="column" alignItems="center" height="100%" width="100%">
-              {loading ? (
-                <p>Loading events...</p>
-              ) : (
-                filterEventsByDay(day).map(event => (
-                  <EventCard
-                    key={event.eventId}
-                    title={event.name}
-                    location={event.location ?? 'Virtual'}
-                    time={new Date(event.startTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
-                    description={event.description}
-                  />
-                ))
-              )}
-            </Flex>
-          </TabPanel>
-        ))}
-      </TabPanels>
+				{['Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
+					<TabPanel key={day}>
+						<Flex flexDirection="column" alignItems="center" height="100%" width="100%">
+							{loading ? (
+								<p>Loading events...</p>
+							) : (
+								filterEventsByDay(day).map(event => (
+									<EventCard
+										key={event.eventId}
+										title={event.name}
+										location={event.location ?? 'Virtual'}
+										time={new Date(event.startTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
+										description={event.description}
+									/>
+								))
+							)}
+						</Flex>
+					</TabPanel>
+				))}
+			</TabPanels>
 		</Tabs>
 	);
-}
+};
 export default EventTabs;
