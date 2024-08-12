@@ -21,11 +21,12 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, time, descriptio
 	return (
 		<Box
 			maxWidth="900px"
-			width="100vw"
+			width="96vw"
 			minHeight={isExtended ? "300px" : "150px"}
 			// paddingTop={isExtended ? "35px" : "35px"}
 			
 			marginY='10px'
+      marginX='2vw'
 			backgroundImage={`url(${CardBg})`}
 			bgSize="100% 100%"
 			backgroundPosition="center"
@@ -66,7 +67,7 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, time, descriptio
 				<Text fontSize="md" color="black" mb={isExtended ? "2%" : "4%"}>{time}</Text>
         
 				{isExtended && (
-					<Text fontSize="md" color="black">{description}</Text>
+					<Text fontSize="md" color="black" textAlign="left">{description}</Text>
 				)}
 			</Flex>
 		</Box>
