@@ -14,8 +14,8 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, time }) => {
 			maxWidth="900px"
 			width="100vw"
 			minHeight="150px"
-			paddingTop='30px'
-			paddingLeft='3%'
+			paddingTop='35px'
+			paddingLeft='4%'
 			marginY='10px'
 			backgroundImage={`url(${CardBg})`}
 			bgSize="100% 100%"

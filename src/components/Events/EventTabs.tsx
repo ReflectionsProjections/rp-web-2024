@@ -1,9 +1,74 @@
-import { Flex, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
+import { useEffect, useState } from 'react';
+import { Tabs, TabList, TabPanels, TabPanel, Flex } from "@chakra-ui/react";
+import axios from 'axios';
 
-import EventCard from "./EventCard";
-import EventTab from "./EventTab";
+import EventCard from './EventCard';
+import EventTab from './EventTab';
 
-export function EventTabs() {
+enum EventType {
+  A = 'A',
+  B = 'B',
+  C = 'C'
+}
+
+interface Event {
+  eventId: string;
+  name: string;
+  startTime: string;
+  endTime: string;
+  points: number;
+  description: string;
+  isVirtual: boolean;
+  imageUrl?: string | null;
+  location?: string | null;
+  eventType: EventType;
+}
+
+const startDate = new Date('2024-09-18'); // September 18 (Wednesday)
+const endDate = new Date('2024-09-22'); // September 22 (Sunday)
+
+// Function to check if an event falls within the date range
+const isWithinDateRange = (date: Date): boolean => {
+  return date >= startDate && date <= endDate;
+};
+
+// Function to get the day of the week (e.g., "Wed", "Thu") from a Date object
+const getDayOfWeek = (date: Date): string => {
+  return date.toLocaleDateString('en-US', { weekday: 'short' });
+};
+
+// Fetch events from the API
+const fetchEvents = async (): Promise<Event[]> => {
+  try {
+    const response = await axios.get<Event[]>('https://api.reflectionsprojections.org/events');
+    return response.data;
+  } catch (error) {
+    console.error("Failed to fetch events:", error);
+    return [];
+  }
+};
+
+const EventTabs = () => {
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const getEvents = async () => {
+      const fetchedEvents = await fetchEvents();
+      setEvents(fetchedEvents);
+      setLoading(false);
+    };
+    getEvents();
+  }, []);
+
+  // Filter events by the specific day and within the date range
+  const filterEventsByDay = (day: string) => {
+    return events.filter(event => {
+      const eventDate = new Date(event.startTime);
+      return isWithinDateRange(eventDate) && getDayOfWeek(eventDate) === day;
+    });
+  };
+
 	return (
 		<Tabs variant='unstyled'>
 			<Flex 
@@ -24,26 +89,25 @@ export function EventTabs() {
 			</Flex>
 
 			<TabPanels>
-				<TabPanel alignItems="center">
-					<Flex 
-						flexDirection="column"
-						alignItems="center"
-						height="100%" 
-						width="100%">
-
-						{/* Sample cards here—we need to call the GET events API endpoint in these panels. */}
-						<EventCard title="Event Title" location="New York, NY" time="10:00 AM" />
-						<EventCard title="Event Title" location="New York, NY" time="10:00 AM" />
-						<EventCard title="Event Title" location="New York, NY" time="10:00 AM" />
-            
-					</Flex>
-          
-				</TabPanel>
-				<TabPanel>Thursday Content</TabPanel>
-				<TabPanel>Friday Content</TabPanel>
-				<TabPanel>Saturday Content</TabPanel>
-				<TabPanel>Sunday Content</TabPanel>
-			</TabPanels>
+        {['Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
+          <TabPanel key={day}>
+            <Flex flexDirection="column" alignItems="center" height="100%" width="100%">
+              {loading ? (
+                <p>Loading events...</p>
+              ) : (
+                filterEventsByDay(day).map(event => (
+                  <EventCard
+                    key={event.eventId}
+                    title={event.name}
+                    location={event.location ?? 'Virtual'}
+                    time={new Date(event.startTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
+                  />
+                ))
+              )}
+            </Flex>
+          </TabPanel>
+        ))}
+      </TabPanels>
 		</Tabs>
 	);
 }
