@@ -31,6 +31,7 @@ export function Diversity ({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 		onSubmit: (values) => {
 			setAttendeeData({ ...values, attendeeData });
 			alert(JSON.stringify(values, null, 2));
+			console.log("here")
 			goNextPage();
 		},
 	});
