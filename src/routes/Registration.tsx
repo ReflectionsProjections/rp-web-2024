@@ -28,7 +28,7 @@ export interface FormikValues {
 export default function Registration() {
 	const [isSmall] = useMediaQuery("(max-width: 600px)");
 	const [isShort] = useMediaQuery("(max-height: 735px)");
-	const [pageNo, setPageNo] = useState(4);
+	const [pageNo, setPageNo] = useState(0);
     const [attendeeData, setAttendeeData] = useState({
 		name: "",
 		email: "",
@@ -60,7 +60,6 @@ export default function Registration() {
 
 	function goPrevPage() {
 		setPageNo(pageNo - 1);
-		handleGetFormData()
 	}
 
 
@@ -101,40 +100,9 @@ export default function Registration() {
 			console.error("Error fetching data:", error);
 		}
 	}
-	
-	// async function handleGetFormData(){
-	// 	let jwt = localStorage.getItem("jwt");
-	// 	jwt = searchParams.get("token");
-	// 	try {
-	// 	  const response = await axios.get(Config.BASE_URL + "registration/", {
-	// 		headers: {
-	// 		  "Content-Type": "application/json",
-	// 		  Authorization: `${jwt}`,
-	// 		},
-	// 	  });
-	// 	  console.log(response.data);
-	// 	  const { registration } = response.data;
-	// 	  const newFormData = { ...attendeeData };
-	  
-	// 	  for (const key in newFormData) {
-	// 		if (Array.isArray(newFormData[key])) {
-	// 		  newFormData[key] = [];
-	// 		}
-	// 		if (registration.hasOwnProperty(key)) {
-	// 		  newFormData[key] = registration[key];
-	// 		}
-	// 	  }
-	// 	  newFormData.isInterestedMechMania = false;
-	// 	  setAttendeeData(newFormData);
-	// 	} catch (error) {
-	// 	  console.error("Error fetching data:", error);
-	// 	}
-	//   };
 
 	function handleSave(values: object) {	
-		console.log("in save")
 		if(pageNo==Config.NUM_REGISTRATION_PAGES - 1){
-			console.log("go submit")
 
 			setAttendeeData((prevData) => {
 				const newData = { ...prevData, ...values };
@@ -142,7 +110,6 @@ export default function Registration() {
 				return newData;
 			});
 		}else{
-			console.log("go save")
 			setAttendeeData((prevData) => {
 				const newData = { ...prevData, ...values };
 				saveData(newData);

@@ -33,7 +33,7 @@ export function Pagination({pageNo, goPrevPage}: PaginationProps) {
 
 	return (
 		<Flex width="full" padding="10px" maxWidth={isMedium ? '90vw': '80vw'} marginLeft={isMedium ? '5vw': '10vw'}>
-			<Center> <Button color='white' bgColor='#EC99A7' borderRadius='10px' m="10px" maxHeight='40px' padding={isTiny ? "15px" : "20px"} variant="solid" minWidth='auto' maxWidth="160px">{isSmall ? <FaSave/> : "Save" } </Button> </Center>
+			{/* <Center> <Button color='white' bgColor='#EC99A7' borderRadius='10px' m="10px" maxHeight='40px' padding={isTiny ? "15px" : "20px"} variant="solid" minWidth='auto' maxWidth="160px">{isSmall ? <FaSave/> : "Save" } </Button> </Center> */}
 			<Spacer />
 			<Center>
 				<IconButton color='white' bgColor='#EC99A7' borderRadius='50%' m="10px" maxHeight='40px' isDisabled={!shouldEnableBack()} onClick={goPrevPage} aria-label='Back' padding='20px' height="40px" width="40px" icon={<ChevronLeftIcon />} />
