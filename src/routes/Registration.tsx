@@ -55,11 +55,81 @@ export default function Registration() {
 
 	function goNextPage() {
 		setPageNo(pageNo + 1);
+		handleGetFormData()
 	}
 
 	function goPrevPage() {
 		setPageNo(pageNo - 1);
+		handleGetFormData()
 	}
+
+
+	async function handleGetFormData() {
+		let jwt = localStorage.getItem("jwt");
+		jwt = searchParams.get("token");
+		try {
+			const response = await axios.get(Config.BASE_URL + "registration/", {
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `${jwt}`,
+				},
+			});
+			console.log(response.data);
+			const { registration } = response.data;
+			setAttendeeData({
+				name: registration.name || "",
+				email: registration.email || "",
+				university: registration.university || "",
+				graduation: registration.graduation || "",
+				major: registration.major || "",
+				dietaryRestrictions: registration.dietaryRestrictions || [""],
+				age: registration.age || 1,
+				gender: registration.gender || "",
+				race: registration.race || [""],
+				ethnicity: registration.ethnicity || [""],
+				allergies: registration.allergies || [],
+				firstGen: registration.firstGen || "",
+				hearAboutRP: registration.hearAboutRP || [""],
+				portfolio: registration.portfolio || "",
+				jobInterest: registration.jobInterest || [""],
+				isInterestedMechMania: false, 
+				isInterestedPuzzleBang: registration.isInterestedPuzzleBang || false,
+				hasResume: registration.hasResume || true,
+				hasSubmitted: false,
+			});
+		} catch (error) {
+			console.error("Error fetching data:", error);
+		}
+	}
+	
+	// async function handleGetFormData(){
+	// 	let jwt = localStorage.getItem("jwt");
+	// 	jwt = searchParams.get("token");
+	// 	try {
+	// 	  const response = await axios.get(Config.BASE_URL + "registration/", {
+	// 		headers: {
+	// 		  "Content-Type": "application/json",
+	// 		  Authorization: `${jwt}`,
+	// 		},
+	// 	  });
+	// 	  console.log(response.data);
+	// 	  const { registration } = response.data;
+	// 	  const newFormData = { ...attendeeData };
+	  
+	// 	  for (const key in newFormData) {
+	// 		if (Array.isArray(newFormData[key])) {
+	// 		  newFormData[key] = [];
+	// 		}
+	// 		if (registration.hasOwnProperty(key)) {
+	// 		  newFormData[key] = registration[key];
+	// 		}
+	// 	  }
+	// 	  newFormData.isInterestedMechMania = false;
+	// 	  setAttendeeData(newFormData);
+	// 	} catch (error) {
+	// 	  console.error("Error fetching data:", error);
+	// 	}
+	//   };
 
 	function handleSave(values: object) {	
 		console.log("in save")
