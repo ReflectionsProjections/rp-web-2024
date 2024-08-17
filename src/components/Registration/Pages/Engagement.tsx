@@ -14,20 +14,28 @@ const EngagementValidator = Yup.object().shape({
 	isInterestedPuzzleBang: Yup.boolean().required('Required'),
 });
 
-const EngagementDefaults = {
-	isInterestedMechMania: false,
-	isInterestedPuzzleBang: false,
-};
-
-
 export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
+	let EngagementDefaults;
+
+	try {
+		EngagementDefaults = EngagementValidator.validateSync(attendeeData);
+	} catch (err) {
+		EngagementDefaults = {
+			email: "",
+			name: "",
+			allergies: [],
+			dietaryRestrictions: [],
+		};
+	}
+
 	const [isSmall] = useMediaQuery("(max-width: 600px)");
 	const formik = useFormik({
 		initialValues: EngagementDefaults,
 		validationSchema: EngagementValidator,
+		enableReinitialize: true,
 
 		onSubmit: (values) => {
-			setAttendeeData({ ...values, attendeeData });
+			setAttendeeData(values);
 			alert(JSON.stringify(values, null, 2));
 			goNextPage();
 		},

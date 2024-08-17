@@ -9,7 +9,6 @@ import { PageProps } from "../../../routes/Registration";
 import DropdownSelect from "../inputs/AutoDropdownInput";
 import { colleges } from "../inputs/colleges";
 import { majors } from "../inputs/majors";
-import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
 import { SelectInput } from "../inputs/SelectInput";
 
 const EducationProfileValidator = Yup.object().shape({
@@ -18,21 +17,26 @@ const EducationProfileValidator = Yup.object().shape({
 	graduationYear: Yup.string().length(4).required('Required'),
 });
 
-const EducationProfileDefaults = {
-	university: "",
-	major: "",
-	graduationYear: "",
-};
-
-
 export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
 	const [isSmall] = useMediaQuery("(max-width: 600px)");
+	let EducationProfileDefaults;
+
+	try {
+		EducationProfileDefaults = EducationProfileValidator.validateSync(attendeeData);
+	} catch (err) {
+		EducationProfileDefaults = {
+			university: "",
+			major: "",
+			graduationYear: ""
+		};
+	}
 	const formik = useFormik({
 		initialValues: EducationProfileDefaults,
 		validationSchema: EducationProfileValidator,
+		enableReinitialize: true,
 
 		onSubmit: (values) => {
-			setAttendeeData({ ...values, attendeeData });
+			setAttendeeData(values);
 			alert(JSON.stringify(values, null, 2));
 			goNextPage();
 		},

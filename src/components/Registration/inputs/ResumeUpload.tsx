@@ -16,30 +16,30 @@ interface FormInputProps {
 export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => {
 	const [file, setFile] = useState<File | null>(null);
 	const toast = useToast();
-    const [searchParams] = useSearchParams();
+	const [searchParams] = useSearchParams();
 
 	const handleResumeSubmit = async () => {
 		const jwt = localStorage.getItem("jwt") || searchParams.get("token");
 		try {
-		const response = await axios.get(`${Config.BASE_URL}s3/upload/`, {
-			headers: {
-			"Content-Type": "application/json",
-			Authorization: `${jwt}`,
-			},
-		});
-		toast({
-			title: "Data fetched successfully",
-			description: "Your resume has been loaded.",
-			status: "success",
-			duration: 5000,
-			isClosable: true,
-		});
-		console.log(response.data);
-		console.log("url" + response.data.url);
-		console.log("fields" + response.data.fields);
-		uploadToS3(response.data.url, response.data.fields, file);
+			const response = await axios.get(`${Config.BASE_URL}s3/upload/`, {
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `${jwt}`,
+				},
+			});
+			toast({
+				title: "Data fetched successfully",
+				description: "Your resume has been loaded.",
+				status: "success",
+				duration: 5000,
+				isClosable: true,
+			});
+			console.log(response.data);
+			console.log("url" + response.data.url);
+			console.log("fields" + response.data.fields);
+			uploadToS3(response.data.url, response.data.fields, file);
 		} catch (error) {
-		console.error("Error fetching data:", error);
+			console.error("Error fetching data:", error);
 		}
 	};
 	
@@ -57,19 +57,19 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => 
 		form.append('file', file);
 	
 		try {
-		const response = await axios.post(url, form, {
-			headers: {
-			...fields,
-			},
-		});
+			const response = await axios.post(url, form, {
+				headers: {
+					...fields,
+				},
+			});
 		} catch (error) {
-		console.log(error);
+			console.log(error);
 		}
 	};
 
 	const handleFileSelect = (selectedFile: File | null) => {
 		setFile(selectedFile);
-		handleResumeField()
+		handleResumeField();
 	  };
 
 	const handleResumeField = async () => {
@@ -78,10 +78,10 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => 
 
 	return (
 		<Flex>
-				<FilePicker onFileSelect={handleFileSelect} />
-				<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
+			<FilePicker onFileSelect={handleFileSelect} />
+			<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
 		</Flex>
 	);
-}
+};
 
 

@@ -15,19 +15,25 @@ const CareerProfileValidator = Yup.object().shape({
 	portfolios: Yup.array().of(Yup.string().url()).required('Required').max(5),
 });
 
-const CareerProfileDefaults = {
-	portfolios: [],
-	openTo: [],
-};
-
 export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
 	const [isSmall] = useMediaQuery("(max-width: 600px)");
+	let CareerProfileDefaults;
+
+	try {
+		CareerProfileDefaults = CareerProfileValidator.validateSync(attendeeData);
+	} catch (err) {
+		CareerProfileDefaults = {
+			portfolios: [],
+			openTo: [],
+		};
+	}
+
 	const formik = useFormik({
 		initialValues: CareerProfileDefaults,
 		validationSchema: CareerProfileValidator,
-
+		enableReinitialize: true,
 		onSubmit: (values) => {
-			setAttendeeData({ ...values, attendeeData });
+			setAttendeeData({ ...values, ...attendeeData });
 			alert(JSON.stringify(values, null, 2));
 			goNextPage();
 		},

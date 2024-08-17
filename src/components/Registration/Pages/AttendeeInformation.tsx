@@ -35,11 +35,12 @@ export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttende
 	const formik = useFormik({
 		initialValues: attendeeInformationDefaults,
 		validationSchema: AttendeeInformationValidator,
+		enableReinitialize: true,
 		onSubmit: (values) => {
-			setAttendeeData({ ...values, attendeeData });
+			setAttendeeData(values);
 			alert(JSON.stringify(values, null, 2));
 			goNextPage();
-		},
+		}
 	});
 
 	return (

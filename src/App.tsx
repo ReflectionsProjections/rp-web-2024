@@ -8,6 +8,7 @@ import MainPage from "./routes/MainPage";
 import '@fontsource/kufam';
 import Info from "./components/Home/Info";
 import Registration from "./routes/Registration";
+import Auth from "./routes/Auth";
 
 function ProdRoutes() {
 	return (
@@ -26,7 +27,7 @@ function DevRoutes() {
 	return (
 		<Routes>
 			<Route path="/register" element={<Registration/>} />
-			<Route path="/auth/" element={<Temp text="auth" />}> </Route>
+			<Route path="/auth/" element={<Auth/>}> </Route>
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
 			<Route path="/" element={<MainPage/>} />

@@ -23,11 +23,6 @@ const DiversityValidator = Yup.object().shape({
 	gender: Yup.string().required("Required"),
 });
 
-const DiversityDefaults = {
-	isFirstGen: false,
-	ethnicity: [],
-	gender: "other",
-};
 
 export function Diversity({
 	pageNo,
@@ -37,12 +32,24 @@ export function Diversity({
 	attendeeData,
 }: PageProps) {
 	const [isSmall] = useMediaQuery("(max-width: 600px)");
+	let DiversityDefaults;
+
+	try {
+		DiversityDefaults = DiversityValidator.validateSync(attendeeData);
+	} catch (err) {
+		DiversityDefaults = {
+			isFirstGen: false,
+			ethnicity: [],
+			gender: "other",
+		};
+	}
+
 	const formik = useFormik({
 		initialValues: DiversityDefaults,
 		validationSchema: DiversityValidator,
-
+		enableReinitialize: true,
 		onSubmit: (values) => {
-			setAttendeeData({ ...values, attendeeData });
+			setAttendeeData({ ...values, ...attendeeData });
 			alert(JSON.stringify(values, null, 2));
 			console.log("here");
 			goNextPage();
