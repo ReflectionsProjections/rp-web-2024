@@ -1,6 +1,7 @@
 import { Box, Grid, GridItem, useMediaQuery, Flex } from "@chakra-ui/react";
 import "@fontsource/kufam/900-italic.css";
 import faq_bg from "/faq_bg.svg";
+import faq_roll from "/faq_roll.svg";
 import PageTitle from "./PageTitle";
 import React, { useState, useEffect, useRef } from "react";
 import CollapsibleSection from "./FAQbox";
@@ -81,65 +82,43 @@ export default function FAQ() {
 				flexDirection="column"
 				alignContent="center"
 				backgroundColor="#004970"
-
 			>
 				<PageTitle title="FAQ" />
 
-				<Box p={8} m={8} bgImage={InfoDecor} bgSize="100% auto" bgRepeat="repeat-y">
-					<Box
-						// bg="#070F2D"
-						p={4}
-						minHeight="100px"
-						position="relative"
-						ref={coloredBoxRef}
-					>
+
+				<Box
+				    position="absolute"
+					top="0" 
+					left="50%" 
+					// top="14vw"
+					minHeight="40vw"
+					bgImage={faq_roll}
+					bgSize="100% 100%"
+					bgRepeat="no-repeat"
+					display="flex"
+					justifyContent="center"
+					transform="rotate(90deg)" 
+					width="100%"
+				></Box>
+
+				<Box
+					p={8}
+					m={8}
+					bgImage={InfoDecor}
+					bgSize="100% auto"
+					bgRepeat="repeat-y"
+				>
+					<Box p={4} minHeight="100px" position="relative" ref={coloredBoxRef}>
 						{faq.map((qa, index) => (
 							<Box key={index} width="90%" mb={4} mx="auto">
 								<CollapsibleSection question={qa.front} answer={qa.back} />
 							</Box>
 						))}
-
-						{/* <Flex
-							direction="column"
-							position="absolute"
-							left={2}
-							top={0}
-							bottom={0}
-							zIndex={1}
-						>
-							{[...Array(Math.floor(boxHeight / 18))].map((_, index) => (
-								<Box
-									key={index}
-									width={2}
-									height={1}
-									bg="white"
-									marginY={2}
-									borderRadius="full"
-								/>
-							))}
-						</Flex> */}
-
-						{/* <Flex
-							direction="column"
-							position="absolute"
-							right={2}
-							top={0}
-							bottom={0}
-							zIndex={1}
-						>
-							{[...Array(Math.floor(boxHeight / 18))].map((_, index) => (
-								<Box
-									key={index}
-									width={2}
-									height={1}
-									bg="white"
-									marginY={2}
-									borderRadius="full"
-								/>
-							))}
-						</Flex> */}
 					</Box>
 				</Box>
+
+
+
 			</Box>
 		);
 	}
