@@ -24,7 +24,7 @@ export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData
 	} catch (err) {
 		CareerProfileDefaults = {
 			portfolios: [],
-			openTo: [],
+			jobInterest: [],
 		};
 	}
 
@@ -44,10 +44,10 @@ export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData
 			<form onSubmit={formik.handleSubmit}>
 				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"} maxHeight='750px'>
 					<VStack spacing={4} align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
-						<FormLabel htmlFor="openTo"> What opportunities are you open to? </FormLabel>
-						<MultiCheckBoxInput id="openTo" name="openTo" formik={formik} options={Config.REGISTRATION_OPEN_TO} />
+						<FormLabel htmlFor="jobInterest"> What opportunities are you open to? </FormLabel>
+						<MultiCheckBoxInput id="jobInterest" name="jobInterest" formik={formik} options={Config.REGISTRATION_OPEN_TO} />
 
-						<FormLabel htmlFor="openTo"> Add up to 5 personal links! </FormLabel>
+						<FormLabel htmlFor="portfolios"> Add up to 5 personal links! </FormLabel>
 						<MultiSelectInput id="portfolios" name="portfolios" formik={formik} />
 
 						<FormLabel htmlFor="resume"> Upload your resume: </FormLabel>

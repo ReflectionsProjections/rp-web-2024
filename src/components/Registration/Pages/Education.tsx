@@ -14,7 +14,7 @@ import { SelectInput } from "../inputs/SelectInput";
 const EducationProfileValidator = Yup.object().shape({
 	university: Yup.string().required('Required'),
 	major: Yup.string().required('Required'),
-	graduationYear: Yup.string().length(4).required('Required'),
+	graduation: Yup.string().length(4).required('Required'),
 });
 
 export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
@@ -27,7 +27,7 @@ export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeD
 		EducationProfileDefaults = {
 			university: "",
 			major: "",
-			graduationYear: ""
+			graduation: ""
 		};
 	}
 	const formik = useFormik({
@@ -53,8 +53,8 @@ export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeD
 						<FormLabel htmlFor="major"> What is your current (or intended) major? </FormLabel>
 						<DropdownSelect id="major" name="major" formik={formik} options={majors} />
 
-						<FormLabel htmlFor="graduationYear"> When do you graduate? </FormLabel>
-						<SelectInput id="graduationYear" name="graduationYear" formik={formik} options={Config.REGISTRATION_GRADUATION_YEARS} />
+						<FormLabel htmlFor="graduation"> When do you graduate? </FormLabel>
+						<SelectInput id="graduation" name="graduation" formik={formik} options={Config.REGISTRATION_GRADUATION_YEARS} />
 					</VStack>
 				</Box>
 				<Box h="80px">

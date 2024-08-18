@@ -21,10 +21,8 @@ export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 		EngagementDefaults = EngagementValidator.validateSync(attendeeData);
 	} catch (err) {
 		EngagementDefaults = {
-			email: "",
-			name: "",
-			allergies: [],
-			dietaryRestrictions: [],
+			isInterestedMechMania: false,
+			isInterestedPuzzleBang: false,
 		};
 	}
 
@@ -52,8 +50,8 @@ export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 						<FormLabel htmlFor="isInterestedMechMania"> Are you interested in MechMania? </FormLabel>
 						<TrueFalseSwitchInput id="isInterestedMechMania" name="isInterestedMechMania" formik={formik} />
 
-						<FormLabel htmlFor="referralSource"> How did you learn about Reflections|Projections? </FormLabel>
-						<MultiCheckBoxInput id="referralSource" name="referralSource" formik={formik} options={Config.REGISTRATION_REFERRAL_SOURCE}/> 
+						<FormLabel htmlFor="hearAboutRP"> How did you learn about Reflections|Projections? </FormLabel>
+						<MultiCheckBoxInput id="hearAboutRP" name="hearAboutRP" formik={formik} options={Config.REGISTRATION_REFERRAL_SOURCE}/> 
 					</VStack>
 				</Box>
 				<Box h="80px">
