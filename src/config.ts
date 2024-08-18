@@ -40,7 +40,7 @@ const Config = {
 	REGISTRATION_OPEN_TO: ["summer internship", "fall internship", "spring internship", "full time"],
 	REGISTRATION_GENDERS: ["male", "female", "transgender", "nonbinary/non-conforming", "other/prefer not to respond"],
 	REGISTRATION_ETHNICITIES: ["hispanic/latinx", "american indian/alaskan native", "asian", "black/african american", "pacific islander", "middle eastern", "white"],
-	REGISTRATION_REFERRAL_SOURCE: ["instagram", "tiktok", "flyer on campus", "word of mouth", "cs department", "linkedin", "other"],
+	REGISTRATION_REFERRAL_SOURCE: ["word of mouth", "instagram", "linkedin", "in-class marketing", "email", "flyers", "on campus events", "other"],
 	REGISTRATION_DIETARY_RESTRICTIONS: ["vegan", "vegetarian", "gluten-free", "dairy-free"],
 
 };
