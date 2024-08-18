@@ -18,7 +18,7 @@ import Config from "../../../config";
 import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
 
 const DiversityValidator = Yup.object().shape({
-	isFirstGen: Yup.boolean().required("Required"),
+	firstGen: Yup.boolean().required("Required"),
 	ethnicity: Yup.array().of(Yup.string()).required("Required"),
 	gender: Yup.string().required("Required"),
 });
@@ -38,7 +38,7 @@ export function Diversity({
 		DiversityDefaults = DiversityValidator.validateSync(attendeeData);
 	} catch (err) {
 		DiversityDefaults = {
-			isFirstGen: false,
+			firstGen: false,
 			ethnicity: [],
 			gender: "other",
 		};
@@ -80,13 +80,13 @@ export function Diversity({
 						marginTop="4vh"
 						marginBottom="0"
 					>
-						<FormLabel htmlFor="isFirstGen">
+						<FormLabel htmlFor="firstGen">
 							{" "}
 							Are you a first generation student?{" "}
 						</FormLabel>
 						<TrueFalseCheckBoxInput
-							id="isFirstGen"
-							name="isFirstGen"
+							id="firstGen"
+							name="firstGen"
 							formik={formik}
 						/>
 
