@@ -18,9 +18,9 @@ import Config from "../../../config";
 import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
 
 const DiversityValidator = Yup.object().shape({
-	firstGen: Yup.boolean().required("Required"),
-	ethnicity: Yup.array().of(Yup.string()).required("Required"),
-	gender: Yup.string().required("Required"),
+	firstGen: Yup.boolean(),
+	ethnicity: Yup.array().of(Yup.string()),
+	gender: Yup.string(),
 });
 
 
@@ -49,7 +49,7 @@ export function Diversity({
 		validationSchema: DiversityValidator,
 		enableReinitialize: true,
 		onSubmit: (values) => {
-			setAttendeeData({ ...values, ...attendeeData });
+			setAttendeeData(values);
 			alert(JSON.stringify(values, null, 2));
 			console.log("here");
 			goNextPage();

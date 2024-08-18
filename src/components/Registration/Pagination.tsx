@@ -1,5 +1,4 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { FaSave } from "react-icons/fa";
 import { Flex, Center, Button, Spacer, IconButton, useMediaQuery } from "@chakra-ui/react";
 import Config from "../../config";
 import handleSubmit from "../../routes/Registration";

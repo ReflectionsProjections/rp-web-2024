@@ -36,7 +36,7 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
 	};
 
 	const handleSelect = (option: string) => {
-		console.log("selected!", option);
+		console.log("selected!", selectedOption);
 		setSelectedOption(option);
 		setQuery(null);
 		setIsOpen(false);

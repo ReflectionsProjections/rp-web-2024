@@ -6,7 +6,6 @@ import Education from '../components/Registration/Pages/Education';
 import Diversity from "../components/Registration/Pages/Diversity";
 import Engagement from '../components/Registration/Pages/Engagement';
 import { useToast } from '@chakra-ui/react';
-import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import BlueSands from '/Registration/blue_desert.svg';
 import MobileBG from '/Registration/mobile_bg.svg';
@@ -33,17 +32,21 @@ export default function Registration() {
 
 	const [pageNo, setPageNo] = useState(0);
 	const [jwt, setJwt] = useState("");
-	
 
-	useEffect(() => {
-		console.log(localStorage);
-		const jwt = localStorage.getItem("jwt") || searchParams.get("token");
-		if (!jwt) {
+	function fetchJwt() {
+		const jwt = localStorage.getItem("jwt");
+
+		while (!jwt) {
 			console.log("JWT token not found, redirecting...");
 			window.location.href = Config.BASE_URL + "auth/login/web";
 			return;
 		}
+
 		setJwt(jwt);
+	}
+
+	useEffect(() => {
+		fetchJwt();
 	}, [jwt]);
 
 	useEffect(() => {
@@ -56,11 +59,11 @@ export default function Registration() {
 	useEffect(() => {
 		if (attendeeData.hasSubmitted) {
 			console.log("Already submitted!, redirecting...");
+			window.alert("Oops! You've already submitted.");
 			window.location.href = "/";
 		}
 	}, [attendeeData]);
 
-	const [searchParams] = useSearchParams();
 	const toast = useToast();
 
 	function goNextPage() {
@@ -90,6 +93,7 @@ export default function Registration() {
 			});
 		} catch (error) {
 			console.error("Error fetching data:", error);
+			fetchJwt();
 		}
 	}
 
@@ -153,7 +157,7 @@ export default function Registration() {
 					Authorization: `${jwt}`,
 				},
 			}
-		);
+		).then(() => window.location.href = "/");
 
 		toast.promise(promise, {
 			success: {

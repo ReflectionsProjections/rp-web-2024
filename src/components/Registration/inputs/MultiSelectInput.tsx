@@ -15,7 +15,7 @@ function onlyUnique(value: string, index: number, array: string[]) {
 }
 
 export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, formik }) => {
-	const [selected, setSelected] = useState<string[]>([formik.values[name] ?? []]);
+	const [selected, setSelected] = useState<string[]>(formik.values[name] ?? []);
 
 	const [inputValue, setInputValue] = useState('');
 

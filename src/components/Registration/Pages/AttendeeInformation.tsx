@@ -62,7 +62,7 @@ export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttende
 
 						<Flex alignItems={"center center"}>
 							<FormLabel htmlFor="over18">Are you over 18 years old?</FormLabel>
-							<Checkbox id="over18" defaultChecked> Checkbox </Checkbox>
+							<Checkbox id="over18" />
 						</Flex>
 					</VStack>
 				</Box>
