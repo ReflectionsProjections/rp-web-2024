@@ -73,7 +73,7 @@ export default function Registration() {
 
 
 	async function handleGetFormData() {
-		console.log("handling get form data", jwt)
+		console.log("handling get form data", jwt);
 		try {
 			const response = await axios.get(Config.BASE_URL + "registration/", {
 				headers: {

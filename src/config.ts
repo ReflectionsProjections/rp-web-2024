@@ -22,7 +22,7 @@ export const defaultRegistrationValues = {
 	allergies: [],
 	firstGen: "",
 	hearAboutRP: [""],
-	portfolio: "",
+	portfolios: [],
 	jobInterest: [""],
 	isInterestedMechMania: false,
 	isInterestedPuzzleBang: false,

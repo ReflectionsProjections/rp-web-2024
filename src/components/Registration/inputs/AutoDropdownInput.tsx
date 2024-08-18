@@ -24,7 +24,7 @@ interface DropdownSelectProps {
 function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
 	const [query, setQuery] = useState<string | null>(null);
 	const [isOpen, setIsOpen] = useState(false);
-	const [selectedOption, setSelectedOption] = useState<string>("");
+	const [selectedOption, setSelectedOption] = useState<string>(formik.values[name] ?? "");
 
 	const [filteredOptions, setFilteredOptions] = useState<string[]>(options.slice(0, Config.REGISTRATION_MAX_DROPDOWN_OPTIONS));
 

@@ -14,7 +14,7 @@ import { SelectInput } from "../inputs/SelectInput";
 const EducationProfileValidator = Yup.object().shape({
 	university: Yup.string().required('Required'),
 	major: Yup.string().required('Required'),
-	graduation: Yup.string().length(4).required('Required'),
+	graduation: Yup.string().required('Required'),
 });
 
 export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
@@ -23,6 +23,7 @@ export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeD
 
 	try {
 		EducationProfileDefaults = EducationProfileValidator.validateSync(attendeeData);
+		console.log("DEFAULTS:", EducationProfileDefaults);
 	} catch (err) {
 		EducationProfileDefaults = {
 			university: "",
