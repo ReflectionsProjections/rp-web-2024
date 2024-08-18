@@ -96,7 +96,7 @@ export function Diversity({
 							value={formik.values.gender}
 							onChange={(value) => formik.setFieldValue("gender", value)}
 						>
-							{Config.REGISTRATION_ETHNICITIES.map((option) => (
+							{Config.REGISTRATION_GENDERS.map((option) => (
 								<Radio key={option} value={option}>
 									{option}
 								</Radio>

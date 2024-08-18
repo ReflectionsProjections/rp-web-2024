@@ -23,7 +23,7 @@ export const defaultRegistrationValues = {
 	firstGen: "",
 	hearAboutRP: [""],
 	portfolios: [],
-	jobInterest: [""],
+	jobInterest: [],
 	isInterestedMechMania: false,
 	isInterestedPuzzleBang: false,
 	hasResume: true,
@@ -38,8 +38,9 @@ const Config = {
 	REGISTRATION_MAX_DROPDOWN_OPTIONS: 5,
 	REGISTRATION_GRADUATION_YEARS: ["Dec 2024", "May 2025", "Dec 2025", "May 2026", "Dec 2026", "May 2027", "Dec 2027", "May 2028", "Dec 2028", "May 2029", "Dec 2029"],
 	REGISTRATION_OPEN_TO: ["summer internship", "fall internship", "spring internship", "full time"],
-	REGISTRATION_ETHNICITIES: ["white", "black", "hispanic", "asian", "pacific islander", "middle eastern", "other"],
-	REGISTRATION_REFERRAL_SOURCE: ["white", "black", "hispanic", "asian", "pacific islander", "middle eastern", "other"],
+	REGISTRATION_GENDERS: ["male", "female", "transgender", "nonbinary/non-conforming", "other/prefer not to respond"],
+	REGISTRATION_ETHNICITIES: ["hispanic/latinx", "american indian/alaskan native", "asian", "black/african american", "pacific islander", "middle eastern", "white"],
+	REGISTRATION_REFERRAL_SOURCE: ["instagram", "tiktok", "flyer on campus", "word of mouth", "cs department", "linkedin", "other"],
 	REGISTRATION_DIETARY_RESTRICTIONS: ["vegan", "vegetarian", "gluten-free", "dairy-free"],
 
 };

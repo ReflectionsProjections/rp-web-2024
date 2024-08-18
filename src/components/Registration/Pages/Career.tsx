@@ -13,6 +13,7 @@ import { ResumeUpload } from "../inputs/ResumeUpload";
 
 const CareerProfileValidator = Yup.object().shape({
 	portfolios: Yup.array().of(Yup.string().url()).required('Required').max(5),
+	jobInterest: Yup.array().of(Yup.string())
 });
 
 export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
@@ -33,7 +34,7 @@ export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData
 		validationSchema: CareerProfileValidator,
 		enableReinitialize: true,
 		onSubmit: (values) => {
-			setAttendeeData({ ...values, ...attendeeData });
+			setAttendeeData(values);
 			alert(JSON.stringify(values, null, 2));
 			goNextPage();
 		},
