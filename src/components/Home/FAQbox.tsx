@@ -44,34 +44,16 @@ const CollapsibleSection = ({
 				}}
 				transition="height 0.6s ease, border-radius 0.6s ease"
 			>
-				<Button
-					onClick={onToggle}
-					minHeight={'100%'}
-					minWidth={'100%'}
-					maxWidth={'100%'}
-					maxHeight={'100%'}
-					bg="transparent"
-					color="inherit"
-					// borderRadius={isOpen ? "8px 8px 0 0" : "md"}
-					// p={4}
-					_hover={{ bg: "transparent" }}
-					_active={{ bg: "transparent" }}
-					_focus={{ boxShadow: "none" }}
-					border="none"
-					textAlign="left"
-					whiteSpace="normal"
+				<Text
 					fontSize={{ base: "md", md: "lg" }}
+					color="inherit"
+					fontFamily="Kafum"
+					fontWeight="semibold"
+					textTransform="none"
+					fontSize={{ base: "5vw", md: "3vw" }}
 				>
-					<Text
-						color="inherit"
-						fontFamily="Kafum"
-						fontWeight="semibold"
-						textTransform="none"
-						fontSize={{ base: "5vw", md: "3vw" }}
-					>
-						{question}
-					</Text>
-				</Button>
+					{question}
+				</Text>
 			</MotionBox>
 			<AnimatePresence>
 				{isOpen && (

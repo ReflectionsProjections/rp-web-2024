@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, useMediaQuery, Flex } from "@chakra-ui/react";
+import { Box, Center, Grid, GridItem, useMediaQuery, Flex } from "@chakra-ui/react";
 import "@fontsource/kufam/900-italic.css";
 import faq_bg from "/faq_bg.svg";
 import faq_roll from "/faq_roll.svg";
@@ -51,6 +51,7 @@ export default function FAQ() {
 	const [isMobile] = useMediaQuery("(max-width: 768px)");
 
 	const [boxHeight, setBoxHeight] = useState(0);
+    const [scrollHeight, setScrollHeight] = useState(true);
 	const coloredBoxRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
@@ -76,7 +77,7 @@ export default function FAQ() {
 		return (
 			<Box
 				width="100%"
-				minHeight="200vh"
+				minHeight="100vh"
 				justifyContent="center"
 				display="flex"
 				flexDirection="column"
@@ -86,31 +87,42 @@ export default function FAQ() {
 				<PageTitle title="FAQ" />
 
 
-				<Box
-				    position="absolute"
-					top="0" 
-					left="50%" 
-					// top="14vw"
-					minHeight="40vw"
-					bgImage={faq_roll}
-					bgSize="100% 100%"
-					bgRepeat="no-repeat"
-					display="flex"
-					justifyContent="center"
-					transform="rotate(90deg)" 
-					width="100%"
-				></Box>
+                <Center>
+                    <Box
+                        onClick={() => setScrollHeight(!scrollHeight)}
+                        // cursor='pointer'
+                        width="15vw"
+                        height="15vw"
+                        // maxHeight="150px"
+                        minHeight={"43vw"}
+                        minWidth={"91vw"}
+                        bgSize="100% 100%"
+                        bgRepeat="no-repeat"
+                        position="absolute"
+                        zIndex={1}
+                        // top="0" 
+                        // left="50%" 
+                        bgImage={faq_roll}
+                        transform={"translate(5vw, 0px)"}
+                        mt="45vw"
+                        
+                        // display="flex"
+                        // justifyContent="center"
+                        // width="100%"
+                    ></Box>
+                </Center>
 
 				<Box
 					p={8}
-					m={8}
+					m="15vw"
+                    mt="38vw"
 					bgImage={InfoDecor}
 					bgSize="100% auto"
 					bgRepeat="repeat-y"
 				>
-					<Box p={4} minHeight="100px" position="relative" ref={coloredBoxRef}>
+					<Box p={4} minHeight="100px" position="relative" ref={coloredBoxRef} opacity={scrollHeight ? '1' : '0'} height={scrollHeight ? '' : '0'} transition="height 2.6s ease">
 						{faq.map((qa, index) => (
-							<Box key={index} width="90%" mb={4} mx="auto">
+							<Box key={index} width="90%" mb={4} mx="auto" height={scrollHeight ? '' : '0'} >
 								<CollapsibleSection question={qa.front} answer={qa.back} />
 							</Box>
 						))}
