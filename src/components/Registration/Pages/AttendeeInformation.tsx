@@ -80,12 +80,12 @@ export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttende
 					<VStack spacing='19px' align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
 						<CurrentPage pageNo={pageNo} />
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900" m={0} htmlFor="name"> Name </FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900" m={0} htmlFor="name"> Name <span style={{ color: 'red' }}>*</span></FormLabel>
 							<FormInput id="name" name="name" type="text" formik={formik} />
 						</Box>
 
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900" m={0} htmlFor="email">Email</FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900" m={0} htmlFor="email">Email <span style={{ color: 'red' }}>*</span></FormLabel>
 							<FormInput id="email" name="email" type="text" override={email} formik={formik} />
 						</Box>
 

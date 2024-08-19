@@ -49,17 +49,17 @@ export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeD
 					<VStack spacing='19px' align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
 						<CurrentPage pageNo={pageNo} />
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="university"> What school do you go to? </FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="university"> What school do you go to? <span style={{ color: 'red' }}>*</span></FormLabel>
 							<DropdownSelect id="university" name="university" formik={formik} options={colleges} />
 						</Box>
 
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="major"> What is your current (or intended) major? </FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="major"> What is your current (or intended) major? <span style={{ color: 'red' }}>*</span></FormLabel>
 							<DropdownSelect id="major" name="major" formik={formik} options={majors} />
 						</Box>
 
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="graduation"> When do you graduate? </FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="graduation"> When do you graduate? <span style={{ color: 'red' }}>*</span></FormLabel>
 							<SelectInput id="graduation" name="graduation" formik={formik} options={Config.REGISTRATION_GRADUATION_YEARS} />
 						</Box>
 					</VStack>
