@@ -36,7 +36,6 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
 	};
 
 	const handleSelect = (option: string) => {
-		console.log("selected!", selectedOption);
 		setSelectedOption(option);
 		setQuery(null);
 		setIsOpen(false);
@@ -53,24 +52,20 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
 							value={query ?? selectedOption}
 							border={'2px solid white'}
 							onFocus={(e) => {
-								console.log("on focus!");
 								e.target.value = "";
 								setQuery(e.target.value);
 								resetFilter();
 							}}
 							onChange={(e) => {
-								console.log("on change!");
 								setQuery(e.target.value);
 								resetFilter();
 								setIsOpen(true);
 							}}
 							onClick={() => {
-								console.log("on click!");
 								setIsOpen(!isOpen);
 								setSelectedOption("");
 							}}
 							onBlur={() => {
-								console.log("on blur!");
 								setIsOpen(false);
 							}}
 						/>

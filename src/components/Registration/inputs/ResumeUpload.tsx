@@ -34,9 +34,6 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => 
 				duration: 5000,
 				isClosable: true,
 			});
-			console.log(response.data);
-			console.log("url" + response.data.url);
-			console.log("fields" + response.data.fields);
 			await uploadToS3(response.data.url, response.data.fields, file);
 		} catch (error) {
 			console.error("Error fetching data:", error);
@@ -63,7 +60,7 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => 
 				},
 			});
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 		}
 	};
 

@@ -6,9 +6,10 @@ interface FormInputProps {
     name: string;
     type: string;
     formik: FormikProps<any>;
+	override?: string;
 }
 
-export const FormInput: React.FC<FormInputProps> = ({ id, name, type, formik }) => (
+export const FormInput: React.FC<FormInputProps> = ({ id, name, type, formik, override}) => (
 	<FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
 		<Input
 			color={'white'}
@@ -20,7 +21,8 @@ export const FormInput: React.FC<FormInputProps> = ({ id, name, type, formik }) 
 			variant="filled"
 			onChange={formik.handleChange}
 			onBlur={formik.handleBlur}
-			value={formik.values[name]}
+			value={override ?? formik.values[name]}
+			disabled={override !== undefined}
 		/>
 		<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
 	</FormControl>

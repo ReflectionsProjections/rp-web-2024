@@ -10,11 +10,12 @@ import DropdownSelect from "../inputs/AutoDropdownInput";
 import { colleges } from "../inputs/colleges";
 import { majors } from "../inputs/majors";
 import { SelectInput } from "../inputs/SelectInput";
+import CurrentPage from "../CurrentPage";
 
 const EducationProfileValidator = Yup.object().shape({
 	university: Yup.string().required('Required'),
 	major: Yup.string().required('Required'),
-	graduation: Yup.string().required('Required'),
+	graduation: Yup.string().required('Required').notOneOf(["Select Graduation Date!"], "Must be a valid date!"),
 });
 
 export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
@@ -23,7 +24,6 @@ export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeD
 
 	try {
 		EducationProfileDefaults = EducationProfileValidator.validateSync(attendeeData);
-		console.log("DEFAULTS:", EducationProfileDefaults);
 	} catch (err) {
 		EducationProfileDefaults = {
 			university: "",
@@ -38,7 +38,6 @@ export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeD
 
 		onSubmit: (values) => {
 			setAttendeeData(values);
-			alert(JSON.stringify(values, null, 2));
 			goNextPage();
 		},
 	});
@@ -47,15 +46,22 @@ export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeD
 		<Flex direction="column" w="100%" align={"center center"} mt={isSmall ? "61px": "90px"}>
 			<form onSubmit={formik.handleSubmit}>
 				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"} maxHeight='750px'>
-					<VStack spacing={4} align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
-						<FormLabel htmlFor="university"> What school do you go to? </FormLabel>
-						<DropdownSelect id="university" name="university" formik={formik} options={colleges} />
+					<VStack spacing='19px' align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
+						<CurrentPage pageNo={pageNo} />
+						<Box w="100%">
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="university"> What school do you go to? </FormLabel>
+							<DropdownSelect id="university" name="university" formik={formik} options={colleges} />
+						</Box>
 
-						<FormLabel htmlFor="major"> What is your current (or intended) major? </FormLabel>
-						<DropdownSelect id="major" name="major" formik={formik} options={majors} />
+						<Box w="100%">
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="major"> What is your current (or intended) major? </FormLabel>
+							<DropdownSelect id="major" name="major" formik={formik} options={majors} />
+						</Box>
 
-						<FormLabel htmlFor="graduation"> When do you graduate? </FormLabel>
-						<SelectInput id="graduation" name="graduation" formik={formik} options={Config.REGISTRATION_GRADUATION_YEARS} />
+						<Box w="100%">
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="graduation"> When do you graduate? </FormLabel>
+							<SelectInput id="graduation" name="graduation" formik={formik} options={Config.REGISTRATION_GRADUATION_YEARS} />
+						</Box>
 					</VStack>
 				</Box>
 				<Box h="80px">

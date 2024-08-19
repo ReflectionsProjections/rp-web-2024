@@ -13,7 +13,7 @@ export const TrueFalseCheckBoxInput: React.FC<FormInputProps> = ({ id, name, for
 
 			<RadioGroup
 				id={id} 
-				onChange={(e) => {formik.values[name] = (e == "true"); console.log(e);}}>
+				onChange={(e) => {formik.values[name] = (e == "true");}}>
 				<Stack direction='row'>
 					<Flex direction="row" width="100%"> 
 						<Radio borderColor='white' value='true'> YES </Radio>

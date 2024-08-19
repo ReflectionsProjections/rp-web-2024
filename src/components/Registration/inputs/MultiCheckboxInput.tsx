@@ -23,7 +23,6 @@ export const MultiCheckBoxInput: React.FC<FormInputProps> = ({ id, name, formik,
 	const [checked, setChecked] = useState<string[]>(formik.values[name] ?? []);
 
 	const handleChange = (field: string) => {
-		console.log("FIELD", field);
 		let newChecked;
 
 		if (checked.includes(field)) {
@@ -31,17 +30,14 @@ export const MultiCheckBoxInput: React.FC<FormInputProps> = ({ id, name, formik,
 		} else {
 			newChecked = [...checked, field].filter(onlyUnique);
 		}
-		console.log("NEWCHECKED", newChecked, newChecked.includes(field));
         
 		setChecked(newChecked);
 		formik.values[name] = newChecked;
-
-		console.log(formik.values[name]);
 	};
 
 	return (
-		<SimpleGrid spacing={2} mt={2} minChildWidth="120px" w="100%" id={id}> 
-			{options.map((x) => <Checkbox key={x} isChecked={checked.includes(x.toUpperCase())} borderColor='white' onChange={() => handleChange(x.toUpperCase())}> {x.toUpperCase()} </Checkbox>)}
+		<SimpleGrid spacing={4} mt={2} minChildWidth="140px" w="100%" id={id}> 
+			{options.map((x) => <Checkbox key={x} isChecked={checked.includes(x.toUpperCase())} borderColor='white' wordBreak={'break-word'} onChange={() => handleChange(x.toUpperCase())}> {x.toUpperCase()} </Checkbox>)}
 		</SimpleGrid>
 	);
 };

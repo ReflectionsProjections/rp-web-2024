@@ -1,4 +1,4 @@
-import { Box, VStack, useMediaQuery } from '@chakra-ui/react';
+import { Box, HStack, VStack, useMediaQuery } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import AttendeeInformation from '../components/Registration/Pages/AttendeeInformation';
@@ -12,12 +12,28 @@ import MobileBG from '/Registration/mobile_bg.svg';
 import Career from '../components/Registration/Pages/Career';
 import Config, { defaultRegistrationValues } from '../config';
 
+export interface AttendeeData {
+	name: string;
+	email: string;
+	university: string;
+	graduation: string;
+	major: string;
+	dietaryRestrictions: string[];
+	allergies: string[];
+	portfolios: string[];
+	isInterestedMechMania: boolean;
+	isInterestedPuzzleBang: boolean;
+	hasResume: boolean;
+	hasSubmitted: boolean;
+}
+
 export interface PageProps {
 	pageNo: number;
 	goNextPage: () => void;
 	goPrevPage: () => void;
 	setAttendeeData: React.Dispatch<React.SetStateAction<object>>;
-	attendeeData: object;
+	attendeeData: AttendeeData;
+	jwt: string;
 }
 
 export interface FormikValues {
@@ -37,7 +53,6 @@ export default function Registration() {
 		const jwt = localStorage.getItem("jwt");
 
 		while (!jwt) {
-			console.log("JWT token not found, redirecting...");
 			window.location.href = Config.BASE_URL + "auth/login/web";
 			return;
 		}
@@ -50,17 +65,23 @@ export default function Registration() {
 	}, [jwt]);
 
 	useEffect(() => {
-		if (needsInit && jwt) {
-			handleGetFormData();
+		if (needsInit) {
+			if (!jwt) {
+				fetchJwt();
+			}
 			setNeedsInit(false);
 		}
 	}, [needsInit, jwt]);
 
 	useEffect(() => {
+		handleGetFormData();
+	}, [needsInit]); 
+
+	useEffect(() => {
 		if (attendeeData.hasSubmitted) {
-			console.log("Already submitted!, redirecting...");
+			localStorage.removeItem("jwt");
 			window.alert("Oops! You've already submitted.");
-			window.location.href = "/";
+			window.location.href= "/";
 		}
 	}, [attendeeData]);
 
@@ -76,7 +97,6 @@ export default function Registration() {
 
 
 	async function handleGetFormData() {
-		console.log("handling get form data", jwt);
 		try {
 			const response = await axios.get(Config.BASE_URL + "registration/", {
 				headers: {
@@ -86,7 +106,6 @@ export default function Registration() {
 			});
 			
 			const { registration } = response.data;
-			console.log(registration);
 			setAttendeeData({
 				...defaultRegistrationValues,
 				...registration,
@@ -107,13 +126,11 @@ export default function Registration() {
 		} else {
 			setAttendeeData((prevData) => {
 				const newData = { ...prevData, ...values };
-				console.log("HERE", newData, prevData, values);
 				saveData(newData);
 				return newData;
 			});
 		}
 	}
-
 
 	async function saveData(data: object) {
 		const promise = axios.post(
@@ -157,7 +174,11 @@ export default function Registration() {
 					Authorization: `${jwt}`,
 				},
 			}
-		).then(() => window.location.href = "/");
+		).then(() => {
+			window.alert("Your submission has been processed.");
+			localStorage.removeItem("jwt");
+			window.location.href="/";
+		});
 
 		toast.promise(promise, {
 			success: {
@@ -178,6 +199,7 @@ export default function Registration() {
 		goPrevPage: goPrevPage,
 		setAttendeeData: handleSave,
 		attendeeData: attendeeData,
+		jwt: jwt,
 	};
 
 	function getPage() {
@@ -192,8 +214,8 @@ export default function Registration() {
 
 	return (
 		<VStack spacing={0}>
-			<NavBar />
-			<Box bgImage={isSmall ? MobileBG : isShort ? MobileBG : BlueSands} bgSize="115% 105%" bgPosition="center calc(100% + 55px)" bgRepeat="no-repeat" minH="100vh" minW="100vw">
+			<NavBar showAuth={true} />
+			<Box bgImage={isSmall ? MobileBG : isShort ? MobileBG : BlueSands} bgSize="115% 105%" bgPosition="center calc(100% + 55px)" bgRepeat="no-repeat" minH="100vh" minW="100vw" pt='1vh'>
 				{getPage()}
 			</Box>
 		</VStack>

@@ -1,4 +1,4 @@
-import { Box, Flex, FormLabel, VStack, useMediaQuery } from "@chakra-ui/react";
+import { Box, Checkbox, Flex, FormLabel, Grid, GridItem, HStack, VStack, useMediaQuery } from "@chakra-ui/react";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -8,6 +8,8 @@ import Config from "../../../config";
 import { PageProps } from "../../../routes/Registration";
 import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
 import { TrueFalseSwitchInput } from "../inputs/SingleCheckboxInput";
+import CurrentPage from "../CurrentPage";
+import { FormInput } from "../inputs/FormInput";
 
 const EngagementValidator = Yup.object().shape({
 	isInterestedMechMania: Yup.boolean().required('Required'),
@@ -34,7 +36,6 @@ export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 
 		onSubmit: (values) => {
 			setAttendeeData(values);
-			alert(JSON.stringify(values, null, 2));
 			goNextPage();
 		},
 	});
@@ -43,15 +44,29 @@ export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 		<Flex direction="column" w="100%" align={"center center"} mt={isSmall ? "61px": "90px"}>
 			<form onSubmit={formik.handleSubmit}>
 				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" maxHeight='750px' height="auto" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"}>
-					<VStack spacing={4} align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
-						<FormLabel htmlFor="isInterestedPuzzleBang"> Are you interested in PuzzleBang? </FormLabel>
-						<TrueFalseSwitchInput id="isInterestedPuzzleBang" name="isInterestedPuzzleBang" formik={formik} />
+					<VStack spacing={'19px'} align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
+						<CurrentPage pageNo={pageNo} />
 
-						<FormLabel htmlFor="isInterestedMechMania"> Are you interested in MechMania? </FormLabel>
-						<TrueFalseSwitchInput id="isInterestedMechMania" name="isInterestedMechMania" formik={formik} />
+						<Grid gridTemplateColumns={isSmall ? "1fr" : '1fr 1fr'} gap={6} w="100%" maxWidth={"700px"}>
+							<GridItem w='60%'>
+								<FormLabel fontFamily='Kufam' fontWeight="900"  mb={0} htmlFor="isInterestedPuzzleBang"> Are you interested in PuzzleBang? </FormLabel>
+							</GridItem>
+							<GridItem w='10%'>
+								<Checkbox id="isInterestedPuzzleBang" name="isInterestedPuzzleBang" onBlur={formik.handleBlur} borderColor='white' onChange={formik.handleChange} />
+							</GridItem>
+							<GridItem w='100%'>
+								<FormLabel fontFamily='Kufam' fontWeight="900"  mb={0} htmlFor="isInterestedMechMania"> Are you interested in MechMania? </FormLabel>
+							</GridItem>
+							<GridItem w='10%' ml="0" alignItems={"start"}>
+								<Checkbox id="isInterestedMechMania" name="isInterestedMechMania" onBlur={formik.handleBlur} borderColor='white' onChange={formik.handleChange} />
+							</GridItem>
+						</Grid>
 
-						<FormLabel htmlFor="hearAboutRP"> How did you learn about Reflections|Projections? </FormLabel>
-						<MultiCheckBoxInput id="hearAboutRP" name="hearAboutRP" formik={formik} options={Config.REGISTRATION_REFERRAL_SOURCE}/> 
+
+						<Box w="100%">
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="hearAboutRP"> How did you learn about Reflections|Projections? </FormLabel>
+							<MultiCheckBoxInput id="hearAboutRP" name="hearAboutRP" formik={formik} options={Config.REGISTRATION_REFERRAL_SOURCE}/>
+						</Box>
 					</VStack>
 				</Box>
 				<Box h="80px">

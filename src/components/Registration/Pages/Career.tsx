@@ -10,6 +10,7 @@ import { PageProps } from "../../../routes/Registration";
 import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
 import { MultiSelectInput } from "../inputs/MultiSelectInput";
 import { ResumeUpload } from "../inputs/ResumeUpload";
+import CurrentPage from "../CurrentPage";
 
 const CareerProfileValidator = Yup.object().shape({
 	portfolios: Yup.array().of(Yup.string().url()).required('Required').max(5),
@@ -35,7 +36,6 @@ export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData
 		enableReinitialize: true,
 		onSubmit: (values) => {
 			setAttendeeData(values);
-			alert(JSON.stringify(values, null, 2));
 			goNextPage();
 		},
 	});
@@ -44,15 +44,22 @@ export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData
 		<Flex direction="column" w="100%" align={"center center"} mt={isSmall ? "61px" : "90px"}>
 			<form onSubmit={formik.handleSubmit}>
 				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"} maxHeight='750px'>
-					<VStack spacing={4} align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
-						<FormLabel htmlFor="jobInterest"> What opportunities are you open to? </FormLabel>
-						<MultiCheckBoxInput id="jobInterest" name="jobInterest" formik={formik} options={Config.REGISTRATION_OPEN_TO} />
+					<VStack spacing='19px' align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
+						<CurrentPage pageNo={pageNo} />
+						<Box w="100%">
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="jobInterest"> What opportunities are you open to? </FormLabel>
+							<MultiCheckBoxInput id="jobInterest" name="jobInterest" formik={formik} options={Config.REGISTRATION_OPEN_TO} />
+						</Box>
 
-						<FormLabel htmlFor="portfolios"> Add up to 5 personal links! </FormLabel>
-						<MultiSelectInput id="portfolios" name="portfolios" formik={formik} />
+						<Box w="100%">
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="portfolios"> Add up to 5 personal links! </FormLabel>
+							<MultiSelectInput id="portfolios" name="portfolios" formik={formik} />
+						</Box>
 
-						<FormLabel htmlFor="resume"> Upload your resume: </FormLabel>
-						<ResumeUpload id="resume" name="resume" formik={formik} />
+						<Box w="100%">
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="resume"> Upload your resume: </FormLabel>
+							<ResumeUpload id="resume" name="resume" formik={formik} />
+						</Box>
 					</VStack>
 				</Box>
 				<Box h="80px">

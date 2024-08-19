@@ -5,7 +5,6 @@ const POST_AUTH_URL = "/register/";
 
 export default function Auth() {
 	const [searchParams] = useSearchParams();
-	console.log("in auth!");
 
 	let jwt = localStorage.getItem("jwt");
 
@@ -24,15 +23,12 @@ export default function Auth() {
 	}
 
 	jwt = searchParams.get("token");
-	console.log("jwt:", jwt);
 
 	if (jwt) {
 		localStorage.setItem("jwt", jwt);
-		console.log("Redirecting to post-auth URL...");
 		return <Navigate to={POST_AUTH_URL} replace={true} />;
 	} else {
-		console.log("Redirecting to api login...");
-		window.location.href = Config.BASE_URL + "/auth/login/web/";
+		window.location.href = Config.BASE_URL + "auth/login/web/";
 		return null;
 	}
 }
