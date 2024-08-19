@@ -37,7 +37,7 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => 
 			console.log(response.data);
 			console.log("url" + response.data.url);
 			console.log("fields" + response.data.fields);
-			uploadToS3(response.data.url, response.data.fields, file);
+			await uploadToS3(response.data.url, response.data.fields, file);
 		} catch (error) {
 			console.error("Error fetching data:", error);
 		}
@@ -67,14 +67,10 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => 
 		}
 	};
 
-	const handleFileSelect = (selectedFile: File | null) => {
+	const handleFileSelect = async (selectedFile: File | null) => {
 		setFile(selectedFile);
-		handleResumeField();
-	  };
-
-	const handleResumeField = async () => {
 		await handleResumeSubmit();
-	};
+	  };
 
 	return (
 		<Flex>
