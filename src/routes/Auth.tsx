@@ -1,14 +1,13 @@
-import { Navigate, useSearchParams } from "react-router-dom";
-import Config from "../config";
+import { Navigate } from "react-router-dom";
 
 const POST_AUTH_URL = "/register/";
 
 export default function Auth() {
-	const [searchParams] = useSearchParams();
-
+	console.log("rendering auth!")
 	let jwt = localStorage.getItem("jwt");
 
 	if (!jwt) {
+		console.log("no jwt found! redirecting...");
 		const urlSearchParams = new URLSearchParams(window.location.search);
 		window.history.pushState({}, document.title, "/");
 		jwt = urlSearchParams.get("token");
@@ -19,16 +18,7 @@ export default function Auth() {
 
 	// jwt found in local storage
 	if (jwt) {
+		console.log(jwt);
 		return <Navigate to={POST_AUTH_URL} replace={true} />;
-	}
-
-	jwt = searchParams.get("token");
-
-	if (jwt) {
-		localStorage.setItem("jwt", jwt);
-		return <Navigate to={POST_AUTH_URL} replace={true} />;
-	} else {
-		window.location.href = Config.BASE_URL + "auth/login/web/";
-		return null;
 	}
 }
