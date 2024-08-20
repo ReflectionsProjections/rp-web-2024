@@ -2,7 +2,7 @@
 import { Avatar, Button, HStack, Image, Menu, MenuButton, MenuItem, MenuList} from '@chakra-ui/react';
 
 interface NavBarProps {
-    showAuth: boolean;
+    showAuth?: boolean;
 }
 
 export function NavBar({showAuth=false}: NavBarProps) {

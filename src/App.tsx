@@ -13,7 +13,9 @@ import Auth from "./routes/Auth";
 function ProdRoutes() {
 	return (
 		<Routes>
-			<Route path="*" element={<VStack spacing={0}>
+			<Route path="/register" element={<Registration/>} />
+			<Route path="/auth/" element={<Auth/>}> </Route>
+			<Route path="/" element={<VStack spacing={0}>
 				<NavBar />
 				<Header />
 				<Info/>
