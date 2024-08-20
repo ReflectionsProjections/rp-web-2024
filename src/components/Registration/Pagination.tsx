@@ -1,7 +1,6 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { Flex, Center, Button, Spacer, IconButton, useMediaQuery } from "@chakra-ui/react";
+import { Button, Center, Flex, IconButton, Spacer, useMediaQuery } from "@chakra-ui/react";
 import Config from "../../config";
-import handleSubmit from "../../routes/Registration";
 
 interface PaginationProps {
     pageNo: number;
@@ -11,7 +10,6 @@ interface PaginationProps {
 
 export function Pagination({pageNo, goPrevPage, disableNext = false}: PaginationProps) {
 	const [isMedium] = useMediaQuery("(max-width: 600px)");
-	const [isSmall] = useMediaQuery("(max-width: 400px)");
 	const [isTiny] = useMediaQuery("(max-width: 300px)");
 
 	function shouldEnableBack() {

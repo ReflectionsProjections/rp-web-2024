@@ -1,4 +1,4 @@
-import { Box, Checkbox, Flex, FormLabel, Grid, GridItem, HStack, Text, Tooltip, VStack, useMediaQuery } from "@chakra-ui/react";
+import { Box, Checkbox, Flex, FormLabel, Grid, GridItem, Text, VStack, useMediaQuery } from "@chakra-ui/react";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -6,10 +6,8 @@ import { Pagination } from "../Pagination";
 
 import Config from "../../../config";
 import { PageProps } from "../../../routes/Registration";
-import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
-import { TrueFalseSwitchInput } from "../inputs/SingleCheckboxInput";
 import CurrentPage from "../CurrentPage";
-import { FormInput } from "../inputs/FormInput";
+import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
 
 const EngagementValidator = Yup.object().shape({
 	isInterestedMechMania: Yup.boolean().required('Required'),

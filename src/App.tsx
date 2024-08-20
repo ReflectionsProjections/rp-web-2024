@@ -1,14 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { VStack } from '@chakra-ui/react';
-import Temp from "./routes/Template";
-import Config from "./config";
-import { NavBar } from "./components/NavBar";
-import Header from "./components/Home/Landing";
-import MainPage from "./routes/MainPage";
 import '@fontsource/kufam';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Info from "./components/Home/Info";
-import Registration from "./routes/Registration";
+import Header from "./components/Home/Landing";
+import { NavBar } from "./components/NavBar";
+import Config from "./config";
 import Auth from "./routes/Auth";
+import MainPage from "./routes/MainPage";
+import Registration from "./routes/Registration";
+import Temp from "./routes/Template";
 
 function ProdRoutes() {
 	return (

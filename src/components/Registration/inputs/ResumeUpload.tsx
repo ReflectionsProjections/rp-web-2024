@@ -12,7 +12,7 @@ interface FormInputProps {
 	formik: FormikProps<any>;
 }
 
-export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => {
+export const ResumeUpload: React.FC<FormInputProps> = ({ name, formik }) => {
 	const toast = useToast();
 
 	const handleResumeSubmit = async (file: File) => {
@@ -51,7 +51,7 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => 
 		form.append('file', file);
 	
 		try {
-			const response = await axios.post(url, form, {
+			await axios.post(url, form, {
 				headers: {
 					'Content-Type': 'multipart/form-data',
 					// ...fields,
@@ -63,7 +63,9 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => 
 	};
 
 	const handleFileSelect = async (selectedFile: File | null) => {
-		await handleResumeSubmit(selectedFile);
+		if (selectedFile) {
+			await handleResumeSubmit(selectedFile);
+		}
 	};
 
 	return (
