@@ -1,4 +1,5 @@
 import { Navigate } from "react-router-dom";
+import Config from "../config";
 
 const POST_AUTH_URL = "/register/";
 
@@ -7,7 +8,6 @@ export default function Auth() {
 	let jwt = localStorage.getItem("jwt");
 
 	if (!jwt) {
-		console.log("no jwt found! redirecting...");
 		const urlSearchParams = new URLSearchParams(window.location.search);
 		window.history.pushState({}, document.title, "/");
 		jwt = urlSearchParams.get("token");
@@ -20,5 +20,8 @@ export default function Auth() {
 	if (jwt) {
 		console.log(jwt);
 		return <Navigate to={POST_AUTH_URL} replace={true} />;
+	} else {
+		console.log("no jwt found! redirecting...");
+		window.location.href = Config.BASE_URL + "auth/login/web/";
 	}
 }
