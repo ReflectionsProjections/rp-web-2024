@@ -9,6 +9,7 @@ import Auth from "./routes/Auth";
 import MainPage from "./routes/MainPage";
 import Registration from "./routes/Registration";
 import Temp from "./routes/Template";
+import './App.css';
 
 function ProdRoutes() {
 	return (
@@ -47,7 +48,3 @@ function App() {
 }
 
 export default App;
-
-/*
-<Route path="/" element={<LandingPage text="home"/>}> </Route>
-*/ 
