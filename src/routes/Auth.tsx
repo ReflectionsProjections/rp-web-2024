@@ -9,6 +9,7 @@ export default function Auth() {
 
 	if (!jwt) {
 		const urlSearchParams = new URLSearchParams(window.location.search);
+		console.log("checking in params", urlSearchParams);
 		window.history.pushState({}, document.title, "/");
 		jwt = urlSearchParams.get("token");
 		if (jwt) {
