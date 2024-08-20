@@ -9,6 +9,7 @@ import '@fontsource/kufam';
 import Info from "./components/Home/Info";
 import Registration from "./routes/Registration";
 import Auth from "./routes/Auth";
+import './App.css';
 
 function ProdRoutes() {
 	return (
@@ -47,7 +48,3 @@ function App() {
 }
 
 export default App;
-
-/*
-<Route path="/" element={<LandingPage text="home"/>}> </Route>
-*/ 
