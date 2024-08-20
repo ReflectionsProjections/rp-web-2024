@@ -7,6 +7,7 @@ interface FormInputProps {
     id: string;
     name: string;
     formik: FormikProps<any>;
+	baseValue?: string;
 }
 
 
@@ -14,7 +15,7 @@ function onlyUnique(value: string, index: number, array: string[]) {
 	return array.indexOf(value) === index;
 }
 
-export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, formik }) => {
+export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, formik, baseValue='' }) => {
 	const [selected, setSelected] = useState<string[]>(formik.values[name] ?? []);
 
 	const [inputValue, setInputValue] = useState('');
@@ -42,6 +43,7 @@ export const MultiSelectInput: React.FC<FormInputProps> = ({ id, name, formik })
 					onChange={(event) => setInputValue(event.target.value.toUpperCase())}
 					onBlur={formik.handleBlur}
 					value={inputValue}
+					placeholder={baseValue}
 				/>
 				<InputRightAddon as="button" onClick={handleSubmit} backgroundColor={'#f4f4f42e'} border={'2px solid white'} borderLeft='none'> <CheckCircleIcon /> </InputRightAddon>
 			</InputGroup>

@@ -1,10 +1,9 @@
-import { Button, Flex, FormControl, FormErrorMessage, Input } from "@chakra-ui/react";
+import { Flex, FormErrorMessage } from "@chakra-ui/react";
 import { FormikProps } from "formik";
 import FilePicker from "./FilePicker";
-import React, { useState } from "react";
+import React  from "react";
 import { useToast } from "@chakra-ui/react";
 import Config from '../../../config';
-import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 
 interface FormInputProps {
@@ -14,12 +13,10 @@ interface FormInputProps {
 }
 
 export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => {
-	const [file, setFile] = useState<File | null>(null);
 	const toast = useToast();
-	const [searchParams] = useSearchParams();
 
-	const handleResumeSubmit = async () => {
-		const jwt = localStorage.getItem("jwt") || searchParams.get("token");
+	const handleResumeSubmit = async (file: File) => {
+		const jwt = localStorage.getItem("jwt");
 		try {
 			const response = await axios.get(`${Config.BASE_URL}s3/upload/`, {
 				headers: {
@@ -46,9 +43,9 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => 
 		for (const [key, value] of Object.entries(fields)) {
 			if (value instanceof Blob || typeof value === 'string') {
 				form.append(key, value);
-			  } else {
+			} else {
 				console.error(`Unexpected value type for key "${key}":`, value);
-			  }
+			}
 		}
 	
 		form.append('file', file);
@@ -56,7 +53,8 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => 
 		try {
 			const response = await axios.post(url, form, {
 				headers: {
-					...fields,
+					'Content-Type': 'multipart/form-data',
+					// ...fields,
 				},
 			});
 		} catch (error) {
@@ -65,9 +63,8 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ id, name, formik }) => 
 	};
 
 	const handleFileSelect = async (selectedFile: File | null) => {
-		setFile(selectedFile);
-		await handleResumeSubmit();
-	  };
+		await handleResumeSubmit(selectedFile);
+	};
 
 	return (
 		<Flex>

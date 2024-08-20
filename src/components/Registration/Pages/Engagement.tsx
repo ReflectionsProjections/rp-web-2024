@@ -1,4 +1,4 @@
-import { Box, Checkbox, Flex, FormLabel, Grid, GridItem, HStack, VStack, useMediaQuery } from "@chakra-ui/react";
+import { Box, Checkbox, Flex, FormLabel, Grid, GridItem, HStack, Text, Tooltip, VStack, useMediaQuery } from "@chakra-ui/react";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -48,14 +48,14 @@ export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 						<CurrentPage pageNo={pageNo} />
 
 						<Grid gridTemplateColumns={isSmall ? "1fr" : '1fr 1fr'} gap={6} w="100%" maxWidth={"700px"}>
-							<GridItem w='60%'>
-								<FormLabel fontFamily='Kufam' fontWeight="900"  mb={0} htmlFor="isInterestedPuzzleBang"> Are you interested in PuzzleBang? </FormLabel>
+							<GridItem w='100%'>
+								<FormLabel fontFamily='Kufam' fontWeight="900"  mb={0} htmlFor="isInterestedPuzzleBang">Are you interested in <Text fontSize={'md'} as='a' style={{ textDecoration: 'underline' }} _hover={{ color: "pink.300" }} href= "https://puzzlebang.com/">PuzzleBang</Text>?</FormLabel>
 							</GridItem>
 							<GridItem w='10%'>
 								<Checkbox id="isInterestedPuzzleBang" name="isInterestedPuzzleBang" onBlur={formik.handleBlur} borderColor='white' onChange={formik.handleChange} />
 							</GridItem>
 							<GridItem w='100%'>
-								<FormLabel fontFamily='Kufam' fontWeight="900"  mb={0} htmlFor="isInterestedMechMania"> Are you interested in MechMania? </FormLabel>
+								<FormLabel fontFamily='Kufam' fontWeight="900"  mb={0} htmlFor="isInterestedMechMania"> Are you interested in <Text fontSize={'md'} as='a' style={{ textDecoration: 'underline' }} _hover={{ color: "pink.300" }} href= "https://www.mechmania.org/">MechMania</Text>? </FormLabel>
 							</GridItem>
 							<GridItem w='10%' ml="0" alignItems={"start"}>
 								<Checkbox id="isInterestedMechMania" name="isInterestedMechMania" onBlur={formik.handleBlur} borderColor='white' onChange={formik.handleChange} />
@@ -64,7 +64,7 @@ export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 
 
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="hearAboutRP"> How did you learn about Reflections|Projections? </FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="hearAboutRP"> How did you learn about Reflections | Projections? </FormLabel>
 							<MultiCheckBoxInput id="hearAboutRP" name="hearAboutRP" formik={formik} options={Config.REGISTRATION_REFERRAL_SOURCE}/>
 						</Box>
 					</VStack>

@@ -52,7 +52,6 @@ export function Diversity({
 		enableReinitialize: true,
 		onSubmit: (values) => {
 			setAttendeeData(values);
-			alert(JSON.stringify(values, null, 2));
 			goNextPage();
 		},
 	});

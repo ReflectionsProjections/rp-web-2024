@@ -13,7 +13,7 @@ import { ResumeUpload } from "../inputs/ResumeUpload";
 import CurrentPage from "../CurrentPage";
 
 const CareerProfileValidator = Yup.object().shape({
-	portfolios: Yup.array().of(Yup.string().url()).required('Required').max(5),
+	portfolios: Yup.array().of(Yup.string().url("Must begin with `https://`")).required('Required').max(5),
 	jobInterest: Yup.array().of(Yup.string())
 });
 
@@ -53,7 +53,7 @@ export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData
 
 						<Box w="100%">
 							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="portfolios"> Add up to 5 personal links! </FormLabel>
-							<MultiSelectInput id="portfolios" name="portfolios" formik={formik} />
+							<MultiSelectInput id="portfolios" name="portfolios" formik={formik} baseValue="https://www.example.com"/>
 						</Box>
 
 						<Box w="100%">
