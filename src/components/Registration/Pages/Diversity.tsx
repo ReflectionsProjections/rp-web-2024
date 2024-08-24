@@ -20,7 +20,6 @@ import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
 import CurrentPage from "../CurrentPage";
 
 const DiversityValidator = Yup.object().shape({
-	firstGen: Yup.boolean(),
 	ethnicity: Yup.array().of(Yup.string()),
 	gender: Yup.string(),
 });
@@ -40,7 +39,6 @@ export function Diversity({
 		DiversityDefaults = DiversityValidator.validateSync(attendeeData);
 	} catch (err) {
 		DiversityDefaults = {
-			firstGen: false,
 			ethnicity: [],
 			gender: "other",
 		};
