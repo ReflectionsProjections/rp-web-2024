@@ -14,7 +14,6 @@ import * as Yup from "yup";
 import { Pagination } from "../Pagination";
 
 import { PageProps } from "../../../routes/Registration";
-import { TrueFalseCheckBoxInput } from "../inputs/SingleCheckboxInput";
 import Config from "../../../config";
 import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
 import CurrentPage from "../CurrentPage";
