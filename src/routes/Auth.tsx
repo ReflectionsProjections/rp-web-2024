@@ -4,7 +4,7 @@ import Config from "../config";
 const POST_AUTH_URL = "/register/";
 
 export default function Auth() {
-	console.log("rendering auth!")
+	console.log("rendering auth!");
 	let jwt = localStorage.getItem("jwt");
 
 	if (!jwt) {

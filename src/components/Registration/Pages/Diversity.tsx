@@ -14,13 +14,11 @@ import * as Yup from "yup";
 import { Pagination } from "../Pagination";
 
 import { PageProps } from "../../../routes/Registration";
-import { TrueFalseCheckBoxInput } from "../inputs/SingleCheckboxInput";
 import Config from "../../../config";
 import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
 import CurrentPage from "../CurrentPage";
 
 const DiversityValidator = Yup.object().shape({
-	firstGen: Yup.boolean(),
 	ethnicity: Yup.array().of(Yup.string()),
 	gender: Yup.string(),
 });
@@ -40,7 +38,6 @@ export function Diversity({
 		DiversityDefaults = DiversityValidator.validateSync(attendeeData);
 	} catch (err) {
 		DiversityDefaults = {
-			firstGen: false,
 			ethnicity: [],
 			gender: "other",
 		};
@@ -81,18 +78,6 @@ export function Diversity({
 						marginBottom="0"
 					>
 						<CurrentPage pageNo={pageNo} />
-						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="firstGen">
-								{" "}
-							Are you a first generation student?{" "}
-							</FormLabel>
-							<TrueFalseCheckBoxInput
-								id="firstGen"
-								name="firstGen"
-								formik={formik}
-							/>
-						</Box>
-
 						<Box w="100%">
 							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="gender"> What is your gender? </FormLabel>
 							<RadioGroup
