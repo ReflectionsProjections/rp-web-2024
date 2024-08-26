@@ -68,9 +68,7 @@ export default function Registration() {
 			if (!jwt) {
 				fetchJwt();
 			}
-			if (jwt) {
-				window.confirm("You are about to access a beta version of the registration form. Please do not submit any real data. This data will be erased prior to our official registration launch.");
-			}
+
 			setNeedsInit(false);
 		}
 	}, [needsInit, jwt]);
