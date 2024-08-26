@@ -68,7 +68,7 @@ export function Diversity({
 					pb={0}
 					rounded="md"
 					minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"}
-					maxHeight="750px"
+					// maxHeight="750px"
 				>
 					<VStack
 						spacing='19px'

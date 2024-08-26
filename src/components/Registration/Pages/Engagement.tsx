@@ -41,7 +41,7 @@ export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 	return (
 		<Flex direction="column" w="100%" align={"center center"} mt={isSmall ? "61px": "90px"}>
 			<form onSubmit={formik.handleSubmit}>
-				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" maxHeight='750px' height="auto" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"}>
+				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" height="auto" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"}>
 					<VStack spacing={'19px'} align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
 						<CurrentPage pageNo={pageNo} />
 
