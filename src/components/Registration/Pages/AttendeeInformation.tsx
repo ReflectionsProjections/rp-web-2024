@@ -102,7 +102,7 @@ export function AttendeeInformation({ pageNo, goNextPage, goPrevPage, setAttende
 						{!seenNext && 
 							<Grid gridTemplateColumns={isSmall ? "1fr" : '1fr 1fr'} gap={6} w="100%" maxWidth={"900px"}>
 								<GridItem w='80%'>
-									<FormLabel fontFamily='Kufam' fontWeight="900" m={0} htmlFor="over18">Are you over 18 years old?</FormLabel>
+									<FormLabel fontFamily='Kufam' fontWeight="900" m={0} htmlFor="over18">Are you over 18 years old? <span style={{ color: 'red' }}>*</span></FormLabel>
 								</GridItem>
 								<GridItem w='10%'>
 									<Checkbox borderColor='white' id="over18" checked={seenNext} onChange={() => { setEligibleButton(!eligibleButton); }} />

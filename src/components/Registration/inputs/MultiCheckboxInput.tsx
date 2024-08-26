@@ -36,8 +36,8 @@ export const MultiCheckBoxInput: React.FC<FormInputProps> = ({ id, name, formik,
 	};
 
 	return (
-		<SimpleGrid spacing={4} mt={2} minChildWidth="140px" w="100%" id={id}> 
-			{options.map((x) => <Checkbox key={x} isChecked={checked.includes(x.toUpperCase())} borderColor='white' wordBreak={'break-word'} onChange={() => handleChange(x.toUpperCase())}> {x.toUpperCase()} </Checkbox>)}
+		<SimpleGrid spacing={6} mt={2} minChildWidth="180px" w="100%" id={id}> 
+			{options.map((x) => <Checkbox key={x} isChecked={checked.includes(x.toUpperCase())} borderColor='white' onChange={() => handleChange(x.toUpperCase())}> {x.toUpperCase()} </Checkbox>)}
 		</SimpleGrid>
 	);
 };
