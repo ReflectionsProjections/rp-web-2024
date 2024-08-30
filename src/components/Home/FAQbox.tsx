@@ -1,4 +1,4 @@
-import { Box, Button, useDisclosure, Text, VStack } from "@chakra-ui/react";
+import { Box, useDisclosure, Text, VStack } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const MotionBox = motion(Box);
