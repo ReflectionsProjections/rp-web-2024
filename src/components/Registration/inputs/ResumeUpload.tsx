@@ -1,5 +1,5 @@
-import { Flex, FormErrorMessage } from "@chakra-ui/react";
-import { FormikProps } from "formik";
+import { Flex } from "@chakra-ui/react";
+// import { FormikProps } from "formik";
 import FilePicker from "./FilePicker";
 import React  from "react";
 import { useToast } from "@chakra-ui/react";
@@ -9,10 +9,10 @@ import axios from 'axios';
 interface FormInputProps {
 	id: string;
 	name: string;
-	formik: FormikProps<any>;
+	// formik?: FormikProps<any>;
 }
 
-export const ResumeUpload: React.FC<FormInputProps> = ({ name, formik }) => {
+export const ResumeUpload: React.FC<FormInputProps> = ({ name }) => {
 	const toast = useToast();
 
 	const handleResumeSubmit = async (file: File) => {
@@ -71,7 +71,7 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ name, formik }) => {
 	return (
 		<Flex>
 			<FilePicker onFileSelect={handleFileSelect} />
-			<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
+			{/* <FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage> */}
 		</Flex>
 	);
 };
