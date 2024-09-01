@@ -47,27 +47,27 @@ export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 
 						<Grid gridTemplateColumns={isSmall ? "1fr" : '1fr 1fr'} gap={6} w="100%" maxWidth={"700px"}>
 							<GridItem w='100%'>
-								<FormLabel fontFamily='Kufam' fontWeight="900"  mb={0} htmlFor="isInterestedPuzzleBang">Are you interested in <Text fontSize={'md'} as='a' style={{ textDecoration: 'underline' }} _hover={{ color: "pink.300" }} href= "https://puzzlebang.com/">PuzzleBang</Text>?</FormLabel>
+								<FormLabel fontFamily='Kufam' fontWeight="900"  mb={0} fontSize='18px' htmlFor="isInterestedPuzzleBang">I am interested in <Text fontSize='18px' as='a' target="_blank" rel="noopener noreferrer" color="pink.100" style={{ textDecoration: 'underline'}} _hover={{ color: "pink.300" }} href= "https://puzzlebang.com/">PuzzleBang</Text></FormLabel>
 							</GridItem>
 							<GridItem w='10%'>
-								<Checkbox id="isInterestedPuzzleBang" name="isInterestedPuzzleBang" onBlur={formik.handleBlur} borderColor='white' onChange={formik.handleChange} />
+								<Checkbox id="isInterestedPuzzleBang" name="isInterestedPuzzleBang" onBlur={formik.handleBlur} borderColor='white' onChange={formik.handleChange} size={'lg'}/>
 							</GridItem>
 							<GridItem w='100%'>
-								<FormLabel fontFamily='Kufam' fontWeight="900"  mb={0} htmlFor="isInterestedMechMania"> Are you interested in <Text fontSize={'md'} as='a' style={{ textDecoration: 'underline' }} _hover={{ color: "pink.300" }} href= "https://www.mechmania.org/">MechMania</Text>? </FormLabel>
+								<FormLabel fontFamily='Kufam' fontWeight="900"  mb={0} fontSize='18px' htmlFor="isInterestedMechMania">I am interested in <Text fontSize='18px' as='a' target="_blank" rel="noopener noreferrer" color="pink.100" style={{ textDecoration: 'underline'}} _hover={{ color: "pink.300" }} href= "https://www.mechmania.org/">MechMania</Text></FormLabel>
 							</GridItem>
 							<GridItem w='10%' ml="0" alignItems={"start"}>
-								<Checkbox id="isInterestedMechMania" name="isInterestedMechMania" onBlur={formik.handleBlur} borderColor='white' onChange={formik.handleChange} />
+								<Checkbox id="isInterestedMechMania" name="isInterestedMechMania" onBlur={formik.handleBlur} borderColor='white' onChange={formik.handleChange} size={'lg'} />
 							</GridItem>
 						</Grid>
 
 
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="hearAboutRP"> How did you learn about Reflections | Projections? </FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="hearAboutRP" fontSize='18px'> How did you learn about Reflections | Projections? </FormLabel>
 							<MultiCheckBoxInput id="hearAboutRP" name="hearAboutRP" formik={formik} options={Config.REGISTRATION_REFERRAL_SOURCE}/>
 						</Box>
 					</VStack>
 				</Box>
-				<Box h="80px">
+				<Box h="140px" mb={isSmall ? "0px" : "150px"}>
 					<Pagination pageNo={pageNo} goPrevPage={goPrevPage} />
 				</Box>
 			</form>
