@@ -29,7 +29,7 @@ function ProdRoutes() {
 function DevRoutes() {
 	return (
 		<Routes>
-			<Route path="/register" element={<Registration/>} />
+			{/* <Route path="/register" element={<Registration/>} /> */}
 			<Route path="/auth/" element={<Auth/>}> </Route>
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
