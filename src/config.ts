@@ -35,6 +35,7 @@ const Config = {
 	REGISTRATION_ETHNICITIES: ["hispanic/latinx", "american indian/alaskan native", "asian", "black/african american", "pacific islander", "middle eastern", "white"],
 	REGISTRATION_REFERRAL_SOURCE: ["word of mouth", "instagram", "linkedin", "in-class marketing", "email", "flyers", "on campus events", "other"],
 	REGISTRATION_DIETARY_RESTRICTIONS: ["vegan", "vegetarian", "gluten-free", "dairy-free"],
+	REGISTRATION_ALLERGIES: ["peanuts", "tree nuts (almonds, walnuts, pecans)", "dairy", "eggs", "soy", "shellfish", "fish", "sesame"],
 
 };
 

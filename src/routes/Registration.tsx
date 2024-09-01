@@ -101,7 +101,7 @@ export default function Registration() {
 			const response = await axios.get(Config.BASE_URL + "registration/", {
 				headers: {
 					"Content-Type": "application/json",
-					Authorization: `${jwt}`,
+					"Authorization": `${jwt}`,
 				},
 			});
 			
