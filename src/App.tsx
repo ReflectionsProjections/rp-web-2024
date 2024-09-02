@@ -17,7 +17,7 @@ function ProdRoutes() {
 	return (
 		<Routes>
 			<Route path="/privacy" element={<PrivacyPolicy/>} />
-			<Route path="/register" element={<Registration/>} />
+			{/* <Route path="/register" element={<Registration/>} /> */}
 			<Route path="/auth/" element={<Auth/>}> </Route>
 			<Route path="/" element={<VStack spacing={0}>
 				<NavBar />
@@ -34,7 +34,7 @@ function DevRoutes() {
 	return (
 		<Routes>
 			<Route path="/privacy" element={<PrivacyPolicy/>} />
-			{/* <Route path="/register" element={<Registration/>} /> */}
+			<Route path="/register" element={<Registration/>} />
 			<Route path="/auth/" element={<Auth/>}> </Route>
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
