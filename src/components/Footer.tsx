@@ -1,6 +1,7 @@
-import { Box, VStack, Image, Link, Text, HStack } from '@chakra-ui/react';
+import { Box, VStack, Image, Link, Text, HStack, useMediaQuery } from '@chakra-ui/react';
 
 function Footer() {
+  const [isSmall] = useMediaQuery("(max-width: 600px)");
   return (
     <Box
       as="footer"
@@ -11,18 +12,14 @@ function Footer() {
       position="relative"
       bottom="0"
     >
-      <HStack spacing={4} width="100%" alignItems="center" justify="space-between">
-        <Image src="/rp_logo.svg" alt="Logo" height="auto" maxW="58px" padding="0.5rem" />
-        <Text fontWeight="bold" color="white">
-          &copy; 2024 by Reflections | Projections
+      <HStack spacing={4} width="100%" alignItems="center" justify="space-between" height={"min-content"}>
+        <Image src="/rp_logo.svg" alt="Logo" height="auto" maxW="40px" padding="0.5rem" />
+        <Text fontWeight="bold" color="white" fontSize={"1em"}>
+          &copy; 2024 by {isSmall ? "R|P" : "Reflections | Projections"}
         </Text>
 
-        <VStack spacing={2} align="center">
-          <HStack spacing={4}>
-            <Link href="mailto:contact@reflectionsprojections.org" color="white">Contact</Link>
-            <Link href="https://reflectionsprojections.org/privacy" color="white">Privacy Policy</Link>
-          </HStack>
-        </VStack>
+        <Text fontSize={"1em"}> Got questions? Email us at <Link href="mailto:contact@reflectionsprojections.org" color="white">contact@reflectionsprojections.org</Link> </Text>
+        
       </HStack>
     </Box>
   );
