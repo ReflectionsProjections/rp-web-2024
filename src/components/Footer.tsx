@@ -1,4 +1,4 @@
-import { Box, VStack, Image, Link, Text, HStack, useMediaQuery } from '@chakra-ui/react';
+import { Box, Image, Link, Text, HStack, useMediaQuery } from '@chakra-ui/react';
 
 function Footer() {
   const [isSmall] = useMediaQuery("(max-width: 600px)");

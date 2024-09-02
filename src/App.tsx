@@ -10,11 +10,13 @@ import MainPage from "./routes/MainPage";
 import Registration from "./routes/Registration";
 import Temp from "./routes/Template";
 import './App.css';
+import { PrivacyPolicy } from './routes/PrivacyPolicy';
 import Footer from './components/Footer';
 
 function ProdRoutes() {
 	return (
 		<Routes>
+			<Route path="/privacy" element={<PrivacyPolicy/>} />
 			<Route path="/register" element={<Registration/>} />
 			<Route path="/auth/" element={<Auth/>}> </Route>
 			<Route path="/" element={<VStack spacing={0}>
@@ -31,6 +33,7 @@ function ProdRoutes() {
 function DevRoutes() {
 	return (
 		<Routes>
+			<Route path="/privacy" element={<PrivacyPolicy/>} />
 			{/* <Route path="/register" element={<Registration/>} /> */}
 			<Route path="/auth/" element={<Auth/>}> </Route>
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
