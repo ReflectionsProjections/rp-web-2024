@@ -51,15 +51,15 @@ export default function Registration() {
 
 	function fetchJwt() {
 		const jwt = localStorage.getItem("jwt");
-		let is_stale_jwt = false
+		let isAlmostStaleJwt = false
 
 		// Check if the JWT is stale
 		if (jwt) {
 			const jwt_decoded = jwtDecode(jwt);
-			is_stale_jwt = Date.now() > (jwt_decoded["exp"]! * 1000);
+			isAlmostStaleJwt = Date.now() > (jwt_decoded["exp"]! * 1000) - 30 * 60 * 1000;
 		}
 
-		if (!jwt || is_stale_jwt) {
+		if (!jwt || isAlmostStaleJwt) {
 			window.location.href = Config.BASE_URL + "auth/login/web";
 			return;
 		}
