@@ -16,7 +16,7 @@ import { jwtDecode } from "jwt-decode";
 const AttendeeInformationValidator = Yup.object().shape({
 	name: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
 	email: Yup.string().email('Invalid email').required('Required'),
-	allergies: Yup.array().of(Yup.string()).required('Required').max(5),
+	allergies: Yup.array().of(Yup.string()).required('Required').max(10),
 	dietaryRestrictions: Yup.array().of(Yup.string()).required('Required'),
 });
 

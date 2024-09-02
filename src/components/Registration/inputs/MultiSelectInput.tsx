@@ -1,4 +1,4 @@
-import { CheckCircleIcon, AddIcon } from "@chakra-ui/icons";
+import { AddIcon } from "@chakra-ui/icons";
 import {
 	Box,
 	FormControl,

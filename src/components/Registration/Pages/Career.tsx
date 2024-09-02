@@ -8,7 +8,7 @@ import { Pagination } from "../Pagination";
 import Config from "../../../config";
 import { PageProps } from "../../../routes/Registration";
 import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
-import { MultiSelectInput } from "../inputs/MultiSelectInput";
+// import { MultiSelectInput } from "../inputs/MultiSelectInput";
 import { ResumeUpload } from "../inputs/ResumeUpload";
 import CurrentPage from "../CurrentPage";
 import { MultiLinkInput } from "../inputs/MultiLinkInput";
