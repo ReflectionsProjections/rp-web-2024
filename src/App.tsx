@@ -10,6 +10,7 @@ import MainPage from "./routes/MainPage";
 import Registration from "./routes/Registration";
 import Temp from "./routes/Template";
 import './App.css';
+import Footer from './components/Footer';
 
 function ProdRoutes() {
 	return (
@@ -20,6 +21,7 @@ function ProdRoutes() {
 				<NavBar />
 				<Header />
 				<Info/>
+				<Footer/>
 			</VStack>}> 
 			</Route>
 		</Routes>
