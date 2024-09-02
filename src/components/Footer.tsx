@@ -14,15 +14,13 @@ function Footer() {
       <HStack spacing={4} width="100%" alignItems="center" justify="space-between">
         <Image src="/rp_logo.svg" alt="Logo" height="auto" maxW="58px" padding="0.5rem" />
         <Text fontWeight="bold" color="white">
-          &copy; 2024 by Reflections|Projections.
+          &copy; 2024 by Reflections | Projections
         </Text>
 
         <VStack spacing={2} align="center">
           <HStack spacing={4}>
-            <Link href="#" color="white">About</Link>
-            <Link href="#" color="white">Contact</Link>
-            <Link href="#" color="white">Privacy Policy</Link>
-            <Link href="#" color="white">Terms of Service</Link>
+            <Link href="mailto:contact@reflectionsprojections.org" color="white">Contact</Link>
+            <Link href="https://reflectionsprojections.org/privacy" color="white">Privacy Policy</Link>
           </HStack>
         </VStack>
       </HStack>
