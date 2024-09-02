@@ -56,7 +56,7 @@ export default function Registration() {
 		if (jwt) {
 			// Check if the JWT is stale
 			const jwt_decoded = jwtDecode(jwt);
-			is_stale_jwt = (Date.now() / 1000) > (jwt_decoded["exp"]!);
+			is_stale_jwt = Date.now() > (jwt_decoded["exp"]! * 1000);
 		}
 
 		if (!jwt || is_stale_jwt) {
