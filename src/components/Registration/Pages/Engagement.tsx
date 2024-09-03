@@ -45,7 +45,8 @@ export function Engagement({ pageNo, goNextPage, goPrevPage, setAttendeeData, at
 					<VStack spacing={'19px'} align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
 						<CurrentPage pageNo={pageNo} />
 
-						<Grid gridTemplateColumns={isSmall ? "1fr" : '1fr 1fr'} gap={6} w="100%" maxWidth={"700px"}>
+						<Text fontSize='18px' fontFamily='Kufam' fontWeight="900" mb={0}>Select IF:</Text>
+						<Grid gridTemplateColumns={isSmall ? "1fr" : '1fr 1fr'} gap={3} pl={'30px'} mb="32px" w="100%" maxWidth={"700px"}>
 							<GridItem w='100%'>
 								<FormLabel fontFamily='Kufam' fontWeight="900"  mb={0} fontSize='18px' htmlFor="isInterestedPuzzleBang">I am interested in <Text fontSize='18px' as='a' target="_blank" rel="noopener noreferrer" color="pink.100" style={{ textDecoration: 'underline'}} _hover={{ color: "pink.300" }} href= "https://puzzlebang.com/">PuzzleBang</Text></FormLabel>
 							</GridItem>

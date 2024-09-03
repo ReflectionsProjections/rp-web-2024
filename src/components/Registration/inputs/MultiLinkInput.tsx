@@ -45,7 +45,7 @@ export const MultiLinkInput: React.FC<MultiLinkInputProps> = ({
 		} else if (!value.startsWith('https://') && links[index] === 'https://') {
 			newLinks[index] = 'https://';
 		} else {
-			newLinks[index] = 'https://' + value.slice(value.indexOf('//') + 2);
+			newLinks[index] = 'https://' + value.slice(value.lastIndexOf('//') + 2);
 		}
 		setLinks(newLinks);
 		formik.setFieldValue(name, newLinks);

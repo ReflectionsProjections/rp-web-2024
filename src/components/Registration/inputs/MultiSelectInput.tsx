@@ -17,7 +17,7 @@ import {
 	ListItem,
 } from "@chakra-ui/react";
 import { FormikProps } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface FormInputProps {
   id: string;
@@ -62,6 +62,10 @@ export const MultiSelectInput: React.FC<FormInputProps> = ({
 			setIsOpen(false);
 		}
 	};
+
+	useEffect(() => {
+		setSelected(formik.values[name] ?? []);
+	}, [formik.values[name], formik.values]);
 
 	const filteredOptions = options.filter(
 		(option) => option.toUpperCase().includes(inputValue.toUpperCase()) && !selected.includes(option)

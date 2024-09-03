@@ -1,6 +1,6 @@
 import { Checkbox, SimpleGrid } from "@chakra-ui/react";
 import { FormikProps } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface FormInputProps {
     id: string;
@@ -34,6 +34,10 @@ export const MultiCheckBoxInput: React.FC<FormInputProps> = ({ id, name, formik,
 		setChecked(newChecked);
 		formik.values[name] = newChecked;
 	};
+
+	useEffect(() => {
+		setChecked(formik.values[name] ?? []);
+	}, [formik.values[name], formik.values]);
 
 	return (
 		<SimpleGrid spacing={6} mt={2} minChildWidth="180px" w="100%" id={id}> 
