@@ -31,12 +31,12 @@ const faq = [
 		back: "R|P is open to everyone over the age of 18. Registering and attending R|P is open to all majors and class levels and is completely free!",
 	},
 	{
-		front: "When and where are R|P’s events held?",
+		front: "When and where are R|P's events held?",
 		back: "Reflections | Projections 2024 will be from Wednesday, September 18 to Sunday, September 22!",
 	},
 	{
 		front: "What do I need to do before R|P?",
-		back: "It’s simple: register (it’s completely free!) and download the brand new Reflections | Projections app (available in the App Store and Google Play Store). Just like that, you’re all set to attend events and retrieve free swag/merch!",
+		back: "It's simple: register (it's completely free!) and download the brand new Reflections | Projections app (available in the App Store and Google Play Store). Just like that, you're all set to attend events and retrieve free swag/merch!",
 	},
 	{
 		front: "What is the pixel system?",
@@ -47,12 +47,12 @@ const faq = [
 		back: "Attending R|P is the best way to learn about the current status of the tech industry and where the field is headed in the future. R|P aims to bridge the gap between industry and academia through valuable networking opportunities, and you might even leave with an internship or full-time job (based on true events!). Last but not least, we have free food available every day!",
 	},
 	{
-		front: "Where are R|P’s events held?",
+		front: "Where are R|P's events held?",
 		back: "Every event of R|P 2024 will be held in the Siebel Center for Computer Science (201 N Goodwin Ave, Urbana, IL 61801). Our calendar contains the specific room for each event.",
 	},
 	{
 		front: "What are MechMania and Puzzlebang?",
-		back: "MechMania is R|P’s 24 hour AI hackathon that allows students to work in teams to build a bot that can play a new game. MechMania is open to all levels of coding and you can register at mechmania.org. Puzzlebang allows groups to solve a series of puzzles throughout R|P, including an escape room. You can register for Puzzlebang at puzzlebang.com",
+		back: "MechMania is R|P's 24 hour AI hackathon that allows students to work in teams to build a bot that can play a new game. MechMania is open to all levels of coding and you can register at mechmania.org. Puzzlebang allows groups to solve a series of puzzles throughout R|P, including an escape room. You can register for Puzzlebang at puzzlebang.com",
 	},
 	{
 		front: "How can I get involved with R|P?",
@@ -70,7 +70,7 @@ const faq = [
 					rel="noopener noreferrer"
 					style={{
 						textDecoration: "underline",
-						color: "#1DA6EC",
+						color: "#cc4386",
 						fontWeight: "normal",
 					}}
 				>
@@ -250,13 +250,14 @@ export default function FAQ() {
 											alignItems: "center",
 											justifyContent: "center",
 											bgGradient: "linear(to bottom right, #289696, #173B4B)",
-											fontFamily: "Kafum, sans-serif",
+											fontFamily: "Kufam, sans-serif",
 											fontWeight: "semibold",
 											textAlign: "center",
 											lineHeight: "1.2",
 											color: "white",
 											borderRadius: "md",
 											border: "1px solid white",
+											padding: "20px",
 										}}
 									>
 										<div
@@ -296,13 +297,14 @@ export default function FAQ() {
 														justifyContent: "center",
 														bgGradient:
 															"linear(to bottom right, #289696, #173B4B)",
-														fontFamily: "Kafum, sans-serif",
+														fontFamily: "Kufam, sans-serif",
 														fontWeight: "semibold",
 														textAlign: "center",
 														lineHeight: "1.2",
 														color: "white",
 														borderRadius: "md",
 														border: "1px solid white",
+														padding: "30px",
 													}}
 												>
 													<Text

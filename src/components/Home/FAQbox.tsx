@@ -30,12 +30,13 @@ const CollapsibleSection = ({
 				minHeight='150px'
 				width="100%"
 				alignItems='center'
+				justifyContent='center'
 				display='flex'
 				p={{ base: 4, md: 6 }}
 				bg="#D3D3D3"
 				borderRadius={isOpen ? "8px 8px 0 0" : "md"}
 				color="#070F2D"
-				fontFamily="Kafum"
+				fontFamily="Kufam"
 				fontWeight="semibold"
 				textTransform="none"
 				border="none"
@@ -45,12 +46,12 @@ const CollapsibleSection = ({
 				transition="height 0.6s ease, border-radius 0.6s ease"
 			>
 				<Text
-					fontSize={{ base: "md", md: "lg" }}
+					// fontSize={{ base: "md", md: "lg" }}
 					color="inherit"
-					fontFamily="Kafum"
+					fontFamily="Kufam"
 					fontWeight="semibold"
 					textTransform="none"
-					fontSize={{ base: "5vw", md: "3vw" }}
+					fontSize={{ base: "4vw", md: "2vw" }}
 				>
 					{question}
 				</Text>
@@ -79,7 +80,7 @@ const CollapsibleSection = ({
 						>
 							<MotionText
 								color="white"
-								fontFamily="Kafum"
+								fontFamily="Kufam"
 								fontWeight="semibold"
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
@@ -87,7 +88,7 @@ const CollapsibleSection = ({
 								transition={{ duration: 0.6 }}
 								textAlign="center"
 								width="100%"
-								fontSize={{ base: "5vw", md: "3vw" }}
+								fontSize={{ base: "3vw", md: "1vw" }}
 							>
 								{answer}
 							</MotionText>
