@@ -123,8 +123,6 @@ export const LandingButton = {
 	width:"15vw",
 	minWidth:"150px",
 	border:"solid 3px black",
-	backgroundColor:"#FBC9B2",
-	color:"black",
 	fontSize: "max(2.1vw, 21px)",
 	fontFamily:"Nunito",
 	fontWeight:"500",

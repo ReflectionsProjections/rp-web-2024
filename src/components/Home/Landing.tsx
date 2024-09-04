@@ -60,7 +60,7 @@ export function Landing() {
 				<Box/>
 			</Flex>
 			<Flex direction="column" align="center" justify="center">
-				<Button style={LandingButton} textTransform='none' mt='15vh' borderColor='black'>Coming Soon</Button>
+				<Button as='a' href="/register" style={LandingButton} backgroundColor="#FBC9B2" color="black" textTransform='none' mt='15vh' borderColor='black' _hover={{ backgroundColor: "#0A395E", color: "white", transform: "scale(1.02)", boxShadow: "xl", transition: "all 0.3s ease"}} >Register</Button>
 				{/* <VStack spacing={4} mt={4}> */}
 				{/* <Button style={LandingButton} textTransform='none' borderColor='black'>Login</Button> */}
 				{/* </VStack> */}
