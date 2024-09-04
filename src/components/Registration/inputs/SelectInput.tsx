@@ -6,9 +6,10 @@ interface FormInputProps {
     name: string;
     formik: FormikProps<any>;
     options: string[];
+	defaultText?: string;
 }
 
-export const SelectInput: React.FC<FormInputProps> = ({ id, name, formik, options }) => {
+export const SelectInput: React.FC<FormInputProps> = ({ id, name, formik, options, defaultText }) => {
 	return (
 		<FormControl isInvalid={!!(formik.touched[name] && formik.errors[name])}>
 			<Select
@@ -26,7 +27,7 @@ export const SelectInput: React.FC<FormInputProps> = ({ id, name, formik, option
 						backgroundColor: '#313848',
 					}}
 				>
-      Select Graduation Date!
+					{defaultText}
 				</option>
 				{options.map((x) => (
 					<option

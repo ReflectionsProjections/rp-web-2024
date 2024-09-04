@@ -185,7 +185,7 @@ export default function Registration() {
 				},
 			}
 		).then(() => {
-			window.alert("Your submission has been processed.");
+			window.alert("Your submission has been processed. Please check your email (and junk/spam) for confirmation.");
 			localStorage.removeItem("jwt");
 			window.location.href="/";
 		});
