@@ -79,7 +79,7 @@ export function Diversity({
 					>
 						<CurrentPage pageNo={pageNo} />
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="gender"> What is your gender? </FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="gender"> What is your gender? </FormLabel>
 							<RadioGroup
 								name="gender"
 								value={formik.values.gender}
@@ -96,7 +96,7 @@ export function Diversity({
 						</Box>
 
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="ethnicity">
+							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="ethnicity">
 								{" "}
 							What is your ethicity? Select all that apply.{" "}
 							</FormLabel>
@@ -111,7 +111,7 @@ export function Diversity({
 
 					</VStack>
 				</Box>
-				<Box h="80px">
+				<Box h="140px" mb={isSmall ? "0px" : "150px"}>
 					<Pagination pageNo={pageNo} goPrevPage={goPrevPage} />
 				</Box>
 			</form>

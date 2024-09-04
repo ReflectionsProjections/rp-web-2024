@@ -45,26 +45,26 @@ export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeD
 	return (
 		<Flex direction="column" w="100%" align={"center center"} mt={isSmall ? "61px": "90px"}>
 			<form onSubmit={formik.handleSubmit}>
-				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"} maxHeight='750px'>
+				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"} >
 					<VStack spacing='19px' align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
 						<CurrentPage pageNo={pageNo} />
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="university"> What school do you go to? <span style={{ color: 'red' }}>*</span></FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="university"> What school do you go to? <span style={{ color: 'red' }}>*</span></FormLabel>
 							<DropdownSelect id="university" name="university" formik={formik} options={colleges} />
 						</Box>
 
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="major"> What is your current (or intended) major? <span style={{ color: 'red' }}>*</span></FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="major"> What is your current (or intended) major? <span style={{ color: 'red' }}>*</span></FormLabel>
 							<DropdownSelect id="major" name="major" formik={formik} options={majors} />
 						</Box>
 
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="graduation"> When do you graduate? <span style={{ color: 'red' }}>*</span></FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="graduation"> When do you graduate? <span style={{ color: 'red' }}>*</span></FormLabel>
 							<SelectInput id="graduation" name="graduation" formik={formik} options={Config.REGISTRATION_GRADUATION_YEARS} />
 						</Box>
 					</VStack>
 				</Box>
-				<Box h="80px">
+				<Box h="140px" mb={isSmall ? "0px" : "150px"}>
 					<Pagination pageNo={pageNo} goPrevPage={goPrevPage} />
 				</Box>
 			</form>

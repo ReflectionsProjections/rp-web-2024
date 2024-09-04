@@ -1,12 +1,14 @@
 import React, { useRef, useState } from "react";
 import { Box, Button, Input, Text, Icon } from "@chakra-ui/react";
 import { FiUploadCloud } from "react-icons/fi";
+import {CheckCircleIcon} from "@chakra-ui/icons";
 
 interface FilePickerProps {
-  onFileSelect: (file: File) => void;
+	onFileSelect: (file: File) => void;
+	hasResume?: boolean;
 }
 
-const FilePicker: React.FC<FilePickerProps> = ({ onFileSelect }) => {
+const FilePicker: React.FC<FilePickerProps> = ({ onFileSelect, hasResume }) => {
 	const [file, setFile] = useState<File | null>(null);
 	const [error, setError] = useState<string | null>(null);
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -48,6 +50,45 @@ const FilePicker: React.FC<FilePickerProps> = ({ onFileSelect }) => {
 		inputRef.current?.click();
 	};
 
+
+	function ResumeNeedsUpload() {
+		return <>
+			<Icon as={FiUploadCloud} boxSize={12} color="teal.500" mb={2} />
+			<Text fontSize="lg" color="gray.500">
+				Drag & drop a PDF here, or click to select a PDF
+			</Text>
+			{error && (
+				<Text fontSize="sm" color="red.500" mt={2}>
+					{error}
+				</Text>
+			)}
+		</>;
+	}
+
+	function IsUploadingResume() {
+		return <>
+			<Text fontSize="lg" color="gray.500" mb={4}>
+				{file?.name}
+			</Text>
+			<Button colorScheme="teal" onClick={handleClick}>
+				Change File
+			</Button>
+		</>;
+	}
+
+	function ResumeHasBeenUploaded() {
+		return <>
+
+			<Icon as={CheckCircleIcon} boxSize={12} color="teal.500" mb={2} />
+			<Text fontSize="lg" color="gray.500">
+				Your resume has been uploaded.
+			</Text>
+			<Button colorScheme="teal" onClick={handleClick}>
+				Change File
+			</Button>
+		</>;
+	}
+
 	return (
 		<Box
 			border="2px dashed #CBD5E0"
@@ -60,28 +101,7 @@ const FilePicker: React.FC<FilePickerProps> = ({ onFileSelect }) => {
 			_hover={{ borderColor: "teal.500" }}
 			onClick={handleClick}
 		>
-			{!file ? (
-				<>
-					<Icon as={FiUploadCloud} boxSize={12} color="teal.500" mb={2} />
-					<Text fontSize="lg" color="gray.500">
-            Drag & drop a PDF here, or click to select a PDF
-					</Text>
-					{error && (
-						<Text fontSize="sm" color="red.500" mt={2}>
-							{error}
-						</Text>
-					)}
-				</>
-			) : (
-				<Box>
-					<Text fontSize="lg" color="gray.500" mb={4}>
-						{file.name}
-					</Text>
-					<Button colorScheme="teal" onClick={handleClick}>
-            Change File
-					</Button>
-				</Box>
-			)}
+			{!file ? (hasResume ? <ResumeHasBeenUploaded /> : <ResumeNeedsUpload />): <IsUploadingResume />}
 			<Input
 				type="file"
 				accept="application/pdf"
@@ -89,7 +109,7 @@ const FilePicker: React.FC<FilePickerProps> = ({ onFileSelect }) => {
 				onChange={handleFileSelect}
 				display="none"
 			/>
-		</Box>
+		</Box >
 	);
 };
 

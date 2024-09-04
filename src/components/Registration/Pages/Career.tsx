@@ -8,12 +8,13 @@ import { Pagination } from "../Pagination";
 import Config from "../../../config";
 import { PageProps } from "../../../routes/Registration";
 import { MultiCheckBoxInput } from "../inputs/MultiCheckboxInput";
-import { MultiSelectInput } from "../inputs/MultiSelectInput";
+// import { MultiSelectInput } from "../inputs/MultiSelectInput";
 import { ResumeUpload } from "../inputs/ResumeUpload";
 import CurrentPage from "../CurrentPage";
+import { MultiLinkInput } from "../inputs/MultiLinkInput";
 
 const CareerProfileValidator = Yup.object().shape({
-	portfolios: Yup.array().of(Yup.string().url("Must begin with `https://`")).required('Required').max(5),
+	portfolios: Yup.array().of(Yup.string().url("Must be a valid URL")).required('Required').max(5),
 	jobInterest: Yup.array().of(Yup.string())
 });
 
@@ -43,26 +44,28 @@ export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData
 	return (
 		<Flex direction="column" w="100%" align={"center center"} mt={isSmall ? "61px" : "90px"}>
 			<form onSubmit={formik.handleSubmit}>
-				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"} maxHeight='750px'>
+				<Box textColor='white' fontFamily='Kufam' p={6} pb={0} rounded="md" minHeight={isSmall ? "calc(100vh - 200px)" : "calc(65vh - 20px)"}>
 					<VStack spacing='19px' align="flex-start" margin='10vw' marginTop='4vh' marginBottom='0'>
 						<CurrentPage pageNo={pageNo} />
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="jobInterest"> What opportunities are you open to? </FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="jobInterest"> What opportunities are you open to? </FormLabel>
 							<MultiCheckBoxInput id="jobInterest" name="jobInterest" formik={formik} options={Config.REGISTRATION_OPEN_TO} />
 						</Box>
 
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900"  htmlFor="portfolios"> Add up to 5 personal links! </FormLabel>
-							<MultiSelectInput id="portfolios" name="portfolios" formik={formik} baseValue="https://www.example.com"/>
+							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="resume"> Upload your resume: </FormLabel>
+							<ResumeUpload id="hasResume" name="hasResume" formik={formik} />
 						</Box>
 
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900" htmlFor="resume"> Upload your resume: </FormLabel>
-							<ResumeUpload id="resume" name="resume" formik={formik} />
+							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="portfolios"> Add up to 5 personal links! </FormLabel>
+							{/* <MultiSelectInput id="portfolios" name="portfolios" formik={formik} baseValue="https://www.example.com"/> */}
+							<MultiLinkInput id="portfolios" name="portfolios" formik={formik} />
 						</Box>
+
 					</VStack>
 				</Box>
-				<Box h="80px">
+				<Box h="140px" mb={isSmall ? "0px" :"150px"}>
 					<Pagination pageNo={pageNo} goPrevPage={goPrevPage} />
 				</Box>
 			</form>
