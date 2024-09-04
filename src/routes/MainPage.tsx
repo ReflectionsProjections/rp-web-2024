@@ -13,7 +13,7 @@ export default function MainPage() {
 			<NavBar />
 			<Header />
 			<Info/>
-			<Events/>
+			{/* <Events/> */}
 			<FAQ/>
 			{/* <Sponsors/> */}
 			<Footer />

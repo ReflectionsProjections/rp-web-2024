@@ -238,6 +238,7 @@ export default function FAQ() {
 									position="relative"
 									width="100%"
 									height="100%"
+									cursor={"pointer"}
 									onClick={() => handleBoxClick(index)}
 								>
 									<Box
