@@ -13,6 +13,7 @@ export const defaultRegistrationValues = {
 	email: "",
 	university: "",
 	graduation: "",
+	degree: "",
 	major: "",
 	dietaryRestrictions: [""],
 	allergies: [],

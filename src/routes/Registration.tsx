@@ -18,6 +18,7 @@ export interface AttendeeData {
 	university: string;
 	graduation: string;
 	major: string;
+	degree: string;
 	dietaryRestrictions: string[];
 	allergies: string[];
 	portfolios: string[];
