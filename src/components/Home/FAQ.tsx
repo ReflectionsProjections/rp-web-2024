@@ -252,7 +252,6 @@ export default function FAQ() {
 											justifyContent: "center",
 											bgGradient: "linear(to bottom right, #289696, #173B4B)",
 											fontFamily: "Kufam, sans-serif",
-											fontWeight: "semibold",
 											textAlign: "center",
 											lineHeight: "1.2",
 											color: "white",
@@ -299,7 +298,6 @@ export default function FAQ() {
 														bgGradient:
 															"linear(to bottom right, #289696, #173B4B)",
 														fontFamily: "Kufam, sans-serif",
-														fontWeight: "semibold",
 														textAlign: "center",
 														lineHeight: "1.2",
 														color: "white",
