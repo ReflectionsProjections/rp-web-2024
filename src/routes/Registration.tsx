@@ -1,6 +1,7 @@
 import { Box, VStack, useMediaQuery, useToast } from '@chakra-ui/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { jwtDecode } from 'jwt-decode';
 import { NavBar } from '../components/NavBar';
 import AttendeeInformation from '../components/Registration/Pages/AttendeeInformation';
 import Career from '../components/Registration/Pages/Career';
@@ -51,12 +52,20 @@ export default function Registration() {
 	function fetchJwt() {
 		const jwt = localStorage.getItem("jwt");
 
-		while (!jwt) {
+		let isAlmostStaleJwt = false;
+		// Check if the JWT is stale
+		if (jwt) {
+			const jwt_decoded = jwtDecode(jwt);
+			isAlmostStaleJwt = Date.now() > (jwt_decoded["exp"]! * 1000) - 30 * 60 * 1000;
+		}
+
+		if (!jwt || isAlmostStaleJwt) {
+			localStorage.removeItem("jwt");
 			window.location.href = Config.BASE_URL + "auth/login/web";
 			return;
 		}
 
-		setJwt(jwt);
+		setJwt(jwt!);
 	}
 
 	useEffect(() => {
