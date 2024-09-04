@@ -85,7 +85,7 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
 									}
 									}
 									cursor="pointer"
-									_hover={{ backgroundColor: 'gray.100' }}
+									_hover={{ backgroundColor: 'gray.100', color: 'black' }}
 									padding="8px"
 								>
 									{option}
