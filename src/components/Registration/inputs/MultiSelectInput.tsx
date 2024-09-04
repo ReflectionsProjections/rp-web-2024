@@ -114,7 +114,7 @@ export const MultiSelectInput: React.FC<FormInputProps> = ({
 									onClick={() => handleSelect(option)}
 									cursor="pointer"
 									padding="8px"
-									_hover={{ backgroundColor: "gray.300" }}
+									_hover={{ backgroundColor: 'gray.100', color: 'black' }}
 								>
 									{option.toUpperCase()}
 								</ListItem>
