@@ -20,7 +20,7 @@ export const defaultRegistrationValues = {
 	portfolios: [],
 	isInterestedMechMania: false,
 	isInterestedPuzzleBang: false,
-	hasResume: true,
+	hasResume: false,
 	hasSubmitted: false,
 };
 
