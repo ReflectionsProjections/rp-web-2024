@@ -1,5 +1,5 @@
 // NavBar.tsx
-import { Avatar, Box, Button, HStack, Image, Menu, MenuButton, MenuItem, MenuList, Text} from '@chakra-ui/react';
+import { Avatar, Box, Button, HStack, Image, Menu, MenuButton, MenuItem, MenuList} from '@chakra-ui/react';
 
 interface NavBarProps {
     showAuth?: boolean;
