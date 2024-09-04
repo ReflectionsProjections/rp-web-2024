@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Image } from "@chakra-ui/react";
+import errormeme from "/errormeme.png";
 
 const NotFound = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -36,11 +38,20 @@ const NotFound = () => {
             transition: 'background-color 0.3s ease',
             fontFamily: 'Nunito',
         },
+        image: {
+            maxWidth: '400px',
+            marginBottom: '20px',
+            borderRadius: '15px',
+        },
     };
 
     return (
         <div style={styles.container}>
-            <h1 style={styles.heading}>404</h1>
+                        <h1 style={styles.heading}>404</h1>
+            <Image 
+                src={errormeme}
+                style={styles.image}
+            />
             <p style={styles.paragraph}>Hol’ up! This ain’t the 80s??</p>
             <Link
                 to="/"
