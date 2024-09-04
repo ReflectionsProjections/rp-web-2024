@@ -9,17 +9,22 @@ import Auth from "./routes/Auth";
 import MainPage from "./routes/MainPage";
 import Registration from "./routes/Registration";
 import Temp from "./routes/Template";
+import UpdateResume from "./routes/UpdateResume";
 import './App.css';
+import { PrivacyPolicy } from './routes/PrivacyPolicy';
+import Footer from './components/Footer';
 
 function ProdRoutes() {
 	return (
 		<Routes>
-			<Route path="/register" element={<Registration/>} />
+			<Route path="/privacy" element={<PrivacyPolicy/>} />
+			{/* <Route path="/register" element={<Registration/>} /> */}
 			<Route path="/auth/" element={<Auth/>}> </Route>
 			<Route path="/" element={<VStack spacing={0}>
 				<NavBar />
 				<Header />
 				<Info/>
+				<Footer/>
 			</VStack>}> 
 			</Route>
 		</Routes>
@@ -29,8 +34,10 @@ function ProdRoutes() {
 function DevRoutes() {
 	return (
 		<Routes>
+			<Route path="/privacy" element={<PrivacyPolicy/>} />
 			<Route path="/register" element={<Registration/>} />
 			<Route path="/auth/" element={<Auth/>}> </Route>
+			<Route path="/update/" element={<UpdateResume/>}> </Route>
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
 			<Route path="/" element={<MainPage/>} />

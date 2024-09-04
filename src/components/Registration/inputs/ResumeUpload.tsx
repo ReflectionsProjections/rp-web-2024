@@ -9,7 +9,7 @@ import axios from 'axios';
 interface FormInputProps {
 	id: string;
 	name: string;
-	formik: FormikProps<any>;
+	formik?: FormikProps<any>;
 }
 
 export const ResumeUpload: React.FC<FormInputProps> = ({ name, formik }) => {
@@ -57,7 +57,7 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ name, formik }) => {
 					'Content-Type': 'multipart/form-data',
 					// ...fields,
 				},
-			});
+			}).then(() => formik?.setFieldValue( name, true ))
 		} catch (error) {
 			console.error(error);
 		}
@@ -72,7 +72,7 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ name, formik }) => {
 	return (
 		<Flex>
 			<FilePicker onFileSelect={handleFileSelect} hasResume={formik.values[name]}/>
-			<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
+			<FormErrorMessage>{formik?.errors[name]?.toString()}</FormErrorMessage>
 		</Flex>
 	);
 };
