@@ -16,7 +16,7 @@ import "@fontsource/kufam/900-italic.css";
 import faq_bg from "/faq_bg.svg";
 import faq_roll from "/faq_roll.svg";
 import PageTitle from "./PageTitle";
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import CollapsibleSection from "./FAQbox";
 
 import InfoDecor from "/Info/film.svg";
@@ -86,10 +86,10 @@ export default function FAQ() {
 	const [isMobile] = useMediaQuery("(max-width: 768px)");
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
-	const [boxHeight, setBoxHeight] = useState(0);
+	// const [setBoxHeight] = useState(0);
 	const [scrollHeight, setScrollHeight] = useState(true);
 	const coloredBoxRef = useRef<HTMLDivElement>(null);
-	const [isExpanded, setIsExpanded] = useState(false);
+	// const [isExpanded, setIsExpanded] = useState(false);
 	const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
 	const handleBoxClick = (index: any) => {
@@ -106,7 +106,7 @@ export default function FAQ() {
 		const resizeObserver = new ResizeObserver((entries) => {
 			for (const entry of entries) {
 				console.log("Observed height:", entry.contentRect.height);
-				setBoxHeight(entry.contentRect.height);
+				// setBoxHeight(entry.contentRect.height);
 			}
 		});
 
@@ -187,7 +187,7 @@ export default function FAQ() {
 	return (
 		<Box
 			width="100%"
-			height="200vh"
+			minHeight="100vh"
 			justifyContent="center"
 			display="flex"
 			flexDirection="column"
