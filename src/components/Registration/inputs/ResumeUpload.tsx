@@ -35,7 +35,9 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ name, formik }) => {
 		} catch (error) {
 			console.error("Error fetching data:", error);
 		}
-		formik.values[name] = true;
+		if (formik !== undefined) {
+			formik.setFieldValue(name, true);
+		}
 	};
 	
 	const uploadToS3 = async (url: any, fields:any, file:any) => {
@@ -71,7 +73,7 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ name, formik }) => {
 
 	return (
 		<Flex>
-			<FilePicker onFileSelect={handleFileSelect} hasResume={formik.values[name]}/>
+			<FilePicker onFileSelect={handleFileSelect} hasResume={formik?.values[name]}/>
 			<FormErrorMessage>{formik?.errors[name]?.toString()}</FormErrorMessage>
 		</Flex>
 	);
