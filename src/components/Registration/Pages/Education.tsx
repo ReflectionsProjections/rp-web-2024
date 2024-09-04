@@ -14,12 +14,15 @@ import CurrentPage from "../CurrentPage";
 
 const EducationProfileValidator = Yup.object().shape({
 	university: Yup.string().required('Required'),
+	degree: Yup.string().required('Required'),
 	major: Yup.string().required('Required'),
 	graduation: Yup.string().required('Required').notOneOf(["Select Graduation Date!"], "Must be a valid date!"),
 });
 
 export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeData, attendeeData }: PageProps) {
 	const [isSmall] = useMediaQuery("(max-width: 600px)");
+	const degreeTypes = ["Bachelor's", "Master's", "PhD", "Professional (JD/MD)", "Other"]; 
+
 	let EducationProfileDefaults;
 
 	try {
@@ -51,6 +54,11 @@ export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeD
 						<Box w="100%">
 							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="university"> What school do you go to? <span style={{ color: 'red' }}>*</span></FormLabel>
 							<DropdownSelect id="university" name="university" formik={formik} options={colleges} />
+						</Box>
+
+						<Box w="100%">
+							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="degree"> What is your highest level of education (currently pursuing/completed)? <span style={{ color: 'red' }}>*</span></FormLabel>
+							<SelectInput id="degree" name="degree" formik={formik} options={degreeTypes} />
 						</Box>
 
 						<Box w="100%">
