@@ -12,6 +12,7 @@ import Temp from "./routes/Template";
 import UpdateResume from "./routes/UpdateResume";
 import './App.css';
 import { PrivacyPolicy } from './routes/PrivacyPolicy';
+import PageNotFound from './routes/PageNotFound';
 import Footer from './components/Footer';
 import FAQ from './components/Home/FAQ';
 
@@ -44,7 +45,7 @@ function DevRoutes() {
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
 			<Route path="/" element={<MainPage/>} />
-			<Route path="*" element={<Temp text="404" />} />
+			<Route path="*" element={<PageNotFound/>} />
 		</Routes>
 	);
 }
