@@ -14,7 +14,7 @@ import CurrentPage from "../CurrentPage";
 
 const EducationProfileValidator = Yup.object().shape({
 	university: Yup.string().required('Required'),
-	degree: Yup.string().required('Required'),
+	degree: Yup.string().required('Required').notOneOf(["Select Degree!"], "Must be a valid degree!"),
 	major: Yup.string().required('Required'),
 	graduation: Yup.string().required('Required').notOneOf(["Select Graduation Date!"], "Must be a valid date!"),
 });
@@ -58,7 +58,7 @@ export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeD
 
 						<Box w="100%">
 							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="degree"> What is your highest level of education (currently pursuing/completed)? <span style={{ color: 'red' }}>*</span></FormLabel>
-							<SelectInput id="degree" name="degree" formik={formik} options={degreeTypes} />
+							<SelectInput id="degree" name="degree" formik={formik} options={degreeTypes} defaultText={"Select Degree!"} />
 						</Box>
 
 						<Box w="100%">
@@ -68,7 +68,7 @@ export default function Education({ pageNo, goNextPage, goPrevPage, setAttendeeD
 
 						<Box w="100%">
 							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="graduation"> When do you graduate? <span style={{ color: 'red' }}>*</span></FormLabel>
-							<SelectInput id="graduation" name="graduation" formik={formik} options={Config.REGISTRATION_GRADUATION_YEARS} />
+							<SelectInput id="graduation" name="graduation" formik={formik} options={Config.REGISTRATION_GRADUATION_YEARS} defaultText={"Select Graduation Date!"} />
 						</Box>
 					</VStack>
 				</Box>

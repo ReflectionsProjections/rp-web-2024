@@ -20,6 +20,7 @@ function ProdRoutes() {
 			<Route path="/privacy" element={<PrivacyPolicy/>} />
 			<Route path="/register" element={<Registration/>} />
 			<Route path="/auth/" element={<Auth/>}> </Route>
+			<Route path="/update/" element={<UpdateResume/>}> </Route>
 			<Route path="/" element={<VStack spacing={0}>
 				<NavBar />
 				<Header />
