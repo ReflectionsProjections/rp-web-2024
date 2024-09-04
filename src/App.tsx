@@ -13,6 +13,7 @@ import UpdateResume from "./routes/UpdateResume";
 import './App.css';
 import { PrivacyPolicy } from './routes/PrivacyPolicy';
 import Footer from './components/Footer';
+import FAQ from './components/Home/FAQ';
 
 function ProdRoutes() {
 	return (
@@ -25,6 +26,7 @@ function ProdRoutes() {
 				<NavBar />
 				<Header />
 				<Info/>
+				<FAQ/>
 				<Footer/>
 			</VStack>}> 
 			</Route>
