@@ -68,7 +68,7 @@ function DropdownSelect({ id, name, formik, options }: DropdownSelectProps) {
 							onBlur={() => {
 								setIsOpen(false);
 							}}
-							autocomplete="off"
+							autoComplete="off"
 						/>
 						<FormErrorMessage>{formik.errors[name]?.toString()}</FormErrorMessage>
 					</FormControl>
