@@ -31,6 +31,7 @@ function ProdRoutes() {
 				<Footer/>
 			</VStack>}> 
 			</Route>
+			<Route path="*" element={<PageNotFound/>} />
 		</Routes>
 	);
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from "@chakra-ui/react";
 import errormeme from "/errormeme.png";
+import "@fontsource/kufam/900-italic.css";
 
 const NotFound = () => {
     const [isHovered, setIsHovered] = useState(false);
@@ -14,11 +15,11 @@ const NotFound = () => {
             alignItems: 'center',
             height: '100vh',
             textAlign: 'center' as 'center',
-            fontFamily: 'Nunito',
+            fontFamily: 'Kufam',
             backgroundColor: '#1C486D '
         },
         heading: {
-            fontSize: '8rem',
+            fontSize: '6rem',
             margin: '0',
             color: 'white',
         },
