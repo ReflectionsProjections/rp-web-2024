@@ -53,7 +53,7 @@ export default function Career({ pageNo, goNextPage, goPrevPage, setAttendeeData
 						</Box>
 
 						<Box w="100%">
-							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="resume"> Upload your resume: </FormLabel>
+							<FormLabel fontFamily='Kufam' fontWeight="900" fontSize='18px' htmlFor="resume"> Upload your resume (this can be updated later): </FormLabel>
 							<ResumeUpload id="hasResume" name="hasResume" formik={formik} />
 						</Box>
 
