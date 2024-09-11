@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tab, useMediaQuery } from "@chakra-ui/react";
-import UnselectedTabBg from "../../../public/Events/date_unselected.svg";
-import SelectedTabBg from "../../../public/Events/date_selected.svg";
+import UnselectedTabBg from "/Events/date_unselected.svg";
+import SelectedTabBg from "/Events/date_selected.svg";
 
 interface EventTabProps {
   day: string;

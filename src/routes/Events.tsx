@@ -3,10 +3,9 @@ import '@fontsource/kufam';
 import '@fontsource/roboto-slab/300.css';
 import '@fontsource/nunito';
 import PageTitle from "../components/Home/PageTitle";
-import { NavBar } from '../components/NavBar';
 import { EventTabs } from "../components/Events/EventTabs";
 
-import BackgroundPattern from "../../public/Events/event_background.svg";
+import BackgroundPattern from "/Events/event_background.svg";
 
 export function Events() {
 	return (
@@ -25,7 +24,7 @@ export function Events() {
 			alignContent="center"
 			backgroundColor="#004970"
 		>
-			
+
 			<Flex direction="column" position="relative">
 				<PageTitle title="EVENTS" />
 
