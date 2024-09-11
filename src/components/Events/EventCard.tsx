@@ -71,7 +71,7 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, time, descriptio
           
         
 				{isExtended && (
-					<Text fontSize="md" color="black" textAlign="left" mb="7%">{description}</Text>
+					<Text fontSize="md" color="black" textAlign="left" mr="5%" mb="7%">{description}</Text>
 				)}
 			</Flex>
 		</Box>
