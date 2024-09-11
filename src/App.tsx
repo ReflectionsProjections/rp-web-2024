@@ -17,6 +17,7 @@ function ProdRoutes() {
 				<NavBar />
 				<Header />
 				<Info/>
+				<Events/>
 			</VStack>}> 
 			</Route>
 		</Routes>

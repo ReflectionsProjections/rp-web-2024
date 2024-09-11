@@ -6,9 +6,11 @@ import EventCard from './EventCard';
 import EventTab from './EventTab';
 
 enum EventType {
-  A = 'A',
-  B = 'B',
-  C = 'C'
+	SPEAKER = "SPEAKER",
+	CORPORATE = "CORPORATE",
+	SPECIAL = "SPECIAL",
+	PARTNERS = "PARTNERS",
+	MEALS = "MEALS",
 }
 
 interface Event {
@@ -25,7 +27,7 @@ interface Event {
 }
 
 const startDate = new Date('2024-09-18'); // September 18 (Wednesday)
-const endDate = new Date('2024-09-22'); // September 22 (Sunday)
+const endDate = new Date('2024-09-23'); // September 22 (Sunday) -- not sure why this only works if I set endDate to 9/23/2024
 
 // Function to check if an event falls within the date range
 const isWithinDateRange = (date: Date): boolean => {

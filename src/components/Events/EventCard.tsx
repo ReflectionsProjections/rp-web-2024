@@ -63,15 +63,15 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, time, descriptio
 				>
 					{title}
 				</Text>
-				<Text fontSize="md" color="black">{location}</Text>
+				<Text fontSize="md" color="black" fontFamily='Kufam'>{location}</Text>
 				<HStack width='88vw' maxWidth="835px" mb={isExtended ? "2%" : "4%"}>
-					<Text fontSize="md" color="black">{time}</Text>
+					<Text fontSize="md" color="black" fontFamily='Kufam'>{time}</Text>
 					<ChevronDownIcon width='30px' height='30px' transform={`translateY(-10px) rotate(${isExtended ? 180 : 0 }deg)`} ml={'auto'} borderRadius='50%' color='black' transition='all 0.3s' />
 				</HStack>
           
         
 				{isExtended && (
-					<Text fontSize="md" color="black" textAlign="left">{description}</Text>
+					<Text fontSize="md" color="black" textAlign="left" mb="7%">{description}</Text>
 				)}
 			</Flex>
 		</Box>

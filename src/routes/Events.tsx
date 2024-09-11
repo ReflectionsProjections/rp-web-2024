@@ -12,13 +12,18 @@ export function Events() {
 	return (
 		<Box
 			position="relative"
-			minHeight="100vh"
-			bg="#16446a"
 			bgImage={`url(${BackgroundPattern})`}
 			bgSize="100% auto"
 			bgRepeat="no-repeat"
 			bgPosition="top"
 			bgAttachment="scroll"
+			width="100%"
+			minHeight="100vh"
+			justifyContent="center"
+			display="flex"
+			flexDirection="column"
+			alignContent="center"
+			backgroundColor="#004970"
 		>
 			<NavBar />
 
