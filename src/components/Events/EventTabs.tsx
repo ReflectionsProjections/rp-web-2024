@@ -97,15 +97,24 @@ export const EventTabs = () => {
 							{loading ? (
 								<p>Loading events...</p>
 							) : (
-								filterEventsByDay(day).map(event => (
-									<EventCard
-										key={event.eventId}
-										title={event.name}
-										location={event.location ?? 'Virtual'}
-										time={new Date(event.startTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Chicago' })}
-										description={event.description}
-									/>
-								))
+								filterEventsByDay(day).map(event => {
+									const eventDate = new Date(event.startTime);
+									const cstDate = new Date(eventDate.getTime() + (5 * 60 * 60 * 1000));
+									
+									return (
+									  <EventCard
+											key={event.eventId}
+											title={event.name}
+											location={event.location ?? 'Virtual'}
+											time={cstDate.toLocaleTimeString('en-US', { 
+										  hour: '2-digit', 
+										  minute: '2-digit'
+											})}
+											description={event.description}
+									  />
+									);
+								  })
+								  
 							)}
 						</Flex>
 					</TabPanel>
