@@ -17,14 +17,19 @@
     "@fontsource/kufam": "^5.0.18",
     "@fontsource/nunito": "^5.0.18",
     "@fontsource/roboto-slab": "^5.0.20",
+    "@types/react-autocomplete": "^1.8.11",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
+    "formik": "^2.4.6",
     "framer-motion": "^11.0.22",
+    "jwt-decode": "^4.0.0",
     "process": "^0.11.10",
     "react": "^18.2.0",
+    "react-autocomplete": "^1.8.1",
     "react-dom": "^18.2.0",
     "react-icons": "^5.1.0",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",

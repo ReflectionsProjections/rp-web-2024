@@ -1,25 +1,39 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { VStack } from '@chakra-ui/react';
-import Temp from "./routes/Template";
-import Config from "./config";
-import { NavBar } from "./components/NavBar";
-import Header from "./components/Home/Landing";
 import Events from "./routes/Events";
-import MainPage from "./routes/MainPage";
 import '@fontsource/kufam';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Info from "./components/Home/Info";
+import Header from "./components/Home/Landing";
+import { NavBar } from "./components/NavBar";
+import Config from "./config";
+import Auth from "./routes/Auth";
+import MainPage from "./routes/MainPage";
+import Registration from "./routes/Registration";
+import Temp from "./routes/Template";
+import UpdateResume from "./routes/UpdateResume";
 import './App.css';
+import { PrivacyPolicy } from './routes/PrivacyPolicy';
+import PageNotFound from './routes/PageNotFound';
+import Footer from './components/Footer';
+import FAQ from './components/Home/FAQ';
 
 function ProdRoutes() {
 	return (
 		<Routes>
-			<Route path="*" element={<VStack spacing={0}>
+			<Route path="/privacy" element={<PrivacyPolicy/>} />
+			<Route path="/register" element={<Registration/>} />
+			<Route path="/auth/" element={<Auth/>}> </Route>
+			<Route path="/update/" element={<UpdateResume/>}> </Route>
+			<Route path="/" element={<VStack spacing={0}>
 				<NavBar />
 				<Header />
 				<Info/>
 				<Events/>
+				<FAQ/>
+				<Footer/>
 			</VStack>}> 
 			</Route>
+			<Route path="*" element={<PageNotFound/>} />
 		</Routes>
 	);
 }
@@ -27,7 +41,10 @@ function ProdRoutes() {
 function DevRoutes() {
 	return (
 		<Routes>
-			<Route path="/auth/" element={<Temp text="auth" />}> </Route>
+			<Route path="/privacy" element={<PrivacyPolicy/>} />
+			<Route path="/register" element={<Registration/>} />
+			<Route path="/auth/" element={<Auth/>}> </Route>
+			<Route path="/update/" element={<UpdateResume/>}> </Route>
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
 			<Route path="/" element={<MainPage/>} />
@@ -46,7 +63,3 @@ function App() {
 }
 
 export default App;
-
-/*
-<Route path="/" element={<LandingPage text="home"/>}> </Route>
-*/ 
