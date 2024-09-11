@@ -5,7 +5,7 @@ import '@fontsource/nunito';
 import PageTitle from "../components/Home/PageTitle";
 import { EventTabs } from "../components/Events/EventTabs";
 
-import BackgroundPattern from "../../public/Events/event_background.svg";
+import BackgroundPattern from "/Events/event_background.svg";
 
 export function Events() {
 	return (

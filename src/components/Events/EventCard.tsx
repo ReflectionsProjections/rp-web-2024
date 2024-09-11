@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Flex, HStack, Text } from "@chakra-ui/react";
-import CardBg from "../../../public/Events/event_card.svg";
-import CardHead from "../../../public/Events/event_card_head.svg";
+import CardBg from "/Events/event_card.svg";
+import CardHead from "/Events/event_card_head.svg";
 import { ChevronDownIcon } from '@chakra-ui/icons';
 
 interface EventCardProps {
