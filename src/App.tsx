@@ -1,4 +1,5 @@
 import { VStack } from '@chakra-ui/react';
+import Events from "./routes/Events";
 import '@fontsource/kufam';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Info from "./components/Home/Info";
@@ -27,6 +28,7 @@ function ProdRoutes() {
 				<NavBar />
 				<Header />
 				<Info/>
+				<Events/>
 				<FAQ/>
 				<Footer/>
 			</VStack>}> 
@@ -46,7 +48,8 @@ function DevRoutes() {
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
 			<Route path="/" element={<MainPage/>} />
-			<Route path="*" element={<PageNotFound/>} />
+			<Route path="/events" element={<Events/>}></Route>
+			<Route path="*" element={<Temp text="404" />} />
 		</Routes>
 	);
 }
