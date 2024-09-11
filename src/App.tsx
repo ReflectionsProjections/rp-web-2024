@@ -16,6 +16,7 @@ import { PrivacyPolicy } from './routes/PrivacyPolicy';
 import PageNotFound from './routes/PageNotFound';
 import Footer from './components/Footer';
 import FAQ from './components/Home/FAQ';
+import Speakers from "./routes/Speakers";
 
 function ProdRoutes() {
 	return (
@@ -47,6 +48,7 @@ function DevRoutes() {
 			<Route path="/update/" element={<UpdateResume/>}> </Route>
 			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
+			<Route path="/speakers" element={<Speakers/>}></Route>
 			<Route path="/" element={<MainPage/>} />
 			<Route path="/events" element={<Events/>}></Route>
 			<Route path="*" element={<Temp text="404" />} />
