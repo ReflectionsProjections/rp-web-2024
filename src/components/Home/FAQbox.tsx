@@ -1,9 +1,9 @@
 import { Box, useDisclosure, Text, VStack } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const MotionBox = motion(Box);
-const MotionVStack = motion(VStack);
-const MotionText = motion(Text);
+// const MotionBox = motion(Box);
+// const MotionVStack = motion(VStack);
+// const MotionText = motion(Text);
 
 const CollapsibleSection = ({
 	question,
@@ -15,21 +15,19 @@ const CollapsibleSection = ({
 	const { isOpen, onToggle } = useDisclosure();
 
 	return (
-		<MotionBox
+		<Box
+			as={motion.div}
 			width={{ base: "100%", md: "80%" }}
 			maxWidth="800px" 
 			mb={4}
 			borderRadius="md"
 			boxShadow="md"
 			position="relative"
-			transition={{
-				duration: 0.6,
-				ease: "easeInOut",
-				properties: ["background-color", "border-radius"]
-			  }}
+			transition="background-color 0.6s ease, border-radius 0.6s ease"
 			mx="auto" 
 		>
-			<MotionBox
+			<Box
+				as={motion.div}
 				onClick={onToggle}
 				minHeight='150px'
 				width="100%"
@@ -47,11 +45,8 @@ const CollapsibleSection = ({
 				style={{
 					cursor: "pointer",
 				}}
-				transition={{ 
-					duration: 0.6, 
-					ease: "easeInOut",
-					properties: ["height", "border-radius"]
-				  }}
+				transition="height 0.6s ease, border-radius 0.6s ease"
+
 			>
 				<Text
 					// fontSize={{ base: "md", md: "lg" }}
@@ -63,14 +58,15 @@ const CollapsibleSection = ({
 				>
 					{question}
 				</Text>
-			</MotionBox>
+			</Box>
 			<AnimatePresence>
 				{isOpen && (
-					<MotionBox
+					<Box
+						as={motion.div}
 						initial={{ opacity: 0, height: 0 }}
 						animate={{ opacity: 1, height: "auto" }}
 						exit={{ opacity: 0, height: 0 }}
-						transition={{ duration: 0.6 }}
+						transition="0.6s"
 						style={{
 							overflow: "hidden",
 							width: "100%",
@@ -79,32 +75,34 @@ const CollapsibleSection = ({
 							marginTop: 0,
 						}}
 					>
-						<MotionVStack
+						<VStack
+							as={motion.div}
 							align="start"
 							p={{ base: 4, md: 6 }}
 							borderRadius="0 0 8px 8px"
 							boxShadow="md"
 							style={{ overflow: "hidden", width: "100%" }}
 						>
-							<MotionText
+							<Text
+								as={motion.div}
 								color="white"
 								fontFamily="Kufam"
 								fontWeight="semibold"
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
-								transition={{ duration: 0.6 }}
+								transition="0.6s"
 								textAlign="center"
 								width="100%"
 								fontSize={{ base: "3vw", md: "1vw" }}
 							>
 								{answer}
-							</MotionText>
-						</MotionVStack>
-					</MotionBox>
+							</Text>
+						</VStack>
+					</Box>
 				)}
 			</AnimatePresence>
-		</MotionBox>
+		</Box>
 	);
 };
 
