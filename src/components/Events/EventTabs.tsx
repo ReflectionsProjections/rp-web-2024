@@ -98,18 +98,24 @@ export const EventTabs = () => {
 								<p>Loading events...</p>
 							) : (
 								filterEventsByDay(day).map(event => {
-									const eventDate = new Date(event.startTime);
-									const cstDate = new Date(eventDate.getTime() + (5 * 60 * 60 * 1000));
-									
+									const eventStartTime = new Date(event.startTime);
+									const eventEndTime = new Date(event.endTime);
+									const cstStartTime = new Date(eventStartTime.getTime() + (5 * 60 * 60 * 1000));
+									const cstEndTime = new Date(eventEndTime.getTime() + (5 * 60 * 60 * 1000));
+
 									return (
 									  <EventCard
 											key={event.eventId}
 											title={event.name}
 											location={event.location ?? 'Virtual'}
-											time={cstDate.toLocaleTimeString('en-US', { 
+											startTime={cstStartTime.toLocaleTimeString('en-US', { 
 										  hour: '2-digit', 
 										  minute: '2-digit'
 											})}
+											endTime={cstEndTime.toLocaleTimeString('en-US', { 
+												hour: '2-digit', 
+												minute: '2-digit'
+												  })}
 											description={event.description}
 									  />
 									);

@@ -7,11 +7,12 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 interface EventCardProps {
   title: string;
   location: string;
-  time: string;
+  startTime: string;
+  endTime: string;
   description: string;
 }
 
-const EventCard: React.FC<EventCardProps> = ({ title, location, time, description }) => {
+const EventCard: React.FC<EventCardProps> = ({ title, location, startTime, endTime, description }) => {
 	const [isExtended, setIsExtended] = useState(false);
 
 	const toggleCard = () => {
@@ -65,7 +66,7 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, time, descriptio
 				</Text>
 				<Text fontSize="md" color="black" fontFamily='Kufam'>{location}</Text>
 				<HStack width='88vw' maxWidth="835px" mb={isExtended ? "2%" : "4%"}>
-					<Text fontSize="md" color="black" fontFamily='Kufam'>{time}</Text>
+					<Text fontSize="md" color="black" fontFamily='Kufam'>{startTime}-{endTime}</Text>
 					<ChevronDownIcon width='30px' height='30px' transform={`translateY(-10px) rotate(${isExtended ? 180 : 0 }deg)`} ml={'auto'} borderRadius='50%' color='black' transition='all 0.3s' />
 				</HStack>
           
