@@ -59,7 +59,7 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ name, formik }) => {
 					'Content-Type': 'multipart/form-data',
 					// ...fields,
 				},
-			}).then(() => formik?.setFieldValue( name, true ))
+			}).then(() => formik?.setFieldValue( name, true ));
 		} catch (error) {
 			console.error(error);
 		}
