@@ -25,8 +25,7 @@ export function Events() {
 			alignContent="center"
 			backgroundColor="#004970"
 		>
-			<NavBar />
-
+			
 			<Flex direction="column" position="relative">
 				<PageTitle title="EVENTS" />
 
