@@ -22,7 +22,11 @@ const CollapsibleSection = ({
 			borderRadius="md"
 			boxShadow="md"
 			position="relative"
-			transition="background-color 0.6s ease, border-radius 0.6s ease"
+			transition={{
+				duration: 0.6,
+				ease: "easeInOut",
+				properties: ["background-color", "border-radius"]
+			  }}
 			mx="auto" 
 		>
 			<MotionBox
@@ -43,7 +47,11 @@ const CollapsibleSection = ({
 				style={{
 					cursor: "pointer",
 				}}
-				transition="height 0.6s ease, border-radius 0.6s ease"
+				transition={{ 
+					duration: 0.6, 
+					ease: "easeInOut",
+					properties: ["height", "border-radius"]
+				  }}
 			>
 				<Text
 					// fontSize={{ base: "md", md: "lg" }}
