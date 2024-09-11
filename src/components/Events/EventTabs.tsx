@@ -102,7 +102,7 @@ export const EventTabs = () => {
 										key={event.eventId}
 										title={event.name}
 										location={event.location ?? 'Virtual'}
-										time={new Date(event.startTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}
+										time={new Date(event.startTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZone: 'America/Chicago' })}
 										description={event.description}
 									/>
 								))
