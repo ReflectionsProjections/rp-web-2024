@@ -16,12 +16,14 @@ import "@fontsource/kufam/900-italic.css";
 import faq_bg from "/faq_bg.svg";
 import faq_roll from "/faq_roll.svg";
 import PageTitle from "./PageTitle";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, ReactNode } from "react";
 import CollapsibleSection from "./FAQbox";
 
 import InfoDecor from "/Info/film.svg";
 
-const faq = [
+type Tuple = {front: string, back: ReactNode};
+
+const faq: Tuple[] = [
 	{
 		front: "What is Reflections | Projections?",
 		back: "Reflections | Projections (R|P) is the largest student-run tech conference in the Midwest, bringing together students, industry leaders, and professionals from all over the world. Join us for an exciting week of speaker talks, workshops, a career fair, and other intriguing opportunities! All of R|P is designed to allow participants to reflect upon their experiences and project towards their future.",

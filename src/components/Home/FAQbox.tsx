@@ -3,6 +3,7 @@ import { chakra, useDisclosure } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { isValidMotionProp } from 'framer-motion';
+import { ReactNode } from "react";
 
 const MotionBox = chakra(motion.div, {
 	shouldForwardProp: isValidMotionProp,
@@ -45,7 +46,7 @@ const CollapsibleSection = ({
 	answer,
 }: {
 	question: string;
-	answer: string;
+	answer: ReactNode;
 }) => {
 	const { isOpen, onToggle } = useDisclosure();
 
