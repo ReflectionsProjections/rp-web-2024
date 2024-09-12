@@ -6,14 +6,15 @@ import Info from '../components/Home/Info';
 import FAQ from '../components/Home/FAQ';
 // import Sponsors from '../components/Home/Sponsors';
 import Footer from "../components/Footer";
+import Events from './Events';
 
 export default function MainPage() {
 	return (
 		<VStack spacing={0}>
 			<NavBar />
 			<Header />
-			<Info/>
-			{/* <Events/> */}
+			<Info />
+			<Events />
 			<FAQ/>
 			{/* <Sponsors/> */}
 			<Footer />
