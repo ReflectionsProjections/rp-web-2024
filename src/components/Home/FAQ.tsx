@@ -61,7 +61,7 @@ const faq: Tuple[] = [
 					target="_blank"
 					style={{
 						textDecoration: "underline",
-						color: "#cc4386",
+						color: "#00d4ff",
 						fontWeight: "normal",
 					}}
 				>
@@ -72,7 +72,7 @@ const faq: Tuple[] = [
 					target="_blank"
 					style={{
 						textDecoration: "underline",
-						color: "#cc4386",
+						color: "#00d4ff",
 						fontWeight: "normal",
 					}}
 				>
@@ -97,7 +97,7 @@ const faq: Tuple[] = [
 					rel="noopener noreferrer"
 					style={{
 						textDecoration: "underline",
-						color: "#cc4386",
+						color: "#00d4ff",
 						fontWeight: "normal",
 					}}
 				>
