@@ -28,7 +28,7 @@ function ProdRoutes() {
 				<NavBar />
 				<Header />
 				<Info/>
-				<Events/>
+				{/* <Events/> */}
 				<FAQ/>
 				<Footer/>
 			</VStack>}> 
