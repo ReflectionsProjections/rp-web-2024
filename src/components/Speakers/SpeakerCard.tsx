@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import { Box, Flex, HStack, Text } from "@chakra-ui/react";
 import CardBg from "../../assets/events_assets/event_card.svg";
 import CardHead from "../../assets/events_assets/event_card_head.svg";
-// import ExtendedCardBg from "../../assets/events_assets/event_card_extended.svg";
 import { ChevronDownIcon } from '@chakra-ui/icons';
 
 interface SpeakerCardProps {
-  title: string;
-  location: string;
-  time: string;
+  name: string;
+  company: string;
+  role: string;
   description: string;
 }
 
-const EventCard: React.FC<SpeakerCardProps> = ({ title, location, time, description }) => {
+const EventCard: React.FC<SpeakerCardProps> = ({ name, company, role, description }) => {
 	const [isExtended, setIsExtended] = useState(false);
 
 	const toggleCard = () => {
@@ -24,7 +23,6 @@ const EventCard: React.FC<SpeakerCardProps> = ({ title, location, time, descript
 			maxWidth="900px"
 			width="96vw"
 			minHeight={isExtended ? "300px" : "150px"}
-			// paddingTop={isExtended ? "35px" : "35px"}
 			
 			marginY='10px'
 			marginX='2vw'
@@ -62,17 +60,17 @@ const EventCard: React.FC<SpeakerCardProps> = ({ title, location, time, descript
 					mt="1%" 
 					textAlign="left"
 				>
-					{title}
+					{name}
 				</Text>
-				<Text fontSize="md" color="black">{location}</Text>
+				<Text fontSize="md" color="black" fontFamily='Kufam'>{company}</Text>
 				<HStack width='88vw' maxWidth="835px" mb={isExtended ? "2%" : "4%"}>
-					<Text fontSize="md" color="black">{time}</Text>
+					<Text fontSize="md" color="black" fontFamily='Kufam'>{role}</Text>
 					<ChevronDownIcon width='30px' height='30px' transform={`translateY(-10px) rotate(${isExtended ? 180 : 0 }deg)`} ml={'auto'} borderRadius='50%' color='black' transition='all 0.3s' />
 				</HStack>
           
         
 				{isExtended && (
-					<Text fontSize="md" color="black" textAlign="left">{description}</Text>
+					<Text fontSize="md" color="black" textAlign="left" mr="5%" mb="7%">{description}</Text>
 				)}
 			</Flex>
 		</Box>

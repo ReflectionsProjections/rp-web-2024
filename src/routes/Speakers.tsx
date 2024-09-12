@@ -4,7 +4,7 @@ import '@fontsource/roboto-slab/300.css';
 import '@fontsource/nunito';
 import PageTitle from "../components/Home/PageTitle";
 import { NavBar } from '../components/NavBar';
-import { SpeakerTabs } from "../components/Speakers/SpeakerTabs";
+import { SpeakerList } from "../components/Speakers/SpeakerList";
 
 import BackgroundPattern from "../assets/events_assets/event_background.svg";
 
@@ -25,7 +25,7 @@ export function Speakers() {
 			<Flex direction="column" position="relative">
 				<PageTitle title="SPEAKERS" />
 
-				<SpeakerTabs />
+				<SpeakerList />
 			</Flex>
 		</Box>
 	);
