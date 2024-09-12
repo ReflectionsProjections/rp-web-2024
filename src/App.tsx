@@ -15,8 +15,7 @@ import { PrivacyPolicy } from './routes/PrivacyPolicy';
 import PageNotFound from './routes/PageNotFound';
 import Footer from './components/Footer';
 import FAQ from './components/Home/FAQ';
-
-// import Events from "./routes/Events";
+import Events from './routes/Events';
 
 function ProdRoutes() {
 	return (
@@ -29,6 +28,7 @@ function ProdRoutes() {
 				<NavBar />
 				<Header />
 				<Info/>
+				<Events/>
 				<FAQ/>
 				<Footer/>
 			</VStack>}> 
