@@ -53,8 +53,33 @@ const faq: Tuple[] = [
 		back: "Every event of R|P 2024 will be held in the Siebel Center for Computer Science (201 N Goodwin Ave, Urbana, IL 61801). Our calendar contains the specific room for each event.",
 	},
 	{
-		front: "What are MechMania and Puzzlebang?",
-		back: "MechMania is R|P's 24 hour AI hackathon that allows students to work in teams to build a bot that can play a new game. MechMania is open to all levels of coding and you can register at mechmania.org. Puzzlebang allows groups to solve a series of puzzles throughout R|P, including an escape room. You can register for Puzzlebang at puzzlebang.com",
+		front: "What are MechMania and PuzzleBang?",
+		back: (
+			<>
+				MechMania is R|P's 24 hour AI hackathon that allows students to work in teams to build a bot that can play a new game. MechMania is open to all levels of coding and you can register at <a
+					href="https://mechmania.org"
+					target="_blank"
+					style={{
+						textDecoration: "underline",
+						color: "#cc4386",
+						fontWeight: "normal",
+					}}
+				>
+					mechmania.org
+				</a>.<br/>PuzzleBang is both a series of puzzles during the week of R|P (Monday - Saturday) and also an escape room on Saturday. You can register at{" "}
+				<a
+					href="https://puzzlebang.com"
+					target="_blank"
+					style={{
+						textDecoration: "underline",
+						color: "#cc4386",
+						fontWeight: "normal",
+					}}
+				>
+					puzzlebang.com
+				</a>.
+			</>
+		),
 	},
 	{
 		front: "How can I get involved with R|P?",
