@@ -9,7 +9,7 @@ const CollapsibleSection = ({
 	question,
 	answer,
 }: {
-	question: any;
+	question: string;
 	answer: any;
 }) => {
 	const { isOpen, onToggle } = useDisclosure();
