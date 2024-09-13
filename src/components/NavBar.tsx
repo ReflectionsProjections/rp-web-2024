@@ -1,36 +1,146 @@
-// NavBar.tsx
-import { Avatar, Box, Button, HStack, Image, Menu, MenuButton, MenuItem, MenuList} from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { Avatar, Box, Button, HStack, Image, Link, Menu, MenuButton, MenuItem, MenuList, useDisclosure, useMediaQuery, VStack } from '@chakra-ui/react';
 
 interface NavBarProps {
     showAuth?: boolean;
 }
 
 export function NavBar({showAuth=false}: NavBarProps) {
+	const { isOpen, onToggle, onClose } = useDisclosure();
+	const [isSmallScreen] = useMediaQuery("(max-width: 575px)");
+
+	const navbarLinks = [
+		{ label: "Speakers", href: "/speakers" },
+		{ label: "Events", href: "#events" },
+		{ label: "PuzzleBang", href: "https://puzzlebang.com/" },
+		{ label: "MechMania", href: "https://mechmania.org/" },
+	];
+
+	const handleToggle = () => {
+		console.log("Toggle clicked. Current isOpen state:", isOpen);
+		onToggle();
+	};
+
+	useEffect(() => {
+		console.log("isOpen state changed:", isOpen);
+	}, [isOpen]);
+
 	const signOut = () => {
 		localStorage.removeItem("jwt");
 		window.location.href = "/";
 	};
-	
+    
 	return (
-		<HStack justify="space-between" width="100%" position='absolute' backgroundColor='#00456D' borderBottom='solid 3px #003B5C'>
-			<Image onClick={() => window.location.href = '/'} src="/rp_logo.svg" alt="R|P LOGO alt" height="auto" maxW="58px" padding="0.5rem" cursor={"pointer"} transition={'ease-in 0.2s'} _hover={{ transform: 'scale(1.2)' }}/>
+		<Box position="relative">
+			<HStack justify="space-between" width="100vw" height="60px" backgroundColor='#00456D' borderBottom='solid 3px #003B5C' zIndex={1000}>
+				<Image m={3} onClick={() => window.location.href = '/'} src="/rp_logo.svg" alt="R|P LOGO alt" height="auto" maxW="58px" padding="0.5rem" cursor={"pointer"} transition={'ease-in 0.2s'} _hover={{ transform: 'scale(1.2)' }}/>
 
-			{showAuth ? (
-				<Menu>
-					<MenuButton
-						as={Button}
-						rounded={'full'}
-						variant={'link'}
-						cursor={'pointer'}
-						minW={0}
-						mr={2}>
-						<Avatar bg='blue.900' size={'sm'} />
-					</MenuButton>
-					<MenuList>
-						<MenuItem onClick={signOut}>Sign Out</MenuItem>
-					</MenuList>
-				</Menu>
-			) : <Box></Box>}
-		</HStack>
+				{showAuth ? (
+					<Menu>
+						<MenuButton
+							as={Button}
+							rounded={'full'}
+							variant={'link'}
+							cursor={'pointer'}
+							minW={0}
+							mr={2}>
+							<Avatar bg='blue.900' size={'sm'} />
+						</MenuButton>
+						<MenuList>
+							<MenuItem onClick={signOut}>Sign Out</MenuItem>
+						</MenuList>
+					</Menu>
+				) : (
+					<Box>
+						{isSmallScreen ? (
+							<Box 
+								as="button"
+								onClick={handleToggle}
+								position="relative"
+								width="30px"
+								height="20px"
+								marginTop="0.5rem"
+								marginRight="1rem"
+								transform="rotate(0deg)"
+								transition=".5s ease-in-out"
+								cursor="pointer"
+							>
+								{[1, 2, 3].map((i) => (
+									<Box
+										key={i}
+										position="absolute"
+										height="3px"
+										width="100%"
+										background="white"
+										borderRadius="9px"
+										opacity="1"
+										left="0"
+										transform={`rotate(0deg)`}
+										transition=".25s ease-in-out"
+										top={i === 1 ? "0" : i === 2 ? "9px" : "18px"}
+										transformOrigin={i === 1 ? "left center" : i === 2 ? "left center" : "left center"}
+										_groupHover={{ background: "gray.200" }}
+										{...(isOpen && {
+											top: i === 2 ? "9px" : "18px",
+											width: i === 2 ? "0%" : "100%",
+											left: i === 2 ? "50%" : "0",
+											transform: `translateX(${i === 1 ? "5px" : i === 3 ? "5px" : "0"}) translateY(${i === 1 ? "-20px" : i === 3 ? "0px" : "0"}) rotate(${i === 1 ? "45deg" : i === 3 ? "-45deg" : "0"})`,
+										})}
+									/>
+								))}
+							</Box>
+						) : (
+							<HStack as="nav" spacing={2} p={4}>
+								{navbarLinks.map((item) => (
+									<Link
+										key={item.label}
+										href={item.href}
+										color="white"
+										paddingX={4}
+										paddingY={1}
+										borderRadius={"5px"}
+										border="1px solid transparent"
+										_hover={{ backgroundColor: "#013B5C", borderColor: "white" }}
+									>
+										{item.label}
+									</Link>
+								))}
+							</HStack>
+						)}
+					</Box>
+				)}
+			</HStack>
+
+			{isSmallScreen && (
+				<VStack
+					as="nav"
+					spacing={4}
+					bg="rgba(0, 69, 109, 0.95)"
+					py={4}
+					boxShadow="lg"
+					align="center"
+					position="absolute"
+					top="60px"
+					left={0}
+					right={0}
+					opacity={isOpen ? 1 : 0}
+					visibility={isOpen ? "visible" : "hidden"}
+					transform={`translateY(${isOpen ? '0' : '-20px'})`}
+					transition="opacity 0.3s, visibility 0.3s, transform 0.3s"
+					zIndex={999}
+				>
+					{navbarLinks.map((item) => (
+						<Link
+							key={item.label}
+							href={item.href}
+							color="white"
+							onClick={onClose}
+						>
+							{item.label}
+						</Link>
+					))}
+				</VStack>
+			)}
+		</Box>
 	);
 }
