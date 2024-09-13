@@ -2,11 +2,11 @@ import { Box, Image, HStack, VStack } from "@chakra-ui/react";
 import '@fontsource/kufam';
 import PageTitle from "./PageTitle";
 
-import Motorola_Card from '../../../public/sponsors/motorola_card.svg';
-import Eli_Lilly_Card from '../../../public/sponsors/eli_lilly_card.svg';
-import Caterpiller_Card from '../../../public/sponsors/caterpiller_card.svg';
-import Bottom_Left_Card from '../../../public/sponsors/bottom_left_card.svg';
-import Bottom_Right_Card from '../../../public/sponsors/bottom_right_card.svg';
+import Motorola_Card from '/Sponsors/motorola_card.svg';
+import Eli_Lilly_Card from '/Sponsors/eli_lilly_card.svg';
+import Caterpiller_Card from '/Sponsors/caterpiller_card.svg';
+import Bottom_Left_Card from '/Sponsors/bottom_left_card.svg';
+import Bottom_Right_Card from '/Sponsors/bottom_right_card.svg';
 
 export function Sponsors() {
 	return ( 
