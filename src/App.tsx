@@ -16,6 +16,7 @@ import PageNotFound from './routes/PageNotFound';
 import Footer from './components/Footer';
 import FAQ from './components/Home/FAQ';
 import Events from './routes/Events';
+import Sponsors from './components/Home/Sponsors';
 
 function ProdRoutes() {
 	return (
@@ -30,6 +31,7 @@ function ProdRoutes() {
 				<Info/>
 				<Events/>
 				<FAQ/>
+				<Sponsors/>
 				<Footer/>
 			</VStack>}> 
 			</Route>
