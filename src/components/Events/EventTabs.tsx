@@ -14,16 +14,16 @@ enum EventType {
 }
 
 interface Event {
-  eventId: string;
-  name: string;
-  startTime: string;
-  endTime: string;
-  points: number;
-  description: string;
-  isVirtual: boolean;
-  imageUrl?: string | null;
-  location?: string | null;
-  eventType: EventType;
+	eventId: string;
+	name: string;
+	startTime: string;
+	endTime: string;
+	points: number;
+	description: string;
+	isVirtual: boolean;
+	imageUrl?: string | null;
+	location?: string | null;
+	eventType: EventType;
 }
 
 const startDate = new Date('2024-09-18'); // September 18 (Wednesday)
@@ -73,19 +73,19 @@ export const EventTabs = () => {
 
 	return (
 		<Tabs variant='unstyled'>
-			<Flex 
+			<Flex
 				flexDirection="column"
 				alignItems="center"
 				textColor='black'
-				height="100%" 
+				height="100%"
 				width="100%">
 
 				<TabList>
-					<EventTab day="WED"/>
-					<EventTab day="THUR"/>
-					<EventTab day="FRI"/>
-					<EventTab day="SAT"/>
-					<EventTab day="SUN"/>
+					<EventTab day="WED" />
+					<EventTab day="THUR" />
+					<EventTab day="FRI" />
+					<EventTab day="SAT" />
+					<EventTab day="SUN" />
 				</TabList>
 
 			</Flex>
@@ -98,29 +98,30 @@ export const EventTabs = () => {
 								<p>Loading events...</p>
 							) : (
 								filterEventsByDay(day).map(event => {
-									const eventStartTime = new Date(event.startTime);
-									const eventEndTime = new Date(event.endTime);
-									const cstStartTime = new Date(eventStartTime.getTime() + (5 * 60 * 60 * 1000));
-									const cstEndTime = new Date(eventEndTime.getTime() + (5 * 60 * 60 * 1000));
+									const startTime = new Date(event.startTime);
+									const endTime = new Date(event.endTime);
 
 									return (
-									  <EventCard
+										<EventCard
 											key={event.eventId}
 											title={event.name}
 											location={event.location ?? 'Virtual'}
-											startTime={cstStartTime.toLocaleTimeString('en-US', { 
-										  hour: '2-digit', 
-										  minute: '2-digit'
+											startTime={startTime.toLocaleTimeString('en-US', {
+												hour: '2-digit',
+												minute: '2-digit',
+												timeZone: "America/Chicago"
 											})}
-											endTime={cstEndTime.toLocaleTimeString('en-US', { 
-												hour: '2-digit', 
-												minute: '2-digit'
-												  })}
+
+											endTime={endTime.toLocaleTimeString('en-US', {
+												hour: '2-digit',
+												minute: '2-digit',
+												timeZone: "America/Chicago"
+											})}
 											description={event.description}
-									  />
+										/>
 									);
-								  })
-								  
+								})
+
 							)}
 						</Flex>
 					</TabPanel>

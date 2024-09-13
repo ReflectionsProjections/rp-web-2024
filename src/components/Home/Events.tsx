@@ -5,7 +5,7 @@ import PageTitle from "./PageTitle";
 
 export function Events() {
 	return ( 
-		<Box 
+		<Box
 			width="100%"
 			height="270vh"
 			justifyContent="center"

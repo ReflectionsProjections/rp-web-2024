@@ -1,5 +1,4 @@
 import { VStack } from '@chakra-ui/react';
-import Events from "./routes/Events";
 import '@fontsource/kufam';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Info from "./components/Home/Info";
@@ -17,6 +16,8 @@ import PageNotFound from './routes/PageNotFound';
 import Footer from './components/Footer';
 import FAQ from './components/Home/FAQ';
 import Speakers from "./routes/Speakers";
+import Events from './routes/Events';
+import Sponsors from './components/Home/Sponsors';
 
 function ProdRoutes() {
 	return (
@@ -31,6 +32,7 @@ function ProdRoutes() {
 				<Info/>
 				<Events/>
 				<FAQ/>
+				<Sponsors/>
 				<Footer/>
 			</VStack>}> 
 			</Route>
@@ -50,8 +52,7 @@ function DevRoutes() {
 			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
 			<Route path="/speakers" element={<Speakers/>}></Route>
 			<Route path="/" element={<MainPage/>} />
-			<Route path="/events" element={<Events/>}></Route>
-			<Route path="*" element={<Temp text="404" />} />
+			<Route path="*" element={<PageNotFound/>} />
 		</Routes>
 	);
 }

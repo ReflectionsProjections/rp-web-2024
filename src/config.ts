@@ -8,6 +8,7 @@ function getEnv(key: string, safeMode: boolean = false, defaultValue: string = "
 	return val ?? defaultValue;
 }
 
+
 export const defaultRegistrationValues = {
 	name: "",
 	email: "",
