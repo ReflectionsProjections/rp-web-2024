@@ -10,6 +10,7 @@ import BackgroundPattern from "/Events/event_background.svg";
 export function Events() {
 	return (
 		<Box
+			id="events"
 			position="relative"
 			bgImage={`url(${BackgroundPattern})`}
 			bgSize="100% auto"

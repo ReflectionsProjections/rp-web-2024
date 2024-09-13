@@ -13,7 +13,7 @@ export function Info() {
 			top={0}
 			left={0}
 			width="100%"
-			minHeight="35vh"
+			// minHeight="35vh"
 			backgroundColor='#004970'
 			display="flex"
 			justifyContent="flex-start"
