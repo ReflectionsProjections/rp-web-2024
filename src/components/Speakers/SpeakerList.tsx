@@ -14,6 +14,7 @@ export const SpeakerList = () => {
             company={speaker.company}
             role={speaker.role}
             description={speaker.speakerBio}
+            speakerImg={speaker.speakerImg}
           />
         ))
       }
