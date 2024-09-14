@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
-import CardBg from "../../assets/events_assets/event_card.svg";
-import CardHead from "../../assets/events_assets/event_card_head.svg";
-import CardHead1 from "../../assets/speaker_assets/speaker_card_head.svg";
-import CardBg1 from "../../assets/speaker_assets/speaker_card.svg";
+import CardBg from "/Events/event_card.svg";
+import CardHead from "/Events/event_card_head.svg";
+import CardHead1 from "/Speakers/speaker_card_head.svg";
+import CardBg1 from "/Speakers/speaker_card.svg";
 import { ChevronDownIcon } from '@chakra-ui/icons';
 
 interface SpeakerCardProps {

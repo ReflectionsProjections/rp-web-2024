@@ -6,7 +6,7 @@ import PageTitle from "../components/Home/PageTitle";
 import { NavBar } from '../components/NavBar';
 import { SpeakerList } from "../components/Speakers/SpeakerList";
 
-import BackgroundPattern from "../assets/events_assets/event_background.svg";
+import BackgroundPattern from "/Events/event_background.svg";
 
 export function Speakers() {
 	return (
@@ -16,7 +16,7 @@ export function Speakers() {
 			bg="#16446a"
 			bgImage={`url(${BackgroundPattern})`}
 			bgSize="100% auto"
-			bgRepeat="no-repeat"
+			bgRepeat="repeat"
 			bgPosition="top"
 			bgAttachment="scroll"
 		>
