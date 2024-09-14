@@ -14,7 +14,7 @@ export function Events() {
 			position="relative"
 			bgImage={`url(${BackgroundPattern})`}
 			bgSize="100% auto"
-			bgRepeat="no-repeat"
+			bgRepeat="repeat"
 			bgPosition="top"
 			bgAttachment="scroll"
 			width="100%"
