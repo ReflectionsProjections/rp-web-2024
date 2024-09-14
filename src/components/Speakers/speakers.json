@@ -1,0 +1,138 @@
+[
+  {
+    "speakerName": "Pei Cao",
+    "company": "YouTube Inc.",
+    "role": "VP of Engineering",
+    "speakerBio": "Pei Cao is YouTube’s Vice President of Engineering for Trust & Safety.  In this role, she’s responsible for protecting the security of YouTube for our creators, viewers, and advertisers, while helping to ensure that YouTube leads the industry in the highest standards for online content Trust and Safety.",
+    "status": "",
+    "speakerImg":"/Speakers/Pei Cao.jpg"
+  },
+  {
+    "speakerName": "Brandon Harwood",
+    "company": "IBM",
+    "role": "Innovation, Design and Strategy Leader",
+    "speakerBio": "More speaker info to be released soon!",
+    "status": "",
+    "speakerImg":"/Speakers/Brandon Harwood.jpeg"
+  },
+  {
+    "speakerName": "Chenyang Lu",
+    "company": "Washington University in St. Louis",
+    "role": "Director, AI for Health Institute",
+    "speakerBio": "Chenyang Lu is the Fullgraf Professor of Computer Science & Engineering at Washington University in St. Louis, where he also holds joint professorships in Anesthesiology and Medicine. As the founding director of the AI for Health Institute, Dr. Lu leads a multidisciplinary research initiative that unites AI researchers and health experts to tackle critical healthcare and public health challenges using cutting-edge, data-driven approaches. Dr. Lu is a Fellow of both the Association for Computing Machinery (ACM) and the Institute of Electrical and Electronics Engineers (IEEE). His contributions have been recognized with the 2022 Outstanding Technical Achievement and Leadership Award from the IEEE Technical Community on Real-Time Systems (TCRTS).",
+    "status": "",
+    "speakerImg":"/Speakers/Chenyang Lu.jpg"
+  },
+  {
+    "speakerName": "Chika Umeadi",
+    "company": "Google",
+    "role": "Product Manager",
+    "speakerBio": "More speaker info to be released soon!",
+    "status": "",
+    "speakerImg":"/Speakers/Chika Umeadi.jpeg"
+  },
+  {
+    "speakerName": "Dr. Aadeel Akhtar",
+    "company": "Psyonic",
+    "role": "CEO & Founder",
+    "speakerBio": "Dr. Akhtar received his Ph.D. in Neuroscience and M.S. in Electrical & Computer Engineering from the University of Illinois at Urbana-Champaign in 2016. He received a B.S. in Biology in 2007 and M.S. in Computer Science in 2008 at Loyola University Chicago. In 2021, he was named as one of MIT Technology Review’s top 35 Innovators Under 35 and America’s Top 50 Disruptors in Newsweek. In 2024, he was featured on Shark Tank where he made a 3-shark deal.",
+    "status": "",
+    "speakerImg":"/Speakers/Aadeel Akhtar.png"
+  },
+  {
+    "speakerName": "Dr. Sriram Chandrasekaran",
+    "company": "University of Michigan, Ann Arbor",
+    "role": "Associate Professor",
+    "speakerBio": "Sriram Chandrasekaran is an Associate Professor and Associate Chair of Research in Biomedical Engineering at the University of Michigan-Ann Arbor. He leads the Systems Biology & Drug Discovery lab. He received his PhD in Biophysics from the University of Illinois at Urbana-Champaign and later worked as a Harvard Junior Fellow at Harvard University and MIT.\n\nHe has developed over 10 systems biology methods for drug discovery and bioengineering. A key focus of his lab is the development of mechanistic AI methods that use both engineering models and machine learning. He teaches a course called AI in BME that introduces students to AI algorithms and their applications in biomedical engineering.\n\nHe is the recipient of several awards including the Howard Hughes Medical Institute (HHMI) Predoctoral Fellowship, MIT Technology Review’s Top Innovators Under 35 (TR35) award,  Distinguished Young Investigator Award from the AICHE COBRA society, EBS Teaching Award, and the Machine Learning in the Chemical Sciences Award from the Camille & Henry Dreyfus Foundation.",
+    "status": "",
+    "speakerImg":"/Speakers/Sriram Chandrasekaran.jpg"
+  },
+  {
+    "speakerName": "Josh Clark",
+    "company": "Big Medium",
+    "role": "Principal",
+    "speakerBio": "Josh Clark is principal of https://bigmedium.com/, a digital agency that helps complex organizations design for what’s next. Josh is a UX design leader specializing in digital transformation around emerging technology, process, user experience, and design at scale. His projects include future-friendly interfaces for AI, connected devices, and the web—and enterprise design systems for many of the world’s biggest companies.\n\nJosh coined the term Sentient Design to describe the already-here future of intelligent interfaces—AI-mediated experiences that seem almost self-aware in their response to user needs. Sentient Design describes the form of this new experience, as well as a framework and philosophy for applying it. Josh is author with Veronika Kindred of “Sentient Design: AI and the New Digital Experience,” the forthcoming book from Rosenfeld Media.\n\nJosh is also author of several other books, including “Designing for Touch” (A Book Apart) and “Tapworthy: Designing Great iPhone Apps” (O’Reilly).\n\nBefore the internet swallowed him up in the 1990s, Josh was a producer of national PBS programs at Boston’s WGBH. He shared his three words of Russian with Mikhail Gorbachev, strolled the ranch with Nancy Reagan, hobnobbed with Rockefellers, and wrote trivia questions for a primetime game show. He was crowned 11th strongest man in Maine after a highly scientific series of trials—at a county fair with, ahem, just ten other competitors. In 1996, Josh created the “Couch-to–5K” (C25K) running program, which has helped millions of skeptical would-be exercisers take up running. (His motto is the same for fitness as it is for software user experience: no pain, no pain.)",
+    "status": "",
+    "speakerImg":"/Speakers/Josh Clark.jpg"
+  },
+  {
+    "speakerName": "Larry Birnbaum",
+    "company": "Northwestern University",
+    "role": "Professor of Computer Science",
+    "speakerBio": "Larry Birnbaum is Professor of Computer Science at Northwestern University, where his research focuses on human-AI collaboration, including applied NLP, conversational interaction, and automatic content generation.",
+    "status": "",
+    "speakerImg":"/Speakers/Larry Birnbaum.jpeg"
+  },
+  {
+    "speakerName": "Rama Akkiraju",
+    "company": "Nvidia",
+    "role": "VP, Enterprise AI/ML",
+    "speakerBio": "Rama Akkiraju, VP of AI & Automation at NVIDIA IT, previously held leadership roles at IBM for two decades. While at IBM, was an IBM Fellow, Master Inventor, and in her last role, she was the CTO of IBM Watson AI Operations product, a product for optimizing IT operations management with AI. Previously, at IBM AI’s division, Rama led AI services like Personality Insights, Emotion and Tone Analyzer. Her contributions spanned projects in AI, Machine Learning (ML), natural language processing (NLP), Speech Recognition, human-computer interaction (HCI), chatbots, decision support systems, business process management, and semantic Web services. She co-authored 100+ technical papers, holds 50+ patents, and was recognized by Forbes' as 'Top 20 Women in AI Research' in 2017 and has been featured by Fortune Magazine as 'A-Team in AI’ in 2018. To name a few from other honors Rama received, in 2022, she was honored as 'USA Industry Innovator of the Year' and 'AI Industry Leader of the Year' by various tech industry organizations. Rama holds a master’s degree in computer science and a gold medal MBA from New York University.",
+    "status": "",
+    "speakerImg":"/Speakers/Rama Akkiraju.jpg"
+  },
+  {
+    "speakerName": "Raymond Farias",
+    "company": "Google",
+    "role": "Senior Software Engineer",
+    "speakerBio": "Ray, a proud UIUC alum and Google SWE, architects infra for Search. He and his team shape the platforms behind Search's most innovative features, fueling its future. Ray's expertise lies in building robust, scalable, and easily maintainable software catalyzing rapid innovation in Search development.",
+    "status": "",
+    "speakerImg":"/Speakers/Raymond Farias (Ray).jpg"
+  },
+  {
+    "speakerName": "Reshmi Ghosh",
+    "company": "Microsoft",
+    "role": "Applied Scientist",
+    "speakerBio": "Reshmi Ghosh is an Applied Scientist Lead working in the search space, particularly in the Responsible AI team, securing Microsoft Coplilots against state of the art LLM jailbreaking attempts. She recently helped release Azure Prompt Shields, a novel way of securing all LLM systems against adversarial usage. Previously, she has played a pivotal role in a small team of developers architecting and launching the first-of-its-kind LLM solutions for improving productivity via on M365 Suite offerings in early 2023, right at the onset of GenAI hype.\n\nReshmi also has made significant contributions towards integrating machine learning capabilities into Microsoft’s productivity applications, including Word and PowerPoint as well as the cloud infrastructure (Azure). She holds a Ph.D. in data-reconstruction methods for climate change using deep learning/NLP from Carnegie Mellon University and is deeply passionate about solving climate problems with AI in addition to making AI Trustworthy. Reshmi also leads efforts to advocate for more opportunities for women in ML/AI, as a chair of IEEE Boston chapter, and her involvement in WiDS.  She has been an active speaker at MIT CSAIL, and has been interviewed by Fortun500 companies like Adobe on making ML/AI algorithms more efficient to advance sustainable use.",
+    "status": "",
+    "speakerImg":"/Speakers/Reshmi Ghosh.png"
+  },
+  {
+    "speakerName": "Sam Horner",
+    "company": "Google Play",
+    "role": "Head of Apps UX",
+    "speakerBio": "Sam is the UX Lead for Play Apps UX, bringing his product design strategy expertise from the entertainment world, where he worked at the BBC and Netflix, to Google in 2018. A self-proclaimed lover of stories, Sam finds inspiration in games, music, movies, art, architecture, and weaving captivating narratives around products and design.\n\nWhile his professional life revolves around design, Sam's true passion lies in the water. A daily surfer and regular swimmer, he can most often be found enjoying the beach. Sam's heart can be easily won over with a simple cup of coffee.",
+    "status": "",
+    "speakerImg":"/Speakers/Sam Horner.JPG"
+  },
+  {
+    "speakerName": "Sarah Sterman",
+    "company": "University of Illinois at Urbana-Champaign",
+    "role": "Research Assistant Professor",
+    "speakerBio": "More speaker info to be released soon!",
+    "status": "",
+    "speakerImg":"/Speakers/Sarah Sterman.jpeg"
+  },
+  {
+    "speakerName": "Subroto Mukherjee",
+    "company": "Microsoft",
+    "role": "",
+    "speakerBio": "More speaker info to be released soon!",
+    "status": "",
+    "speakerImg":"/Speakers/Subroto Makherjee.jpeg"
+  },
+  {
+    "speakerName": "Tal August",
+    "company": "University of Illinois at Urbana-Champaign",
+    "role": "Assistant Professor",
+    "speakerBio": "More speaker info to be released soon!",
+    "status": "",
+    "speakerImg":"/Speakers/Tal August.jpeg"
+  },
+  {
+    "speakerName": "Tiffany Knearem",
+    "company": "Google",
+    "role": "User Experience Researcher",
+    "speakerBio": "Tiffany Knearem is a User Experience Researcher on Google’s Material Design Team. Her expertise is in Human-Computer Interaction, with research focus on areas of human-AI alignment, designer-developer user interface creation and creativity support tooling. She holds a PhD in Information Sciences and Technologies from Pennsylvania State University, advised by Dr. John M. Carroll.",
+    "status": "",
+    "speakerImg":"/Speakers/Tiffany Knearem.png"
+  },
+  {
+    "speakerName": "Vera Liao",
+    "company": "Microsoft Research",
+    "role": "Principal Researcher",
+    "speakerBio": "Q. Vera Liao is a Principal Researcher at Microsoft Research, where she is part of the FATE (Fairness, Accountability, Transparency, and Ethics in AI) group. Her current research interests are in human-AI interaction, explainable AI, and responsible AI, with an overarching goal of bridging emerging AI technologies and human-centered perspectives. She graduated from UIUC CS in 2016.",
+    "status": "",
+    "speakerImg":"/Speakers/Vera Liao.jpg"
+  }
+]

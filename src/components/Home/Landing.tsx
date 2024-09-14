@@ -37,7 +37,7 @@ export function Landing() {
 		</Box> */}
 
 			<Flex direction="column" >
-				<Center mt="15vh">
+				<Center mt="12vh">
 					<Box p='4' >
 						<HStack justifyContent="center" spacing="8px" textAlign={"center"}>
 							<Text fontSize={isXSmall ? "20" : isSmall ? "28" : isMedium ? "43" : "56"} fontFamily={"Roboto Slab"} fontWeight={"700"} letterSpacing={"0.08em"}> reflections </Text>

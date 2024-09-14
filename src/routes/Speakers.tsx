@@ -3,35 +3,32 @@ import '@fontsource/kufam';
 import '@fontsource/roboto-slab/300.css';
 import '@fontsource/nunito';
 import PageTitle from "../components/Home/PageTitle";
-import { EventTabs } from "../components/Events/EventTabs";
+import { NavBar } from '../components/NavBar';
+import { SpeakerList } from "../components/Speakers/SpeakerList";
 
-import BackgroundPattern from "/Events/event_background.svg";
+import BackgroundPattern from "../assets/events_assets/event_background.svg";
 
-export function Events() {
+export function Speakers() {
 	return (
 		<Box
-			id="events"
 			position="relative"
+			minHeight="100vh"
+			bg="#16446a"
 			bgImage={`url(${BackgroundPattern})`}
 			bgSize="100% auto"
-			bgRepeat="repeat"
+			bgRepeat="no-repeat"
 			bgPosition="top"
 			bgAttachment="scroll"
-			width="100%"
-			minHeight="100vh"
-			justifyContent="center"
-			display="flex"
-			flexDirection="column"
-			alignContent="center"
-			backgroundColor="#004970"
 		>
-			<Flex direction="column" position="relative">
-				<PageTitle title="EVENTS" />
+			<NavBar />
 
-				<EventTabs />
+			<Flex direction="column" position="relative">
+				<PageTitle title="SPEAKERS" />
+
+				<SpeakerList />
 			</Flex>
 		</Box>
 	);
 }
 
-export default Events;
+export default Speakers;
