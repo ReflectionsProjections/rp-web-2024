@@ -11,7 +11,7 @@ export function NavBar({showAuth=false}: NavBarProps) {
 
 	const navbarLinks = [
 		{ label: "Speakers", href: "/speakers" },
-		{ label: "Events", href: "#events" },
+		{ label: "Events", href: "/#events" },
 		{ label: "PuzzleBang", href: "https://puzzlebang.com/" },
 		{ label: "MechMania", href: "https://mechmania.org/" },
 	];
