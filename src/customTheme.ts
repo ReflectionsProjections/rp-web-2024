@@ -112,7 +112,34 @@ export const customTheme = extendTheme({
 		{
 			...baseText
 		}
-	}
+	},
+	styles: {
+		global: {
+			/* Scrollbar styling for WebKit-based browsers (Chrome, Safari, etc.) */
+			'::-webkit-scrollbar': {
+				width: '16px', // Wider scrollbar for a more retro feel
+				height: '16px', // Optional for horizontal scrollbars
+			},
+			'::-webkit-scrollbar-track': {
+				background: '#f1f1f1', // Light background for the track
+				border: '2px solid black', // Solid black border like old scrollbars
+			},
+			'::-webkit-scrollbar-thumb': {
+				background: '#888', // Gray scrollbar thumb
+				borderRadius: '0', // No border-radius for a more old-fashioned, boxy look
+				border: '2px solid #f1f1f1', // Adds padding between the thumb and track
+			},
+			'::-webkit-scrollbar-thumb:hover': {
+				background: '#555', // Darker thumb when hovering
+			},
+	
+			/* For Firefox */
+			'*': {
+				scrollbarWidth: 'auto', // Control scrollbar width in Firefox
+				scrollbarColor: '#888 #f1f1f1', // Set scrollbar thumb and track colors
+			},
+		},
+	},
 });
 
 
