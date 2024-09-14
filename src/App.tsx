@@ -25,6 +25,7 @@ function ProdRoutes() {
 			<Route path="/register" element={<Registration/>} />
 			<Route path="/auth/" element={<Auth/>}> </Route>
 			<Route path="/update/" element={<UpdateResume/>}> </Route>
+			{/* <Route path="/speakers" element={<Speakers/>}></Route> */}
 			<Route path="/" element={<VStack spacing={0}>
 				<NavBar />
 				<Header />
