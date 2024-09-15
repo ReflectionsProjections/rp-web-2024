@@ -55,7 +55,10 @@ function myQR() {
             headers: {
                 Authorization: userJwt
             }
-        }).then(r => { setFoodWave(r.data.foodwave) })
+        }).then(r => { setFoodWave(r.data.foodwave) }).catch(() => {
+            window.alert("You need to register before you can view your profile!")
+            window.location.href="/register"
+        })
     }, [userJwt]);
 
     useEffect(() => {
