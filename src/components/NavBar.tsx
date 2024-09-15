@@ -10,8 +10,8 @@ export function NavBar({showAuth=false}: NavBarProps) {
 	const [isSmallScreen] = useMediaQuery("(max-width: 575px)");
 
 	const navbarLinks = [
-		{ label: "Speakers", href: "/speakers" },
 		{ label: "Events", href: "/#events" },
+		{ label: "Speakers", href: "/speakers" },
 		{ label: "PuzzleBang", href: "https://puzzlebang.com/" },
 		{ label: "MechMania", href: "https://mechmania.org/" },
 	];
@@ -97,7 +97,7 @@ export function NavBar({showAuth=false}: NavBarProps) {
 										href={item.href}
 										color="white"
 										paddingX={4}
-										paddingY={1}
+										paddingY={2}
 										borderRadius={"5px"}
 										border="1px solid transparent"
 										_hover={{ backgroundColor: "#013B5C", borderColor: "white" }}

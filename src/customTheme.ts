@@ -115,6 +115,9 @@ export const customTheme = extendTheme({
 	},
 	styles: {
 		global: {
+			'html': {
+				scrollBehavior: 'smooth', // This enables smooth scrolling globally
+			},
 			/* Scrollbar styling for WebKit-based browsers (Chrome, Safari, etc.) */
 			'::-webkit-scrollbar': {
 				width: '16px', // Wider scrollbar for a more retro feel
