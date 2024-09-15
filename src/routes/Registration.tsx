@@ -185,7 +185,9 @@ export default function Registration() {
 			}
 		).then(() => {
 			window.alert("Your submission has been processed. Please check your email (and junk/spam) for confirmation.");
-			window.location.href="/myrp";
+			localStorage.removeItem("jwt");
+			setJwt("");
+			window.location.href="/";
 		});
 
 		toast.promise(promise, {
