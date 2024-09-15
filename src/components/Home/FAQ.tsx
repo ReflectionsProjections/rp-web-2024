@@ -44,7 +44,7 @@ export default function FAQ() {
 		},
 		{
 			front: "When and where are R|P's events held?",
-			back: "Reflections | Projections 2024 will be helf in the Thomas M. Siebel Center for Computer Science from Wednesday, September 18 to Sunday, September 22!",
+			back: "Reflections | Projections 2024 will be held in the Thomas M. Siebel Center for Computer Science from Wednesday, September 18 to Sunday, September 22!",
 		},
 		{
 			front: "What do I need to do before R|P?",
