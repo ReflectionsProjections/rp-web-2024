@@ -18,6 +18,9 @@ import FAQ from './components/Home/FAQ';
 import Speakers from "./routes/Speakers";
 import Events from './routes/Events';
 import Sponsors from './components/Home/Sponsors';
+import MyRP from './routes/MyRP';
+import { useState } from 'react';
+import MyQR from './routes/myQR';
 
 function ProdRoutes() {
 	return (
@@ -48,10 +51,12 @@ function DevRoutes() {
 			<Route path="/privacy" element={<PrivacyPolicy/>} />
 			<Route path="/register" element={<Registration/>} />
 			<Route path="/auth/" element={<Auth/>}> </Route>
-			<Route path="/update/" element={<UpdateResume/>}> </Route>
-			<Route path="/schedule/" element={<Temp text="schedule" />}> </Route>
-			<Route path="/questions/" element={<Temp text="questions" />}> </Route>
+			<Route path="/update/" element={<UpdateResume/>} /> 
+			<Route path="/schedule/" element={<Temp text="schedule" />} /> 
+			<Route path="/questions/" element={<Temp text="questions" />} /> 
 			<Route path="/speakers" element={<Speakers/>}></Route>
+			<Route path="/myrp/" element={<MyRP/>} />
+			<Route path="/myqr/" element={<MyQR/>} />
 			<Route path="/" element={<MainPage/>} />
 			<Route path="*" element={<PageNotFound/>} />
 		</Routes>

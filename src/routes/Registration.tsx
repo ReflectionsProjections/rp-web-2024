@@ -11,6 +11,7 @@ import Engagement from '../components/Registration/Pages/Engagement';
 import Config, { defaultRegistrationValues } from '../config';
 import BlueSands from '/Registration/blue_desert.svg';
 import MobileBG from '/Registration/mobile_bg.svg';
+import { Navigate } from 'react-router-dom';
 
 export interface AttendeeData {
 	name: string;
@@ -89,9 +90,8 @@ export default function Registration() {
 
 	useEffect(() => {
 		if (attendeeData.hasSubmitted) {
-			localStorage.removeItem("jwt");
-			window.alert("Oops! You've already submitted.");
-			window.location.href= "/";
+			// window.alert("Oops! You've already submitted.");
+			window.location.href= "/myrp";
 		}
 	}, [attendeeData]);
 
