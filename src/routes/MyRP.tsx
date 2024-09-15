@@ -10,6 +10,7 @@ import { NavBar } from "../components/NavBar";
 import VerticalProgressBar from "../components/VerticalProgressBar";
 import BlueSands from '/Registration/blue_desert.svg';
 import MobileBG from '/Registration/mobile_bg.svg';
+import Config from "../config";
 
 
 
@@ -38,7 +39,7 @@ function myRP() {
 
         const fetchUserPoints = async () => {
             try {
-                const response = await axios.get('https://api.reflectionsprojections.org/attendee/points/', {
+                const response = await axios.get(Config.BASE_URL+'attendee/points/', {
                     headers: {
                         Authorization: jwt
                     }

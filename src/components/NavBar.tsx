@@ -187,7 +187,11 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 						</Link>
 					))}
 					{(showAuth || isLoggedIn()) &&
-						<Link color="white" onClick={signOut}>Sign Out </Link>
+						<>
+							<Link color="white" as="a" href="/myrp"> myRP </Link>
+							<Link color="white" as="a" href="/myqr"> myQR </Link>
+							<Link color="white" onClick={signOut}>Sign Out </Link>
+						</>
 					}
 				</VStack>
 			)}

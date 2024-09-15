@@ -12,6 +12,7 @@ import MobileBG from '/Registration/mobile_bg.svg';
 
 import FoodWave1 from "/myQR/foodwave1.svg";
 import FoodWave2 from "/myQR/foodwave2.svg";
+import Config from "../config";
 
 function myQR() {
     const [isSmall] = useMediaQuery("(max-width: 600px)");
@@ -48,7 +49,7 @@ function myQR() {
         if (!userJwt) {
             return;
         }
-        axios.get('https://api.reflectionsprojections.org/attendee/foodwave/', {
+        axios.get(Config.BASE_URL+'attendee/foodwave/', {
             headers: {
                 Authorization: userJwt
             }
@@ -62,7 +63,7 @@ function myQR() {
         if (!userJwt) {
             return;
         }
-        axios.get('https://api.reflectionsprojections.org/attendee/', {
+        axios.get(Config.BASE_URL+'attendee/', {
             headers: {
                 Authorization: userJwt
             }
@@ -70,12 +71,18 @@ function myQR() {
     }, [userJwt]);
 
     useEffect(() => {
+        axios.get(Config.BASE_URL+'attendee/qr/', {
+            headers: {
+                Authorization: userJwt
+            }
+        }).then(r => { setQR(r.data.qrCode) })
+
         setInterval(async () => {
             if (!userJwt) {
                 return;
             }
 
-            await axios.get('https://api.reflectionsprojections.org/attendee/qr/', {
+            await axios.get(Config.BASE_URL+'attendee/qr/', {
                 headers: {
                     Authorization: userJwt
                 }
@@ -90,8 +97,8 @@ function myQR() {
                 <Center minH='90vh'>
                     <VStack p='10vw' pt="80px" color='white'>
                         <Text>{name} </Text>
-                        <Box p="4">
-                            <QRCodeSVG value={QR} size={isSmall ? 196 : 256} bgColor="rgba(50, 50, 50, 0.25)" marginSize={1} />
+                        <Box p="4" backdropBlur={3} bgColor="rgba(255, 255, 255, 0.4)">
+                            <QRCodeSVG value={QR} size={isSmall ? 196 : 256} bgColor="transparent" />
                         </Box>
                         <Box
                             w="300px"
