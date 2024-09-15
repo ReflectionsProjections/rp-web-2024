@@ -4,7 +4,6 @@ import '../App.css';
 
 
 const VerticalProgressBar = ({ userPoints = 0, isMobile=false }) => {
-	userPoints = 49;
 	const percentageFilled = userPoints / 50.0; // 50 is the total number of points to earn
 	const totalBoxes = 10;
 	const filledBoxes = Math.trunc(totalBoxes * percentageFilled);
