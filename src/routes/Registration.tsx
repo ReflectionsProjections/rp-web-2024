@@ -1,7 +1,7 @@
 import { Box, VStack, useMediaQuery, useToast } from '@chakra-ui/react';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
+import { useEffect, useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import AttendeeInformation from '../components/Registration/Pages/AttendeeInformation';
 import Career from '../components/Registration/Pages/Career';
@@ -89,9 +89,8 @@ export default function Registration() {
 
 	useEffect(() => {
 		if (attendeeData.hasSubmitted) {
-			localStorage.removeItem("jwt");
-			window.alert("Oops! You've already submitted.");
-			window.location.href= "/";
+			// window.alert("Oops! You've already submitted.");
+			window.location.href= "/myrp";
 		}
 	}, [attendeeData]);
 
@@ -186,8 +185,7 @@ export default function Registration() {
 			}
 		).then(() => {
 			window.alert("Your submission has been processed. Please check your email (and junk/spam) for confirmation.");
-			localStorage.removeItem("jwt");
-			window.location.href="/";
+			window.location.href="/myrp";
 		});
 
 		toast.promise(promise, {

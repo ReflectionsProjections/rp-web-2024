@@ -24,6 +24,7 @@
     "framer-motion": "^11.0.22",
     "jwt-decode": "^4.0.0",
     "process": "^0.11.10",
+    "qrcode.react": "^4.0.1",
     "react": "^18.2.0",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^18.2.0",
