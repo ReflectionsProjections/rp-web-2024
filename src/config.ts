@@ -27,8 +27,7 @@ export const defaultRegistrationValues = {
 
 const Config = {
 	IS_PROD: getEnv("VITE_IS_PROD", true, "0") == "1",
-	// BASE_URL: "https://api.reflectionsprojections.org/",
-	BASE_URL: "http://localhost:3000/",
+	BASE_URL: "https://api.reflectionsprojections.org/",
 
 	NUM_REGISTRATION_PAGES: 5,
 	REGISTRATION_MAX_DROPDOWN_OPTIONS: 5,
