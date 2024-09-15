@@ -29,6 +29,8 @@ function ProdRoutes() {
 			<Route path="/auth/" element={<Auth/>}> </Route>
 			<Route path="/update/" element={<UpdateResume/>}> </Route>
 			<Route path="/speakers" element={<Speakers/>}></Route>
+			<Route path="/myrp/" element={<MyRP/>} />
+			<Route path="/myqr/" element={<MyQR/>} />
 			<Route path="/" element={<VStack spacing={0}>
 				<NavBar />
 				<Header />
