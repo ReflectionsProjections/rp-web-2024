@@ -15,7 +15,7 @@ const VerticalProgressBar = ({ userPoints = 0, isMobile=false }) => {
 			flexDirection="column"
 			justifyContent="space-between"
 			minW="60px"
-			minH="342px"
+			minH={isMobile ? "342px" : "342px"}
 			// h="60px"
 			transform={isMobile ? "rotate(0deg)" :"rotate(90deg)"}
 			p="8px"

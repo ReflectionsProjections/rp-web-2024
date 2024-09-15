@@ -60,7 +60,7 @@ function myRP() {
 			<NavBar showAuth={true} />
 			<Box bgImage={isSmall ? MobileBG : isShort ? MobileBG : BlueSands} bgSize="115% 105%" bgPosition="center calc(100% + 15px)" bgRepeat="no-repeat" minH="100vh" minW="100vw" pt='1vh' fontFamily='Kufam'>
 				<Center minH='90vh'>
-					<VStack spacing={6} align="center">
+					<VStack spacing={6} align="center" mt='50px'>
 						<Flex align="center" justify="center">
 							<Text fontSize="2xl" color="white" mr={2}>
                                 Your Points:
@@ -70,11 +70,11 @@ function myRP() {
 								{userPoints}
 							</Text>
 						</Flex>
-						<Text fontSize="lg" color="white" mb="10vh" m={5}>
+						<Text fontSize="lg" color="white" mb="10vh" m={10}>
                             Attend events to earn points and unlock prizes!
 						</Text>
 						<Flex width="100%" justify="space-around" flexDirection={isSmall ? 'row' : 'column'} alignItems={'center'}>
-							<Stack spacing={10} direction={isSmall? 'column': 'row-reverse'} alignItems={'center'}> 
+							<Stack spacing={10} direction={isSmall? 'column': 'row-reverse'} alignItems={'center'} mb={-10}> 
 								<Flex align="center" direction={isSmall ? 'row' : 'column'}>
 									<PrizeSVG prizeNum={3} attendeePoints={userPoints} />
 									<Image src="/pixel.png" boxSize="30px" mx={2} mt={2}/>
