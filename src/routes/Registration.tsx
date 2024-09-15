@@ -1,7 +1,7 @@
 import { Box, VStack, useMediaQuery, useToast } from '@chakra-ui/react';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
+import { useEffect, useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import AttendeeInformation from '../components/Registration/Pages/AttendeeInformation';
 import Career from '../components/Registration/Pages/Career';
@@ -11,7 +11,6 @@ import Engagement from '../components/Registration/Pages/Engagement';
 import Config, { defaultRegistrationValues } from '../config';
 import BlueSands from '/Registration/blue_desert.svg';
 import MobileBG from '/Registration/mobile_bg.svg';
-import { Navigate } from 'react-router-dom';
 
 export interface AttendeeData {
 	name: string;

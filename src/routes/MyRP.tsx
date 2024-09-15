@@ -1,16 +1,15 @@
-import { Box, Flex, Text, VStack, Image } from "@chakra-ui/react";
+import { Box, Flex, Image, Text, VStack } from "@chakra-ui/react";
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
 // import { getPoints } from "../api/getPoints";
 
-import { Button, Center, FormLabel, useMediaQuery } from "@chakra-ui/react";
+import { Center, useMediaQuery } from "@chakra-ui/react";
+import axios from "axios";
+import PrizeSVG from "../components/myRP/prizesMap";
 import { NavBar } from "../components/NavBar";
-import { ResumeUpload } from "../components/Registration/inputs/ResumeUpload";
+import VerticalProgressBar from "../components/VerticalProgressBar";
 import BlueSands from '/Registration/blue_desert.svg';
 import MobileBG from '/Registration/mobile_bg.svg';
-import PrizeSVG from "../components/myRP/prizesMap";
-import VerticalProgressBar from "../components/VerticalProgressBar";
-import axios from "axios";
 
 
 

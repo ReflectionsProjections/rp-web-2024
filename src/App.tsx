@@ -1,26 +1,25 @@
 import { VStack } from '@chakra-ui/react';
 import '@fontsource/kufam';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import './App.css';
+import Footer from './components/Footer';
+import FAQ from './components/Home/FAQ';
 import Info from "./components/Home/Info";
 import Header from "./components/Home/Landing";
+import Sponsors from './components/Home/Sponsors';
 import { NavBar } from "./components/NavBar";
 import Config from "./config";
 import Auth from "./routes/Auth";
+import Events from './routes/Events';
 import MainPage from "./routes/MainPage";
+import MyQR from './routes/myQR';
+import MyRP from './routes/MyRP';
+import PageNotFound from './routes/PageNotFound';
+import { PrivacyPolicy } from './routes/PrivacyPolicy';
 import Registration from "./routes/Registration";
+import Speakers from "./routes/Speakers";
 import Temp from "./routes/Template";
 import UpdateResume from "./routes/UpdateResume";
-import './App.css';
-import { PrivacyPolicy } from './routes/PrivacyPolicy';
-import PageNotFound from './routes/PageNotFound';
-import Footer from './components/Footer';
-import FAQ from './components/Home/FAQ';
-import Speakers from "./routes/Speakers";
-import Events from './routes/Events';
-import Sponsors from './components/Home/Sponsors';
-import MyRP from './routes/MyRP';
-import { useState } from 'react';
-import MyQR from './routes/myQR';
 
 function ProdRoutes() {
 	return (
