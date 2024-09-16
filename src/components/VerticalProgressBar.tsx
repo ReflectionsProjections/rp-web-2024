@@ -20,16 +20,16 @@ const VerticalProgressBar = ({ userPoints = 0, isMobile=false }) => {
 			// h="60px"
 			transform={isMobile ? "rotate(0deg)" :"rotate(90deg)"}
 			p="8px"
-			bg={filledBoxes === totalBoxes ? 'teal.600' : 'gray.800'}
+			bg={userPoints >= 50.0 ? 'teal.600' : 'gray.800'}
 			borderRadius="8px"
-			borderColor={filledBoxes === totalBoxes ? 'teal.500' : 'gray.600'}
+			borderColor={userPoints >= 50.0 ? 'teal.500' : 'gray.600'}
 			borderWidth="2px"
 			// boxShadow={filledBoxes === totalBoxes ? '0 0 50px 20px rgba(0, 255, 255, 0.8)' : 'md'}
 			transition="background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease"
-			animation={filledBoxes === totalBoxes ? 'glow 3s infinite': 'none'}
+			animation={userPoints >= 50.0 ? 'glow 3s infinite': 'none'}
 		>
 			<VStack spacing={2}>
-				{filledBoxes === totalBoxes ? (
+				{userPoints >= 50.0 ? (
 					<Box
 						w="100%"
 						h="100%"
