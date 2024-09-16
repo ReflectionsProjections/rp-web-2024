@@ -11,6 +11,7 @@ const VerticalProgressBar = ({ userPoints = 0, isMobile=false }) => {
 
 	return (
 		<Box
+			mt={isMobile ? 20 : 0}
 			display="flex"
 			flexDirection="column"
 			justifyContent="space-between"
