@@ -21,8 +21,10 @@ const EventCard: React.FC<SpeakerCardProps> = ({ name, company, role, descriptio
 		setIsExtended(!isExtended);
 	};
 	const isPeiCao = name === "Pei Cao";
-	const cardBg = isPeiCao ? CardBg1 : CardBg;
-	const cardHead = isPeiCao ? CardHead1 : CardHead;
+	const isTomSiebel = name === "Thomas M. Siebel";
+	const isKeynote = isPeiCao || isTomSiebel;
+	const cardBg = isKeynote ? CardBg1 : CardBg;
+	const cardHead = isKeynote ? CardHead1 : CardHead;
 	return (
 		<Box
 			maxWidth="900px"
