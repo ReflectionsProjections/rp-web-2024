@@ -48,7 +48,7 @@ export default function FAQ() {
 		},
 		{
 			front: "What do I need to do before R|P?",
-			back: "It's simple: register (it's completely free!) and download the brand new Reflections | Projections app (coming soon on the App Store and Google Play Store). Just like that, you're all set to attend events and retrieve free swag/merch!",
+			back: "It's simple: register (it's completely free!). Just like that, you're all set to attend events and retrieve free swag/merch!",
 		},
 		{
 			front: "What is the pixel system?",
