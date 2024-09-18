@@ -29,7 +29,7 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 
 	useEffect(() => {
 		setJwt(localStorage.getItem("jwt"));
-		console.log("jwt", jwt)
+		// console.log("jwt", jwt);
 	});
 
 	useEffect(() => {
@@ -63,6 +63,7 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 	}
 
 	useEffect(() => {
+		if (!jwt) return;
 		axios.get(Config.BASE_URL + "attendee/", { headers: { Authorization: jwt } }).then(r => {
 			if (r.status == 200) {
 				setRegistered(true);
