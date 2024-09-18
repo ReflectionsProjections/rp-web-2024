@@ -74,7 +74,7 @@ function myRP() {
                             Attend events to earn points and unlock prizes!
 						</Text>
 						<Flex width="100%" justify="space-around" flexDirection={isSmall ? 'row' : 'column'} alignItems={'center'}>
-							<Stack spacing={isSmall ? 10 : '10vw'} direction={isSmall? 'column': 'row-reverse'} alignItems={'center'} mb={-20}> 
+							<Stack spacing={isSmall ? 3 : '10vw'} direction={isSmall? 'column': 'row-reverse'} alignItems={'center'} mb={-20}> 
 								<Flex align="center" direction={isSmall ? 'row' : 'column'}>
 									<PrizeSVG prizeNum={3} attendeePoints={userPoints} />
 									<Image src="/pixel.png" boxSize="30px" mx={2} mt={2}/>
