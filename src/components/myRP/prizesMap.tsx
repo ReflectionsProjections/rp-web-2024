@@ -16,7 +16,7 @@ const PrizeSVG: React.FC<PrizeSVGProps> = ({
     prizeNum,
     attendeePoints,
 }) => {
-    const size = 100;
+    const size = 150;
 
     const getBackgroundImage = () => {
         // Map SVG backgrounds based on prizeNum and attendeePoints
