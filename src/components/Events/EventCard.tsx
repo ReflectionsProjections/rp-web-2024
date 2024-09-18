@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, Link, Text } from "@chakra-ui/react";
 import CardBg from "/Events/event_card.svg";
 import CardHead from "/Events/event_card_head.svg";
 import { ChevronDownIcon } from '@chakra-ui/icons';
@@ -17,6 +17,19 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, startTime, endTi
 
 	const toggleCard = () => {
 		setIsExtended(!isExtended);
+	};
+
+	const displayLocation = (location: string) => {
+		const regex = /{(.*?)}/; // Regular expression to capture the content inside {{ }}
+		const match = location.match(regex);
+        
+		if (match && match[1]) {
+			// If there is a match, create and insert a hyperlink
+			return <Link href={`${match[1]}`}>{match[1]} </Link>;
+		} else {
+			// If there is no match, insert plain text
+			return <>{location}</>;
+		}
 	};
 
 	return (
@@ -64,7 +77,7 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, startTime, endTi
 				>
 					{title}
 				</Text>
-				<Text fontSize="md" color="black" fontFamily='Kufam'>{location}</Text>
+				<Text fontSize="md" color="black" fontFamily='Kufam'>{displayLocation(location)}</Text>
 				<HStack width='88vw' maxWidth="835px" mb={isExtended ? "2%" : "4%"}>
 					<Text fontSize="md" color="black" fontFamily='Kufam'>{startTime}-{endTime}</Text>
 					<ChevronDownIcon width='30px' height='30px' transform={`translateY(-10px) rotate(${isExtended ? 180 : 0 }deg)`} ml={'auto'} borderRadius='50%' color='black' transition='all 0.3s' />
