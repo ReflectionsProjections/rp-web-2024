@@ -52,7 +52,7 @@ export default function FAQ() {
 		},
 		{
 			front: "What is the pixel system?",
-			back: "The pixel system is our new way of rewarding dedicated R|P attendees with exclusive merch and prizes. Attending events throughout R|P will earn you pixels, and pixels can be redeemed for various free prizes. You can monitor your pixel status via your account in the Reflections | Projections app.",
+			back: "The pixel system is our new way of rewarding dedicated R|P attendees with exclusive merch and prizes. Attending events throughout R|P will earn you pixels, and pixels can be redeemed for various free prizes. You can monitor your pixel status on the myRP tab after logging in on the website.",
 		},
 		{
 			front: "Why should I attend R|P?",
