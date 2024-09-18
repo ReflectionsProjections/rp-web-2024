@@ -25,7 +25,7 @@ const EventCard: React.FC<EventCardProps> = ({ title, location, startTime, endTi
         
 		if (match && match[1]) {
 			// If there is a match, create and insert a hyperlink
-			return <Link href="${match[1]}">{match[1]} </Link>;
+			return <Link href={`${match[1]}`}>{match[1]} </Link>;
 		} else {
 			// If there is no match, insert plain text
 			return <>{location}</>;
