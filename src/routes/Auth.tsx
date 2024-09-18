@@ -19,7 +19,7 @@ export default function Auth() {
 
 	// jwt found in local storage
 	if (jwt) {
-		console.log(jwt);
+		// console.log(jwt);
 		return <Navigate to={POST_AUTH_URL} replace={true} />;
 	} else {
 		console.log("no jwt found! redirecting...");
