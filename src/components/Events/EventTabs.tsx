@@ -27,7 +27,7 @@ interface Event {
 }
 
 const startDate = new Date('2024-09-18'); // September 18 (Wednesday)
-const endDate = new Date('2024-09-23'); // September 22 (Sunday) -- not sure why this only works if I set endDate to 9/23/2024
+const endDate = new Date('2024-09-23'); // September 22 (Sunday)
 
 // Function to check if an event falls within the date range
 const isWithinDateRange = (date: Date): boolean => {
@@ -53,6 +53,7 @@ const fetchEvents = async (): Promise<Event[]> => {
 export const EventTabs = () => {
 	const [events, setEvents] = useState<Event[]>([]);
 	const [loading, setLoading] = useState<boolean>(true);
+	const [selectedTab, setSelectedTab] = useState<number>(0); // Track selected tab index
 
 	useEffect(() => {
 		const getEvents = async () => {
@@ -61,6 +62,14 @@ export const EventTabs = () => {
 			setLoading(false);
 		};
 		getEvents();
+
+		// Get today's day of the week (e.g., "Wed", "Thu")
+		const today = getDayOfWeek(new Date());
+		const days = ['Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+		const todayIndex = days.indexOf(today); // Find the index of today in the array
+		if (todayIndex !== -1) {
+			setSelectedTab(todayIndex); // Set the selected tab to today's index
+		}
 	}, []);
 
 	// Filter events by the specific day and within the date range
@@ -72,7 +81,7 @@ export const EventTabs = () => {
 	};
 
 	return (
-		<Tabs variant='unstyled'>
+		<Tabs variant='unstyled' index={selectedTab} onChange={setSelectedTab}>
 			<Flex
 				flexDirection="column"
 				alignItems="center"
