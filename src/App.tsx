@@ -1,6 +1,6 @@
 import { VStack } from '@chakra-ui/react';
 import '@fontsource/kufam';
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import Footer from './components/Footer';
 import FAQ from './components/Home/FAQ';
