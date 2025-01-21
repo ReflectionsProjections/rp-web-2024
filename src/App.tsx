@@ -1,6 +1,6 @@
 import { VStack } from '@chakra-ui/react';
 import '@fontsource/kufam';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import './App.css';
 import Footer from './components/Footer';
 import FAQ from './components/Home/FAQ';
@@ -31,6 +31,10 @@ function ProdRoutes() {
 			<Route path="/speakers" element={<Speakers/>}></Route>
 			<Route path="/myrp/" element={<MyRP/>} />
 			<Route path="/myqr/" element={<MyQR/>} />
+			<Route path="/join/" Component={() => {
+				window.location.href = 'https://bit.ly/rp2025application';
+				return null;
+			}} />
 			<Route path="/" element={<VStack spacing={0}>
 				<NavBar />
 				<Header />
@@ -58,6 +62,10 @@ function DevRoutes() {
 			<Route path="/speakers" element={<Speakers/>}></Route>
 			<Route path="/myrp/" element={<MyRP/>} />
 			<Route path="/myqr/" element={<MyQR/>} />
+			<Route path="/join/" Component={() => {
+				window.location.href = 'https://bit.ly/rp2025application';
+				return null;
+			}} />
 			<Route path="/" element={<MainPage/>} />
 			<Route path="*" element={<PageNotFound/>} />
 		</Routes>
