@@ -10,7 +10,7 @@ interface NavBarProps {
 
 export function NavBar({ showAuth = false }: NavBarProps) {
 	const { isOpen, onToggle, onClose } = useDisclosure();
-	const [isSmallScreen] = useMediaQuery("(max-width: 575px)");
+	const [isSmallScreen] = useMediaQuery("(max-width: 715px)");
 
 	const [jwt, setJwt] = useState<string | null>("");
 	const [registered, setRegistered] = useState(false);
@@ -21,6 +21,8 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 		{ label: "PuzzleBang", href: "https://puzzlebang.com/" },
 		{ label: "MechMania", href: "https://mechmania.org/" },
 	];
+
+	const staffApplication = "https://bit.ly/rp2025application";
 
 	const handleToggle = () => {
 		console.log("Toggle clicked. Current isOpen state:", isOpen);
@@ -59,8 +61,8 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 			return false;
 		}
 
-		return true
-	}
+		return true;
+	};
 
 	useEffect(() => {
 		if (!jwt) return;
@@ -133,6 +135,19 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 									{item.label}
 								</Link>
 							))}
+							<Link
+								href={staffApplication}
+								color="white"
+								padding={"7px 9px"}
+								background={"#ae527a"}
+								fontWeight={700}
+								borderRadius={"5px"}
+								border={"1.5px solid #ae527a00"}
+								_hover={{ backgroundColor: "#875479", borderColor: "white" }}
+								isExternal
+							>
+								Join Our Team!
+							</Link>
 							{(showAuth || isLoggedIn()) &&
 								<Menu>
 									<MenuButton
@@ -187,6 +202,19 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 							{item.label}
 						</Link>
 					))}
+					<Link
+						href={staffApplication}
+						color="white"
+						padding={"7px 9px"}
+						background={"#ae527a"}
+						fontWeight={700}
+						borderRadius={"5px"}
+						border={"1.5px solid #ae527a00"}
+						_hover={{ backgroundColor: "#875479", borderColor: "white" }}
+						isExternal
+					>
+								Join Our Team!
+					</Link>
 					{(showAuth || isLoggedIn()) &&
 						<>
 							<Link color="white" as="a" href="/myrp"> myRP </Link>

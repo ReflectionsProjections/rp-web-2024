@@ -103,7 +103,16 @@ export const EventTabs = () => {
 				{['Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(day => (
 					<TabPanel key={day}>
 						<Flex flexDirection="column" alignItems="center" height="100%" width="100%">
-							{loading ? (
+							<EventCard
+								key={1}
+								title={"Thanks for attending!'"}
+								location={'University of Illinois Urbana-Champaign'}
+								startTime={"September 18, 2024"}
+
+								endTime={"September 22, 2024"}
+								description={"We'll be back in 2025!"}
+							/>
+							{/* {loading ? (
 								<p>Loading events...</p>
 							) : (
 								filterEventsByDay(day).map(event => {
@@ -131,7 +140,7 @@ export const EventTabs = () => {
 									);
 								})
 
-							)}
+							)} */}
 						</Flex>
 					</TabPanel>
 				))}
