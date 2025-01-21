@@ -1,38 +1,38 @@
 import { useEffect, useState } from 'react';
 import { Tabs, TabList, TabPanels, TabPanel, Flex } from "@chakra-ui/react";
-import axios from 'axios';
+// import axios from 'axios';
 
 import EventCard from './EventCard';
 import EventTab from './EventTab';
 
-enum EventType {
-	SPEAKER = "SPEAKER",
-	CORPORATE = "CORPORATE",
-	SPECIAL = "SPECIAL",
-	PARTNERS = "PARTNERS",
-	MEALS = "MEALS",
-}
+// enum EventType {
+// 	SPEAKER = "SPEAKER",
+// 	CORPORATE = "CORPORATE",
+// 	SPECIAL = "SPECIAL",
+// 	PARTNERS = "PARTNERS",
+// 	MEALS = "MEALS",
+// }
 
-interface Event {
-	eventId: string;
-	name: string;
-	startTime: string;
-	endTime: string;
-	points: number;
-	description: string;
-	isVirtual: boolean;
-	imageUrl?: string | null;
-	location?: string | null;
-	eventType: EventType;
-}
+// interface Event {
+// 	eventId: string;
+// 	name: string;
+// 	startTime: string;
+// 	endTime: string;
+// 	points: number;
+// 	description: string;
+// 	isVirtual: boolean;
+// 	imageUrl?: string | null;
+// 	location?: string | null;
+// 	eventType: EventType;
+// }
 
-const startDate = new Date('2024-09-18'); // September 18 (Wednesday)
-const endDate = new Date('2024-09-23'); // September 22 (Sunday)
+// const startDate = new Date('2024-09-18'); // September 18 (Wednesday)
+// const endDate = new Date('2024-09-23'); // September 22 (Sunday)
 
 // Function to check if an event falls within the date range
-const isWithinDateRange = (date: Date): boolean => {
-	return date >= startDate && date <= endDate;
-};
+// const isWithinDateRange = (date: Date): boolean => {
+// 	return date >= startDate && date <= endDate;
+// };
 
 // Function to get the day of the week (e.g., "Wed", "Thu") from a Date object
 const getDayOfWeek = (date: Date): string => {
@@ -40,26 +40,26 @@ const getDayOfWeek = (date: Date): string => {
 };
 
 // Fetch events from the API
-const fetchEvents = async (): Promise<Event[]> => {
-	try {
-		const response = await axios.get<Event[]>('https://api.reflectionsprojections.org/events');
-		return response.data;
-	} catch (error) {
-		console.error("Failed to fetch events:", error);
-		return [];
-	}
-};
+// const fetchEvents = async (): Promise<Event[]> => {
+// 	try {
+// 		const response = await axios.get<Event[]>('https://api.reflectionsprojections.org/events');
+// 		return response.data;
+// 	} catch (error) {
+// 		console.error("Failed to fetch events:", error);
+// 		return [];
+// 	}
+// };
 
 export const EventTabs = () => {
-	const [events, setEvents] = useState<Event[]>([]);
-	const [loading, setLoading] = useState<boolean>(true);
+	// const [events, setEvents] = useState<Event[]>([]);
+	// const [loading, setLoading] = useState<boolean>(true);
 	const [selectedTab, setSelectedTab] = useState<number>(0); // Track selected tab index
 
 	useEffect(() => {
 		const getEvents = async () => {
-			const fetchedEvents = await fetchEvents();
-			setEvents(fetchedEvents);
-			setLoading(false);
+			// const fetchedEvents = await fetchEvents();
+			// setEvents(fetchedEvents);
+			// setLoading(false);
 		};
 		getEvents();
 
@@ -73,12 +73,12 @@ export const EventTabs = () => {
 	}, []);
 
 	// Filter events by the specific day and within the date range
-	const filterEventsByDay = (day: string) => {
-		return events.filter(event => {
-			const eventDate = new Date(event.startTime);
-			return isWithinDateRange(eventDate) && getDayOfWeek(eventDate) === day;
-		});
-	};
+	// const filterEventsByDay = (day: string) => {
+	// 	return events.filter(event => {
+	// 		const eventDate = new Date(event.startTime);
+	// 		return isWithinDateRange(eventDate) && getDayOfWeek(eventDate) === day;
+	// 	});
+	// };
 
 	return (
 		<Tabs variant='unstyled' index={selectedTab} onChange={setSelectedTab}>
