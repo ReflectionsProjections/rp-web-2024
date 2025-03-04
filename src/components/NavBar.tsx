@@ -22,7 +22,7 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 		{ label: "MechMania", href: "https://mechmania.org/" },
 	];
 
-	const staffApplication = "https://bit.ly/rp2025application";
+	// const staffApplication = "https://bit.ly/rp2025application";
 
 	const handleToggle = () => {
 		console.log("Toggle clicked. Current isOpen state:", isOpen);
