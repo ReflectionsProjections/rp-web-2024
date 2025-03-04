@@ -22,7 +22,7 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 		{ label: "MechMania", href: "https://mechmania.org/" },
 	];
 
-	const staffApplication = "https://bit.ly/rp2025application";
+	// const staffApplication = "https://bit.ly/rp2025application";
 
 	const handleToggle = () => {
 		console.log("Toggle clicked. Current isOpen state:", isOpen);
@@ -135,7 +135,7 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 									{item.label}
 								</Link>
 							))}
-							<Link
+							{/* <Link
 								href={staffApplication}
 								color="white"
 								padding={"7px 9px"}
@@ -147,7 +147,7 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 								isExternal
 							>
 								Join Our Team!
-							</Link>
+							</Link> */}
 							{(showAuth || isLoggedIn()) &&
 								<Menu>
 									<MenuButton
@@ -202,7 +202,7 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 							{item.label}
 						</Link>
 					))}
-					<Link
+					{/* <Link
 						href={staffApplication}
 						color="white"
 						padding={"7px 9px"}
@@ -214,7 +214,7 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 						isExternal
 					>
 								Join Our Team!
-					</Link>
+					</Link> */}
 					{(showAuth || isLoggedIn()) &&
 						<>
 							<Link color="white" as="a" href="/myrp"> myRP </Link>
