@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Tabs, TabList, TabPanels, TabPanel, Flex } from "@chakra-ui/react";
 import axios from 'axios';
+import Config from '../../config';
 
 import EventCard from './EventCard';
 import EventTab from './EventTab';
@@ -42,7 +43,7 @@ const getDayOfWeek = (date: Date): string => {
 // Fetch events from the API
 const fetchEvents = async (): Promise<Event[]> => {
 	try {
-		const response = await axios.get<Event[]>('https://api.reflectionsprojections.org/events');
+		const response = await axios.get<Event[]>(`${Config.API_BASE_URL}/events`);
 		return response.data;
 	} catch (error) {
 		console.error("Failed to fetch events:", error);

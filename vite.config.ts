@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react-swc';
 export default defineConfig({
 	plugins: [react()],
 	server: {
-		fs: { cachedChecks: false}
+		fs: { cachedChecks: false},
+		port: 3001
 	}
 });

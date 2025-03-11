@@ -62,7 +62,7 @@ export default function Registration() {
 
 		if (!jwt || isAlmostStaleJwt) {
 			localStorage.removeItem("jwt");
-			window.location.href = Config.BASE_URL + "auth/login/web";
+			window.location.href = Config.API_BASE_URL + "auth/login/web";
 			return;
 		}
 
@@ -107,7 +107,7 @@ export default function Registration() {
 
 	async function handleGetFormData() {
 		try {
-			const response = await axios.get(Config.BASE_URL + "registration/", {
+			const response = await axios.get(Config.API_BASE_URL + "registration/", {
 				headers: {
 					"Content-Type": "application/json",
 					"Authorization": `${jwt}`,
@@ -143,7 +143,7 @@ export default function Registration() {
 
 	async function saveData(data: object) {
 		const promise = axios.post(
-			Config.BASE_URL + "registration/save",
+			Config.API_BASE_URL + "registration/save",
 			{
 				...data,
 				hasSubmitted: false,
@@ -172,7 +172,7 @@ export default function Registration() {
 	// Called every time a form is submitted
 	async function handleSubmit(data: object) {
 		const promise = axios.post(
-			Config.BASE_URL + "registration/submit",
+			Config.API_BASE_URL + "registration/submit",
 			{
 				...data,
 				hasSubmitted: true,

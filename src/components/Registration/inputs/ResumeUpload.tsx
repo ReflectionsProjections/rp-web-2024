@@ -18,7 +18,7 @@ export const ResumeUpload: React.FC<FormInputProps> = ({ name, formik }) => {
 	const handleResumeSubmit = async (file: File) => {
 		const jwt = localStorage.getItem("jwt");
 		try {
-			const response = await axios.get(`${Config.BASE_URL}s3/upload/`, {
+			const response = await axios.get(`${Config.API_BASE_URL}s3/upload/`, {
 				headers: {
 					"Content-Type": "application/json",
 					Authorization: `${jwt}`,

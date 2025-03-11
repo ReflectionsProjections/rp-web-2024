@@ -66,7 +66,7 @@ export function NavBar({ showAuth = false }: NavBarProps) {
 
 	useEffect(() => {
 		if (!jwt) return;
-		axios.get(Config.BASE_URL + "attendee/", { headers: { Authorization: jwt } }).then(r => {
+		axios.get(Config.API_BASE_URL + "attendee/", { headers: { Authorization: jwt } }).then(r => {
 			if (r.status == 200) {
 				setRegistered(true);
 			} else {

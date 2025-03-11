@@ -49,7 +49,7 @@ function myQR() {
         if (!userJwt) {
             return;
         }
-        axios.get(Config.BASE_URL+'attendee/foodwave/', {
+        axios.get(Config.API_BASE_URL+'attendee/foodwave/', {
             headers: {
                 Authorization: userJwt
             }
@@ -63,7 +63,7 @@ function myQR() {
         if (!userJwt) {
             return;
         }
-        axios.get(Config.BASE_URL+'attendee/', {
+        axios.get(Config.API_BASE_URL+'attendee/', {
             headers: {
                 Authorization: userJwt
             }
@@ -71,7 +71,7 @@ function myQR() {
     }, [userJwt]);
 
     useEffect(() => {
-        axios.get(Config.BASE_URL+'attendee/qr/', {
+        axios.get(Config.API_BASE_URL+'attendee/qr/', {
             headers: {
                 Authorization: userJwt
             }
@@ -82,7 +82,7 @@ function myQR() {
                 return;
             }
 
-            await axios.get(Config.BASE_URL+'attendee/qr/', {
+            await axios.get(Config.API_BASE_URL+'attendee/qr/', {
                 headers: {
                     Authorization: userJwt
                 }

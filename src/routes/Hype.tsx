@@ -11,7 +11,7 @@ export default function Hype () {
 	const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => setEmail(event.target.value);
 
 	const handleClickToast = async () => {
-		const promise = axios.post(Config.BASE_URL + 'subscription', {
+		const promise = axios.post(Config.API_BASE_URL + 'subscription', {
 			email: email,
 			mailingList: 'rp_interest'
 		});

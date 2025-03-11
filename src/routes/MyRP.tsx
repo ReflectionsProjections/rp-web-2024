@@ -39,7 +39,7 @@ function myRP() {
 
 		const fetchUserPoints = async () => {
 			try {
-				const response = await axios.get(Config.BASE_URL+'attendee/points/', {
+				const response = await axios.get(Config.API_BASE_URL+'attendee/points/', {
 					headers: {
 						Authorization: jwt
 					}
