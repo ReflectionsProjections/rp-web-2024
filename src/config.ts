@@ -24,7 +24,7 @@ export const defaultRegistrationValues = {
 	hasResume: false,
 	hasSubmitted: false,
 };
-const env = getEnv("PRODUCTION", true, "0") == "1";
+const env = getEnv("VITE_IS_PROD", true, "0") == "1";
 
 const Config = {
 	IS_PROD: env,
